@@ -1,0 +1,99 @@
+================================================================================
+Pets 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:13:01
+系统名称: Pets
+SystemName: pets
+样本总数: 5
+编译成功: 2
+编译失败: 3
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] pets1
+  - 样本目录: D:\EclipseWorkspace\Pets\woReqDecomp\pets1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woReqDecomp\pets1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\House.java:121: 错误: 无法将类 EObjectContainmentWithInverseEList<E>中的构造器 EObjectContainmentWithInverseEList应用到给定类型;
+        this.lived = new EObjectContainmentWithInverseEList<Pet>((Class<? extends EObject>)Pet.class, this, PetsPackage.HOUSE__LIVED);
+                     ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    Class<CAP#1>,House,int
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentWithInverseEList中声明的Object
+    其中, CAP#1是新类型变量:
+      CAP#1从? extends EObject的捕获扩展EObject
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] pets2
+  - 样本目录: D:\EclipseWorkspace\Pets\woReqDecomp\pets2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woReqDecomp\pets2\compile
+
+[✗ FAIL] pets3
+  - 样本目录: D:\EclipseWorkspace\Pets\woReqDecomp\pets3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woReqDecomp\pets3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets3\House.java:99: 错误: 无法将类 EObjectContainmentWithInverseEList<E>中的构造器 EObjectContainmentWithInverseEList应用到给定类型;
+      EList<String> petNames = new EObjectContainmentWithInverseEList<String>(String.class, this);
+                               ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    Class<String>,House
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentWithInverseEList中声明的Object
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets3\House.java:147: 错误: 无法将类 EObjectContainmentWithInverseEList<E>中的构造器 EObjectContainmentWithInverseEList应用到给定类型;
+      EList<Pet> petsByType = new EObjectContainmentWithInverseEList<Pet>(Pet.class, this);
+                              ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    Class<Pet>,House
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentWithInverseEList中声明的Object
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] pets4
+  - 样本目录: D:\EclipseWorkspace\Pets\woReqDecomp\pets4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woReqDecomp\pets4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets4\House.java:123: 错误: 无法将类 EObjectContainmentWithInverseEList<E>中的构造器 EObjectContainmentWithInverseEList应用到给定类型;
+        this.lived = new EObjectContainmentWithInverseEList<Pet>(this, PetsPackage.HOUSE__LIVED);
+                     ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    House,int
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentWithInverseEList中声明的Object
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] pets5
+  - 样本目录: D:\EclipseWorkspace\Pets\woReqDecomp\pets5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woReqDecomp\pets5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 2 (40.0%)
+失败: 3 (60.0%)
+================================================================================

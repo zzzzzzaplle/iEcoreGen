@@ -1,0 +1,77 @@
+================================================================================
+fs5 测试报告
+================================================================================
+生成时间: 2025-11-25 15:16:05
+样本名称: fs5
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase5_CountDocumentsWithAllEditorsUsed(edu.fs.fs5.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs5.test.CR4Test.testCase5_CountDocumentsWithAllEditorsUsed(CR4Test.java:182)
+  2) testCase2_CountDocumentsWithSingleEditorType(edu.fs.fs5.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs5.test.CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:84)
+  3) testCase3_CountDocumentsAfterRemoval(edu.fs.fs5.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs5.test.CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:124)
+  4) testCase1_CountDocumentsWithMixedEditorTypes(edu.fs.fs5.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs5.test.CR4Test.testCase1_CountDocumentsWithMixedEditorTypes(CR4Test.java:58)
+  5) testCase4_CountDocumentsWithNoEditors(edu.fs.fs5.test.CR4Test)
+  java.lang.AssertionError: Result should be empty when no documents exist
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.fs.fs5.test.CR4Test.testCase4_CountDocumentsWithNoEditors(CR4Test.java:138)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

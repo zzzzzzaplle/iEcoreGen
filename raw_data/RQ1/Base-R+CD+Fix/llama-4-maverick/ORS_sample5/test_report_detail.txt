@@ -1,0 +1,165 @@
+============================================================
+ORS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-28 12:09:02
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test)
+  java.lang.reflect.InaccessibleObjectException: Unable to make field private transient long java.util.Date.fastTime accessible: module java.base does not "opens java.util" to unnamed module @7de26db8
+  	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:391)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:367)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:315)
+  	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:183)
+  	at java.base/java.lang.reflect.Field.setAccessible(Field.java:177)
+  	at CR1Test.testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:185)
+  2) testCase5_bookingDeniedWhenCustomerHasOverlappingBooking(CR1Test)
+  java.lang.reflect.InaccessibleObjectException: Unable to make field private transient long java.util.Date.fastTime accessible: module java.base does not "opens java.util" to unnamed module @7de26db8
+  	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:391)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:367)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:315)
+  	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:183)
+  	at java.base/java.lang.reflect.Field.setAccessible(Field.java:177)
+  	at CR1Test.testCase5_bookingDeniedWhenCustomerHasOverlappingBooking(CR1Test.java:330)
+  3) testCase3_bookingDeniedDueToTimeCutoffExactly2HoursBefore(CR1Test)
+  java.lang.reflect.InaccessibleObjectException: Unable to make field private transient long java.util.Date.fastTime accessible: module java.base does not "opens java.util" to unnamed module @7de26db8
+  	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:391)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:367)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:315)
+  	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:183)
+  	at java.base/java.lang.reflect.Field.setAccessible(Field.java:177)
+  	at CR1Test.testCase3_bookingDeniedDueToTimeCutoffExactly2HoursBefore(CR1Test.java:250)
+  4) testCase4_bookingAllowedWithMultipleNonOverlappingTrips(CR1Test)
+  java.lang.reflect.InaccessibleObjectException: Unable to make field private transient long java.util.Date.fastTime accessible: module java.base does not "opens java.util" to unnamed module @7de26db8
+  	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:391)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:367)
+  	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:315)
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_Exact24HourBoundaryForDiscount(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:86)
+  2) testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:40)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(CR4Test)
+  java.lang.AssertionError: Total points should be 25 for 5 seats across two bookings expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:45)
+  2) testCase4_MultipleSeatsEdgeCase(CR4Test)
+  java.lang.AssertionError: Should get 10 points for 2 seats booked in December expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:133)
+  3) testCase3_PartialMonthInclusion(CR4Test)
+  java.lang.AssertionError: Only December bookings should be counted (3 seats) expected:<15> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:105)
+  4) testCase5_LargeSeatQuantity(CR4Test)
+  java.lang.AssertionError: Customer C8 should get 500 points for 100 seats expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:192)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_completeTimeEnclosureRejection(CR5Test)
+  java.lang.AssertionError: Trip completely enclosed in existing trip should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase4_completeTimeEnclosureRejection(CR5Test.java:111)
+  2) testCase2_postingDeniedDueToTimeConflict(CR5Test)
+  java.lang.AssertionError: Trip with time conflict should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase2_postingDeniedDueToTimeConflict(CR5Test.java:65)
+  3) testCase5_multipleExistingTripComparison(CR5Test)
+  java.lang.AssertionError: Trip conflicting with multiple existing trips should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase5_multipleExistingTripComparison(CR5Test.java:149)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

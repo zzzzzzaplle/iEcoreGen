@@ -1,0 +1,184 @@
+================================================================================
+cinemas5 测试报告
+================================================================================
+生成时间: 2025-11-25 14:43:34
+样本名称: cinemas5
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.cinemas.Cinema;
+                    ^
+    符号:   类 Cinema
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.cinemas.CinemasFactory;
+                    ^
+    符号:   类 CinemasFactory
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.cinemas.Film;
+                    ^
+    符号:   类 Film
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.cinemas.Room;
+                    ^
+    符号:   类 Room
+    位置: 程序包 edu.cinemas
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR2Test.java:7: 错误: 找不到符号
+  import edu.cinemas.Cinema;
+                    ^
+    符号:   类 Cinema
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR2Test.java:8: 错误: 找不到符号
+  import edu.cinemas.CinemasFactory;
+                    ^
+    符号:   类 CinemasFactory
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.cinemas.Film;
+                    ^
+    符号:   类 Film
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR2Test.java:10: 错误: 找不到符号
+  import edu.cinemas.Room;
+                    ^
+    符号:   类 Room
+    位置: 程序包 edu.cinemas
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR3Test.java:3: 错误: 找不到符号
+  import edu.cinemas.CinemasFactory;
+                    ^
+    符号:   类 CinemasFactory
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR3Test.java:4: 错误: 找不到符号
+  import edu.cinemas.Cinema;
+                    ^
+    符号:   类 Cinema
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR3Test.java:5: 错误: 找不到符号
+  import edu.cinemas.Film;
+                    ^
+    符号:   类 Film
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR3Test.java:12: 错误: 找不到符号
+      private CinemasFactory factory;
+              ^
+    符号:   类 CinemasFactory
+    位置: 类 CR3Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR4Test.java:11: 错误: 找不到符号
+      private CinemasFactory factory;
+              ^
+    符号:   类 CinemasFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR4Test.java:12: 错误: 找不到符号
+      private Cinema cinema;
+              ^
+    符号:   类 Cinema
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR4Test.java:13: 错误: 找不到符号
+      private Film film;
+              ^
+    符号:   类 Film
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR4Test.java:14: 错误: 找不到符号
+      private Room room;
+              ^
+    符号:   类 Room
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR5Test.java:3: 错误: 找不到符号
+  import edu.cinemas.Cinema;
+                    ^
+    符号:   类 Cinema
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR5Test.java:4: 错误: 找不到符号
+  import edu.cinemas.Film;
+                    ^
+    符号:   类 Film
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR5Test.java:5: 错误: 找不到符号
+  import edu.cinemas.Room;
+                    ^
+    符号:   类 Room
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR5Test.java:6: 错误: 找不到符号
+  import edu.cinemas.Screening;
+                    ^
+    符号:   类 Screening
+    位置: 程序包 edu.cinemas
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR6Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR6Test.java:3: 错误: 找不到符号
+  import edu.cinemas.Cinema;
+                    ^
+    符号:   类 Cinema
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR6Test.java:4: 错误: 找不到符号
+  import edu.cinemas.CinemasFactory;
+                    ^
+    符号:   类 CinemasFactory
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR6Test.java:5: 错误: 找不到符号
+  import edu.cinemas.Film;
+                    ^
+    符号:   类 Film
+    位置: 程序包 edu.cinemas
+  D:\EclipseWorkspace\Cinemas\woFixing\cinemas5\test\CR6Test.java:6: 错误: 找不到符号
+  import edu.cinemas.Room;
+                    ^
+    符号:   类 Room
+    位置: 程序包 edu.cinemas
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

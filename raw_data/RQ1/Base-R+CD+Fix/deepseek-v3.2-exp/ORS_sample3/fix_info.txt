@@ -1,0 +1,15 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-25 11:45:34
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\ORS_sample3\src\main\FJC.java:432: 错误: 找不到符号
+        for (Booking existingBooking : customer.getBookings()) {
+                                               ^
+  符号:   方法 getBookings()
+  位置: 类型为Customer的变量 customer
+1 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

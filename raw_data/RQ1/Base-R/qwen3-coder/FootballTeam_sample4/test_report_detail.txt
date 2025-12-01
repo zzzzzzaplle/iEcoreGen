@@ -1,0 +1,105 @@
+============================================================
+FootballTeam - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-22 21:38:37
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\FootballTeam_sample4\src\test\CR2Test.java:20: 错误: 找不到符号
+          team.setTeam("Turgutlu FC");
+              ^
+    符号:   方法 setTeam(String)
+    位置: 类型为FootballTeam的变量 team
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\FootballTeam_sample4\src\test\CR2Test.java:59: 错误: 找不到符号
+          team.setTeam("Turgutlu FC");
+              ^
+    符号:   方法 setTeam(String)
+    位置: 类型为FootballTeam的变量 team
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_CalculateGoalSavingAnnouncementsForGoalkeeperWithNoSaves(CR4Test)
+  java.lang.AssertionError: Goal-saving announcements should be 0 when goalkeeper has no saves expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase1_CalculateGoalSavingAnnouncementsForGoalkeeperWithNoSaves(CR4Test.java:34)
+  2) testCase5_CalculateGoalSavingAnnouncementsForGoalkeeperWithInvalidEntries(CR4Test)
+  java.lang.AssertionError: Goal-saving announcements should be 2 when goalkeeper has invalid entries expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase5_CalculateGoalSavingAnnouncementsForGoalkeeperWithInvalidEntries(CR4Test.java:114)
+  3) testCase4_CalculateGoalSavingAnnouncementsForGoalkeeperWithConsecutiveSaves(CR4Test)
+  java.lang.AssertionError: Goal-saving announcements should be 5 when goalkeeper has consecutive saves expected:<5> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase4_CalculateGoalSavingAnnouncementsForGoalkeeperWithConsecutiveSaves(CR4Test.java:94)
+  4) testCase3_CalculateGoalSavingAnnouncementsForGoalkeeperWithMultipleSaves(CR4Test)
+  java.lang.AssertionError: Goal-saving announcements should be 3 when goalkeeper has multiple saves expected:<3> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase3_CalculateGoalSavingAnnouncementsForGoalkeeperWithMultipleSaves(CR4Test.java:74)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\FootballTeam_sample4\src\test\CR5Test.java:20: 错误: 找不到符号
+          team.setTeam("Turgutlu");
+              ^
+    符号:   方法 setTeam(String)
+    位置: 类型为FootballTeam的变量 team
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\FootballTeam_sample4\src\test\CR5Test.java:45: 错误: 找不到符号
+          team.setTeam("Turgutlu");
+              ^
+    符号:   方法 setTeam(String)
+    位置: 类型为FootballTeam的变量 team
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 3/5
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

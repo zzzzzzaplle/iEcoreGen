@@ -1,0 +1,62 @@
+============================================================
+OPMS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 09:13:49
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\OPMS_sample2\src\test\CR1Test.java:30: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\OPMS_sample2\src\test\CR1Test.java:38: 错误: Project是抽象的; 无法实例化
+          Project project2 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\OPMS_sample2\src\test\CR1Test.java:64: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\OPMS_sample2\src\test\CR1Test.java:76: 错误: Project是抽象的; 无法实例化
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\OPMS_sample2\src\test\CR2Test.java:181: 错误: 找不到符号
+          clientEngaignment.setBudget(50000.0);
+          ^
+    符号:   变量 clientEngaignment
+    位置: 类 CR2Test
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 2/4
+- 测试通过: 2/2
+- 测试失败: 0/2
+============================================================

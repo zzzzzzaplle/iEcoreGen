@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fs" nsURI="http://example.com/fs" nsPrefix="fs">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="A file system contains information from multiple documents. The document can be added and removed from the file system, and all the documents can be listed. Each document uses an editor suitable for creation. A document contains the document's name, creation date, author information, and size. The user determines the assignment of the editor to the documents. Each editor has a name. The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.&#xA;Function requirement:&#xA;+ Calculate the total size of all documents in the file system. Output the sum of all document sizes. Return 0 if there is no document.&#xA;&#xA;+ Compute the average size of all documents for each editor (Text Editor, Image Editor, and Video Editor) in the file system.Return 0 if there is no document.&#xA;&#xA;+ Count the number of documents in the file system that were created after a specified date.&#xA;&#xA;+ Count the number of documents for each editor (TextEditor, ImageEditor, VideoEditor) in the file system.&#xA;&#xA;+ Retrieve the names of all authors whose documents are edited with a specified editor in the file system."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="FileSystem">
+    <eOperations name="calculateTotalDocumentSize">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="findAverageSizePerEditor">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eGenericType>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eTypeArguments>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+        </eTypeArguments>
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="countDocumentsAfterDate">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="date" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getAuthorsByEditor" upperBound="-1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="editor" lowerBound="1" eType="//Editor"/>
+    </eOperations>
+    <eOperations name="countDocumentsPerEditorType">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eGenericType>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eTypeArguments>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eTypeArguments>
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documents" upperBound="-1" eType="//Document" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1" eType="//Editor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editor" eType="//Editor" eOpposite="//Editor/documents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Editor" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documents" upperBound="-1" eType="//Document" eOpposite="//Document/editor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VideoEditor" eSuperTypes="//Editor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextEditor" eSuperTypes="//Editor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageEditor" eSuperTypes="//Editor"/>
+</ecore:EPackage>

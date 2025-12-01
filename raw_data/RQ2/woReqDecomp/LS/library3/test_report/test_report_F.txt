@@ -1,0 +1,73 @@
+================================================================================
+library3 测试报告
+================================================================================
+生成时间: 2025-11-25 15:16:48
+样本名称: library3
+总测试数: 20
+通过: 16
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase2_SingleUserBorrowingCalculationForGuest(edu.library.library3.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 2 expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library3.test.CR2Test.testCase2_SingleUserBorrowingCalculationForGuest(CR2Test.java:120)
+  2) testCase4_OverlappingCheckoutPeriod(edu.library.library3.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 1 expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library3.test.CR2Test.testCase4_OverlappingCheckoutPeriod(CR2Test.java:181)
+  3) testCase1_SingleUserBorrowingCalculationForMember(edu.library.library3.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 2 expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library3.test.CR2Test.testCase1_SingleUserBorrowingCalculationForMember(CR2Test.java:78)
+  4) testCase5_MultipleUsersWithDifferentBorrowingActivities(edu.library.library3.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed by U005 should be 2 expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library3.test.CR2Test.testCase5_MultipleUsersWithDifferentBorrowingActivities(CR2Test.java:239)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 16
+失败: 4
+成功率: 80.0%
+================================================================================

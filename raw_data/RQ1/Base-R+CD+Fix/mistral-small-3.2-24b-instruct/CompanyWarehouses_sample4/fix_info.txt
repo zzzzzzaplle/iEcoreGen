@@ -1,0 +1,13 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-24 14:51:29
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\mistralai\mistral-small-3.2-24b-instruct\CompanyWarehouses_sample4\src\main\FJC.java:48: 错误: 程序包AbstractMap不存在
+                    Map.Entry<String, String> entry = new AbstractMap.SimpleEntry<>(warehouse.getCity(), warehouse.getAddress());
+                                                                     ^
+1 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

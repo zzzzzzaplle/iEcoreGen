@@ -1,0 +1,144 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-24 23:27:36
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\woCompression\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woCompression\rideshare1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woCompression\rideshare1\Trip.java:578: 错误: 找不到符号
+          customer.getMembershipPackage().hasAward(MembershipPackage.Award.DISCOUNTS)) {
+                                                                    ^
+    符号:   变量 Award
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\woCompression\rideshare1\Trip.java:612: 错误: 找不到符号
+          customer.getMembershipPackage().hasAward(MembershipPackage.Award.POINTS)) {
+                                                                    ^
+    符号:   变量 Award
+    位置: 类 MembershipPackage
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\woCompression\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woCompression\rideshare2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Customer.java:375: 错误: 找不到符号
+        if (existingTrip != null && existingTrip.overlapsWith(newTrip)) {
+                                                ^
+    符号:   方法 overlapsWith(Trip)
+    位置: 类型为Trip的变量 existingTrip
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Driver.java:113: 错误: 找不到符号
+          if (stop1.getStation().equals(stop2.getStation())) {
+                   ^
+    符号:   方法 getStation()
+    位置: 类型为Stop的变量 stop1
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Driver.java:113: 错误: 找不到符号
+          if (stop1.getStation().equals(stop2.getStation())) {
+                                             ^
+    符号:   方法 getStation()
+    位置: 类型为Stop的变量 stop2
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Driver.java:115: 错误: 找不到符号
+            if (isTimeOverlapping(stop1.getDepartureTime(), stop1.getArrivalTime(), 
+                                       ^
+    符号:   方法 getDepartureTime()
+    位置: 类型为Stop的变量 stop1
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Driver.java:115: 错误: 找不到符号
+            if (isTimeOverlapping(stop1.getDepartureTime(), stop1.getArrivalTime(), 
+                                                                 ^
+    符号:   方法 getArrivalTime()
+    位置: 类型为Stop的变量 stop1
+  D:\EclipseWorkspace\ORS\woCompression\rideshare2\Driver.java:116: 错误: 找不到符号
+                                 stop2.getDepartureTime(), stop2.getArrivalTime())) {
+                                      ^
+    符号:   方法 getDepartureTime()
+    位置: 类型为Stop的变量 stop2
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\woCompression\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woCompression\rideshare3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woCompression\rideshare3\Trip.java:715: 错误: 需要')'
+      return (newDepartureTime.compareTo(arrivalTime) < 0 && newArrivalTime.compareTo(departureTime) > 0;
+                                                                                                        ^
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\woCompression\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woCompression\rideshare4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Booking.java:337: 错误: 找不到符号
+      int availableSeats = trip.getTotalSeats() - trip.getBookedSeats();
+                               ^
+    符号:   方法 getTotalSeats()
+    位置: 类型为Trip的变量 trip
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Booking.java:337: 错误: 找不到符号
+      int availableSeats = trip.getTotalSeats() - trip.getBookedSeats();
+                                                      ^
+    符号:   方法 getBookedSeats()
+    位置: 类型为Trip的变量 trip
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Driver.java:107: 错误: 找不到符号
+      EList<Station> stops1 = trip1.getStopStations();
+            ^
+    符号:   类 Station
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Driver.java:108: 错误: 找不到符号
+      EList<Station> stops2 = trip2.getStopStations();
+            ^
+    符号:   类 Station
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Driver.java:110: 错误: 找不到符号
+      for (Station stop1 : stops1) {
+           ^
+    符号:   类 Station
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woCompression\rideshare4\Driver.java:139: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newtrip.getStartTime(), newtrip.getEndTime()) && checkStopOverlap(existingTrip, newtrip)) {
+                                                  ^
+    符号:   方法 getStartTime()
+    位置: 类型为Trip的变量 newtrip
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\woCompression\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woCompression\rideshare5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

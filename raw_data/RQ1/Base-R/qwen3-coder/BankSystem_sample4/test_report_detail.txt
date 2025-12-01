@@ -1,0 +1,112 @@
+============================================================
+BankSystem - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:24:34
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase2_ZeroBalance(CR3Test)
+  java.lang.AssertionError: Balance with zero principal should remain zero expected:<0.00> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR3Test.testCase2_ZeroBalance(CR3Test.java:51)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_ExactFundsPurchase(CR4Test)
+  java.lang.AssertionError: expected:<0> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase3_ExactFundsPurchase(CR4Test.java:81)
+  2) testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test)
+  java.lang.AssertionError: expected:<1800> but was:<1800.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test.java:129)
+  3) testCase4_LowValueSingleShare(CR4Test)
+  java.lang.AssertionError: expected:<12> but was:<12.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase4_LowValueSingleShare(CR4Test.java:107)
+  4) testCase1_SufficientBalancePurchase(CR4Test)
+  java.lang.AssertionError: expected:<4500> but was:<4500.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase1_SufficientBalancePurchase(CR4Test.java:34)
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_PrecisionCheckWithFractionalShare(CR5Test)
+  java.lang.AssertionError: expected:<12.35> but was:<12.3500>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR5Test.testCase5_PrecisionCheckWithFractionalShare(CR5Test.java:114)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

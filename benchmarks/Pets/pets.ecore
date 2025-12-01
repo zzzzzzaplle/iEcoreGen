@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pets" nsURI="http://www.example.org/pets" nsPrefix="pets">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="A house may have any number of pets living in it. The two possible types of pets that can live in a house are dogs and cats. Each dog or cat has a name. An animal’s house is its one and only home. You can tell an animal to make noise and it will do its thing.&#xA;Functional requirement：&#xA;+ Retrieve a list of all pet names (dogs and cats) living in a specified house. Return an empty list if there are no pets.&#xA;&#xA;+ Add a pet to the house. Return false if the pet already belongs to any house (including this one) or the pet does have name; return true if the pet is added successfully.&#xA;&#xA;+ Remove a specified pet from its current house. Return false if the pet does not belong to the given current house; return true if it is removed successfully.&#xA;&#xA;+ Retrieve a list of pets of a specific input string (&quot;dog&quot; or &quot;cat&quot;) that live in a particular house. Return an empty list if there are no pets.&#xA;&#xA;+ Count the number of pets in a particular house. Return 0 if there are no pets."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="House">
+    <eOperations name="retrievePetNames" upperBound="-1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Retrieves a list of names of all pets living in the house.&#xA;Algorithm:&#xA;1. Iterate over the list of pets in the house.&#xA;2. Extract the name of each pet.&#xA;3. Return a list of pet names.&#xA;Input: None&#xA;Output:&#xA; - List&lt;String>: A list of names of all pets living in the house. Returns an empty list if there are no pets.&#xA;Pre-condition: None&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="addPet">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Adds a pet to the house.&#xA;Algorithm:&#xA;1. Check if the pet is null or has no name.&#xA;2. Check if the pet already belongs to a house.&#xA;3. If the pet is valid and does not belong to any house, add it to the house's list of pets.&#xA;4. Return true if the pet is added successfully, false otherwise.&#xA;Input:&#xA; - pet: The pet to be added. It should be an instance of Pet (either Dog or Cat), not null, and have a name.&#xA;Output:&#xA; - boolean: true if the pet is added successfully, false if the pet already belongs to a house or is invalid.&#xA;Pre-condition:&#xA; - The pet should not be null and should have a name.&#xA; - The pet should not belong to any house.&#xA;Post-condition:&#xA; - The pet is added to the house's list of pets if it was not already associated with a house."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="pet" eType="//Pet"/>
+    </eOperations>
+    <eOperations name="removePet">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Removes a specified pet from the house.&#xA;Algorithm:&#xA;1. Check if the pet is not null and belongs to the house.&#xA;2. If the pet belongs to the house, remove it from the house's list of pets.&#xA;3. Return true if the pet is removed successfully, false otherwise.&#xA;Input:&#xA; - pet: The pet to be removed. It should be an instance of Pet and belong to the house.&#xA;Output:&#xA; - boolean: true if the pet is removed successfully, false if the pet does not belong to the house.&#xA;Pre-condition:&#xA; - The pet should not be null.&#xA; - The pet should belong to the house.&#xA;Post-condition:&#xA; - The pet is removed from the house's list of pets if it belonged to the house."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="pet" eType="//Pet"/>
+    </eOperations>
+    <eOperations name="getPetsByType" upperBound="-1" eType="//Pet">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Retrieves a list of pets of a specific type living in the house.&#xA;Algorithm:&#xA;1. Filter the list of pets in the house based on the given type (&quot;dog&quot; or &quot;cat&quot;).&#xA;2. Return the list of pets of the specified type.&#xA;Input:&#xA; - type: The type of pets to retrieve. It should be either &quot;dog&quot; or &quot;cat&quot;.&#xA;Output:&#xA; - List&lt;Pet>: A list of pets of the specified type living in the house. Returns an empty list if there are no pets of that type.&#xA;Pre-condition:&#xA; - The type should be either &quot;dog&quot; or &quot;cat&quot;.&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="type">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getPetCount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Counts the number of pets in the house.&#xA;Algorithm:&#xA;1. Return the size of the list of pets in the house.&#xA;Input: None&#xA;Output:&#xA; - int: The number of pets in the house. Returns 0 if there are no pets.&#xA;Pre-condition: None&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="type">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lived" upperBound="-1" eType="//Pet" containment="true" eOpposite="//Pet/house"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pet" abstract="true">
+    <eOperations name="makeNoise">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Makes a noise specific to the type of pet.&#xA;Algorithm:&#xA; - For Dog: Print &quot;Woof!&quot;&#xA; - For Cat: Print &quot;Meow!&quot;&#xA;Input: None&#xA;Output: None&#xA;Pre-condition: None&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="house" lowerBound="1" eType="//House" eOpposite="//House/lived"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dog" eSuperTypes="//Pet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cat" eSuperTypes="//Pet"/>
+</ecore:EPackage>

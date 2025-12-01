@@ -1,0 +1,136 @@
+============================================================
+Mailman - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-23 19:39:20
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_AssignNonExistentMailman(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "Mailman.getGeographicalArea()" is null
+  	at RegisteredMail.assignMailman(FJC.java:256)
+  	at MailDeliveryManager.assignMailman(FJC.java:356)
+  	at CR1Test.testCase3_AssignNonExistentMailman(CR1Test.java:118)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_RemoveInhabitantWithAssignedMail(CR3Test)
+  java.lang.AssertionError: Paul's geographical area should be null expected null, but was:<GeographicalArea@4b6995df>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at CR3Test.testCase2_RemoveInhabitantWithAssignedMail(CR3Test.java:115)
+  2) testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test)
+  java.lang.AssertionError: Rachel's geographical area should be null expected null, but was:<GeographicalArea@7cdbc5d3>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at CR3Test.testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test.java:187)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_StressTestWithMaximumReassignments(CR4Test)
+  java.lang.AssertionError: Removing Alpha should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase5_StressTestWithMaximumReassignments(CR4Test.java:384)
+  2) testCase3_FailedRemovalEdgeCases(CR4Test)
+  java.lang.AssertionError: Removing Paul with Quinn as replacement should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase3_FailedRemovalEdgeCases(CR4Test.java:243)
+  3) testCase2_CascadingMailmanRemovalWithDependencies(CR4Test)
+  java.lang.AssertionError: First removal (Yvonne) should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase2_CascadingMailmanRemovalWithDependencies(CR4Test.java:175)
+  4) testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test)
+  java.lang.AssertionError: Alice removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test.java:81)
+  5) testCase4_MixedSuccessfulAndFailedOperations(CR4Test)
+  java.lang.AssertionError: Adding duplicate Mario should fail
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase4_MixedSuccessfulAndFailedOperations(CR4Test.java:299)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_ListMailForNonExistentInhabitant(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "GeographicalArea.getRegisteredMails()" because the return value of "Inhabitant.getGeographicalArea()" is null
+  	at MailDeliveryManager.listRegisteredMailItems(FJC.java:434)
+  	at CR5Test.testCase3_ListMailForNonExistentInhabitant(CR5Test.java:124)
+  2) testCase4_ListOnlyAssignedMailForInhabitant(CR5Test)
+  java.lang.AssertionError: Should contain exactly 1 mail item expected:<1> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase4_ListOnlyAssignedMailForInhabitant(CR5Test.java:150)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

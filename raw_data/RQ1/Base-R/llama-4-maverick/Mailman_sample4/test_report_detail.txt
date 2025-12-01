@@ -1,0 +1,81 @@
+============================================================
+Mailman - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-23 19:39:40
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_AssignNonExistentMailman(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "Mailman.getGeographicalArea()" is null
+  	at RegisteredMail.assignMailman(FJC.java:289)
+  	at MailDeliverySystem.assignMailman(FJC.java:481)
+  	at CR1Test.testCase3_AssignNonExistentMailman(CR1Test.java:127)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_ListMailForNonExistentInhabitant(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "GeographicalArea.getRegisteredMails()" because the return value of "Inhabitant.getGeographicalArea()" is null
+  	at MailDeliverySystem.getRegisteredMailItems(FJC.java:466)
+  	at CR5Test.testCase3_ListMailForNonExistentInhabitant(CR5Test.java:79)
+  2) testCase4_ListOnlyAssignedMailForInhabitant(CR5Test)
+  java.lang.AssertionError: expected:<1> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR5Test.testCase4_ListOnlyAssignedMailForInhabitant(CR5Test.java:116)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

@@ -1,0 +1,113 @@
+============================================================
+VideoRental - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-23 04:27:16
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_UnreturnedButNotOverdue(CR1Test)
+  java.lang.AssertionError: expected:<0.0> but was:<-2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase4_UnreturnedButNotOverdue(CR1Test.java:80)
+  2) testCase5_ReturnedSixDaysLate(CR1Test)
+  java.lang.AssertionError: expected:<3.0> but was:<1.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase5_ReturnedSixDaysLate(CR1Test.java:98)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_tapeExistsButHasOverdueRental(CR2Test)
+  java.lang.AssertionError: Tape T004 should not be available (overdue rental)
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase4_tapeExistsButHasOverdueRental(CR2Test.java:111)
+  2) testCase2_tapeIsRentedOut(CR2Test)
+  java.lang.AssertionError: Tape T002 should not be available (rented out)
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase2_tapeIsRentedOut(CR2Test.java:57)
+  3) testCase5_tapeWasRentedButReturnedByMultipleCustomers(CR2Test)
+  java.lang.AssertionError: Tape T005 should not be available (currently rented out)
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase5_tapeWasRentedButReturnedByMultipleCustomers(CR2Test.java:150)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_TapeIsUnavailable(CR3Test)
+  java.lang.AssertionError: Rental should fail when tape is unavailable
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR3Test.testCase4_TapeIsUnavailable(CR3Test.java:181)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

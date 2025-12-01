@@ -1,0 +1,63 @@
+================================================================================
+department2 测试报告
+================================================================================
+生成时间: 2025-11-20 21:27:10
+样本名称: department2
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase4_DeleteLastRemainingDepartment(edu.department.department2.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.Collection.size()" because "collection" is null
+  	at org.eclipse.emf.common.util.BasicEList.<init>(BasicEList.java:73)
+  	at edu.department.Company.deleteDepartment(Company.java:288)
+  	at edu.department.department2.test.CR3Test.testCase4_DeleteLastRemainingDepartment(CR3Test.java:129)
+  2) testCase3_DeleteDepartmentWithOnlyOffices(edu.department.department2.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.Collection.size()" because "collection" is null
+  	at org.eclipse.emf.common.util.BasicEList.<init>(BasicEList.java:73)
+  	at edu.department.Company.deleteDepartment(Company.java:288)
+  	at edu.department.department2.test.CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:111)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

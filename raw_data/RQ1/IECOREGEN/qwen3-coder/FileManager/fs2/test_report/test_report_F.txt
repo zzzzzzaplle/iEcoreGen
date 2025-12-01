@@ -1,0 +1,70 @@
+================================================================================
+fs2 测试报告
+================================================================================
+生成时间: 2025-11-28 15:26:37
+样本名称: fs2
+总测试数: 25
+通过: 22
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_CountDocumentsWithSingleEditorType(edu.fs.fs2.test.CR4Test)
+  java.lang.AssertionError: ImageEditor should not be present expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.fs.fs2.test.CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:90)
+  2) testCase3_CountDocumentsAfterRemoval(edu.fs.fs2.test.CR4Test)
+  java.lang.AssertionError: ImageEditor should not be present after removal expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.fs.fs2.test.CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:132)
+  3) testCase4_CountDocumentsWithNoEditors(edu.fs.fs2.test.CR4Test)
+  java.lang.AssertionError: Result should be empty when no documents exist
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.fs.fs2.test.CR4Test.testCase4_CountDocumentsWithNoEditors(CR4Test.java:145)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 22
+失败: 3
+成功率: 88.0%
+================================================================================

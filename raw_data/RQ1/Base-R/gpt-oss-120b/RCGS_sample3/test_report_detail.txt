@@ -1,0 +1,78 @@
+============================================================
+RCGS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-22 14:22:47
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample3\src\test\CR1Test.java:21: 错误: 找不到符号
+          store.setName("City Car Rentals");
+               ^
+    符号:   方法 setName(String)
+    位置: 类型为Store的变量 store
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample3\src\test\CR1Test.java:60: 错误: 找不到符号
+          store.setName("Downtown Rentals");
+               ^
+    符号:   方法 setName(String)
+    位置: 类型为Store的变量 store
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_NoOverdueRentals(CR3Test)
+  java.lang.AssertionError: Should have no overdue customers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase2_NoOverdueRentals(CR3Test.java:58)
+  2) testCase5_FutureDueDateRentals(CR3Test)
+  java.lang.AssertionError: Should have no overdue customers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase5_FutureDueDateRentals(CR3Test.java:137)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

@@ -1,0 +1,101 @@
+============================================================
+AcademicProgram - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-26 19:40:52
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_TwoIdenticalClassrooms(CR1Test)
+  java.lang.AssertionError: The total classroom capacity in the academic program is 100 expected:<100> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase3_TwoIdenticalClassrooms(CR1Test.java:94)
+  2) testCase1_SingleClassroomInAcademicProgram(CR1Test)
+  java.lang.AssertionError: The total classroom capacity in the academic program is 30 expected:<30> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase1_SingleClassroomInAcademicProgram(CR1Test.java:34)
+  3) testCase5_LargeNumberOfClassrooms(CR1Test)
+  java.lang.AssertionError: The total classroom capacity in the academic program is 130 expected:<130> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase5_LargeNumberOfClassrooms(CR1Test.java:127)
+  4) testCase2_MultipleClassroomsWithDifferentCapacities(CR1Test)
+  java.lang.AssertionError: The total classroom capacity in the academic program is 100 expected:<100> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase2_MultipleClassroomsWithDifferentCapacities(CR1Test.java:68)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_MultipleCoursesSingleStudentPerCourse(CR2Test)
+  java.lang.AssertionError: Three courses with one student each should return 3 expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase3_MultipleCoursesSingleStudentPerCourse(CR2Test.java:102)
+  2) testCase1_SingleCourseSingleStudent(CR2Test)
+  java.lang.AssertionError: Single course with one student should return 1 expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase1_SingleCourseSingleStudent(CR2Test.java:37)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

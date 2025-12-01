@@ -1,0 +1,466 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Represents an employee in the company.
+ */
+abstract class Employee {
+    private String department;
+    private String name;
+    private String dateOfBirth;
+    private String socialInsuranceNumber;
+
+    /**
+     * Unparameterized constructor for Employee.
+     */
+    public Employee() {}
+
+    /**
+     * Gets the department of the employee.
+     * @return the department
+     */
+    public String getDepartment() {
+        return department;
+    }
+
+    /**
+     * Sets the department of the employee.
+     * @param department the department to set
+     */
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    /**
+     * Gets the name of the employee.
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the name of the employee.
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Gets the date of birth of the employee.
+     * @return the date of birth
+     */
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * Sets the date of birth of the employee.
+     * @param dateOfBirth the date of birth to set
+     */
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    /**
+     * Gets the social insurance number of the employee.
+     * @return the social insurance number
+     */
+    public String getSocialInsuranceNumber() {
+        return socialInsuranceNumber;
+    }
+
+    /**
+     * Sets the social insurance number of the employee.
+     * @param socialInsuranceNumber the social insurance number to set
+     */
+    public void setSocialInsuranceNumber(String socialInsuranceNumber) {
+        this.socialInsuranceNumber = socialInsuranceNumber;
+    }
+
+    /**
+     * Calculates the salary of the employee.
+     * @return the salary
+     */
+    public abstract double calculateSalary();
+}
+
+/**
+ * Represents a worker in the company.
+ */
+abstract class Worker extends Employee {
+    private double weeklyWorkingHour;
+    private double hourlyRates;
+
+    /**
+     * Unparameterized constructor for Worker.
+     */
+    public Worker() {}
+
+    /**
+     * Gets the weekly working hours of the worker.
+     * @return the weekly working hours
+     */
+    public double getWeeklyWorkingHour() {
+        return weeklyWorkingHour;
+    }
+
+    /**
+     * Sets the weekly working hours of the worker.
+     * @param weeklyWorkingHour the weekly working hours to set
+     */
+    public void setWeeklyWorkingHour(double weeklyWorkingHour) {
+        this.weeklyWorkingHour = weeklyWorkingHour;
+    }
+
+    /**
+     * Gets the hourly rates of the worker.
+     * @return the hourly rates
+     */
+    public double getHourlyRates() {
+        return hourlyRates;
+    }
+
+    /**
+     * Sets the hourly rates of the worker.
+     * @param hourlyRates the hourly rates to set
+     */
+    public void setHourlyRates(double hourlyRates) {
+        this.hourlyRates = hourlyRates;
+    }
+
+    /**
+     * Calculates the salary of the worker.
+     * @return the salary
+     */
+    @Override
+    public double calculateSalary() {
+        return weeklyWorkingHour * hourlyRates + getHolidayPremiums();
+    }
+
+    /**
+     * Gets the holiday premiums of the worker.
+     * @return the holiday premiums
+     */
+    protected abstract double getHolidayPremiums();
+}
+
+/**
+ * Represents a shift worker in the company.
+ */
+class ShiftWorker extends Worker {
+    private double holidayPremiums;
+
+    /**
+     * Unparameterized constructor for ShiftWorker.
+     */
+    public ShiftWorker() {}
+
+    /**
+     * Gets the holiday premiums of the shift worker.
+     * @return the holiday premiums
+     */
+    public double getHolidayPremiums() {
+        return holidayPremiums;
+    }
+
+    /**
+     * Sets the holiday premiums of the shift worker.
+     * @param holidayPremiums the holiday premiums to set
+     */
+    public void setHolidayPremiums(double holidayPremiums) {
+        this.holidayPremiums = holidayPremiums;
+    }
+
+    /**
+     * Gets the holiday premiums of the shift worker.
+     * @return the holiday premiums
+     */
+    @Override
+    protected double getHolidayPremiums() {
+        return holidayPremiums;
+    }
+}
+
+/**
+ * Represents a non-shift worker in the company.
+ */
+class NonShiftWorker extends Worker {
+    /**
+     * Unparameterized constructor for NonShiftWorker.
+     */
+    public NonShiftWorker() {}
+
+    /**
+     * Gets the holiday premiums of the non-shift worker.
+     * @return the holiday premiums (always 0)
+     */
+    @Override
+    protected double getHolidayPremiums() {
+        return 0;
+    }
+}
+
+/**
+ * Represents a salesperson in the company.
+ */
+class SalesPerson extends Employee {
+    private double salary;
+    private double amountOfSales;
+    private double commissionPercentage;
+
+    /**
+     * Unparameterized constructor for SalesPerson.
+     */
+    public SalesPerson() {}
+
+    /**
+     * Gets the salary of the salesperson.
+     * @return the salary
+     */
+    public double getSalary() {
+        return salary;
+    }
+
+    /**
+     * Sets the salary of the salesperson.
+     * @param salary the salary to set
+     */
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    /**
+     * Gets the amount of sales made by the salesperson.
+     * @return the amount of sales
+     */
+    public double getAmountOfSales() {
+        return amountOfSales;
+    }
+
+    /**
+     * Sets the amount of sales made by the salesperson.
+     * @param amountOfSales the amount of sales to set
+     */
+    public void setAmountOfSales(double amountOfSales) {
+        this.amountOfSales = amountOfSales;
+    }
+
+    /**
+     * Gets the commission percentage of the salesperson.
+     * @return the commission percentage
+     */
+    public double getCommissionPercentage() {
+        return commissionPercentage;
+    }
+
+    /**
+     * Sets the commission percentage of the salesperson.
+     * @param commissionPercentage the commission percentage to set
+     */
+    public void setCommissionPercentage(double commissionPercentage) {
+        this.commissionPercentage = commissionPercentage;
+    }
+
+    /**
+     * Calculates the salary of the salesperson.
+     * @return the salary
+     */
+    @Override
+    public double calculateSalary() {
+        return salary + amountOfSales * commissionPercentage;
+    }
+}
+
+/**
+ * Represents a manager in the company.
+ */
+class Manager extends Employee {
+    private double salary;
+    private List<Employee> subordinates;
+    private String position;
+
+    /**
+     * Unparameterized constructor for Manager.
+     */
+    public Manager() {
+        this.subordinates = new ArrayList<>();
+    }
+
+    /**
+     * Gets the salary of the manager.
+     * @return the salary
+     */
+    public double getSalary() {
+        return salary;
+    }
+
+    /**
+     * Sets the salary of the manager.
+     * @param salary the salary to set
+     */
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    /**
+     * Gets the subordinates of the manager.
+     * @return the subordinates
+     */
+    public List<Employee> getSubordinates() {
+        return subordinates;
+    }
+
+    /**
+     * Adds a subordinate to the manager.
+     * @param subordinate the subordinate to add
+     */
+    public void addSubordinate(Employee subordinate) {
+        this.subordinates.add(subordinate);
+    }
+
+    /**
+     * Gets the position of the manager.
+     * @return the position
+     */
+    public String getPosition() {
+        return position;
+    }
+
+    /**
+     * Sets the position of the manager.
+     * @param position the position to set
+     */
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    /**
+     * Calculates the salary of the manager.
+     * @return the salary
+     */
+    @Override
+    public double calculateSalary() {
+        return salary;
+    }
+
+    /**
+     * Gets the number of direct subordinate employees for the manager.
+     * @return the number of subordinates
+     */
+    public int getNumberOfSubordinates() {
+        return subordinates.size();
+    }
+}
+
+/**
+ * Represents the company.
+ */
+class Company {
+    private List<Employee> employees;
+
+    /**
+     * Unparameterized constructor for Company.
+     */
+    public Company() {
+        this.employees = new ArrayList<>();
+    }
+
+    /**
+     * Adds an employee to the company.
+     * @param employee the employee to add
+     */
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
+    }
+
+    /**
+     * Calculates the total salary of all employees in the company.
+     * @return the total salary
+     */
+    public double calculateTotalSalary() {
+        return employees.stream().mapToDouble(Employee::calculateSalary).sum();
+    }
+
+    /**
+     * Finds the average working hours per week for all workers in the delivery department.
+     * @return the average working hours
+     */
+    public double averageWorkingHoursInDeliveryDepartment() {
+        return employees.stream()
+                .filter(employee -> employee instanceof Worker && employee.getDepartment().equals("delivery"))
+                .mapToDouble(employee -> ((Worker) employee).getWeeklyWorkingHour())
+                .average()
+                .orElse(0);
+    }
+
+    /**
+     * Determines the total commission amount for all salespeople in the company.
+     * @return the total commission amount
+     */
+    public double totalCommissionAmount() {
+        return employees.stream()
+                .filter(employee -> employee instanceof SalesPerson)
+                .mapToDouble(employee -> ((SalesPerson) employee).getAmountOfSales() * ((SalesPerson) employee).getCommissionPercentage())
+                .sum();
+    }
+
+    /**
+     * Calculates the total holiday premiums paid to all shift workers in the company.
+     * @return the total holiday premiums
+     */
+    public double totalHolidayPremiums() {
+        return employees.stream()
+                .filter(employee -> employee instanceof ShiftWorker)
+                .mapToDouble(employee -> ((ShiftWorker) employee).getHolidayPremiums())
+                .sum();
+    }
+}
+
+ class Main {
+    public static void main(String[] args) {
+        Company company = new Company();
+
+        // Create employees
+        Manager manager = new Manager();
+        manager.setDepartment("production");
+        manager.setSalary(10000);
+        company.addEmployee(manager);
+
+        SalesPerson salesPerson = new SalesPerson();
+        salesPerson.setDepartment("control");
+        salesPerson.setSalary(5000);
+        salesPerson.setAmountOfSales(100000);
+        salesPerson.setCommissionPercentage(0.1);
+        company.addEmployee(salesPerson);
+
+        ShiftWorker shiftWorker = new ShiftWorker();
+        shiftWorker.setDepartment("delivery");
+        shiftWorker.setWeeklyWorkingHour(40);
+        shiftWorker.setHourlyRates(20);
+        shiftWorker.setHolidayPremiums(1000);
+        company.addEmployee(shiftWorker);
+
+        NonShiftWorker nonShiftWorker = new NonShiftWorker();
+        nonShiftWorker.setDepartment("delivery");
+        nonShiftWorker.setWeeklyWorkingHour(40);
+        nonShiftWorker.setHourlyRates(20);
+        company.addEmployee(nonShiftWorker);
+
+        // Calculate total salary
+        System.out.println("Total Salary: " + company.calculateTotalSalary());
+
+        // Average working hours in delivery department
+        System.out.println("Average Working Hours in Delivery Department: " + company.averageWorkingHoursInDeliveryDepartment());
+
+        // Total commission amount
+        System.out.println("Total Commission Amount: " + company.totalCommissionAmount());
+
+        // Total holiday premiums
+        System.out.println("Total Holiday Premiums: " + company.totalHolidayPremiums());
+
+        // Number of subordinates for manager
+        System.out.println("Number of Subordinates for Manager: " + manager.getNumberOfSubordinates());
+    }
+}

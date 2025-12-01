@@ -1,0 +1,218 @@
+============================================================
+AirlineFlights - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-22 00:06:58
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(CR1Test)
+  java.lang.AssertionError: Flight with correct schedule and route should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:50)
+  2) testCase5_SecondPublishAttempt(CR1Test)
+  java.lang.AssertionError: First publication should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:181)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_flightClosedBlocksBooking(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR2Test.testCase4_flightClosedBlocksBooking(CR2Test.java:206)
+  2) testCase5_timeIsAfterDepartureTime(CR2Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase5_timeIsAfterDepartureTime(CR2Test.java:253)
+  3) testCase2_duplicatePassengerInSameRequest(CR2Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase2_duplicatePassengerInSameRequest(CR2Test.java:105)
+  4) testCase1_twoNewPassengersSucceed(CR2Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase1_twoNewPassengersSucceed(CR2Test.java:54)
+  5) testCase3_passengerAlreadyBookedEarlier(CR2Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase3_passengerAlreadyBookedEarlier(CR2Test.java:152)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_ClosedFlightBlocksCancellation(CR3Test)
+  java.util.NoSuchElementException
+  	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1607)
+  	at java.base/java.util.HashMap$ValueIterator.next(HashMap.java:1633)
+  	at CR3Test.testCase4_ClosedFlightBlocksCancellation(CR3Test.java:247)
+  2) testCase3_FlightDepartedBlocksConfirmation(CR3Test)
+  java.util.NoSuchElementException
+  	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1607)
+  	at java.base/java.util.HashMap$ValueIterator.next(HashMap.java:1633)
+  	at CR3Test.testCase3_FlightDepartedBlocksConfirmation(CR3Test.java:186)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase1_noReservationsToCancel(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR4Test.testCase1_noReservationsToCancel(CR4Test.java:52)
+  2) testCase3_flightAlreadyClosed(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR4Test.testCase3_flightAlreadyClosed(CR4Test.java:159)
+  3) testCase5_attemptToCloseAfterDeparture(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR4Test.testCase5_attemptToCloseAfterDeparture(CR4Test.java:228)
+  4) testCase2_threeConfirmedReservationsCanceled(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR4Test.testCase2_threeConfirmedReservationsCanceled(CR4Test.java:126)
+  5) testCase4_closeOnDepartureDayAfterDepartureTime(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR4Test.testCase4_closeOnDepartureDayAfterDepartureTime(CR4Test.java:196)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase2_NoConfirmedReservations(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR5Test.createFlight(CR5Test.java:54)
+  	at CR5Test.testCase2_NoConfirmedReservations(CR5Test.java:100)
+  2) testCase3_FlightClosedReturnsZero(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR5Test.createFlight(CR5Test.java:54)
+  	at CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:115)
+  3) testCase4_UnknownFlightId(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR5Test.createFlight(CR5Test.java:54)
+  	at CR5Test.testCase4_UnknownFlightId(CR5Test.java:129)
+  4) testCase1_FlightWithThreeConfirmations(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR5Test.createFlight(CR5Test.java:54)
+  	at CR5Test.testCase1_FlightWithThreeConfirmations(CR5Test.java:77)
+  5) testCase5_MixedReservationStatuses(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR5Test.createFlight(CR5Test.java:54)
+  	at CR5Test.testCase5_MixedReservationStatuses(CR5Test.java:142)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase2_StopoverTimeOutsideWindow(CR6Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR6Test.testCase2_StopoverTimeOutsideWindow(CR6Test.java:125)
+  2) testCase4_FlightClosedPreventsModification(CR6Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR6Test.testCase4_FlightClosedPreventsModification(CR6Test.java:236)
+  3) testCase3_DeleteExistingStopover(CR6Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR6Test.testCase3_DeleteExistingStopover(CR6Test.java:184)
+  4) testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR6Test.testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test.java:58)
+  5) testCase5_AttemptRemovalAfterDeparture(CR6Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.AbstractCollection.add(AbstractCollection.java:253)
+  	at CR6Test.testCase5_AttemptRemovalAfterDeparture(CR6Test.java:295)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 0/6
+- 测试失败: 6/6
+============================================================

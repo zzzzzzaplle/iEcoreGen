@@ -1,0 +1,37 @@
+============================================================
+Cinemas - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:34:48
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:79: 错误: 需要 class、interface、enum 或 record
+  package com.cinema;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:81: 错误: 需要 class、interface、enum 或 record
+  import java.util.Objects;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:154: 错误: 需要 class、interface、enum 或 record
+  package com.cinema;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:156: 错误: 需要 class、interface、enum 或 record
+  import java.util.Date;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:246: 错误: 需要 class、interface、enum 或 record
+  package com.cinema;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:248: 错误: 需要 class、interface、enum 或 record
+  import java.util.ArrayList;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\Cinemas_sample4\src\main\FJC.java:249: 错误: 需要 class、interface、enum 或 record
+  import java.util.Date;
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

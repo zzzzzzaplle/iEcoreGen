@@ -1,0 +1,71 @@
+================================================================================
+project3 测试报告
+================================================================================
+生成时间: 2025-11-26 18:49:37
+样本名称: project3
+总测试数: 10
+通过: 10
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\mistral-small-3.2-24b-instruct\project3\test\CR1Test.java:196: 错误: 找不到符号
+          communityProject.setFudingGroup(fundingGroup);
+                          ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 communityProject
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\mistral-small-3.2-24b-instruct\project3\test\CR4Test.java:41: 错误: 找不到符号
+          communityProject.setFudingGroup(fundingGroup);
+                          ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 communityProject
+  D:\EclipseWorkspace\OPMS\mistral-small-3.2-24b-instruct\project3\test\CR4Test.java:67: 错误: 找不到符号
+          project1.setFudingGroup(fundingGroup1);
+                  ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 project1
+  D:\EclipseWorkspace\OPMS\mistral-small-3.2-24b-instruct\project3\test\CR4Test.java:78: 错误: 找不到符号
+          project2.setFudingGroup(fundingGroup2);
+                  ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 project2
+  D:\EclipseWorkspace\OPMS\mistral-small-3.2-24b-instruct\project3\test\CR4Test.java:121: 错误: 找不到符号
+          projectD004.setFudingGroup(fundingGroupD004);
+                     ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 projectD004
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 10
+通过: 10
+失败: 0
+成功率: 100.0%
+================================================================================

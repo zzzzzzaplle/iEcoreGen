@@ -1,0 +1,110 @@
+================================================================================
+videorental1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:23:12
+样本名称: videorental1
+总测试数: 25
+通过: 19
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_UnreturnedButNotOverdue(edu.videorental.videorental1.test.CR1Test)
+  java.lang.AssertionError: expected:<0.0> but was:<-2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.videorental.videorental1.test.CR1Test.testCase4_UnreturnedButNotOverdue(CR1Test.java:111)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CustomerHasOverdueFees(edu.videorental.videorental1.test.CR3Test)
+  java.lang.AssertionError: Rental should fail when customer has overdue fees
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.videorental.videorental1.test.CR3Test.testCase3_CustomerHasOverdueFees(CR3Test.java:152)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase4_MixedOverdueAndOnTimeRentals(edu.videorental.videorental1.test.CR4Test)
+  java.lang.AssertionError: expected:<11.0> but was:<30.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.videorental.videorental1.test.CR4Test.testCase4_MixedOverdueAndOnTimeRentals(CR4Test.java:180)
+  2) testCase1_NoOverdueFees(edu.videorental.videorental1.test.CR4Test)
+  java.lang.AssertionError: expected:<13.0> but was:<38.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.videorental.videorental1.test.CR4Test.testCase1_NoOverdueFees(CR4Test.java:67)
+  3) testCase3_MultipleOverdueRentals(edu.videorental.videorental1.test.CR4Test)
+  java.lang.AssertionError: expected:<19.5> but was:<32.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.videorental.videorental1.test.CR4Test.testCase3_MultipleOverdueRentals(CR4Test.java:137)
+  4) testCase2_OneOverdueRental(edu.videorental.videorental1.test.CR4Test)
+  java.lang.AssertionError: expected:<14.5> but was:<22.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.videorental.videorental1.test.CR4Test.testCase2_OneOverdueRental(CR4Test.java:94)
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 19
+失败: 6
+成功率: 76.0%
+================================================================================

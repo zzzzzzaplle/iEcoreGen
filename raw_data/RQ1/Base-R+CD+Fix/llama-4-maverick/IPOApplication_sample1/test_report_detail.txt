@@ -1,0 +1,105 @@
+============================================================
+IPOApplication - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-24 20:52:12
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/6 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_zeroShareApplication(CR1Test)
+  java.lang.AssertionError: Application should not be created with zero shares
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase5_zeroShareApplication(CR1Test.java:123)
+  2) testCase6_negativeShareCount(CR1Test)
+  java.lang.AssertionError: Application should not be created with negative shares
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase6_negativeShareCount(CR1Test.java:138)
+  3) testCase4_missingDocument(CR1Test)
+  java.lang.AssertionError: Application should not be created without document
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase4_missingDocument(CR1Test.java:108)
+  
+  FAILURES!!!
+  Tests run: 6,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_approveAlreadyApprovedRecord(CR2Test)
+  java.lang.AssertionError: Should not be able to approve already approved application
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase3_approveAlreadyApprovedRecord(CR2Test.java:97)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_AllRequestsCanceled(CR3Test)
+  java.lang.AssertionError: Customer with canceled application should return 0 expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR3Test.testCase5_AllRequestsCanceled(CR3Test.java:151)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

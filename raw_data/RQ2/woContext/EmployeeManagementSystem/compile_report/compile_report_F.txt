@@ -1,0 +1,74 @@
+================================================================================
+EmployeeManagementSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-25 00:23:38
+系统名称: EmployeeManagementSystem
+SystemName: employee
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] employee1
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee1
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee1\compile
+
+[✓ PASS] employee2
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee2
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee2\compile
+
+[✓ PASS] employee3
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee3
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee3\compile
+
+[✗ FAIL] employee4
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:370: 错误: 方法声明无效; 需要返回类型
+    protected CompanyImpl()
+              ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:564: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:568: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:572: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:577: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:581: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\Company.java:585: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  7 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] employee5
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee5
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

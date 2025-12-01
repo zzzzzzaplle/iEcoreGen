@@ -1,0 +1,108 @@
+============================================================
+VideoRental - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:44:26
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\VideoRental_sample4\src\test\CR1Test.java:25: 错误: 找不到符号
+          Calendar calendar = Calendar.getInstance();
+          ^
+    符号:   类 Calendar
+    位置: 类 CR1Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\VideoRental_sample4\src\test\CR1Test.java:25: 错误: 找不到符号
+          Calendar calendar = Calendar.getInstance();
+                              ^
+    符号:   变量 Calendar
+    位置: 类 CR1Test
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CustomerHasOverdueFees(CR3Test)
+  java.lang.AssertionError: Rental should fail due to overdue fees
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR3Test.testCase3_CustomerHasOverdueFees(CR3Test.java:121)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedOverdueAndOnTimeRentals(CR4Test)
+  java.lang.AssertionError: expected:<11.0> but was:<4.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase4_MixedOverdueAndOnTimeRentals(CR4Test.java:151)
+  2) testCase1_NoOverdueFees(CR4Test)
+  java.lang.AssertionError: expected:<13.0> but was:<-3.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase1_NoOverdueFees(CR4Test.java:49)
+  3) testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test)
+  java.lang.AssertionError: expected:<11.5> but was:<8.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test.java:179)
+  4) testCase3_MultipleOverdueRentals(CR4Test)
+  java.lang.AssertionError: expected:<19.5> but was:<12.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase3_MultipleOverdueRentals(CR4Test.java:114)
+  5) testCase2_OneOverdueRental(CR4Test)
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 2/4
+- 测试失败: 2/4
+============================================================

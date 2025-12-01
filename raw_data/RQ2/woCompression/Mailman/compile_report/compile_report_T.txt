@@ -1,0 +1,47 @@
+================================================================================
+Mailman 系统编译报告
+================================================================================
+生成时间: 2025-11-24 20:40:05
+系统名称: Mailman
+SystemName: postal
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] postal1
+  - 样本目录: D:\EclipseWorkspace\Mailman\woCompression\postal1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\woCompression\postal1\compile
+
+[✓ PASS] postal2
+  - 样本目录: D:\EclipseWorkspace\Mailman\woCompression\postal2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\woCompression\postal2\compile
+
+[✓ PASS] postal3
+  - 样本目录: D:\EclipseWorkspace\Mailman\woCompression\postal3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\woCompression\postal3\compile
+
+[✓ PASS] postal4
+  - 样本目录: D:\EclipseWorkspace\Mailman\woCompression\postal4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\woCompression\postal4\compile
+
+[✓ PASS] postal5
+  - 样本目录: D:\EclipseWorkspace\Mailman\woCompression\postal5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\woCompression\postal5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

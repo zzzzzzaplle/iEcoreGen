@@ -1,0 +1,114 @@
+================================================================================
+VideoRental 系统编译报告
+================================================================================
+生成时间: 2025-11-25 09:00:16
+系统名称: VideoRental
+SystemName: videorental
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] videorental1
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woContext\videorental1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woContext\videorental1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woContext\videorental1\Customer.java:219: 错误: 无法将类 Tape中的方法 isAvailable应用到给定类型;
+      if (!tape.isAvailable())
+               ^
+    需要: Date
+    找到:    没有参数
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\VideoRental\woContext\videorental1\Customer.java:229: 错误: 找不到符号
+      tape.setAvailable(false);
+          ^
+    符号:   方法 setAvailable(boolean)
+    位置: 类型为Tape的变量 tape
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] videorental2
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woContext\videorental2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woContext\videorental2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woContext\videorental2\RentalTransaction.java:308: 错误: 找不到符号
+        double baseFee = calculateBaseRentalFee(rental, currentDate, rentalDate);
+                         ^
+    符号:   方法 calculateBaseRentalFee(VideoRental,Date,Date)
+    位置: 类 RentalTransaction
+  D:\EclipseWorkspace\VideoRental\woContext\videorental2\RentalTransaction.java:309: 错误: 找不到符号
+        double pastDueFee = calculateOwnedPastDueAmount(rental, currentDate);
+                            ^
+    符号:   方法 calculateOwnedPastDueAmount(VideoRental,Date)
+    位置: 类 RentalTransaction
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] videorental3
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woContext\videorental3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woContext\videorental3\compile
+
+[✗ FAIL] videorental4
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woContext\videorental4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woContext\videorental4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woContext\videorental4\Customer.java:226: 错误: 无法将类 RentalTransaction中的构造器 RentalTransaction应用到给定类型;
+      this.getTransactions().add(new RentalTransaction(rental));
+                                 ^
+    需要: 没有参数
+    找到:    VideoRental
+    原因: 实际参数列表和形式参数列表长度不同
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] videorental5
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woContext\videorental5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woContext\videorental5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woContext\videorental5\Customer.java:213: 错误: 无法将类 Tape中的方法 isAvailable应用到给定类型;
+      if (tape == null || !tape.isAvailable()) {
+                               ^
+    需要: Date
+    找到:    没有参数
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\VideoRental\woContext\videorental5\Customer.java:219: 错误: 找不到符号
+      newRental.setRentalDate(currentDate);
+               ^
+    符号:   方法 setRentalDate(Date)
+    位置: 类型为VideoRental的变量 newRental
+  D:\EclipseWorkspace\VideoRental\woContext\videorental5\Customer.java:223: 错误: 找不到符号
+      tape.setAvailable(false);
+          ^
+    符号:   方法 setAvailable(boolean)
+    位置: 类型为Tape的变量 tape
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

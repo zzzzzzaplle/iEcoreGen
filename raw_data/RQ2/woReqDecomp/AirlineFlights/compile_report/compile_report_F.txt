@@ -1,0 +1,109 @@
+================================================================================
+AirlineFlights 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:11:54
+系统名称: AirlineFlights
+SystemName: flights
+样本总数: 5
+编译成功: 2
+编译失败: 3
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] flights1
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights1
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights1\compile
+
+[✗ FAIL] flights2
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights2
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights2\Booking.java:23: 错误: 找不到符号
+  import edu.flights.util.FlightsFactory;
+                         ^
+    符号:   类 FlightsFactory
+    位置: 程序包 edu.flights.util
+  注: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights2\Airline.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights3
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights3
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights3\Booking.java:23: 错误: 找不到符号
+  import edu.flights.util.FlightsFactory;
+                         ^
+    符号:   类 FlightsFactory
+    位置: 程序包 edu.flights.util
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights3\Airline.java:168: 错误: 找不到符号
+              if (reservation.isConfirmed()) {
+                             ^
+    符号:   方法 isConfirmed()
+    位置: 类型为Reservation的变量 reservation
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights3\Airline.java:171: 错误: 找不到符号
+                reservation.setConfirmed(false);
+                           ^
+    符号:   方法 setConfirmed(boolean)
+    位置: 类型为Reservation的变量 reservation
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] flights4
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights4
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights4\compile
+
+[✗ FAIL] flights5
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\Flight.java:478: 错误: 找不到符号
+      if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+              ^
+    符号:   方法 getAirport()
+    位置: 类型为Stopover的变量 stop
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\Flight.java:478: 错误: 找不到符号
+      if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+                                           ^
+    符号:   方法 getAirport()
+    位置: 类型为Stopover的变量 stop
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\Customer.java:104: 错误: 找不到符号
+        if (reservation.getBooking() != null && reservation.getBooking().getCustomer() != null) {
+                       ^
+    符号:   方法 getBooking()
+    位置: 类型为Reservation的变量 reservation
+  D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\Customer.java:104: 错误: 找不到符号
+        if (reservation.getBooking() != null && reservation.getBooking().getCustomer() != null) {
+                                                           ^
+    符号:   方法 getBooking()
+    位置: 类型为Reservation的变量 reservation
+  注: D:\EclipseWorkspace\AirlineFlights\woReqDecomp\flights5\Airline.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  4 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 2 (40.0%)
+失败: 3 (60.0%)
+================================================================================

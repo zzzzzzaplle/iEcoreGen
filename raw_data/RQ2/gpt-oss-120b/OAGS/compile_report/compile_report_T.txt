@@ -1,0 +1,47 @@
+================================================================================
+OAGS 系统编译报告
+================================================================================
+生成时间: 2025-11-27 12:57:56
+系统名称: OAGS
+SystemName: artgallery
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] artgallery1
+  - 样本目录: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery1\compile
+
+[✓ PASS] artgallery2
+  - 样本目录: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery2\compile
+
+[✓ PASS] artgallery3
+  - 样本目录: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery3\compile
+
+[✓ PASS] artgallery4
+  - 样本目录: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery4\compile
+
+[✓ PASS] artgallery5
+  - 样本目录: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OAGS\gpt-oss-120b\artgallery5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

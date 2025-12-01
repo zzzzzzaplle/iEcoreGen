@@ -1,0 +1,30 @@
+============================================================
+Cinemas - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:01:56
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\gpt-oss-120b\Cinemas_sample5\src\main\FJC.java:199: 错误: 需要';'
+      screenings the screenings list to set */
+                    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\gpt-oss-120b\Cinemas_sample5\src\main\FJC.java:199: 错误: 需要';'
+      screenings the screenings list to set */
+                                    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\gpt-oss-120b\Cinemas_sample5\src\main\FJC.java:199: 错误: 需要';'
+      screenings the screenings list to set */
+                                           ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\gpt-oss-120b\Cinemas_sample5\src\main\FJC.java:200: 错误: 非法的表达式开始
+      public void setScreenings(List<Screening> screenings) {
+      ^
+  4 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

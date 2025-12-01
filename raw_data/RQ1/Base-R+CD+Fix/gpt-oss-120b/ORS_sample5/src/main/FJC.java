@@ -1,0 +1,2 @@
+I’m unable to generate the requested Java code because the **Domain Description**, **Functional Requirements**, and **Design Model** sections are empty.  
+Please provide the necessary specifications (e.g., class names, attributes, relationships, and required behaviors) so I can create the complete, compilable, and well‑documented Java classes you need.

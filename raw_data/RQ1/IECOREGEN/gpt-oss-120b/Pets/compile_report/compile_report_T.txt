@@ -1,0 +1,47 @@
+================================================================================
+Pets 系统编译报告
+================================================================================
+生成时间: 2025-11-27 12:58:22
+系统名称: Pets
+SystemName: pets
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] pets1
+  - 样本目录: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets1\compile
+
+[✓ PASS] pets2
+  - 样本目录: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets2\compile
+
+[✓ PASS] pets3
+  - 样本目录: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets3\compile
+
+[✓ PASS] pets4
+  - 样本目录: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets4\compile
+
+[✓ PASS] pets5
+  - 样本目录: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\gpt-oss-120b\pets5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videorental" nsURI="http://www.example/videorental" nsPrefix="videorental">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Customers select at least one video for rental. The maximum number of tapes a customer can have outstanding on the rental is 20. The customer's account number is entered to retrieve customer data and create an order. Each customer gets an id card from ABC for identification purposes. This id card has a bar code that can be read with the bar code reader. Bar code Ids for each tape are entered, and video information from inventory is displayed. The video inventory file is updated. When all tape Ids are entered, the system computes the total bill. Money is collected, and the amount is entered into the system. Change is calculated and displayed. The rental transaction is created, printed, and stored. The customer signs the rental form, takes the tapes, and leaves. The video bar code ID is entered into the system to return a tape. The rental transaction is displayed, and the tape is marked with the return date (format yyyy-MM-dd HH:mm:ss). If past-due amounts are owed, they can be paid at this time; or the clerk can select an option that updates the rental with the return date and calculates past-due fees. Any outstanding video rentals are displayed with the amount due on each tape and the total amount due. Any past-due amount must be paid before new tapes can be rented.&#xA;Function Requirement:&#xA;+ Calculate the past-due amount for a video rental. If return date ≤ due date → overdue amount = 0. If return date > due date → overdue days = (return date - due date), overdue fee = overdue days × $0.5. If the tape has not been returned (return date is null) → overdue day = current date – due date; overdue fee = overdueDays × $0.50. Dates are in &quot;yyyy-MM-dd HH:mm:ss&quot; format. Any partial day counts as a full day. Return the fee rounded to two decimal places.&#xA;&#xA;+ Check tape availability for a given date. For the given current date, a tape is unavailable if it belongs to any active rental whose return date is null. Return true if the tape is available; otherwise, false.&#xA;&#xA;+ Add a video tape rental. Verify customer has &lt;20 rentals and no past - due amount. And Verify the tape is availability. Returns true if all checks pass and the rental is processed; otherwise, returns false.&#xA;&#xA;+ Calculate the total price for a customer's rental transaction. There maybe multiple active rentals for a transaction. Each rental total price = base rental fee + overdue fee. Base rental fee = rental days × $1 per day. Any partial rental day counts as a full day. Return the total rounded to two decimal places.&#xA;&#xA;+ List unreturned tapes for a customer. Retrieves a list of all tapes id rented by a customer that have not been returned. Return an empty list if the customer has no active rentals."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eOperations name="addVedioTapeRental">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="tape" eType="//Tape"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getUnreturnedTapes" upperBound="-1" eType="//Tape">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="calculateTotalPastDueAmount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rentals" upperBound="20" eType="//VideoRental" containment="true" eOpposite="//VideoRental/customer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transactions" upperBound="-1" eType="//RentalTransaction" eOpposite="//RentalTransaction/customer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tape">
+    <eOperations name="isAvailable">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="videoInformation">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rentals" upperBound="-1" eType="//VideoRental" eOpposite="//VideoRental/tape"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VideoRental">
+    <eOperations name="calculateOwnedPastDueAmount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="calculateBaseRentalFee">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownedPastDueAmount">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tape" lowerBound="1" eType="//Tape" eOpposite="//Tape/rentals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" lowerBound="1" eType="//Customer" eOpposite="//Customer/rentals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transaction" lowerBound="1" eType="//RentalTransaction" eOpposite="//RentalTransaction/rentals"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RentalTransaction">
+    <eOperations name="calculateTotalPrice">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="currentDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+      <eParameters name="rentalDate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rentalDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rentals" upperBound="-1" eType="//VideoRental" eOpposite="//VideoRental/transaction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" lowerBound="1" eType="//Customer" eOpposite="//Customer/transactions"/>
+  </eClassifiers>
+</ecore:EPackage>

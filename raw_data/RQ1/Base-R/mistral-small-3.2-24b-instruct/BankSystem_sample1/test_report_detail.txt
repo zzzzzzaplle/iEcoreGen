@@ -1,0 +1,37 @@
+============================================================
+BankSystem - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-23 01:38:23
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:57: 错误: 找不到符号
+                  if (account.getBalance() == 0 && account.getStockTransactions().isEmpty()) {
+                                                          ^
+    符号:   方法 getStockTransactions()
+    位置: 类型为Account的变量 account
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:122: 错误: balance 在 Account 中是 private 访问控制
+          double dailyInterest = (balance * interestRate) / 360;
+                                  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:123: 错误: balance 在 Account 中是 private 访问控制
+          balance += Math.round(dailyInterest * 100) / 100.0;
+          ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:154: 错误: balance 在 Account 中是 private 访问控制
+          if (balance < totalCost) {
+              ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:158: 错误: balance 在 Account 中是 private 访问控制
+          balance -= totalCost;
+          ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\BankSystem_sample1\src\main\FJC.java:172: 错误: balance 在 Account 中是 private 访问控制
+          double totalValue = balance;
+                              ^
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

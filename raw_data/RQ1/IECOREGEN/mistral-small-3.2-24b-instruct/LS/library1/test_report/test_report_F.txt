@@ -1,0 +1,67 @@
+================================================================================
+library1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:20:26
+样本名称: library1
+总测试数: 20
+通过: 17
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_SingleUserBorrowingCalculationForGuest(edu.library.library1.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 2 expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library1.test.CR2Test.testCase2_SingleUserBorrowingCalculationForGuest(CR2Test.java:120)
+  2) testCase1_SingleUserBorrowingCalculationForMember(edu.library.library1.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 2 expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library1.test.CR2Test.testCase1_SingleUserBorrowingCalculationForMember(CR2Test.java:78)
+  3) testCase5_MultipleUsersWithDifferentBorrowingActivities(edu.library.library1.test.CR2Test)
+  java.lang.AssertionError: Total unique books borrowed by U005 should be 2 expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library1.test.CR2Test.testCase5_MultipleUsersWithDifferentBorrowingActivities(CR2Test.java:239)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 17
+失败: 3
+成功率: 85.0%
+================================================================================

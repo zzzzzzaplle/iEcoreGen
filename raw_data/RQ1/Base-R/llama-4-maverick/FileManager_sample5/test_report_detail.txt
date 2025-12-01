@@ -1,0 +1,86 @@
+============================================================
+FileManager - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-23 18:53:09
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_largeNumberOfDocumentsForOneEditor(CR2Test)
+  java.time.DateTimeException: Invalid value for DayOfMonth (valid values 1 - 28/31): 32
+  	at java.base/java.time.temporal.ValueRange.checkValidValue(ValueRange.java:319)
+  	at java.base/java.time.temporal.ChronoField.checkValidValue(ChronoField.java:718)
+  	at java.base/java.time.LocalDate.of(LocalDate.java:274)
+  	at CR2Test.testCase5_largeNumberOfDocumentsForOneEditor(CR2Test.java:118)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_CountDocumentsWithAllEditorsUsed(CR4Test)
+  org.junit.ComparisonFailure: expected:<[TextEditor: 2, ImageEditor: 1, VideoEditor: 1]> but was:<[ImageEditor: 1, VideoEditor: 1, TextEditor: 2]>
+  	at org.junit.Assert.assertEquals(Assert.java:117)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase5_CountDocumentsWithAllEditorsUsed(CR4Test.java:105)
+  2) testCase3_CountDocumentsAfterRemoval(CR4Test)
+  org.junit.ComparisonFailure: expected:<[TextEditor: 1, Video]Editor: 1> but was:<[VideoEditor: 1, Text]Editor: 1>
+  	at org.junit.Assert.assertEquals(Assert.java:117)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:74)
+  3) testCase1_CountDocumentsWithMixedEditorTypes(CR4Test)
+  org.junit.ComparisonFailure: expected:<[TextEditor: 1, ImageEditor: 1, Video]Editor: 1> but was:<[ImageEditor: 1, VideoEditor: 1, Text]Editor: 1>
+  	at org.junit.Assert.assertEquals(Assert.java:117)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase1_CountDocumentsWithMixedEditorTypes(CR4Test.java:37)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

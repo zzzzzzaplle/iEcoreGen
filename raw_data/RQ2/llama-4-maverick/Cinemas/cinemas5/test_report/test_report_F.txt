@@ -1,0 +1,85 @@
+================================================================================
+cinemas5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:11:09
+样本名称: cinemas5
+总测试数: 31
+通过: 28
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 6
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase6_AssignToNonExistentRoom(edu.cinemas.cinemas5.test.CR5Test)
+  java.lang.AssertionError: Should not assign screening to non-existent room
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.cinemas.cinemas5.test.CR5Test.testCase6_AssignToNonExistentRoom(CR5Test.java:148)
+  2) testCase4_AssignScreeningAtCurrentTimeBoundary(edu.cinemas.cinemas5.test.CR5Test)
+  java.lang.AssertionError: Should not assign screening at current time boundary
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.cinemas.cinemas5.test.CR5Test.testCase4_AssignScreeningAtCurrentTimeBoundary(CR5Test.java:111)
+  
+  FAILURES!!!
+  Tests run: 6,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CancelAtExactScreeningTimeBoundary(edu.cinemas.cinemas5.test.CR6Test)
+  java.lang.AssertionError: Screening at exact time boundary should not be canceled
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.cinemas.cinemas5.test.CR6Test.testCase3_CancelAtExactScreeningTimeBoundary(CR6Test.java:100)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 31
+通过: 28
+失败: 3
+成功率: 90.3%
+================================================================================

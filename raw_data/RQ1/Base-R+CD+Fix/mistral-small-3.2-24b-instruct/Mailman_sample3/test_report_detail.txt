@@ -1,0 +1,117 @@
+============================================================
+Mailman - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-24 16:42:54
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test)
+  java.util.ConcurrentModificationException
+  	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1095)
+  	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1049)
+  	at GeographicalArea.removeInhabitant(FJC.java:162)
+  	at CR2Test.testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test.java:155)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_RemoveInhabitantWithAssignedMail(CR3Test)
+  java.lang.AssertionError: Paul should have assigned mail before removal
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at CR3Test.testCase2_RemoveInhabitantWithAssignedMail(CR3Test.java:68)
+  2) testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test)
+  java.lang.AssertionError: Rachel should have assigned mail before removal
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at CR3Test.testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test.java:138)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_StressTestWithMaximumReassignments(CR4Test)
+  java.lang.AssertionError: Alpha removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase5_StressTestWithMaximumReassignments(CR4Test.java:273)
+  2) testCase3_FailedRemovalEdgeCases(CR4Test)
+  java.lang.AssertionError: Paul removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase3_FailedRemovalEdgeCases(CR4Test.java:180)
+  3) testCase2_CascadingMailmanRemovalWithDependencies(CR4Test)
+  java.lang.AssertionError: Yvonne removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase2_CascadingMailmanRemovalWithDependencies(CR4Test.java:149)
+  4) testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test)
+  java.lang.AssertionError: Alice removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test.java:103)
+  5) testCase4_MixedSuccessfulAndFailedOperations(CR4Test)
+  java.lang.AssertionError: Mario removal should be successful
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase4_MixedSuccessfulAndFailedOperations(CR4Test.java:216)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

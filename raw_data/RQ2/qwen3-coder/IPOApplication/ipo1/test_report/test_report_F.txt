@@ -1,0 +1,65 @@
+================================================================================
+ipo1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:09:40
+样本名称: ipo1
+总测试数: 26
+通过: 24
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 6
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_ApproveAlreadyApprovedRecord(edu.ipo.ipo1.test.CR2Test)
+  java.lang.AssertionError: Approval should fail for already approved application
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.ipo.ipo1.test.CR2Test.testCase3_ApproveAlreadyApprovedRecord(CR2Test.java:190)
+  2) testCase4_RejectAlreadyRejectedRecord(edu.ipo.ipo1.test.CR2Test)
+  java.lang.AssertionError: Rejection should fail for already rejected application
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.ipo.ipo1.test.CR2Test.testCase4_RejectAlreadyRejectedRecord(CR2Test.java:206)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 26
+通过: 24
+失败: 2
+成功率: 92.3%
+================================================================================

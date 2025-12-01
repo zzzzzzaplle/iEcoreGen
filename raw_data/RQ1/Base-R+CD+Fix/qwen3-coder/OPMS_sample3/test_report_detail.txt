@@ -1,0 +1,53 @@
+============================================================
+OPMS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-25 03:14:07
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\OPMS_sample3\src\test\CR1Test.java:30: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\OPMS_sample3\src\test\CR1Test.java:38: 错误: Project是抽象的; 无法实例化
+          Project project2 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\OPMS_sample3\src\test\CR1Test.java:64: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\OPMS_sample3\src\test\CR1Test.java:76: 错误: Project是抽象的; 无法实例化
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 3/4
+- 测试通过: 3/3
+- 测试失败: 0/3
+============================================================

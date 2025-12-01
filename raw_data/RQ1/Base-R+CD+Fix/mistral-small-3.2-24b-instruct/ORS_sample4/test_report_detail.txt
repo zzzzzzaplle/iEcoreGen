@@ -1,0 +1,131 @@
+============================================================
+ORS - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-24 17:49:31
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_Exact24HourBoundaryForDiscount(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:91)
+  2) testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:41)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_partialMonthInclusion(CR4Test)
+  java.lang.AssertionError: expected:<15> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR4Test.testCase3_partialMonthInclusion(CR4Test.java:117)
+  2) testCase1_pointsCalculationWithMultipleBookings(CR4Test)
+  java.lang.AssertionError: expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR4Test.testCase1_pointsCalculationWithMultipleBookings(CR4Test.java:61)
+  3) testCase4_multipleSeatsEdgeCase(CR4Test)
+  java.lang.AssertionError: expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR4Test.testCase4_multipleSeatsEdgeCase(CR4Test.java:140)
+  4) testCase5_largeSeatQuantity(CR4Test)
+  java.lang.AssertionError: expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR4Test.testCase5_largeSeatQuantity(CR4Test.java:186)
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_completeTimeEnclosureRejection(CR5Test)
+  java.lang.AssertionError: Trip completely enclosed within existing trip should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase4_completeTimeEnclosureRejection(CR5Test.java:91)
+  2) testCase2_postingDeniedDueToTimeConflict(CR5Test)
+  java.lang.AssertionError: Trip with time conflict should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase2_postingDeniedDueToTimeConflict(CR5Test.java:53)
+  3) testCase5_multipleExistingTripComparison(CR5Test)
+  java.lang.AssertionError: Trip overlapping with multiple existing trips should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase5_multipleExistingTripComparison(CR5Test.java:121)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

@@ -1,0 +1,47 @@
+================================================================================
+OPMS 系统编译报告
+================================================================================
+生成时间: 2025-11-24 22:22:25
+系统名称: OPMS
+SystemName: project
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] project1
+  - 样本目录: D:\EclipseWorkspace\OPMS\woCompression\project1
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woCompression\project1\compile
+
+[✓ PASS] project2
+  - 样本目录: D:\EclipseWorkspace\OPMS\woCompression\project2
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woCompression\project2\compile
+
+[✓ PASS] project3
+  - 样本目录: D:\EclipseWorkspace\OPMS\woCompression\project3
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woCompression\project3\compile
+
+[✓ PASS] project4
+  - 样本目录: D:\EclipseWorkspace\OPMS\woCompression\project4
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woCompression\project4\compile
+
+[✓ PASS] project5
+  - 样本目录: D:\EclipseWorkspace\OPMS\woCompression\project5
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woCompression\project5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

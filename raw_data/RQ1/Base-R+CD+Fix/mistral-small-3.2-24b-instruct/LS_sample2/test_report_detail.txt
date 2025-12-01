@@ -1,0 +1,75 @@
+============================================================
+LS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 08:41:45
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_OverlappingCheckoutPeriod(CR2Test)
+  java.lang.AssertionError: Total unique books borrowed should be 1 expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase4_OverlappingCheckoutPeriod(CR2Test.java:178)
+  2) testCase5_MultipleUsersWithDifferentBorrowingActivities(CR2Test)
+  java.lang.AssertionError: Total unique books borrowed by U005 should be 2 expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase5_MultipleUsersWithDifferentBorrowingActivities(CR2Test.java:238)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\mistral-small-3.2-24b-instruct\LS_sample2\src\test\CR4Test.java:91: 错误: 找不到符号
+          librarySystem.addUser(userM001);
+                       ^
+    符号:   方法 addUser(User)
+    位置: 类型为LibrarySystem的变量 librarySystem
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\mistral-small-3.2-24b-instruct\LS_sample2\src\test\CR4Test.java:92: 错误: 找不到符号
+          librarySystem.addUser(userM002);
+                       ^
+    符号:   方法 addUser(User)
+    位置: 类型为LibrarySystem的变量 librarySystem
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 3/4
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

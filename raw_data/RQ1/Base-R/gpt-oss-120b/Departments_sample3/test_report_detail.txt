@@ -1,0 +1,37 @@
+============================================================
+Departments - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-22 00:47:43
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:4: 错误: 需要<标识符>
+  import.
+        ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:5: 错误: 需要';'
+   */
+    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:32: 错误: 非法的表达式开始
+   ----------------------- */
+                           ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:32: 错误: 非法的表达式开始
+   ----------------------- */
+                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:39: 错误: 非法的表达式开始
+      public void addDepartment(Department department) {
+      ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:50: 错误: 需要',', ')'或'['
+      public void addEmployee(Employee employee            employees.add(employee);
+                                               ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Departments_sample3\src\main\FJC.java:52: 错误: 需要 class、interface、enum 或 record
+      }
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

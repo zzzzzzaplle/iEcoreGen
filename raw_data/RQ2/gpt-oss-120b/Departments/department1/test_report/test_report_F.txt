@@ -1,0 +1,86 @@
+================================================================================
+department1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:00:58
+样本名称: department1
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_DeleteDepartmentWithOnlyOffices(edu.department.department1.test.CR3Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.deleteDepartment(Company.java:262)
+  	at edu.department.department1.test.CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:111)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase1_CheckDepartmentWithAssignedManager(edu.department.department1.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.contains(Object)" because "this.departments" is null
+  	at edu.department.Company.addDepartment(Company.java:159)
+  	at edu.department.department1.test.CR4Test.testCase1_CheckDepartmentWithAssignedManager(CR4Test.java:28)
+  2) testCase3_CheckAfterManagerRemoval(edu.department.department1.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.contains(Object)" because "this.departments" is null
+  	at edu.department.Company.addDepartment(Company.java:159)
+  	at edu.department.department1.test.CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:60)
+  3) testCase2_CheckManagerlessDepartment(edu.department.department1.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.contains(Object)" because "this.departments" is null
+  	at edu.department.Company.addDepartment(Company.java:159)
+  	at edu.department.department1.test.CR4Test.testCase2_CheckManagerlessDepartment(CR4Test.java:47)
+  4) testCase5_CheckRecentlyAssignedManager(edu.department.department1.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.contains(Object)" because "this.departments" is null
+  	at edu.department.Company.addDepartment(Company.java:159)
+  	at edu.department.department1.test.CR4Test.testCase5_CheckRecentlyAssignedManager(CR4Test.java:99)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

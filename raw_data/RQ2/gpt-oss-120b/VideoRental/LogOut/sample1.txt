@@ -1,0 +1,2147 @@
+   *   - this.rentals contains at least one VideoRental.
+   *   - rentalDate is the same as this.rentalDate (or passed consistently).
+   * Post‑condition:
+   *   - this.totalPrice reflects the computed amount (if the implementation
+   *     chooses to store it).
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPrice(final Date currentDate, final Date rentalDate)
+  {
+    double total = 0.0;
+    // Assuming rentals list has been initialized and contains VideoRental objects.
+    for (VideoRental r : getRentals()) {
+      double baseFee = r.calculateBaseRentalFee(currentDate);
+      double overdueFee = r.calculateOwnedPastDueAmount(currentDate);
+      total += baseFee + overdueFee;
+    }
+    // Round to two decimal places
+    total = Math.round(total * 100.0) / 100.0;
+    // Store the computed total price in the attribute (optional side‑effect)
+    setTotalPrice(total);
+    return total;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // RentalTransaction
+461408 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../VideoRental/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../VideoRental/src-gen/edu/videorental/
+461529 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+461529 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+461529 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+461529 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+461530 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample4.mwe2 启动完成
+正在拷贝 src-gen/edu/videorental 到 gpt-oss-120b/videorental4...
+拷贝完成！
+
+======================================
+正在启动 sample5.mwe2...
+======================================
+461804 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+461891 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project VideoRental at 'file:/D:/EclipseWorkspace/VideoRental/'
+461894 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+461901 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@4fda9835
+461902 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+461903 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+461905 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Customers select at least one video for rental. The maximum number of tapes a customer can have outstanding on the rental is 20. The customer's account number is entered to retrieve customer data and create an order. Each customer gets an id card from ABC for identification purposes. This id card has a bar code that can be read with the bar code reader. Bar code Ids for each tape are entered, and video information from inventory is displayed. The video inventory file is updated. When all tape Ids are entered, the system computes the total bill. Money is collected, and the amount is entered into the system. Change is calculated and displayed. The rental transaction is created, printed, and stored. The customer signs the rental form, takes the tapes, and leaves. The video bar code ID is entered into the system to return a tape. The rental transaction is displayed, and the tape is marked with the return date (format yyyy-MM-dd HH:mm:ss). If past-due amounts are owed, they can be paid at this time; or the clerk can select an option that updates the rental with the return date and calculates past-due fees. Any outstanding video rentals are displayed with the amount due on each tape and the total amount due. Any past-due amount must be paid before new tapes can be rented.
+Function Requirement:
++ Calculate the past-due amount for a video rental. If return date ≤ due date → overdue amount = 0. If return date > due date → overdue days = (return date - due date), overdue fee = overdue days × $0.5. If the tape has not been returned (return date is null) → overdue day = current date – due date; overdue fee = overdueDays × $0.50. Dates are in "yyyy-MM-dd HH:mm:ss" format. Any partial day counts as a full day. Return the fee rounded to two decimal places.
+
++ Check tape availability for a given date. For the given current date, a tape is unavailable if it belongs to any active rental whose return date is null. Return true if the tape is available; otherwise, false.
+
++ Add a video tape rental. Verify customer has <20 rentals and no past - due amount. And Verify the tape is availability. Returns true if all checks pass and the rental is processed; otherwise, returns false.
+
++ Calculate the total price for a customer's rental transaction. There maybe multiple active rentals for a transaction. Each rental total price = base rental fee + overdue fee. Base rental fee = rental days × $1 per day. Any partial rental day counts as a full day. Return the total rounded to two decimal places.
+
++ List unreturned tapes for a customer. Retrieves a list of all tapes id rented by a customer that have not been returned. Return an empty list if the customer has no active rentals.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title videorental Model
+
+class Customer {
+    id : String
+    rentals : List<VideoRental>
+    transactions : List<RentalTransaction>
+    addVedioTapeRental(tape : Tape, currentDate : EDate) : boolean
+    calculateTotalPastDueAmount(currentDate : EDate) : double
+    getUnreturnedTapes() : List<Tape>
+}
+class RentalTransaction {
+    rentalDate : EDate
+    totalPrice : double
+    customer : Customer
+    rentals : List<VideoRental>
+    calculateTotalPrice(currentDate : EDate, rentalDate : EDate) : double
+}
+class Tape {
+    id : String
+    videoInformation : String
+    rentals : List<VideoRental>
+    isAvailable(currentDate : EDate) : boolean
+}
+class VideoRental {
+    dueDate : EDate
+    ownedPastDueAmount : double
+    returnDate : EDate
+    customer : Customer
+    tape : Tape
+    transaction : RentalTransaction
+    calculateBaseRentalFee(currentDate : EDate) : double
+    calculateOwnedPastDueAmount(currentDate : EDate) : double
+}
+
+Customer *-- "*" VideoRental : rentals  'opposite: customer
+Customer --> "*" RentalTransaction : transactions  'opposite: customer
+RentalTransaction --> Customer : customer  'opposite: transactions
+RentalTransaction --> "*" VideoRental : rentals  'opposite: transaction
+Tape --> "*" VideoRental : rentals  'opposite: tape
+VideoRental --> Customer : customer  'opposite: rentals
+VideoRental --> Tape : tape  'opposite: rentals
+VideoRental --> RentalTransaction : transaction  'opposite: rentals
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+501891 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@6180eb8 (name: getUnreturnedTapes) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary:
+  Retrieves a list containing all Tape objects that the customer has rented
+  but not yet returned (i.e., rentals whose returnDate is null).
+Algorithm:
+  1. result ← empty List<Tape>
+  2. FOR each rental IN this.rentals DO
+       IF rental.returnDate = null THEN
+           result.add(rental.tape)
+       END IF
+     END FOR
+  3. RETURN result
+Input:
+  - none
+Output:
+  - List<Tape>                 // may be empty if no active rentals
+Pre‑condition:
+  - none
+Post‑condition:
+  - The returned list reflects the current state of the customer's rentals., org.eclipse.emf.ecore.impl.EOperationImpl@70d5b235 (name: calculateTotalPrice) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Calculates the total price of the transaction by summing, for each
+  associated VideoRental, its base rental fee plus any overdue fee.
+  The total is rounded to two decimal places and stored in
+  this.totalPrice.
+Algorithm:
+  1. Preconditions: currentDate ≠ null,
+     rentalDate ≠ null (parameter may be used for base fee if needed).
+  2. total ← 0.0
+  3. FOR each rental IN this.rentals DO
+       baseFee   ← rental.calculateBaseRentalFee(currentDate)
+       overdueFee← rental.calculateOwnedPastDueAmount(currentDate)
+       total ← total + baseFee + overdueFee
+     END FOR
+  4. this.totalPrice ← round(total, 2)
+  5. RETURN this.totalPrice
+Input:
+  - currentDate : EDate        // date up to which fees are evaluated
+  - rentalDate  : EDate        // start date of the transaction (may be redundant)
+Output:
+  - double                     // total transaction price, rounded to two decimals
+Pre‑condition:
+  - Both dates are non‑null and correctly formatted.
+Post‑condition:
+  - this.totalPrice is updated to reflect the computed amount., org.eclipse.emf.ecore.impl.EOperationImpl@3cde655c (name: calculateBaseRentalFee) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Calculates the base rental fee for this video rental based on the number
+  of rental days elapsed from the transaction's rentalDate up to currentDate.
+  Each day (or any part thereof) costs $1.00.
+Algorithm:
+  1. Preconditions: currentDate ≠ null, this.transaction ≠ null,
+     this.transaction.rentalDate ≠ null.
+  2. elapsedMillis ← currentDate.timestamp – this.transaction.rentalDate.timestamp
+  3. days ← ceil(elapsedMillis / (1000 * 60 * 60 * 24))
+     // any partial day counts as a full day; if elapsedMillis ≤ 0, days ← 1
+  4. fee ← days * 1.0
+  5. RETURN round(fee, 2)
+Input:
+  - currentDate : EDate        // date for which the fee is computed
+Output:
+  - double                     // base rental fee, rounded to two decimals
+Pre‑condition:
+  - currentDate, transaction and its rentalDate are non‑null.
+Post‑condition:
+  - No state change., org.eclipse.emf.ecore.impl.EOperationImpl@36fe079c (name: calculateOwnedPastDueAmount) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Computes the overdue fee for this rental as of currentDate.
+  - If returnDate is set and ≤ dueDate → overdue fee = 0.
+  - If returnDate is set and > dueDate → overdue fee = overdueDays × $0.50.
+  - If still unreturned (returnDate = null) → use currentDate as effective date.
+  Partial days are rounded up; result rounded to two decimals.
+Algorithm:
+  1. Preconditions: currentDate ≠ null, this.dueDate ≠ null.
+  2. effectiveDate ← (this.returnDate ≠ null) ? this.returnDate : currentDate
+  3. IF effectiveDate ≤ this.dueDate THEN
+       overdueDays ← 0
+     ELSE
+       diffMillis ← effectiveDate.timestamp – this.dueDate.timestamp
+       overdueDays ← ceil(diffMillis / (1000 * 60 * 60 * 24))
+     END IF
+  4. fee ← overdueDays * 0.5
+  5. RETURN round(fee, 2)
+Input:
+  - currentDate : EDate        // reference date for overdue calculation
+Output:
+  - double                     // overdue fee, rounded to two decimals
+Pre‑condition:
+  - currentDate and dueDate are valid dates.
+Post‑condition:
+  - No modification of rental data., org.eclipse.emf.ecore.impl.EOperationImpl@19d27f04 (name: calculateTotalPastDueAmount) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Returns the sum of all overdue fees for the customer's rentals as of
+  the supplied current date. Overdue fees are computed per rental by
+  VideoRental.calculateOwnedPastDueAmount.
+Algorithm:
+  1. Preconditions: currentDate ≠ null.
+  2. total ← 0.0
+  3. FOR each rental IN this.rentals DO
+       fee ← rental.calculateOwnedPastDueAmount(currentDate)
+       total ← total + fee
+     END FOR
+  4. RETURN round(total, 2)
+Input:
+  - currentDate : EDate        // reference date for overdue calculation
+Output:
+  - double                     // total past‑due amount, rounded to two decimals
+Pre‑condition:
+  - currentDate is a valid EDate.
+Post‑condition:
+  - No state of the Customer or its rentals is modified., org.eclipse.emf.ecore.impl.EOperationImpl@655966a1 (name: addVedioTapeRental) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Attempts to create a new video tape rental for this customer.
+  The operation succeeds only if the customer currently has fewer than
+  20 active (unreturned) rentals, has no outstanding past‑due amount,
+  and the requested tape is available on the given date.
+Algorithm:
+  1. Preconditions: tape ≠ null, currentDate ≠ null.
+  2. Count active rentals:
+       activeCount ← number of rentals in this.rentals where rental.returnDate = null
+       IF activeCount ≥ 20 → RETURN false.
+  3. Compute total past‑due amount:
+       pastDue ← this.calculateTotalPastDueAmount(currentDate)
+       IF pastDue > 0.0 → RETURN false.
+  4. Verify tape availability:
+       IF NOT tape.isAvailable(currentDate) → RETURN false.
+  5. Create new VideoRental instance r:
+       r.customer   ← this
+       r.tape       ← tape
+       r.transaction← null   // will be linked later when a RentalTransaction is created
+       r.dueDate    ← computeDueDate(currentDate)   // business rule (e.g., +7 days)
+       r.returnDate ← null
+       r.ownedPastDueAmount ← 0.0
+  6. Add r to collections:
+       this.rentals.add(r)
+       tape.rentals.add(r)
+  7. RETURN true.
+Input:
+  - tape : Tape                // tape to be rented, must exist in inventory
+  - currentDate : EDate        // date‑time of the rental request, format "yyyy-MM-dd HH:mm:ss"
+Output:
+  - boolean                    // true if rental processed, false otherwise
+Pre‑condition:
+  - tape and currentDate are not null.
+Post‑condition:
+  - If true is returned, a new active VideoRental linking the customer and tape
+    is present in both Customer.rentals and Tape.rentals., org.eclipse.emf.ecore.impl.EOperationImpl@121c65d0 (name: isAvailable) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Determines whether the tape can be rented on the supplied current date.
+  A tape is unavailable if it belongs to any active rental (returnDate is null).
+Algorithm:
+  1. Preconditions: currentDate ≠ null.
+  2. FOR each rental IN this.rentals DO
+       IF rental.returnDate = null THEN
+           RETURN false            // tape is currently on loan
+       END IF
+     END FOR
+  3. RETURN true                 // no active rentals found
+Input:
+  - currentDate : EDate        // date for which availability is checked
+Output:
+  - boolean                    // true → available; false → unavailable
+Pre‑condition:
+  - currentDate is a valid EDate.
+Post‑condition:
+  - No modification of Tape state.}
+501894 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+501930 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../VideoRental/src-gen/edu/videorental
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.Customer#getId <em>Id</em>}</li>
+ *   <li>{@link edu.videorental.Customer#getRentals <em>Rentals</em>}</li>
+ *   <li>{@link edu.videorental.Customer#getTransactions <em>Transactions</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected EList<RentalTransaction> transactions;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { ... /* omitted */ }
+
+  public EList<RentalTransaction> getTransactions()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Attempts to create a new video tape rental for this customer.
+   *   The operation succeeds only if the customer currently has fewer than
+   *   20 active (unreturned) rentals, has no outstanding past‑due amount,
+   *   and the requested tape is available on the given date.
+   * Algorithm:
+   *   1. Preconditions: tape ≠ null, currentDate ≠ null.
+   *   2. Count active rentals:
+   *        activeCount ← number of rentals in this.rentals where rental.returnDate = null
+   *        IF activeCount ≥ 20 → RETURN false.
+   *   3. Compute total past‑due amount:
+   *        pastDue ← this.calculateTotalPastDueAmount(currentDate)
+   *        IF pastDue > 0.0 → RETURN false.
+   *   4. Verify tape availability:
+   *        IF NOT tape.isAvailable(currentDate) → RETURN false.
+   *   5. Create new VideoRental instance r:
+   *        r.customer   ← this
+   *        r.tape       ← tape
+   *        r.transaction← null   // will be linked later when a RentalTransaction is created
+   *        r.dueDate    ← computeDueDate(currentDate)   // business rule (e.g., +7 days)
+   *        r.returnDate ← null
+   *        r.ownedPastDueAmount ← 0.0
+   *   6. Add r to collections:
+   *        this.rentals.add(r)
+   *        tape.rentals.add(r)
+   *   7. RETURN true.
+   * Input:
+   *   - tape : Tape                // tape to be rented, must exist in inventory
+   *   - currentDate : EDate        // date‑time of the rental request, format "yyyy-MM-dd HH:mm:ss"
+   * Output:
+   *   - boolean                    // true if rental processed, false otherwise
+   * Pre‑condition:
+   *   - tape and currentDate are not null.
+   * Post‑condition:
+   *   - If true is returned, a new active VideoRental linking the customer and tape
+   *     is present in both Customer.rentals and Tape.rentals.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean addVedioTapeRental(final Tape tape, final Date currentDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Retrieves a list containing all Tape objects that the customer has rented
+   *   but not yet returned (i.e., rentals whose returnDate is null).
+   * Algorithm:
+   *   1. result ← empty List<Tape>
+   *   2. FOR each rental IN this.rentals DO
+   *        IF rental.returnDate = null THEN
+   *            result.add(rental.tape)
+   *        END IF
+   *      END FOR
+   *   3. RETURN result
+   * Input:
+   *   - none
+   * Output:
+   *   - List<Tape>                 // may be empty if no active rentals
+   * Pre‑condition:
+   *   - none
+   * Post‑condition:
+   *   - The returned list reflects the current state of the customer's rentals.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Tape> getUnreturnedTapes()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the sum of all overdue fees for the customer's rentals as of
+   *   the supplied current date. Overdue fees are computed per rental by
+   *   VideoRental.calculateOwnedPastDueAmount.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null.
+   *   2. total ← 0.0
+   *   3. FOR each rental IN this.rentals DO
+   *        fee ← rental.calculateOwnedPastDueAmount(currentDate)
+   *        total ← total + fee
+   *      END FOR
+   *   4. RETURN round(total, 2)
+   * Input:
+   *   - currentDate : EDate        // reference date for overdue calculation
+   * Output:
+   *   - double                     // total past‑due amount, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate is a valid EDate.
+   * Post‑condition:
+   *   - No state of the Customer or its rentals is modified.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateTotalPastDueAmount(final Date currentDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Customer
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `VideoRental` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createVideoRental()`
+  + Public methods: public double calculateOwnedPastDueAmount(final Date currentDate), public double calculateBaseRentalFee(final Date currentDate)
+  + Getter methods: public Date getDueDate(), public Date getReturnDate(), public double getOwnedPastDueAmount(), public Tape getTape(), public Customer getCustomer(), public RentalTransaction getTransaction()
+  + Setter methods: public void setDueDate(Date newDueDate), public void setReturnDate(Date newReturnDate), public void setOwnedPastDueAmount(double newOwnedPastDueAmount), public void setTape(Tape newTape), public void setCustomer(Customer newCustomer), public void setTransaction(RentalTransaction newTransaction)
+- Class `RentalTransaction` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createRentalTransaction()`
+  + Public methods: public double calculateTotalPrice(final Date currentDate, final Date rentalDate)
+  + Getter methods: public Date getRentalDate(), public double getTotalPrice(), public EList<VideoRental> getRentals(), public Customer getCustomer()
+  + Setter methods: public void setRentalDate(Date newRentalDate), public void setTotalPrice(double newTotalPrice), public void setCustomer(Customer newCustomer)
+- Class `Tape` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createTape()`
+  + Public methods: public boolean isAvailable(final Date currentDate)
+  + Getter methods: public String getId(), public String getVideoInformation(), public EList<VideoRental> getRentals()
+  + Setter methods: public void setId(String newId), public void setVideoInformation(String newVideoInformation)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Calendar;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.BasicEList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.Customer#getId <em>Id</em>}</li>
+ *   <li>{@link edu.videorental.Customer#getRentals <em>Rentals</em>}</li>
+ *   <li>{@link edu.videorental.Customer#getTransactions <em>Transactions</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected EList<RentalTransaction> transactions;
+
+  protected Customer()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getId()
+  { /* omitted */ }
+
+  public void setId(String newId)
+  { /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { /* omitted */ }
+
+  public EList<RentalTransaction> getTransactions()
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Attempts to create a new video tape rental for this customer.
+   *   The operation succeeds only if the customer currently has fewer than
+   *   20 active (unreturned) rentals, has no outstanding past‑due amount,
+   *   and the requested tape is available on the given date.
+   * Algorithm:
+   *   1. Preconditions: tape ≠ null, currentDate ≠ null.
+   *   2. Count active rentals:
+   *        activeCount ← number of rentals in this.rentals where rental.returnDate = null
+   *        IF activeCount ≥ 20 → RETURN false.
+   *   3. Compute total past‑due amount:
+   *        pastDue ← this.calculateTotalPastDueAmount(currentDate)
+   *        IF pastDue > 0.0 → RETURN false.
+   *   4. Verify tape availability:
+   *        IF NOT tape.isAvailable(currentDate) → RETURN false.
+   *   5. Create new VideoRental instance r:
+   *        r.customer   ← this
+   *        r.tape       ← tape
+   *        r.transaction← null   // will be linked later when a RentalTransaction is created
+   *        r.dueDate    ← computeDueDate(currentDate)   // business rule (e.g., +7 days)
+   *        r.returnDate ← null
+   *        r.ownedPastDueAmount ← 0.0
+   *   6. Add r to collections:
+   *        this.rentals.add(r)
+   *        tape.rentals.add(r)
+   *   7. RETURN true.
+   * Input:
+   *   - tape : Tape                // tape to be rented, must exist in inventory
+   *   - currentDate : EDate        // date‑time of the rental request, format "yyyy-MM-dd HH:mm:ss"
+   * Output:
+   *   - boolean                    // true if rental processed, false otherwise
+   * Pre‑condition:
+   *   - tape and currentDate are not null.
+   * Post‑condition:
+   *   - If true is returned, a new active VideoRental linking the customer and tape
+   *     is present in both Customer.rentals and Tape.rentals.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addVedioTapeRental(final Tape tape, final Date currentDate)
+  {
+    // Preconditions
+    if (tape == null || currentDate == null) {
+      return false;
+    }
+
+    // 2. Count active rentals
+    int activeCount = 0;
+    for (VideoRental rental : getRentals()) {
+      if (rental.getReturnDate() == null) {
+        activeCount++;
+      }
+    }
+    if (activeCount >= 20) {
+      return false;
+    }
+
+    // 3. Compute total past‑due amount
+    double pastDue = this.calculateTotalPastDueAmount(currentDate);
+    if (pastDue > 00) {
+      return false;
+    }
+
+    // 4. Verify tape availability
+    if (!tape.isAvailable(currentDate)) {
+      return false;
+    }
+
+    // 5. Create new VideoRental instance
+    VideoRental r = VideorentalFactory.eINSTANCE.createVideoRental();
+    r.setCustomer(this);
+    r.setTape(tape);
+    r.setTransaction(null);
+    // compute due date (+7 days)
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(currentDate);
+    cal.add(Calendar.DAY_OF_MONTH, 7);
+    Date dueDate = cal.getTime();
+    r.setDueDate(dueDate);
+    r.setReturnDate(null);
+    r.setOwnedPastDueAmount(0.0);
+
+    // 6. Add to collections
+    getRentals().add(r);
+    tape.getRentals().add(r);
+
+    // 7. Success
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Retrieves a list containing all Tape objects that the customer has rented
+   *   but not yet returned (i.e., rentals whose returnDate is null).
+   * Algorithm:
+   *   1. result ← empty List<Tape>
+   *   2. FOR each rental IN this.rentals DO
+   *        IF rental.returnDate = null THEN
+   *            result.add(rental.tape)
+   *        END IF
+   *      END FOR
+   *   3. RETURN result
+   * Input:
+   *   - none
+   * Output:
+   *   - List<Tape>                 // may be empty if no active rentals
+   * Pre‑condition:
+   *   - none
+   * Post‑condition:
+   *   - The returned list reflects the current state of the customer's rentals.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Tape> getUnreturnedTapes()
+  {
+    EList<Tape> result = new BasicEList<>();
+    for (VideoRental rental : getRentals()) {
+      if (rental.getReturnDate() == null) {
+        result.add(rental.getTape());
+      }
+    }
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the sum of all overdue fees for the customer's rentals as of
+   *   the supplied current date. Overdue fees are computed per rental by
+   *   VideoRental.calculateOwnedPastDueAmount.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null.
+   *   2. total ← 0.0
+   *   3. FOR each rental IN this.rentals DO
+   *        fee ← rental.calculateOwnedPastDueAmount(currentDate)
+   *        total ← total + fee
+   *      END FOR
+   *   4. RETURN round(total, 2)
+   * Input:
+   *   - currentDate : EDate        // reference date for overdue calculation
+   * Output:
+   *   - double                     // total past‑due amount, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate is a valid EDate.
+   * Post‑condition:
+   *   - No state of the Customer or its rentals is modified.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPastDueAmount(final Date currentDate)
+  {
+    if (currentDate == null) {
+      return 0.0;
+    }
+    double total = 0.0;
+    for (VideoRental rental : getRentals()) {
+      double fee = rental.calculateOwnedPastDueAmount(currentDate);
+      total += fee;
+    }
+    // round to two decimal places
+    total = Math.round(total * 100.0) / 100.0;
+    return total;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Customer
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Tape</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.Tape#getId <em>Id</em>}</li>
+ *   <li>{@link edu.videorental.Tape#getVideoInformation <em>Video Information</em>}</li>
+ *   <li>{@link edu.videorental.Tape#getRentals <em>Rentals</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getTape()
+ * @model kind="class"
+ * @generated
+ */
+public class Tape extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String VIDEO_INFORMATION_EDEFAULT = null;
+
+  protected String videoInformation = VIDEO_INFORMATION_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected Tape()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getVideoInformation()
+  { ... /* omitted */ }
+
+  public void setVideoInformation(String newVideoInformation)
+  { ... /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Determines whether the tape can be rented on the supplied current date.
+   *   A tape is unavailable if it belongs to any active rental (returnDate is null).
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null.
+   *   2. FOR each rental IN this.rentals DO
+   *        IF rental.returnDate = null THEN
+   *            RETURN false            // tape is currently on loan
+   *        END IF
+   *      END FOR
+   *   3. RETURN true                 // no active rentals found
+   * Input:
+   *   - currentDate : EDate        // date for which availability is checked
+   * Output:
+   *   - boolean                    // true → available; false → unavailable
+   * Pre‑condition:
+   *   - currentDate is a valid EDate.
+   * Post‑condition:
+   *   - No modification of Tape state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean isAvailable(final Date currentDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Tape
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `VideoRental` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createVideoRental()`
+  + Public methods: public double calculateOwnedPastDueAmount(final Date currentDate), public double calculateBaseRentalFee(final Date currentDate)
+  + Getter methods: public Date getDueDate(), public Date getReturnDate(), public double getOwnedPastDueAmount(), public Tape getTape(), public Customer getCustomer(), public RentalTransaction getTransaction()
+  + Setter methods: public void setDueDate(Date newDueDate), public void setReturnDate(Date newReturnDate), public void setOwnedPastDueAmount(double newOwnedPastDueAmount), public void setTape(Tape newTape), public void setCustomer(Customer newCustomer), public void setTransaction(RentalTransaction newTransaction)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Tape</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.Tape#getId <em>Id</em>}</li>
+ *   <li>{@link edu.videorental.Tape#getVideoInformation <em>Video Information</em>}</li>
+ *   <li>{@link edu.videorental.Tape#getRentals <em>Rentals</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getTape()
+ * @model kind="class"
+ * @generated
+ */
+public class Tape extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String VIDEO_INFORMATION_EDEFAULT = null;
+
+  protected String videoInformation = VIDEO_INFORMATION_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected Tape()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getId()
+  { /* omitted */ }
+
+  public void setId(String newId)
+  { /* omitted */ }
+
+  public String getVideoInformation()
+  { /* omitted */ }
+
+  public void setVideoInformation(String newVideoInformation)
+  { /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Determines whether the tape can be rented on the supplied current date.
+   *   A tape is unavailable if it belongs to any active rental (returnDate is null).
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null.
+   *   2. FOR each rental IN this.rentals DO
+   *        IF rental.returnDate = null THEN
+   *            RETURN false            // tape is currently on loan
+   *        END IF
+   *      END FOR
+   *   3. RETURN true                 // no active rentals found
+   * Input:
+   *   - currentDate : EDate        // date for which availability is checked
+   * Output:
+   *   - boolean                    // true → available; false → unavailable
+   * Pre‑condition:
+   *   - currentDate is a valid EDate.
+   * Post‑condition:
+   *   - No modification of Tape state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean isAvailable(final Date currentDate)
+  {
+    if (currentDate == null) {
+      throw new IllegalArgumentException("currentDate must not be null");
+    }
+    // Iterate over all rentals and check for an active one (returnDate == null)
+    for (VideoRental rental : getRentals()) {
+      if (rental.getReturnDate() == null) {
+        return false; // Tape is currently on loan
+      }
+    }
+    return true; // No active rentals found, tape is available
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Tape
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Video Rental</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.VideoRental#getDueDate <em>Due Date</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getReturnDate <em>Return Date</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getOwnedPastDueAmount <em>Owned Past Due Amount</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getTape <em>Tape</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getTransaction <em>Transaction</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getVideoRental()
+ * @model kind="class"
+ * @generated
+ */
+public class VideoRental extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final Date DUE_DATE_EDEFAULT = null;
+
+  protected Date dueDate = DUE_DATE_EDEFAULT;
+
+  protected static final Date RETURN_DATE_EDEFAULT = null;
+
+  protected Date returnDate = RETURN_DATE_EDEFAULT;
+
+  protected static final double OWNED_PAST_DUE_AMOUNT_EDEFAULT = 0.0;
+
+  protected double ownedPastDueAmount = OWNED_PAST_DUE_AMOUNT_EDEFAULT;
+
+  protected Tape tape;
+
+  protected RentalTransaction transaction;
+
+  protected VideoRental()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public Date getDueDate()
+  { ... /* omitted */ }
+
+  public void setDueDate(Date newDueDate)
+  { ... /* omitted */ }
+
+  public Date getReturnDate()
+  { ... /* omitted */ }
+
+  public void setReturnDate(Date newReturnDate)
+  { ... /* omitted */ }
+
+  public double getOwnedPastDueAmount()
+  { ... /* omitted */ }
+
+  public void setOwnedPastDueAmount(double newOwnedPastDueAmount)
+  { ... /* omitted */ }
+
+  public Tape getTape()
+  { ... /* omitted */ }
+
+  public Tape basicGetTape()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetTape(Tape newTape, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setTape(Tape newTape)
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  public RentalTransaction getTransaction()
+  { ... /* omitted */ }
+
+  public RentalTransaction basicGetTransaction()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetTransaction(RentalTransaction newTransaction, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setTransaction(RentalTransaction newTransaction)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Computes the overdue fee for this rental as of currentDate.
+   *   - If returnDate is set and ≤ dueDate → overdue fee = 0.
+   *   - If returnDate is set and > dueDate → overdue fee = overdueDays × $0.50.
+   *   - If still unreturned (returnDate = null) → use currentDate as effective date.
+   *   Partial days are rounded up; result rounded to two decimals.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null, this.dueDate ≠ null.
+   *   2. effectiveDate ← (this.returnDate ≠ null) ? this.returnDate : currentDate
+   *   3. IF effectiveDate ≤ this.dueDate THEN
+   *        overdueDays ← 0
+   *      ELSE
+   *        diffMillis ← effectiveDate.timestamp – this.dueDate.timestamp
+   *        overdueDays ← ceil(diffMillis / (1000 * 60 * 60 * 24))
+   *      END IF
+   *   4. fee ← overdueDays * 0.5
+   *   5. RETURN round(fee, 2)
+   * Input:
+   *   - currentDate : EDate        // reference date for overdue calculation
+   * Output:
+   *   - double                     // overdue fee, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate and dueDate are valid dates.
+   * Post‑condition:
+   *   - No modification of rental data.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateOwnedPastDueAmount(final Date currentDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Calculates the base rental fee for this video rental based on the number
+   *   of rental days elapsed from the transaction's rentalDate up to currentDate.
+   *   Each day (or any part thereof) costs $1.00.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null, this.transaction ≠ null,
+   *      this.transaction.rentalDate ≠ null.
+   *   2. elapsedMillis ← currentDate.timestamp – this.transaction.rentalDate.timestamp
+   *   3. days ← ceil(elapsedMillis / (1000 * 60 * 60 * 24))
+   *      // any partial day counts as a full day; if elapsedMillis ≤ 0, days ← 1
+   *   4. fee ← days * 1.0
+   *   5. RETURN round(fee, 2)
+   * Input:
+   *   - currentDate : EDate        // date for which the fee is computed
+   * Output:
+   *   - double                     // base rental fee, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate, transaction and its rentalDate are non‑null.
+   * Post‑condition:
+   *   - No state change.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateBaseRentalFee(final Date currentDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // VideoRental
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Tape` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createTape()`
+  + Public methods: public boolean isAvailable(final Date currentDate)
+  + Getter methods: public String getId(), public String getVideoInformation(), public EList<VideoRental> getRentals()
+  + Setter methods: public void setId(String newId), public void setVideoInformation(String newVideoInformation)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean addVedioTapeRental(final Tape tape, final Date currentDate), public EList<Tape> getUnreturnedTapes(), public double calculateTotalPastDueAmount(final Date currentDate)
+  + Getter methods: public String getId(), public EList<VideoRental> getRentals(), public EList<RentalTransaction> getTransactions()
+  + Setter methods: public void setId(String newId)
+- Class `RentalTransaction` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createRentalTransaction()`
+  + Public methods: public double calculateTotalPrice(final Date currentDate, final Date rentalDate)
+  + Getter methods: public Date getRentalDate(), public double getTotalPrice(), public EList<VideoRental> getRentals(), public Customer getCustomer()
+  + Setter methods: public void setRentalDate(Date newRentalDate), public void setTotalPrice(double newTotalPrice), public void setCustomer(Customer newCustomer)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Video Rental</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.VideoRental#getDueDate <em>Due Date</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getReturnDate <em>Return Date</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getOwnedPastDueAmount <em>Owned Past Due Amount</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getTape <em>Tape</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.videorental.VideoRental#getTransaction <em>Transaction</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getVideoRental()
+ * @model kind="class"
+ * @generated
+ */
+public class VideoRental extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final Date DUE_DATE_EDEFAULT = null;
+
+  protected Date dueDate = DUE_DATE_EDEFAULT;
+
+  protected static final Date RETURN_DATE_EDEFAULT = null;
+
+  protected Date returnDate = RETURN_DATE_EDEFAULT;
+
+  protected static final double OWNED_PAST_DUE_AMOUNT_EDEFAULT = 0.0;
+
+  protected double ownedPastDueAmount = OWNED_PAST_DUE_AMOUNT_EDEFAULT;
+
+  protected Tape tape;
+
+  protected RentalTransaction transaction;
+
+  protected VideoRental()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public Date getDueDate()
+  { /* omitted */ }
+
+  public void setDueDate(Date newDueDate)
+  { /* omitted */ }
+
+  public Date getReturnDate()
+  { /* omitted */ }
+
+  public void setReturnDate(Date newReturnDate)
+  { /* omitted */ }
+
+  public double getOwnedPastDueAmount()
+  { /* omitted */ }
+
+  public void setOwnedPastDueAmount(double newOwnedPastDueAmount)
+  { /* omitted */ }
+
+  public Tape getTape()
+  { /* omitted */ }
+
+  public Tape basicGetTape()
+  { /* omitted */ }
+
+  public NotificationChain basicSetTape(Tape newTape, NotificationChain msgs)
+  { /* omitted */ }
+
+  public void setTape(Tape newTape)
+  { /* omitted */ }
+
+  public Customer getCustomer()
+  { /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { /* omitted */ }
+
+  public RentalTransaction getTransaction()
+  { /* omitted */ }
+
+  public RentalTransaction basicGetTransaction()
+  { /* omitted */ }
+
+  public NotificationChain basicSetTransaction(RentalTransaction newTransaction, NotificationChain msgs)
+  { /* omitted */ }
+
+  public void setTransaction(RentalTransaction newTransaction)
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Computes the overdue fee for this rental as of currentDate.
+   *   - If returnDate is set and ≤ dueDate → overdue fee = 0.
+   *   - If returnDate is set and > dueDate → overdue fee = overdueDays × $0.50.
+   *   - If still unreturned (returnDate = null) → use currentDate as effective date.
+   *   Partial days are rounded up; result rounded to two decimals.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null, this.dueDate ≠ null.
+   *   2. effectiveDate ← (this.returnDate ≠ null) ? this.returnDate : currentDate
+   *   3. IF effectiveDate ≤ this.dueDate THEN
+   *        overdueDays ← 0
+   *      ELSE
+   *        diffMillis ← effectiveDate.timestamp – this.dueDate.timestamp
+   *        overdueDays ← ceil(diffMillis / (1000 * 60 * 60 * 24))
+   *      END IF
+   *   4. fee ← overdueDays * 0.5
+   *   5. RETURN round(fee, 2)
+   * Input:
+   *   - currentDate : EDate        // reference date for overdue calculation
+   * Output:
+   *   - double                     // overdue fee, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate and dueDate are valid dates.
+   * Post‑condition:
+   *   - No modification of rental data.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateOwnedPastDueAmount(final Date currentDate)
+  {
+    // Preconditions check (as per specification)
+    if (currentDate == null) {
+      throw new IllegalArgumentException("currentDate must not be null");
+    }
+    if (this.dueDate == null) {
+      throw new IllegalArgumentException("dueDate must not be null");
+    }
+
+    // Determine the effective date for the calculation
+    Date effectiveDate = (this.returnDate != null) ? this.returnDate : currentDate;
+
+    long overdueDays = 0;
+    if (effectiveDate.after(this.dueDate)) {
+      long diffMillis = effectiveDate.getTime() - this.dueDate.getTime();
+      // Convert milliseconds to days, rounding up any partial day
+      overdueDays = (long) Math.ceil(diffMillis / (1000.0 * 60 * 60 * 24));
+    }
+
+    double fee = overdueDays * 0.5;
+    // Round to two decimal places
+    return Math.round(fee * 100.0) / 100.0;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Calculates the base rental fee for this video rental based on the number
+   *   of rental days elapsed from the transaction's rentalDate up to currentDate.
+   *   Each day (or any part thereof) costs $1.00.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null, this.transaction ≠ null,
+   *      this.transaction.rentalDate ≠ null.
+   *   2. elapsedMillis ← currentDate.timestamp – this.transaction.rentalDate.timestamp
+   *   3. days ← ceil(elapsedMillis / (1000 * 60 * 60 * 24))
+   *      // any partial day counts as a full day; if elapsedMillis ≤ 0, days ← 1
+   *   4. fee ← days * 1.0
+   *   5. RETURN round(fee, 2)
+   * Input:
+   *   - currentDate : EDate        // date for which the fee is computed
+   * Output:
+   *   - double                     // base rental fee, rounded to two decimals
+   * Pre‑condition:
+   *   - currentDate, transaction and its rentalDate are non‑null.
+   * Post‑condition:
+   *   - No state change.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateBaseRentalFee(final Date currentDate)
+  {
+    // Preconditions check (as per specification)
+    if (currentDate == null) {
+      throw new IllegalArgumentException("currentDate must not be null");
+    }
+    if (this.transaction == null) {
+      throw new IllegalArgumentException("transaction must not be null");
+    }
+    Date rentalDate = this.transaction.getRentalDate();
+    if (rentalDate == null) {
+      throw new IllegalArgumentException("transaction.rentalDate must not be null");
+    }
+
+    long elapsedMillis = currentDate.getTime() - rentalDate.getTime();
+    long days;
+    if (elapsedMillis <= 0) {
+      days = 1;
+    } else {
+      days = (long) Math.ceil(elapsedMillis / (1000.0 * 60 * 60 * 24));
+    }
+
+    double fee = days * 1.0;
+    // Round to two decimal places
+    return Math.round(fee * 100.0) / 100.0;
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // VideoRental
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Rental Transaction</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.RentalTransaction#getRentalDate <em>Rental Date</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getTotalPrice <em>Total Price</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getRentals <em>Rentals</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getCustomer <em>Customer</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getRentalTransaction()
+ * @model kind="class"
+ * @generated
+ */
+public class RentalTransaction extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final Date RENTAL_DATE_EDEFAULT = null;
+
+  protected Date rentalDate = RENTAL_DATE_EDEFAULT;
+
+  protected static final double TOTAL_PRICE_EDEFAULT = 0.0;
+
+  protected double totalPrice = TOTAL_PRICE_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected Customer customer;
+
+  protected RentalTransaction()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public Date getRentalDate()
+  { ... /* omitted */ }
+
+  public void setRentalDate(Date newRentalDate)
+  { ... /* omitted */ }
+
+  public double getTotalPrice()
+  { ... /* omitted */ }
+
+  public void setTotalPrice(double newTotalPrice)
+  { ... /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public Customer basicGetCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Calculates the total price of the transaction by summing, for each
+   *   associated VideoRental, its base rental fee plus any overdue fee.
+   *   The total is rounded to two decimal places and stored in
+   *   this.totalPrice.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null,
+   *      rentalDate ≠ null (parameter may be used for base fee if needed).
+   *   2. total ← 0.0
+   *   3. FOR each rental IN this.rentals DO
+   *        baseFee   ← rental.calculateBaseRentalFee(currentDate)
+   *        overdueFee← rental.calculateOwnedPastDueAmount(currentDate)
+   *        total ← total + baseFee + overdueFee
+   *      END FOR
+   *   4. this.totalPrice ← round(total, 2)
+   *   5. RETURN this.totalPrice
+   * Input:
+   *   - currentDate : EDate        // date up to which fees are evaluated
+   *   - rentalDate  : EDate        // start date of the transaction (may be redundant)
+   * Output:
+   *   - double                     // total transaction price, rounded to two decimals
+   * Pre‑condition:
+   *   - Both dates are non‑null and correctly formatted.
+   * Post‑condition:
+   *   - this.totalPrice is updated to reflect the computed amount.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateTotalPrice(final Date currentDate, final Date rentalDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // RentalTransaction
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `VideoRental` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createVideoRental()`
+  + Public methods: public double calculateOwnedPastDueAmount(final Date currentDate), public double calculateBaseRentalFee(final Date currentDate)
+  + Getter methods: public Date getDueDate(), public Date getReturnDate(), public double getOwnedPastDueAmount(), public Tape getTape(), public Customer getCustomer(), public RentalTransaction getTransaction()
+  + Setter methods: public void setDueDate(Date newDueDate), public void setReturnDate(Date newReturnDate), public void setOwnedPastDueAmount(double newOwnedPastDueAmount), public void setTape(Tape newTape), public void setCustomer(Customer newCustomer), public void setTransaction(RentalTransaction newTransaction)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `VideorentalFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean addVedioTapeRental(final Tape tape, final Date currentDate), public EList<Tape> getUnreturnedTapes(), public double calculateTotalPastDueAmount(final Date currentDate)
+  + Getter methods: public String getId(), public EList<VideoRental> getRentals(), public EList<RentalTransaction> getTransactions()
+  + Setter methods: public void setId(String newId)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.videorental;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Rental Transaction</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.videorental.RentalTransaction#getRentalDate <em>Rental Date</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getTotalPrice <em>Total Price</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getRentals <em>Rentals</em>}</li>
+ *   <li>{@link edu.videorental.RentalTransaction#getCustomer <em>Customer</em>}</li>
+ * </ul>
+ *
+ * @see edu.videorental.VideorentalPackage#getRentalTransaction()
+ * @model kind="class"
+ * @generated
+ */
+public class RentalTransaction extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final Date RENTAL_DATE_EDEFAULT = null;
+
+  protected Date rentalDate = RENTAL_DATE_EDEFAULT;
+
+  protected static final double TOTAL_PRICE_EDEFAULT = 0.0;
+
+  protected double totalPrice = TOTAL_PRICE_EDEFAULT;
+
+  protected EList<VideoRental> rentals;
+
+  protected Customer customer;
+
+  protected RentalTransaction()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public Date getRentalDate()
+  { ... /* omitted */ }
+
+  public void setRentalDate(Date newRentalDate)
+  { ... /* omitted */ }
+
+  public double getTotalPrice()
+  { ... /* omitted */ }
+
+  public void setTotalPrice(double newTotalPrice)
+  { ... /* omitted */ }
+
+  public EList<VideoRental> getRentals()
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public Customer basicGetCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Calculates the total price of the transaction by summing, for each
+   *   associated VideoRental, its base rental fee plus any overdue fee.
+   *   The total is rounded to two decimal places and stored in
+   *   this.totalPrice.
+   * Algorithm:
+   *   1. Preconditions: currentDate ≠ null,
+   *      rentalDate ≠ null (parameter may be used for base fee if needed).
+   *   2. total ← 0.0
+   *   3. FOR each rental IN this.rentals DO
+   *        baseFee   ← rental.calculateBaseRentalFee(currentDate)
+   *        overdueFee← rental.calculateOwnedPastDueAmount(currentDate)
+   *        total ← total + baseFee + overdueFee
+   *      END FOR
+   *   4. this.totalPrice ← round(total, 2)
+   *   5. RETURN this.totalPrice
+   * Input:
+   *   - currentDate : EDate        // date up to which fees are evaluated
+   *   - rentalDate  : EDate        // start date of the transaction (may be redundant)
+   * Output:
+   *   - double                     // total transaction price, rounded to two decimals
+   * Pre‑condition:
+   *   - Both dates are non‑null and correctly formatted.
+   * Post‑condition:
+   *   - this.totalPrice is updated to reflect the computed amount.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPrice(final Date currentDate, final Date rentalDate)
+  {
+    // Preconditions
+    if (currentDate == null) {
+      throw new IllegalArgumentException("currentDate must not be null");
+    }
+    if (rentalDate == null) {
+      throw new IllegalArgumentException("rentalDate must not be null");
+    }
+
+    double total = 0.0;
+
+    if (rentals != null) {
+      for (VideoRental rental : rentals) {
+        double baseFee = rental.calculateBaseRentalFee(currentDate);
+        double overdueFee = rental.calculateOwnedPastDueAmount(currentDate);
+        total += baseFee + overdueFee;
+      }
+    }
+
+    // round to two decimal places
+    total = Math.round(total * 100.0) / 100.0;
+    this.totalPrice = total;
+    return total;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // RentalTransaction
+621977 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../VideoRental/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../VideoRental/src-gen/edu/videorental/
+622088 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+622089 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+622089 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+622089 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+622090 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/videorental 到 gpt-oss-120b/videorental5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

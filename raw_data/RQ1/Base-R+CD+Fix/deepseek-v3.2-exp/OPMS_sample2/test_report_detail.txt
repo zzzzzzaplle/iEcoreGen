@@ -1,0 +1,66 @@
+============================================================
+OPMS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-25 11:16:26
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR1Test.java:24: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR1Test.java:36: 错误: Project是抽象的; 无法实例化
+          Project project2 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR1Test.java:71: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR1Test.java:83: 错误: Project是抽象的; 无法实例化
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR2Test.java:26: 错误: Project是抽象的; 无法实例化
+          Project project1 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR2Test.java:34: 错误: Project是抽象的; 无法实例化
+          Project project2 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR2Test.java:47: 错误: Project是抽象的; 无法实例化
+          Project project3 = new Project();
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\OPMS_sample2\src\test\CR2Test.java:69: 错误: Project是抽象的; 无法实例化
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 2/4
+- 测试通过: 2/2
+- 测试失败: 0/2
+============================================================

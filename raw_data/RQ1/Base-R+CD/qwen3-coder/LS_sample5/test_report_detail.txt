@@ -1,0 +1,81 @@
+============================================================
+LS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:28:30
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_multipleUsersWithDifferentBorrowingActivities(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase5_multipleUsersWithDifferentBorrowingActivities(CR2Test.java:220)
+  2) testCase2_singleUserBorrowingCalculationForGuest(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase2_singleUserBorrowingCalculationForGuest(CR2Test.java:105)
+  3) testCase1_singleUserBorrowingCalculationForMember(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase1_singleUserBorrowingCalculationForMember(CR2Test.java:63)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\LS_sample5\src\test\CR4Test.java:16: 错误: 未结束的字符串文字
+          dateFormat = new SimpleDateFormat("yyyy-MM-dd
+                                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\LS_sample5\src\test\CR4Test.java:16: 错误: 进行语法分析时已到达文件结尾
+          dateFormat = new SimpleDateFormat("yyyy-MM-dd
+                                                       ^
+  2 个错误
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 3/4
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

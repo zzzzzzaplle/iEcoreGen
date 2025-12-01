@@ -1,0 +1,73 @@
+============================================================
+FileManager - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:20:03
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase2_CountDocumentsWithSingleEditorType(CR4Test)
+  java.lang.AssertionError: ImageEditor should have 0 documents expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:79)
+  2) testCase3_CountDocumentsAfterRemoval(CR4Test)
+  java.lang.AssertionError: ImageEditor should have 0 documents expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:111)
+  3) testCase4_CountDocumentsWithNoEditors(CR4Test)
+  java.lang.AssertionError: TextEditor should have 0 documents expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase4_CountDocumentsWithNoEditors(CR4Test.java:123)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

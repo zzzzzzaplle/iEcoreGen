@@ -1,0 +1,157 @@
+================================================================================
+rideshare2 测试报告
+================================================================================
+生成时间: 2025-11-25 09:29:14
+样本名称: rideshare2
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR1Test.java:14: 错误: 找不到符号
+      private RideshareFactory factory;
+              ^
+    符号:   类 RideshareFactory
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR1Test.java:19: 错误: 找不到符号
+          factory = RideshareFactory.eINSTANCE;
+                    ^
+    符号:   变量 RideshareFactory
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR1Test.java:26: 错误: 找不到符号
+          Driver driver = factory.createDriver();
+          ^
+    符号:   类 Driver
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR1Test.java:73: 错误: 找不到符号
+          Driver driver = factory.createDriver();
+          ^
+    符号:   类 Driver
+    位置: 类 CR1Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR2Test.java:6: 错误: 找不到符号
+  import edu.rideshare.RideshareFactory;
+                      ^
+    符号:   类 RideshareFactory
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.rideshare.MembershipPackage;
+                      ^
+    符号:   类 MembershipPackage
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR2Test.java:16: 错误: 找不到符号
+      private RideshareFactory factory;
+              ^
+    符号:   类 RideshareFactory
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR2Test.java:21: 错误: 找不到符号
+          factory = RideshareFactory.eINSTANCE;
+                    ^
+    符号:   变量 RideshareFactory
+    位置: 类 CR2Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR3Test.java:6: 错误: 找不到符号
+  import edu.rideshare.RideshareFactory;
+                      ^
+    符号:   类 RideshareFactory
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.rideshare.Driver;
+                      ^
+    符号:   类 Driver
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR3Test.java:14: 错误: 找不到符号
+      private RideshareFactory factory;
+              ^
+    符号:   类 RideshareFactory
+    位置: 类 CR3Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR3Test.java:15: 错误: 找不到符号
+      private Driver driverD3;
+              ^
+    符号:   类 Driver
+    位置: 类 CR3Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR4Test.java:14: 错误: 找不到符号
+      private RideshareFactory factory;
+              ^
+    符号:   类 RideshareFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR4Test.java:19: 错误: 找不到符号
+          factory = RideshareFactory.eINSTANCE;
+                    ^
+    符号:   变量 RideshareFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR4Test.java:27: 错误: 找不到符号
+          MembershipPackage membershipC5 = factory.createMembershipPackage();
+          ^
+    符号:   类 MembershipPackage
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR4Test.java:67: 错误: 找不到符号
+          MembershipPackage membershipC6 = factory.createMembershipPackage();
+          ^
+    符号:   类 MembershipPackage
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR5Test.java:6: 错误: 找不到符号
+  import edu.rideshare.RideshareFactory;
+                      ^
+    符号:   类 RideshareFactory
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.rideshare.Driver;
+                      ^
+    符号:   类 Driver
+    位置: 程序包 edu.rideshare
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR5Test.java:14: 错误: 找不到符号
+      private Driver driver;
+              ^
+    符号:   类 Driver
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\test\CR5Test.java:15: 错误: 找不到符号
+      private RideshareFactory factory;
+              ^
+    符号:   类 RideshareFactory
+    位置: 类 CR5Test
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

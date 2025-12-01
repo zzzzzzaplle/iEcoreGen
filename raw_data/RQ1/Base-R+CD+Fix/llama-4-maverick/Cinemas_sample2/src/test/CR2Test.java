@@ -1,0 +1,139 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class CR2Test {
+    
+    private Cinema cinema;
+    private SimpleDateFormat dateFormat;
+    
+    @Before
+    public void setUp() {
+        cinema = new Cinema();
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    }
+    
+    @Test
+    public void testCase1_checkAvailableRoomWithNoScreenings() throws Exception {
+        // Setup: Create Cinema C1 and add Room1 to C1
+        Room room1 = new Room();
+        cinema.addRoom(room1);
+        
+        // Action: Check Room1 availability at "2024-10-05 13:00:00"
+        Date checkTime = dateFormat.parse("2024-10-05 13:00:00");
+        boolean result = cinema.checkAvailability(room1, checkTime);
+        
+        // Expected Output: true
+        assertTrue("Room should be available when no screenings exist", result);
+    }
+    
+    @Test
+    public void testCase2_checkAssignedRoom() throws Exception {
+        // Setup: Create Cinema C1, film F1, add Room1 and film F1 to C1
+        Cinema c1 = new Cinema();
+        Film f1 = new Film();
+        Room room1 = new Room();
+        c1.addRoom(room1);
+        c1.addFilm(f1);
+        
+        // Assign film f1 screening at "2024-10-05 13:00:00", room Room1 (current time "2024-10-04 13:00:00")
+        Screening screening = new Screening();
+        screening.setTime(dateFormat.parse("2024-10-05 13:00:00"));
+        Date currentTime = dateFormat.parse("2024-10-04 13:00:00");
+        c1.assignScreening(f1, room1, screening, currentTime);
+        
+        // Action: Check Room1 availability at "2024-10-05 13:00:00"
+        Date checkTime = dateFormat.parse("2024-10-05 13:00:00");
+        boolean result = c1.checkAvailability(room1, checkTime);
+        
+        // Expected Output: false
+        assertFalse("Room should not be available when already assigned for screening", result);
+    }
+    
+    @Test
+    public void testCase3_checkRoomAtExactScreeningTime() throws Exception {
+        // Setup: Create Cinema C1, add Film F1 and Room R1 to C1
+        Cinema c1 = new Cinema();
+        Film f1 = new Film();
+        Room r1 = new Room();
+        c1.addFilm(f1);
+        c1.addRoom(r1);
+        
+        // Assign screening for F1 in R1 at "2024-12-01 14:00:00"
+        Screening screening = new Screening();
+        screening.setTime(dateFormat.parse("2024-12-01 14:00:00"));
+        Date currentTime = dateFormat.parse("2024-11-30 14:00:00"); // Some time before screening
+        c1.assignScreening(f1, r1, screening, currentTime);
+        
+        // Action: Check R1 availability at "2024-12-02 14:00:00" (different time)
+        Date checkTime = dateFormat.parse("2024-12-02 14:00:00");
+        boolean result = c1.checkAvailability(r1, checkTime);
+        
+        // Expected Output: true
+        assertTrue("Room should be available at different time slot", result);
+    }
+    
+    @Test
+    public void testCase4_checkMultipleRooms() throws Exception {
+        // Setup: Create Cinema C1, film F1, film F2
+        Cinema c1 = new Cinema();
+        Film f1 = new Film();
+        Film f2 = new Film();
+        Room room1 = new Room();
+        Room room2 = new Room();
+        
+        // Add Room1, Room2, film F1, film F2 to C1
+        c1.addRoom(room1);
+        c1.addRoom(room2);
+        c1.addFilm(f1);
+        c1.addFilm(f2);
+        
+        // Assign film F1 screening S1 at "2024-10-05 13:00:00", room Room1 (current time: "2024-10-01 13:00:00")
+        Screening s1 = new Screening();
+        s1.setTime(dateFormat.parse("2024-10-05 13:00:00"));
+        Date currentTime1 = dateFormat.parse("2024-10-01 13:00:00");
+        c1.assignScreening(f1, room1, s1, currentTime1);
+        
+        // Assign film F2 screening S2 at "2024-10-05 13:00:00", room Room2 (current time: "2024-10-03 13:00:00")
+        Screening s2 = new Screening();
+        s2.setTime(dateFormat.parse("2024-10-05 13:00:00"));
+        Date currentTime2 = dateFormat.parse("2024-10-03 13:00:00");
+        c1.assignScreening(f2, room2, s2, currentTime2);
+        
+        // Action: Check Room1, Room2 availability at "2024-10-05 13:00:00"
+        Date checkTime = dateFormat.parse("2024-10-05 13:00:00");
+        boolean resultRoom1 = c1.checkAvailability(room1, checkTime);
+        boolean resultRoom2 = c1.checkAvailability(room2, checkTime);
+        
+        // Expected Output: S1: false, S2: false
+        assertFalse("Room1 should not be available at assigned screening time", resultRoom1);
+        assertFalse("Room2 should not be available at assigned screening time", resultRoom2);
+    }
+    
+    @Test
+    public void testCase5_checkDifferentTimeSlot() throws Exception {
+        // Setup: Create Cinema C1, Film F1
+        Cinema c1 = new Cinema();
+        Film f1 = new Film();
+        Room room1 = new Room();
+        
+        // Add Room1, Film F1 to C1
+        c1.addRoom(room1);
+        c1.addFilm(f1);
+        
+        // Assign Film F1 screening at "2024-10-05 13:00:00", room Room1 (current time: "2024-09-03 13:00:00")
+        Screening screening = new Screening();
+        screening.setTime(dateFormat.parse("2024-10-05 13:00:00"));
+        Date currentTime = dateFormat.parse("2024-09-03 13:00:00");
+        c1.assignScreening(f1, room1, screening, currentTime);
+        
+        // Action: Check Room1 availability at "2024-10-05 14:00:00" (different time slot)
+        Date checkTime = dateFormat.parse("2024-10-05 14:00:00");
+        boolean result = c1.checkAvailability(room1, checkTime);
+        
+        // Expected Output: true
+        assertTrue("Room should be available at different time slot", result);
+    }
+}

@@ -1,0 +1,96 @@
+================================================================================
+department2 测试报告
+================================================================================
+生成时间: 2025-11-27 13:11:48
+样本名称: department2
+总测试数: 25
+通过: 19
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase5_DeleteDepartmentWithManagerButNoOffices(edu.department.department2.test.CR3Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.deleteDepartment(Company.java:204)
+  	at edu.department.department2.test.CR3Test.testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test.java:155)
+  2) testCase3_DeleteDepartmentWithOnlyOffices(edu.department.department2.test.CR3Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.deleteDepartment(Company.java:201)
+  	at edu.department.department2.test.CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:111)
+  3) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department2.test.CR3Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.deleteDepartment(Company.java:204)
+  	at edu.department.department2.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:56)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_CheckDepartmentWithAssignedManager(edu.department.department2.test.CR4Test)
+  java.lang.IllegalArgumentException: Employee cannot be null and must have a department
+  	at edu.department.Company.addEmployee(Company.java:172)
+  	at edu.department.department2.test.CR4Test.testCase1_CheckDepartmentWithAssignedManager(CR4Test.java:33)
+  2) testCase3_CheckAfterManagerRemoval(edu.department.department2.test.CR4Test)
+  java.lang.IllegalArgumentException: Employee cannot be null and must have a department
+  	at edu.department.Company.addEmployee(Company.java:172)
+  	at edu.department.department2.test.CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:65)
+  3) testCase5_CheckRecentlyAssignedManager(edu.department.department2.test.CR4Test)
+  java.lang.IllegalArgumentException: Employee cannot be null and must have a department
+  	at edu.department.Company.addEmployee(Company.java:172)
+  	at edu.department.department2.test.CR4Test.testCase5_CheckRecentlyAssignedManager(CR4Test.java:104)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 19
+失败: 6
+成功率: 76.0%
+================================================================================

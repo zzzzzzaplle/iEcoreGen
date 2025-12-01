@@ -1,0 +1,127 @@
+================================================================================
+rideshare1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:01:52
+样本名称: rideshare1
+总测试数: 25
+通过: 14
+失败: 11
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase4_BookingAllowedWithMultipleNonOverlappingTrips(edu.rideshare.rideshare1.test.CR1Test)
+  java.lang.AssertionError: Booking should be allowed with non-overlapping trips
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.rideshare.rideshare1.test.CR1Test.testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test.java:165)
+  2) testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(edu.rideshare.rideshare1.test.CR1Test)
+  java.lang.AssertionError: Booking should be eligible with available seats and no overlap
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.rideshare.rideshare1.test.CR1Test.testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:59)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase1_SharedStopInIndirectTrips(edu.rideshare.rideshare1.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "<local6>" is null
+  	at edu.rideshare.Driver.checkStopOverlap(Driver.java:118)
+  	at edu.rideshare.rideshare1.test.CR3Test.testCase1_SharedStopInIndirectTrips(CR3Test.java:53)
+  2) testCase2_NoCommonStopsInIndirectTrips(edu.rideshare.rideshare1.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "<local6>" is null
+  	at edu.rideshare.Driver.checkStopOverlap(Driver.java:118)
+  	at edu.rideshare.rideshare1.test.CR3Test.testCase2_NoCommonStopsInIndirectTrips(CR3Test.java:84)
+  3) testCase4_MultipleSharedStopsDetection(edu.rideshare.rideshare1.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "<local6>" is null
+  	at edu.rideshare.Driver.checkStopOverlap(Driver.java:118)
+  	at edu.rideshare.rideshare1.test.CR3Test.testCase4_MultipleSharedStopsDetection(CR3Test.java:138)
+  4) testCase5_CaseSensitiveStopComparison(edu.rideshare.rideshare1.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "<local6>" is null
+  	at edu.rideshare.Driver.checkStopOverlap(Driver.java:118)
+  	at edu.rideshare.rideshare1.test.CR3Test.testCase5_CaseSensitiveStopComparison(CR3Test.java:163)
+  5) testCase3_EmptyStopListsComparison(edu.rideshare.rideshare1.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "<local6>" is null
+  	at edu.rideshare.Driver.checkStopOverlap(Driver.java:118)
+  	at edu.rideshare.rideshare1.test.CR3Test.testCase3_EmptyStopListsComparison(CR3Test.java:101)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(edu.rideshare.rideshare1.test.CR4Test)
+  java.lang.AssertionError: Total points should be 25 for 5 seats (2+3) * 5 points per seat expected:<25> but was:<45>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare1.test.CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:60)
+  2) testCase4_MultipleSeatsEdgeCase(edu.rideshare.rideshare1.test.CR4Test)
+  java.lang.AssertionError: 2 seats * 5 points = 10 expected:<10> but was:<30>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare1.test.CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:159)
+  3) testCase3_PartialMonthInclusion(edu.rideshare.rideshare1.test.CR4Test)
+  java.lang.AssertionError: Only December booking should count: 3 seats * 5 points = 15 expected:<15> but was:<30>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare1.test.CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:130)
+  4) testCase5_LargeSeatQuantity(edu.rideshare.rideshare1.test.CR4Test)
+  java.lang.AssertionError: Customer C8 should have 500 points (100 seats * 5 points) expected:<500> but was:<52>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare1.test.CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:217)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 14
+失败: 11
+成功率: 56.0%
+================================================================================

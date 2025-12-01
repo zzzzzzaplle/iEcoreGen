@@ -1,0 +1,68 @@
+================================================================================
+artgallery4 测试报告
+================================================================================
+生成时间: 2025-11-24 20:40:52
+样本名称: artgallery4
+总测试数: 15
+通过: 11
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CountArtworksWithMultipleArtists(edu.artgallery.artgallery4.test.CR3Test)
+  java.lang.AssertionError: Alice should not have sculpture artworks expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.artgallery.artgallery4.test.CR3Test.testCase5_CountArtworksWithMultipleArtists(CR3Test.java:287)
+  2) testCase4_CountArtworksWithOnlyOneCategory(edu.artgallery.artgallery4.test.CR3Test)
+  java.lang.AssertionError: Should not have painting artworks expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.artgallery.artgallery4.test.CR3Test.testCase4_CountArtworksWithOnlyOneCategory(CR3Test.java:219)
+  3) testCase3_NoArtworksForAnArtist(edu.artgallery.artgallery4.test.CR3Test)
+  java.lang.AssertionError: Category count map should be empty when no artworks
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.artgallery.artgallery4.test.CR3Test.testCase3_NoArtworksForAnArtist(CR3Test.java:168)
+  4) testCase1_CountArtworksByCategoryForSingleArtist(edu.artgallery.artgallery4.test.CR3Test)
+  java.lang.AssertionError: Should not have architecture artworks expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.artgallery.artgallery4.test.CR3Test.testCase1_CountArtworksByCategoryForSingleArtist(CR3Test.java:78)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 3
+总测试数: 15
+通过: 11
+失败: 4
+成功率: 73.3%
+================================================================================

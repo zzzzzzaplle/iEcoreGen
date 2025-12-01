@@ -1,0 +1,66 @@
+================================================================================
+pets2 测试报告
+================================================================================
+生成时间: 2025-11-25 15:18:28
+样本名称: pets2
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_RetrieveOnlyDogsFromMixedHouse(edu.pets.pets2.test.CR4Test)
+  java.lang.AssertionError: expected:<2> but was:<3>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.pets.pets2.test.CR4Test.testCase1_RetrieveOnlyDogsFromMixedHouse(CR4Test.java:43)
+  2) testCase3_RetrieveTypeWithNoMatches(edu.pets.pets2.test.CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.pets.pets2.test.CR4Test.testCase3_RetrieveTypeWithNoMatches(CR4Test.java:91)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

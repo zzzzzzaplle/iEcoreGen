@@ -1,0 +1,78 @@
+============================================================
+Departments - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-23 18:31:22
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_ReassignExistingHeadquarter(CR1Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at org.junit.Assert.assertFalse(Assert.java:75)
+  	at CR1Test.testCase3_ReassignExistingHeadquarter(CR1Test.java:81)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_DeleteDepartmentWithOnlyOffices(CR3Test)
+  java.util.ConcurrentModificationException
+  	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1095)
+  	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1049)
+  	at Company.deleteDepartment(FJC.java:73)
+  	at CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:78)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

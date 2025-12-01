@@ -1,0 +1,99 @@
+============================================================
+BankSystem - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-21 19:46:17
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase1_StandardBalanceAndRate(CR3Test)
+  java.lang.AssertionError: expected:<10001.01> but was:<10101.39>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase1_StandardBalanceAndRate(CR3Test.java:24)
+  2) testCase4_LargeBalance(CR3Test)
+  java.lang.AssertionError: expected:<1000055.56> but was:<1005555.56>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase4_LargeBalance(CR3Test.java:84)
+  3) testCase5_HighPrecisionRate(CR3Test)
+  java.lang.AssertionError: expected:<1234.65> but was:<1243.99>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase5_HighPrecisionRate(CR3Test.java:104)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\deepseek\deepseek-v3.2-exp\BankSystem_sample2\src\test\CR4Test.java:65: 错误: 进行语法分析时已到达文件结尾
+      public void testCase3_ExactFundsPurchase() {
+                                                  ^
+  1 个错误
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CashOnlyNoStocks(CR5Test)
+  java.lang.AssertionError: Total investment value should be 1000 expected:<1000.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR5Test.testCase3_CashOnlyNoStocks(CR5Test.java:79)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 2/4
+- 测试失败: 2/4
+============================================================

@@ -1,0 +1,67 @@
+================================================================================
+flights3 测试报告
+================================================================================
+生成时间: 2025-11-27 12:56:04
+样本名称: flights3
+总测试数: 30
+通过: 28
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(edu.flights.flights3.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights3.test.CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:61)
+  2) testCase5_SecondPublishAttempt(edu.flights.flights3.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights3.test.CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:202)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR6Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 30
+通过: 28
+失败: 2
+成功率: 93.3%
+================================================================================

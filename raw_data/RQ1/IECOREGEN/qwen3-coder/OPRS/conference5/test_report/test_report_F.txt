@@ -1,0 +1,73 @@
+================================================================================
+conference5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:12:42
+样本名称: conference5
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedDecisionsWithOneAcceptance(edu.conference.conference5.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference5.test.CR4Test.testCase4_MixedDecisionsWithOneAcceptance(CR4Test.java:105)
+  2) testCase5_SinglePaperAuthor(edu.conference.conference5.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference5.test.CR4Test.testCase5_SinglePaperAuthor(CR4Test.java:131)
+  3) testCase2_FiftyPercentAcceptanceRate(edu.conference.conference5.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference5.test.CR4Test.testCase2_FiftyPercentAcceptanceRate(CR4Test.java:57)
+  4) testCase1_PerfectAcceptanceRate(edu.conference.conference5.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference5.test.CR4Test.testCase1_PerfectAcceptanceRate(CR4Test.java:31)
+  5) testCase3_NoAcceptedPapers(edu.conference.conference5.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference5.test.CR4Test.testCase3_NoAcceptedPapers(CR4Test.java:79)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

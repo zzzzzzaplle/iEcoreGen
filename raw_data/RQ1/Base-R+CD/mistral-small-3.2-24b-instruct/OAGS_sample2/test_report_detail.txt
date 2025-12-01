@@ -1,0 +1,57 @@
+============================================================
+OAGS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:45:00
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CountArtworksWithMultipleArtists(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at CR3Test.testCase5_CountArtworksWithMultipleArtists(CR3Test.java:195)
+  2) testCase4_CountArtworksWithOnlyOneCategory(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at CR3Test.testCase4_CountArtworksWithOnlyOneCategory(CR3Test.java:167)
+  3) testCase3_NoArtworksForAnArtist(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at CR3Test.testCase3_NoArtworksForAnArtist(CR3Test.java:125)
+  4) testCase1_CountArtworksByCategoryForSingleArtist(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at CR3Test.testCase1_CountArtworksByCategoryForSingleArtist(CR3Test.java:56)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 3
+- 编译成功: 3/3
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

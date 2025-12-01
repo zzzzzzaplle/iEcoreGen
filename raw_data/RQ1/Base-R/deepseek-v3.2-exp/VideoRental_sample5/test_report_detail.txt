@@ -1,0 +1,79 @@
+============================================================
+VideoRental - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 18:19:44
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedOverdueAndOnTimeRentals(CR4Test)
+  java.lang.AssertionError: Total price should be $11.00 expected:<11.00> but was:<10.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase4_MixedOverdueAndOnTimeRentals(CR4Test.java:195)
+  2) testCase1_NoOverdueFees(CR4Test)
+  java.lang.AssertionError: Total price should be $13.00 expected:<13.00> but was:<18.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase1_NoOverdueFees(CR4Test.java:64)
+  3) testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test)
+  java.lang.AssertionError: Total price should be $11.50 expected:<11.50> but was:<6.50>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test.java:230)
+  4) testCase3_MultipleOverdueRentals(CR4Test)
+  java.lang.AssertionError: Total price should be $19.50 expected:<19.50> but was:<12.50>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase3_MultipleOverdueRentals(CR4Test.java:147)
+  5) testCase2_OneOverdueRental(CR4Test)
+  java.lang.AssertionError: Total price should be $14.50 expected:<14.50> but was:<7.50>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

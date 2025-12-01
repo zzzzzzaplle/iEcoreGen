@@ -1,0 +1,124 @@
+============================================================
+VideoRental - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-26 12:44:01
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_Returned1DayLate(CR1Test)
+  java.lang.AssertionError: expected:<0.5> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase1_Returned1DayLate(CR1Test.java:44)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_TapeExistsButHasOverdueRental(CR2Test)
+  java.lang.AssertionError: Tape T004 should not be available when it has an overdue rental with null return date
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase4_TapeExistsButHasOverdueRental(CR2Test.java:118)
+  2) testCase2_TapeIsRentedOut(CR2Test)
+  java.lang.AssertionError: Tape T002 should not be available when it has an active rental with null return date
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase2_TapeIsRentedOut(CR2Test.java:60)
+  3) testCase5_TapeWasRentedButReturnedByMultipleCustomers(CR2Test)
+  java.lang.AssertionError: Tape T005 should not be available when it has an active rental with null return date
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase5_TapeWasRentedButReturnedByMultipleCustomers(CR2Test.java:163)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedOverdueAndOnTimeRentals(CR4Test)
+  java.lang.AssertionError: expected:<11.0> but was:<2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase4_MixedOverdueAndOnTimeRentals(CR4Test.java:192)
+  2) testCase1_NoOverdueFees(CR4Test)
+  java.lang.AssertionError: expected:<13.0> but was:<5.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase1_NoOverdueFees(CR4Test.java:61)
+  3) testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test)
+  java.lang.AssertionError: expected:<11.5> but was:<3.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test.java:226)
+  4) testCase3_MultipleOverdueRentals(CR4Test)
+  java.lang.AssertionError: expected:<19.5> but was:<2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR4Test.testCase3_MultipleOverdueRentals(CR4Test.java:144)
+  5) testCase2_OneOverdueRental(CR4Test)
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

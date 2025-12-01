@@ -1,0 +1,89 @@
+============================================================
+FootballTeam - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-23 19:04:14
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase3_FirstElevenWithNoGoals(CR1Test)
+  java.lang.AssertionError: Total announcements should be 0 when no goals are scored expected:<3> but was:<4>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase3_FirstElevenWithNoGoals(CR1Test.java:110)
+  2) testCase2_MixedPlayersScoring(CR1Test)
+  java.lang.AssertionError: Total announcements should be 6 for 2 Strikers with 3 goals each expected:<2> but was:<4>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase2_MixedPlayersScoring(CR1Test.java:79)
+  3) testCase1_AllStrikersWithGoals(CR1Test)
+  java.lang.AssertionError: Total announcements should be 8 for 4 Strikers with 2 goals each expected:<4> but was:<6>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase1_AllStrikersWithGoals(CR1Test.java:45)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_CalculateGoalSavingAnnouncementsForGoalkeeperWithNoSaves(CR4Test)
+  java.lang.AssertionError: Goalkeeper with no saves should return 0 expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase1_CalculateGoalSavingAnnouncementsForGoalkeeperWithNoSaves(CR4Test.java:27)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

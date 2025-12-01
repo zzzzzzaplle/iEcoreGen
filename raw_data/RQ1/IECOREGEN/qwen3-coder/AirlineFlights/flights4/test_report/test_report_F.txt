@@ -1,0 +1,164 @@
+================================================================================
+flights4 测试报告
+================================================================================
+生成时间: 2025-11-27 23:44:04
+样本名称: flights4
+总测试数: 30
+通过: 20
+失败: 10
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(edu.flights.flights4.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights4.test.CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:61)
+  2) testCase5_SecondPublishAttempt(edu.flights.flights4.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights4.test.CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:202)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_PassengerAlreadyBookedEarlier(edu.flights.flights4.test.CR2Test)
+  java.lang.AssertionError: Booking should fail due to duplicate passenger in existing booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR2Test.testCase3_PassengerAlreadyBookedEarlier(CR2Test.java:145)
+  2) testCase4_FlightClosedBlocksBooking(edu.flights.flights4.test.CR2Test)
+  java.lang.AssertionError: Booking should fail because flight is closed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR2Test.testCase4_FlightClosedBlocksBooking(CR2Test.java:178)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_ClosedFlightBlocksCancellation(edu.flights.flights4.test.CR3Test)
+  java.lang.AssertionError: Cancellation should fail when flight is closed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR3Test.testCase4_ClosedFlightBlocksCancellation(CR3Test.java:203)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_CloseOnDepartureDayAfterDepartureTime(edu.flights.flights4.test.CR4Test)
+  java.lang.AssertionError: Should return false when trying to close after departure time
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR4Test.testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test.java:184)
+  2) testCase5_AttemptToCloseAfterDeparture(edu.flights.flights4.test.CR4Test)
+  java.lang.AssertionError: Should return false when trying to close after departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR4Test.testCase5_AttemptToCloseAfterDeparture(CR4Test.java:220)
+  3) testCase2_ThreeConfirmedReservationsCanceled(edu.flights.flights4.test.CR4Test)
+  java.lang.AssertionError: Reservation should be cancelled expected:<CANCELLED> but was:<CONFIRMED>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.flights.flights4.test.CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:107)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_FlightClosedReturnsZero(edu.flights.flights4.test.CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.flights.flights4.test.CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:113)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_AddFirstStopoverInsideJourneyWindow(edu.flights.flights4.test.CR6Test)
+  java.lang.AssertionError: Stopover should be added successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights4.test.CR6Test.testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test.java:63)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 30
+通过: 20
+失败: 10
+成功率: 66.7%
+================================================================================

@@ -1,0 +1,151 @@
+================================================================================
+IPOApplication 系统编译报告
+================================================================================
+生成时间: 2025-11-21 20:39:10
+系统名称: IPOApplication
+SystemName: ipo
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] ipo1
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\Application.java:463: 错误: 找不到符号
+      setStatus(ApplicationStatus.APPROVED);
+                                 ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\Application.java:551: 错误: 找不到符号
+      if (getStatus() != ApplicationStatus.APPROVED) {
+                                          ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\Customer.java:384: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.PENDING) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\Customer.java:425: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo1\Customer.java:457: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo2
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:462: 错误: 找不到符号
+      if (this.customer == null || !this.customer.isCanApplyForIPO()) {
+              ^
+    符号: 变量 customer
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:462: 错误: 找不到符号
+      if (this.customer == null || !this.customer.isCanApplyForIPO()) {
+                                        ^
+    符号: 变量 customer
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:466: 错误: 找不到符号
+      this.status = ApplicationStatus.APPROVED;
+                                     ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:561: 错误: 找不到符号
+      if (this.status != ApplicationStatus.APPROVED) {
+                                          ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:566: 错误: 找不到符号
+      customerEmail.setReceiver(this.customer.getEmail());
+                                    ^
+    符号: 变量 customer
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:567: 错误: 找不到符号
+      customerEmail.setContent(customerEmail.createEmailContent(this.company, this.share, this.customer, this.amountOfMoney));
+                                                                                              ^
+    符号: 变量 customer
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo2\Application.java:572: 错误: 找不到符号
+      companyEmail.setContent(companyEmail.createEmailContent(this.company, this.share, this.customer, this.amountOfMoney));
+                                                                                            ^
+    符号: 变量 customer
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo3
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo3\Customer.java:384: 错误: 找不到符号
+        if (app.getCompany().equals(company) && (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED)) {
+                                                                                     ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo3\Customer.java:425: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo3\Customer.java:457: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] ipo4
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo4\compile
+
+[✗ FAIL] ipo5
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo5\Customer.java:390: 错误: 找不到符号
+        if (app.getCompany().equals(company) && (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED))
+                                                                                     ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\mistral-small-3.2-24b-instruct\ipo5\Customer.java:457: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED)
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

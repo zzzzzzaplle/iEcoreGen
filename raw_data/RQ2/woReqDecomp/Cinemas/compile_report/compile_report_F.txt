@@ -1,0 +1,58 @@
+================================================================================
+Cinemas 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:12:02
+系统名称: Cinemas
+SystemName: cinemas
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] cinemas1
+  - 样本目录: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas1\Cinema.java:278: 错误: 找不到符号
+      EList<Screening> screeningsToRemove = new BasicEList<>();
+                                                ^
+    符号:   类 BasicEList
+    位置: 类 Cinema
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] cinemas2
+  - 样本目录: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas2\compile
+
+[✓ PASS] cinemas3
+  - 样本目录: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas3\compile
+
+[✓ PASS] cinemas4
+  - 样本目录: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas4\compile
+
+[✓ PASS] cinemas5
+  - 样本目录: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Cinemas\woReqDecomp\cinemas5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

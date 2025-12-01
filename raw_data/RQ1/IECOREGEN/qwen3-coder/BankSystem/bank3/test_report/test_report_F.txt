@@ -1,0 +1,110 @@
+================================================================================
+bank3 测试报告
+================================================================================
+生成时间: 2025-11-27 13:06:45
+样本名称: bank3
+总测试数: 25
+通过: 15
+失败: 10
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase5_RemoveInvestmentAccount(edu.bank.bank3.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "edu.bank.InvestmentAccount.setBalance(double)" because "<local1>" is null
+  	at edu.bank.bank3.test.CR1Test.testCase5_RemoveInvestmentAccount(CR1Test.java:122)
+  2) testCase4_AttemptToRemoveAccountThatStillHasBalance(edu.bank.bank3.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "edu.bank.SavingAccount.setBalance(double)" because "<local1>" is null
+  	at edu.bank.bank3.test.CR1Test.testCase4_AttemptToRemoveAccountThatStillHasBalance(CR1Test.java:92)
+  3) testCase3_RemoveExistingZeroBalanceAccount(edu.bank.bank3.test.CR1Test)
+  java.lang.AssertionError: Account should exist before removal
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at edu.bank.bank3.test.CR1Test.testCase3_RemoveExistingZeroBalanceAccount(CR1Test.java:69)
+  4) testCase1_AddNewSavingsAccountSuccessfully(edu.bank.bank3.test.CR1Test)
+  java.lang.AssertionError: Should successfully add savings account
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR1Test.testCase1_AddNewSavingsAccountSuccessfully(CR1Test.java:34)
+  5) testCase2_AddAccountWithDuplicateID(edu.bank.bank3.test.CR1Test)
+  java.lang.AssertionError: Original account should still exist
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at edu.bank.bank3.test.CR1Test.testCase2_AddAccountWithDuplicateID(CR1Test.java:56)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase4_DepositExactlyAtSingleDepositLimit(edu.bank.bank3.test.CR2Test)
+  java.lang.AssertionError: Investment account should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR2Test.testCase4_DepositExactlyAtSingleDepositLimit(CR2Test.java:90)
+  2) testCase1_DepositPositiveAmountToSavings(edu.bank.bank3.test.CR2Test)
+  java.lang.AssertionError: Savings account should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR2Test.testCase1_DepositPositiveAmountToSavings(CR2Test.java:36)
+  3) testCase5_DepositExceedsLimitByOneDollar(edu.bank.bank3.test.CR2Test)
+  java.lang.AssertionError: Savings account should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR2Test.testCase5_DepositExceedsLimitByOneDollar(CR2Test.java:108)
+  4) testCase3_DepositNegativeAmount(edu.bank.bank3.test.CR2Test)
+  java.lang.AssertionError: Investment account should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR2Test.testCase3_DepositNegativeAmount(CR2Test.java:73)
+  5) testCase2_DepositZeroAmount(edu.bank.bank3.test.CR2Test)
+  java.lang.AssertionError: Savings account should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.bank.bank3.test.CR2Test.testCase2_DepositZeroAmount(CR2Test.java:54)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 15
+失败: 10
+成功率: 60.0%
+================================================================================

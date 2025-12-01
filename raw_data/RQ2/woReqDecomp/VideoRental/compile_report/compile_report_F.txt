@@ -1,0 +1,102 @@
+================================================================================
+VideoRental 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:13:09
+系统名称: VideoRental
+SystemName: videorental
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] videorental1
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental1\Customer.java:24: 错误: 找不到符号
+  import org.eclipse.emf.ecore.util.BasicEList;
+                                   ^
+    符号:   类 BasicEList
+    位置: 程序包 org.eclipse.emf.ecore.util
+  D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental1\Customer.java:218: 错误: 找不到符号
+      EList<Tape> unreturnedTapes = new BasicEList<Tape>();
+                                        ^
+    符号:   类 BasicEList
+    位置: 类 Customer
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] videorental2
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental2\compile
+
+[✗ FAIL] videorental3
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental3\Customer.java:224: 错误: 找不到符号
+      EList<Tape> unreturnedTapes = new BasicEList<Tape>() {};
+                                        ^
+    符号:   类 BasicEList
+    位置: 类 Customer
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] videorental4
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental4\Customer.java:212: 错误: 无法将类 EObjectWithInverseResolvingEList<E>中的构造器 EObjectWithInverseResolvingEList应用到给定类型;
+      EList<Tape> unreturnedTapes = new EObjectWithInverseResolvingEList<Tape>(Tape.class, this, null);
+                                    ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    Class<Tape>,Customer,<空值>
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectWithInverseResolvingEList中声明的Object
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] videorental5
+  - 样本目录: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\VideoRental\woReqDecomp\videorental5\Customer.java:216: 错误: 无法将类 EObjectWithInverseResolvingEList<E>中的构造器 EObjectWithInverseResolvingEList应用到给定类型;
+      EList<Tape> unreturnedTapes = new EObjectWithInverseResolvingEList<Tape>(Tape.class, this, null);
+                                    ^
+    需要: Class<?>,InternalEObject,int,int
+    找到:    Class<Tape>,Customer,<空值>
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectWithInverseResolvingEList中声明的Object
+  1 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

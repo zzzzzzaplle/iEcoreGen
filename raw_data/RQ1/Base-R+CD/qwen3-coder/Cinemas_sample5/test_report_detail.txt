@@ -1,0 +1,78 @@
+============================================================
+Cinemas - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:27:15
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/1 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) initializationError(org.junit.runner.JUnitCommandLineParseResult)
+  java.lang.IllegalArgumentException: Could not find class [CR1Test]
+  	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:100)
+  	at org.junit.runner.JUnitCommandLineParseResult.parseArgs(JUnitCommandLineParseResult.java:50)
+  	at org.junit.runner.JUnitCommandLineParseResult.parse(JUnitCommandLineParseResult.java:44)
+  	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:72)
+  	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+  Caused by: java.lang.ClassNotFoundException: CR1Test
+  	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+  	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+  	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+  	at java.base/java.lang.Class.forName0(Native Method)
+  	at java.base/java.lang.Class.forName(Class.java:534)
+  	at java.base/java.lang.Class.forName(Class.java:513)
+  	at org.junit.internal.Classes.getClass(Classes.java:42)
+  	at org.junit.internal.Classes.getClass(Classes.java:27)
+  	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:98)
+  	... 4 more
+  
+  FAILURES!!!
+  Tests run: 1,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 6/6 通过
+
+[✓ PASS] CR6Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 5/6
+- 测试失败: 1/6
+============================================================

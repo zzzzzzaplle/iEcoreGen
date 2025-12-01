@@ -1,0 +1,157 @@
+================================================================================
+footballteam2 测试报告
+================================================================================
+生成时间: 2025-11-25 00:39:25
+样本名称: footballteam2
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.footballteam.Announcement;
+                         ^
+    符号:   类 Announcement
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.footballteam.AnnouncementType;
+                         ^
+    符号:   类 AnnouncementType
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.footballteam.FootballTeam;
+                         ^
+    符号:   类 FootballTeam
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.footballteam.FootballteamFactory;
+                         ^
+    符号:   类 FootballteamFactory
+    位置: 程序包 edu.footballteam
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR2Test.java:7: 错误: 找不到符号
+  import edu.footballteam.FootballteamFactory;
+                         ^
+    符号:   类 FootballteamFactory
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR2Test.java:8: 错误: 找不到符号
+  import edu.footballteam.FootballTeam;
+                         ^
+    符号:   类 FootballTeam
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.footballteam.Player;
+                         ^
+    符号:   类 Player
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR2Test.java:10: 错误: 找不到符号
+  import edu.footballteam.Position;
+                         ^
+    符号:   类 Position
+    位置: 程序包 edu.footballteam
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.footballteam.FootballteamFactory;
+                         ^
+    符号:   类 FootballteamFactory
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR3Test.java:8: 错误: 找不到符号
+  import edu.footballteam.FootballTeam;
+                         ^
+    符号:   类 FootballTeam
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR3Test.java:9: 错误: 找不到符号
+  import edu.footballteam.Player;
+                         ^
+    符号:   类 Player
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.footballteam.Position;
+                         ^
+    符号:   类 Position
+    位置: 程序包 edu.footballteam
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.footballteam.FootballteamFactory;
+                         ^
+    符号:   类 FootballteamFactory
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR4Test.java:8: 错误: 找不到符号
+  import edu.footballteam.FootballTeam;
+                         ^
+    符号:   类 FootballTeam
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR4Test.java:9: 错误: 找不到符号
+  import edu.footballteam.Player;
+                         ^
+    符号:   类 Player
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR4Test.java:10: 错误: 找不到符号
+  import edu.footballteam.Announcement;
+                         ^
+    符号:   类 Announcement
+    位置: 程序包 edu.footballteam
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.footballteam.FootballteamFactory;
+                         ^
+    符号:   类 FootballteamFactory
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.footballteam.FootballTeam;
+                         ^
+    符号:   类 FootballTeam
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.footballteam.Player;
+                         ^
+    符号:   类 Player
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\test\CR5Test.java:10: 错误: 找不到符号
+  import edu.footballteam.Announcement;
+                         ^
+    符号:   类 Announcement
+    位置: 程序包 edu.footballteam
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

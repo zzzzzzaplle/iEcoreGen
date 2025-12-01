@@ -1,0 +1,167 @@
+================================================================================
+employee1 测试报告
+================================================================================
+生成时间: 2025-11-25 15:15:24
+样本名称: employee1
+总测试数: 25
+通过: 10
+失败: 15
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(edu.employee.employee1.test.CR1Test)
+  java.lang.AssertionError: expected:<800.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR1Test.testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(CR1Test.java:38)
+  2) testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(edu.employee.employee1.test.CR1Test)
+  java.lang.AssertionError: expected:<3200.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR1Test.testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test.java:59)
+  3) testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(edu.employee.employee1.test.CR1Test)
+  java.lang.AssertionError: expected:<8595.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR1Test.testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test.java:117)
+  4) testCase3_CalculateTotalSalaryForCompanyWithSingleManager(edu.employee.employee1.test.CR1Test)
+  java.lang.AssertionError: expected:<5000.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR1Test.testCase3_CalculateTotalSalaryForCompanyWithSingleManager(CR1Test.java:78)
+  5) testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(edu.employee.employee1.test.CR1Test)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_deliveryDepartmentMixedWithOtherDepartments(edu.employee.employee1.test.CR2Test)
+  java.lang.AssertionError: expected:<28.33> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR2Test.testCase5_deliveryDepartmentMixedWithOtherDepartments(CR2Test.java:155)
+  2) testCase1_singleWorkerInDeliveryDepartment(edu.employee.employee1.test.CR2Test)
+  java.lang.AssertionError: expected:<40.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR2Test.testCase1_singleWorkerInDeliveryDepartment(CR2Test.java:45)
+  3) testCase2_multipleWorkersSameHours(edu.employee.employee1.test.CR2Test)
+  java.lang.AssertionError: expected:<35.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR2Test.testCase2_multipleWorkersSameHours(CR2Test.java:67)
+  4) testCase3_multipleWorkersDifferentHours(edu.employee.employee1.test.CR2Test)
+  java.lang.AssertionError: expected:<25.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee1.test.CR2Test.testCase3_multipleWorkersDifferentHours(CR2Test.java:92)
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase5_MultipleSalespersonsWithMixedSales(edu.employee.employee1.test.CR3Test)
+  java.lang.AssertionError: Total commission should be 1120.00 for mixed salespersons: 1500*0.08 + 0*0.10 + 4000*0.25 expected:<1120.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR3Test.testCase5_MultipleSalespersonsWithMixedSales(CR3Test.java:147)
+  2) testCase3_MultipleSalespersonsWithNonZeroSales(edu.employee.employee1.test.CR3Test)
+  java.lang.AssertionError: Total commission should be 900.00 for two salespersons with 2000*0.15 + 3000*0.20 expected:<900.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR3Test.testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test.java:88)
+  3) testCase1_SingleSalespersonWithNonZeroSales(edu.employee.employee1.test.CR3Test)
+  java.lang.AssertionError: Total commission should be 100.00 for single salesperson with 1000 sales and 10% commission expected:<100.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR3Test.testCase1_SingleSalespersonWithNonZeroSales(CR3Test.java:42)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_OneShiftWorkerInCompany(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 500.00 for one shift worker expected:<500.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase2_OneShiftWorkerInCompany(CR4Test.java:52)
+  2) testCase3_MultipleShiftWorkersWithDifferentPremiums(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 900.00 for three shift workers with premiums 200, 300, 400 expected:<900.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase3_MultipleShiftWorkersWithDifferentPremiums(CR4Test.java:79)
+  3) testCase4_MultipleShiftWorkersWithSomeZeroPremiums(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 400.00 for four shift workers with premiums 0, 250, 0, 150 expected:<400.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase4_MultipleShiftWorkersWithSomeZeroPremiums(CR4Test.java:110)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 10
+失败: 15
+成功率: 40.0%
+================================================================================

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="conference" nsURI="http://www.example.org/conference" nsPrefix="conference">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="To help the program chair, we are planning to develop a computer-assisted review system. The system will be available to users who can be authors, reviewers, and co-chairs. Each user has a name. Papers are known by the title and whether they are research papers or experience report papers. The paper is reviewed by at least three reviewers. On the other side, the authors can submit as many papers as they want. When a reviewer logs in, she can consult the list of papers that have been assigned to her for review, and submit reviews for each of those papers. Each review has feedback as well as grade that can be Accept or Reject. A final decision is made by the chair for each paper.&#xA;functional requirement：&#xA;+ Calculate the number of unsubmitted reviews for a given reviewer. Return 0 if all reviews are submitted by the reviewer.&#xA;&#xA;+ Before the chair makes the final decision, check if all reviews for a paper are either exclusively Accept or exclusively Reject. Return a boolean value.&#xA;&#xA;+ Count the total number of papers submitted by an author.&#xA;&#xA;+ Calculate the acceptance rate of papers for an author. Example: If an author submitted 10 papers with 6 accepted, return 0.60.&#xA;&#xA;+ Convert a reviewer's historical grades (Accept = 1, Reject = 0) into a numerical average score between 0.0 and 1.0. Example: "/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="PaperType">
+    <eLiterals name="RESEARCH"/>
+    <eLiterals name="EXPERIENCE" value="1" literal="EXPERIENCE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Grade">
+    <eLiterals name="UNDECIDED"/>
+    <eLiterals name="ACCEPT" value="1" literal="ACCEPT"/>
+    <eLiterals name="REJECT" value="2" literal="REJECT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserRole" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Author" eSuperTypes="//UserRole">
+    <eOperations name="submitPaper">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Submit a new paper to the system&#xA;Algorithm: papers.add(paper)&#xA;Input: paper - Paper object to be submitted&#xA;Output: void&#xA;Pre-condition: paper != null&#xA;Post-condition: papers list contains the new paper"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="paper" eType="//Paper"/>
+    </eOperations>
+    <eOperations name="countSubmittedPapers">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Count the total number of papers submitted by this author.&#xA;Algorithm: return papers.size()&#xA;Input: None&#xA;Output: int representing the number of submitted papers&#xA;Pre-condition: None&#xA;Post-condition: Returns non-negative integer"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="calculateAcceptanceRate">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculate the acceptance rate of papers for this author.&#xA;Algorithm: &#xA;  totalSubmitted = countSubmittedPapers()&#xA;  if totalSubmitted == 0: return 0.0&#xA;  acceptedPapers = count of papers where decision == Grade.ACCEPT&#xA;  return acceptedPapers / totalSubmitted&#xA;Input: None&#xA;Output: double value between 0.0 and 1.0 representing the acceptance rate&#xA;Pre-condition: None&#xA;Post-condition: Returns a valid rate between 0.0 and 1.0"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="findAuthorsWithPositiveReviews" upperBound="-1" eType="//Author">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Find all authors who have at least one paper with all positive reviews (all ACCEPT grades)&#xA;Algorithm:&#xA;  positiveAuthors = new List&lt;Author>()&#xA;  for each author in system:&#xA;      for each paper in author.papers:&#xA;          if paper.isAllReviewsPositive():&#xA;              add author to positiveAuthors&#xA;              break inner loop&#xA;  return positiveAuthors&#xA;Input: None&#xA;Output: List&lt;Author> containing authors with at least one positively reviewed paper&#xA;Pre-condition: None&#xA;Post-condition: Returned list may be empty if no authors meet criteria"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="papers" upperBound="-1" eType="//Paper"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reviewer" eSuperTypes="//UserRole">
+    <eOperations name="calculateUnsubmittedReviews">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculate number of unsubmitted reviews for this reviewer&#xA;Algorithm:&#xA;  unsubmittedCount = 0&#xA;  for each assignment in assignments:&#xA;      if assignment.feedback == null or assignment.feedback.isEmpty():&#xA;          unsubmittedCount++&#xA;  return unsubmittedCount&#xA;Input: None&#xA;Output: int representing number of unsubmitted reviews&#xA;Pre-condition: None&#xA;Post-condition: Returns non-negative integer"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="calculateAcceptanceProportion">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Convert reviewer's historical grades into numerical average score&#xA;Algorithm:&#xA;  totalReviews = assignments.size()&#xA;  if totalReviews == 0: return 0.0&#xA;  acceptCount = count of assignments where grade == Grade.ACCEPT&#xA;  return acceptCount / totalReviews&#xA;Input: None&#xA;Output: double value between 0.0 and 1.0 representing average score&#xA;Pre-condition: None&#xA;Post-condition: Returns valid proportion between 0.0 and 1.0"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignments" upperBound="-1" eType="//ReviewAssignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CoChair" eSuperTypes="//UserRole">
+    <eOperations name="makeFinalDecision">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Make final decision for a paper&#xA;Algorithm: paper.decision = decision&#xA;Input: paper - Paper object to decide on, decision - final Grade (ACCEPT/REJECT)&#xA;Output: int - 1 if successful, 0 if failed&#xA;Pre-condition: paper != null, decision is ACCEPT or REJECT&#xA;Post-condition: Paper's decision field is updated"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="paper" eType="//Paper"/>
+      <eParameters name="decision" eType="//Grade"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1" eType="//UserRole" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Paper">
+    <eOperations name="isAllReviewsPositive">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Check if all reviews for this paper are either exclusively Accept or exclusively Reject&#xA;Algorithm:&#xA;  if reviews.size() &lt; 3: return false&#xA;  firstGrade = reviews[0].grade&#xA;  for each review in reviews:&#xA;      if review.grade != firstGrade: return false&#xA;  return true&#xA;Input: None&#xA;Output: boolean - true if all reviews have same grade (all ACCEPT or all REJECT)&#xA;Pre-condition: None&#xA;Post-condition: Returns true only when all reviews have identical grades"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="calculateAcceptanceRate">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculate acceptance rate across all papers in system&#xA;Algorithm:&#xA;  totalPapers = count of all papers&#xA;  if totalPapers == 0: return 0.0&#xA;  acceptedPapers = count of papers where decision == Grade.ACCEPT&#xA;  return acceptedPapers / totalPapers&#xA;Input: None&#xA;Output: double value between 0.0 and 1.0 representing system acceptance rate&#xA;Pre-condition: None&#xA;Post-condition: Returns valid rate between 0.0 and 1.0"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//PaperType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decision" eType="//Grade"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reviews" lowerBound="3" upperBound="-1" eType="//ReviewAssignment" eOpposite="//ReviewAssignment/paper"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReviewAssignment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feedback">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grade" eType="//Grade"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paper" lowerBound="1" eType="//Paper" eOpposite="//Paper/reviews"/>
+  </eClassifiers>
+</ecore:EPackage>

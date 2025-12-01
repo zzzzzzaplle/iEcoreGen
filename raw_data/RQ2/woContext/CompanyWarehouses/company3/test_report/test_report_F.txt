@@ -1,0 +1,65 @@
+================================================================================
+company3 测试报告
+================================================================================
+生成时间: 2025-11-25 00:05:41
+样本名称: company3
+总测试数: 25
+通过: 22
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_ProductInMultipleWarehouses(edu.company.company3.test.CR5Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEMap cannot be cast to class java.util.Map (org.eclipse.emf.common.util.BasicEMap is in unnamed module of loader 'app'; java.util.Map is in module java.base of loader 'bootstrap')
+  	at edu.company.Company.findProductLocations(Company.java:224)
+  	at edu.company.company3.test.CR5Test.testCase1_ProductInMultipleWarehouses(CR5Test.java:47)
+  2) testCase2_ProductInSingleWarehouse(edu.company.company3.test.CR5Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEMap cannot be cast to class java.util.Map (org.eclipse.emf.common.util.BasicEMap is in unnamed module of loader 'app'; java.util.Map is in module java.base of loader 'bootstrap')
+  	at edu.company.Company.findProductLocations(Company.java:224)
+  	at edu.company.company3.test.CR5Test.testCase2_ProductInSingleWarehouse(CR5Test.java:69)
+  3) testCase5_ProductInAllWarehouses(edu.company.company3.test.CR5Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEMap cannot be cast to class java.util.Map (org.eclipse.emf.common.util.BasicEMap is in unnamed module of loader 'app'; java.util.Map is in module java.base of loader 'bootstrap')
+  	at edu.company.Company.findProductLocations(Company.java:224)
+  	at edu.company.company3.test.CR5Test.testCase5_ProductInAllWarehouses(CR5Test.java:132)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 22
+失败: 3
+成功率: 88.0%
+================================================================================

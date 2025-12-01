@@ -1,0 +1,159 @@
+============================================================
+VideoRental - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 12:44:28
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase5_ReturnedFiveDaysLate(CR1Test)
+  java.lang.AssertionError: expected:<3.0> but was:<1.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase5_ReturnedFiveDaysLate(CR1Test.java:155)
+  2) testCase2_UnreturnedAndThreeDaysOverdue(CR1Test)
+  java.lang.AssertionError: expected:<1.5> but was:<2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase2_UnreturnedAndThreeDaysOverdue(CR1Test.java:74)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase3_TapeWasRentedButReturned(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:15)
+  2) testCase4_TapeExistsButHasOverdueRental(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:15)
+  3) testCase1_TapeIsAvailable(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:15)
+  4) testCase2_TapeIsRentedOut(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:15)
+  5) testCase5_TapeWasRentedButReturnedByMultipleCustomers(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:15)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedOverdueAndOnTimeRentals(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:15)
+  2) testCase1_NoOverdueFees(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:15)
+  3) testCase5_UnreturnedTapeWithCurrentDateOverdue(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:15)
+  4) testCase3_MultipleOverdueRentals(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:15)
+  5) testCase2_OneOverdueRental(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:15)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedReturnedUnreturned(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR5Test.setUp(CR5Test.java:17)
+  2) testCase3_OneUnreturnedTape(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR5Test.setUp(CR5Test.java:17)
+  3) testCase5_MultipleUnreturnedTapes(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR5Test.setUp(CR5Test.java:17)
+  4) testCase1_NoRentalsExist(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR5Test.setUp(CR5Test.java:17)
+  5) testCase2_AllTapesReturned(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR5Test.setUp(CR5Test.java:17)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

@@ -1,0 +1,1 @@
+The benchmarks  folder contains 20 systems. Each system includes an ecore file, a Domain Description (DD), a Function Requirement (FR), a Test Specification (TS), and a Design Model (DeM), which is represented as a PlantUML class diagram.

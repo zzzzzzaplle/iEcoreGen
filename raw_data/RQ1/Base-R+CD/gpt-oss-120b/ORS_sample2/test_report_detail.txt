@@ -1,0 +1,33 @@
+============================================================
+ORS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:37:35
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\ORS_sample2\src\main\FJC.java:511: 错误: FORMATTER 在 Trip 中是 private 访问控制
+                  Trip.FORMATTER);
+                      ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\ORS_sample2\src\main\FJC.java:536: 错误: FORMATTER 在 Trip 中是 private 访问控制
+          LocalDateTime thisDep = LocalDateTime.parse(trip.getDepartureTime(), Trip.FORMATTER);
+                                                                                   ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\ORS_sample2\src\main\FJC.java:537: 错误: FORMATTER 在 Trip 中是 private 访问控制
+          LocalDateTime thisArr = LocalDateTime.parse(trip.getArrivalTime(), Trip.FORMATTER);
+                                                                                 ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\ORS_sample2\src\main\FJC.java:538: 错误: FORMATTER 在 Trip 中是 private 访问控制
+          LocalDateTime otherDep = LocalDateTime.parse(otherTrip.getDepartureTime(), Trip.FORMATTER);
+                                                                                         ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\ORS_sample2\src\main\FJC.java:539: 错误: FORMATTER 在 Trip 中是 private 访问控制
+          LocalDateTime otherArr = LocalDateTime.parse(otherTrip.getArrivalTime(), Trip.FORMATTER);
+                                                                                       ^
+  5 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

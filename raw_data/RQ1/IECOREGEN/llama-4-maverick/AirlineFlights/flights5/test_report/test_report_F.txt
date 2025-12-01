@@ -1,0 +1,79 @@
+================================================================================
+flights5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:10:12
+样本名称: flights5
+总测试数: 30
+通过: 28
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_ClosedFlightBlocksCancellation(edu.flights.flights5.test.CR3Test)
+  java.lang.AssertionError: Cancellation should fail when flight is closed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights5.test.CR3Test.testCase4_ClosedFlightBlocksCancellation(CR3Test.java:203)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_FlightClosedReturnsZero(edu.flights.flights5.test.CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.flights.flights5.test.CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:113)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR6Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 30
+通过: 28
+失败: 2
+成功率: 93.3%
+================================================================================

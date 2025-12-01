@@ -1,0 +1,134 @@
+============================================================
+BankSystem - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:20:00
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\BankSystem_sample2\src\test\CR1Test.java:29: 错误: 不兼容的类型: void无法转换为boolean
+          boolean result = customer.addAccount(savingsAccount);
+                                              ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\BankSystem_sample2\src\test\CR1Test.java:53: 错误: 不兼容的类型: void无法转换为boolean
+          boolean result = customer.addAccount(newAccount);
+                                              ^
+  2 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_VerySmallBalance(CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR3Test.testCase3_VerySmallBalance(CR3Test.java:70)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_ExactFundsPurchase(CR4Test)
+  java.lang.AssertionError: expected:<0> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase3_ExactFundsPurchase(CR4Test.java:79)
+  2) testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test)
+  java.lang.AssertionError: expected:<1800> but was:<1800.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test.java:129)
+  3) testCase4_LowValueSingleShare(CR4Test)
+  java.lang.AssertionError: expected:<12> but was:<12.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase4_LowValueSingleShare(CR4Test.java:105)
+  4) testCase1_SufficientBalancePurchase(CR4Test)
+  java.lang.AssertionError: expected:<4500> but was:<4500.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase1_SufficientBalancePurchase(CR4Test.java:32)
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_PrecisionCheckWithFractionalShare(CR5Test)
+  java.lang.AssertionError: Balance after first purchase should be 12.35 expected:<12.35> but was:<12.3500>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase5_PrecisionCheckWithFractionalShare(CR5Test.java:124)
+  2) testCase4_RepeatedPurchasesOfSameStock(CR5Test)
+  java.lang.AssertionError: Balance after first purchase should be 450 expected:<450> but was:<450.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase4_RepeatedPurchasesOfSameStock(CR5Test.java:93)
+  3) testCase1_MultipleStockPositions(CR5Test)
+  java.lang.AssertionError: Balance after first purchase should be 3900 expected:<3900> but was:<3900.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase1_MultipleStockPositions(CR5Test.java:22)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 1/4
+- 测试失败: 3/4
+============================================================

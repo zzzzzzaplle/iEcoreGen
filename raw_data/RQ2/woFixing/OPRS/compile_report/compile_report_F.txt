@@ -1,0 +1,65 @@
+================================================================================
+OPRS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:42:05
+系统名称: OPRS
+SystemName: conference
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] conference1
+  - 样本目录: D:\EclipseWorkspace\OPRS\woFixing\conference1
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woFixing\conference1\compile
+
+[✓ PASS] conference2
+  - 样本目录: D:\EclipseWorkspace\OPRS\woFixing\conference2
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woFixing\conference2\compile
+
+[✓ PASS] conference3
+  - 样本目录: D:\EclipseWorkspace\OPRS\woFixing\conference3
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woFixing\conference3\compile
+
+[✗ FAIL] conference4
+  - 样本目录: D:\EclipseWorkspace\OPRS\woFixing\conference4
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woFixing\conference4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPRS\woFixing\conference4\Author.java:398: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\OPRS\woFixing\conference4\Author.java:403: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\OPRS\woFixing\conference4\Author.java:407: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  D:\EclipseWorkspace\OPRS\woFixing\conference4\Author.java:411: 错误: 非法的表达式开始
+    { ... /* omitted * @LLM */ }
+      ^
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] conference5
+  - 样本目录: D:\EclipseWorkspace\OPRS\woFixing\conference5
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woFixing\conference5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

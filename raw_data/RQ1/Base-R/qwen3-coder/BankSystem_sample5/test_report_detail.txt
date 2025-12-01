@@ -1,0 +1,86 @@
+============================================================
+BankSystem - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:25:10
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\BankSystem_sample5\src\test\CR1Test.java:28: 错误: 不兼容的类型: void无法转换为boolean
+          boolean result = customer.addAccount(savingsAccount);
+                                              ^
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_ExactFundsPurchase(CR4Test)
+  java.lang.AssertionError: expected:<0> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase3_ExactFundsPurchase(CR4Test.java:72)
+  2) testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test)
+  java.lang.AssertionError: expected:<1800> but was:<1800.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test.java:108)
+  3) testCase4_LowValueSingleShare(CR4Test)
+  java.lang.AssertionError: expected:<12> but was:<12.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase4_LowValueSingleShare(CR4Test.java:93)
+  4) testCase1_SufficientBalancePurchase(CR4Test)
+  java.lang.AssertionError: expected:<4500> but was:<4500.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase1_SufficientBalancePurchase(CR4Test.java:33)
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

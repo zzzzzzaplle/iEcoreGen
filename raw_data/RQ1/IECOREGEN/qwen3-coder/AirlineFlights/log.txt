@@ -1,0 +1,2722 @@
+   *       - departureAirport ≠ arrivalAirport.
+   *   3. If valid, set flight.openForBooking = true.
+   *   4. Return true; otherwise, return false.
+   * Input:
+   *   f : Flight - The flight to be published.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully published, false otherwise.
+   * Pre-condition: Flight must exist and have valid airport and time information.
+   * Post-condition: If successful, flight is marked as open for booking.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean publishFlight(final Flight f, final Date now)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Airline
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Flight` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createFlight()`
+  + Public methods: public boolean addStopover(final Stopover stop, final Date now), public boolean removeStopover(final Stopover stop, final Date now), public EList<Reservation> getConfirmedReservations()
+  + Getter methods: public String getId(), public boolean isOpenForBooking(), public Date getArrivalTime(), public Date getDepartureTime(), public EList<Stopover> getStopovers(), public Airport getDepartureAirport(), public Airport getArrialAirport(), public EList<Reservation> getReservations()
+  + Setter methods: public void setId(String newId), public void setOpenForBooking(boolean newOpenForBooking), public void setArrivalTime(Date newArrivalTime), public void setDepartureTime(Date newDepartureTime), public void setDepartureAirport(Airport newDepartureAirport), public void setArrialAirport(Airport newArrialAirport)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds a new flight to the airline's flight list.
+   * Algorithm: Add the given flight object to the flights list.
+   * Input: f : Flight - The flight object to be added.
+   * Output: void
+   * Pre-condition: The flight object is not null.
+   * Post-condition: The flight is added to the airline's flights list.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void addFlight(final Flight f)
+  {
+    getFlights().add(f);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Removes a flight from the airline's flight list.
+   * Algorithm: Remove the given flight from the flights list.
+   * Input: f : Flight - The flight to be removed.
+   * Output: void
+   * Pre-condition: The flight exists in the flights list.
+   * Post-condition: The flight is removed from the airline's flights list.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void removeFlight(final Flight f)
+  {
+    getFlights().remove(f);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Publishes a newly created flight to make it available for customer bookings.
+   * Algorithm:
+   *   1. Check if flight is already published (openForBooking == true), return false if so.
+   *   2. Validate flight timestamps format and values:
+   *       - departureTime and arrivalTime must be in 'yyyy-MM-dd HH:mm:ss'.
+   *       - currentTime < departureTime < arrivalTime.
+   *       - departureAirport ≠ arrivalAirport.
+   *   3. If valid, set flight.openForBooking = true.
+   *   4. Return true; otherwise, return false.
+   * Input:
+   *   f : Flight - The flight to be published.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully published, false otherwise.
+   * Pre-condition: Flight must exist and have valid airport and time information.
+   * Post-condition: If successful, flight is marked as open for booking.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean publishFlight(final Flight f, final Date now)
+  {
+    if (f.isOpenForBooking()) {
+      return false;
+    }
+
+    Date departureTime = f.getDepartureTime();
+    Date arrivalTime = f.getArrivalTime();
+    Airport departureAirport = f.getDepartureAirport();
+    Airport arrivalAirport = f.getArrialAirport();
+
+    if (departureTime == null || arrivalTime == null || departureAirport == null || arrivalAirport == null) {
+      return false;
+    }
+
+    if (now.compareTo(departureTime) >= 0 || departureTime.compareTo(arrivalTime) >= 0) {
+      return false;
+    }
+
+    if (departureAirport.equals(arrivalAirport)) {
+      return false;
+    }
+
+    f.setOpenForBooking(true);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    Flight targetFlight = null;
+    for (Flight flight : getFlights()) {
+      if (flightId.equals(flight.getId())) {
+        targetFlight = flight;
+        break;
+      }
+    }
+
+    if (targetFlight == null || !targetFlight.isOpenForBooking()) {
+      return false;
+    }
+
+    if (now.compareTo(targetFlight.getDepartureTime()) >= 0) {
+      return false;
+    }
+
+    targetFlight.setOpenForBooking(false);
+
+    EList<Reservation> confirmedReservations = targetFlight.getConfirmedReservations();
+    for (Reservation reservation : confirmedReservations) {
+      reservation.cancel();
+    }
+
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  private boolean isSameDay(Date date1, Date date2) {
+    // This assumes a simple day comparison without time part.
+    // A more robust implementation may be needed depending on actual date format requirements.
+    if (date1 == null || date2 == null) {
+      return false;
+    }
+    long oneDayInMillis = 24 * 60 * 60 * 1000;
+    long days1 = date1.getTime() / oneDayInMillis;
+    long days2 = date2.getTime() / oneDayInMillis;
+    return days1 == days2;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Airline
+1457152 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../AirlineFlights/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../AirlineFlights/src-gen/edu/flights/
+1457266 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 220)
+	reservation.cancel();
+	            ^^^^^^
+The method cancel() is undefined for the type Reservation
+----------
+2. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 252)
+	if (origin.equals(departureAirport.getCity()) &&
+	                                   ^^^^^^^
+The method getCity() is undefined for the type Airport
+----------
+3. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 253)
+	dest.equals(arrivalAirport.getCity()) &&
+	                           ^^^^^^^
+The method getCity() is undefined for the type Airport
+----------
+----------
+4. WARNING in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java (at line 20)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+----------
+5. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java (at line 488)
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	         ^^^^^^^^^^
+The method getAirport() is undefined for the type Stopover
+----------
+6. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java (at line 488)
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	                                      ^^^^^^^^^^
+The method getAirport() is undefined for the type Stopover
+----------
+6 problems (5 errors, 1 warning)
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 220
+Type: ERROR
+Message: The method cancel() is undefined for the type Reservation
+Code line: 	reservation.cancel();
+Caret Pos: 	            ^^^^^^
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 252
+Type: ERROR
+Message: The method getCity() is undefined for the type Airport
+Code line: 	if (origin.equals(departureAirport.getCity()) &&
+Caret Pos: 	                                   ^^^^^^^
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 253
+Type: ERROR
+Message: The method getCity() is undefined for the type Airport
+Code line: 	dest.equals(arrivalAirport.getCity()) &&
+Caret Pos: 	                           ^^^^^^^
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java
+Line: 20
+Type: WARNING
+Message: The import org.eclipse.emf.common.util.BasicEList is never used
+Code line: 	import org.eclipse.emf.common.util.BasicEList;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java
+Line: 488
+Type: ERROR
+Message: The method getAirport() is undefined for the type Stopover
+Code line: 	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+Caret Pos: 	         ^^^^^^^^^^
+
+1457266 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java
+Line: 488
+Type: ERROR
+Message: The method getAirport() is undefined for the type Stopover
+Code line: 	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+Caret Pos: 	                                      ^^^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    Flight targetFlight = null;
+    for (Flight flight : getFlights()) {
+      if (flightId.equals(flight.getId())) {
+        targetFlight = flight;
+        break;
+      }
+    }
+
+    if (targetFlight == null || !targetFlight.isOpenForBooking()) {
+      return false;
+    }
+
+    if (now.compareTo(targetFlight.getDepartureTime()) >= 0) {
+      return false;
+    }
+
+    targetFlight.setOpenForBooking(false);
+
+    EList<Reservation> confirmedReservations = targetFlight.getConfirmedReservations();
+    for (Reservation reservation : confirmedReservations) {
+      reservation.cancel();
+    }
+
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+```
+
+# Compilation Errors
+```
+- ERROR: The method cancel() is undefined for the type Reservation
+	reservation.cancel();
+	            ^^^^^^
+
+- ERROR: The method getCity() is undefined for the type Airport
+	if (origin.equals(departureAirport.getCity()) &&
+	                                   ^^^^^^^
+
+- ERROR: The method getCity() is undefined for the type Airport
+	dest.equals(arrivalAirport.getCity()) &&
+	                           ^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Flight` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createFlight()`
+  + Public methods: public boolean addStopover(final Stopover stop, final Date now), public boolean removeStopover(final Stopover stop, final Date now), public EList<Reservation> getConfirmedReservations()
+  + Getter methods: public String getId(), public boolean isOpenForBooking(), public Date getArrivalTime(), public Date getDepartureTime(), public EList<Stopover> getStopovers(), public Airport getDepartureAirport(), public Airport getArrialAirport(), public EList<Reservation> getReservations()
+  + Setter methods: public void setId(String newId), public void setOpenForBooking(boolean newOpenForBooking), public void setArrivalTime(Date newArrivalTime), public void setDepartureTime(Date newDepartureTime), public void setDepartureAirport(Airport newDepartureAirport), public void setArrialAirport(Airport newArrialAirport)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    Flight targetFlight = null;
+    for (Flight flight : getFlights()) {
+      if (flightId.equals(flight.getId())) {
+        targetFlight = flight;
+        break;
+      }
+    }
+
+    if (targetFlight == null || !targetFlight.isOpenForBooking()) {
+      return false;
+    }
+
+    if (now.compareTo(targetFlight.getDepartureTime()) >= 0) {
+      return false;
+    }
+
+    targetFlight.setOpenForBooking(false);
+
+    EList<Reservation> confirmedReservations = targetFlight.getConfirmedReservations();
+    for (Reservation reservation : confirmedReservations) {
+      reservation.setStatus(ReservationStatus.CANCELLED);
+    }
+
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Flight</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Flight#getId <em>Id</em>}</li>
+ *   <li>{@link edu.flights.Flight#isOpenForBooking <em>Open For Booking</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureTime <em>Departure Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getStopovers <em>Stopovers</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureAirport <em>Departure Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrialAirport <em>Arrial Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getReservations <em>Reservations</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getFlight()
+ * @model kind="class"
+ * @generated
+ */
+public class Flight extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final boolean OPEN_FOR_BOOKING_EDEFAULT = false;
+
+  protected boolean openForBooking = OPEN_FOR_BOOKING_EDEFAULT;
+
+  protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+
+  protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
+
+  protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+
+  protected Date departureTime = DEPARTURE_TIME_EDEFAULT;
+
+  protected EList<Stopover> stopovers;
+
+  protected Airport departureAirport;
+
+  protected Airport arrialAirport;
+
+  protected EList<Reservation> reservations;
+
+  protected Flight()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public boolean isOpenForBooking()
+  { ... /* omitted */ }
+
+  public void setOpenForBooking(boolean newOpenForBooking)
+  { ... /* omitted */ }
+
+  public Date getArrivalTime()
+  { ... /* omitted */ }
+
+  public void setArrivalTime(Date newArrivalTime)
+  { ... /* omitted */ }
+
+  public Date getDepartureTime()
+  { ... /* omitted */ }
+
+  public void setDepartureTime(Date newDepartureTime)
+  { ... /* omitted */ }
+
+  public EList<Stopover> getStopovers()
+  { ... /* omitted */ }
+
+  public Airport getDepartureAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetDepartureAirport()
+  { ... /* omitted */ }
+
+  public void setDepartureAirport(Airport newDepartureAirport)
+  { ... /* omitted */ }
+
+  public Airport getArrialAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetArrialAirport()
+  { ... /* omitted */ }
+
+  public void setArrialAirport(Airport newArrialAirport)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getReservations()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds a stopover to the flight's stopover list before departure.
+   * Algorithm:
+   *   1. Ensure flight is open for booking and now < flight.departureTime.
+   *   2. Validate that the stop.airport serves at least one valid city.
+   *   3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+   *   4. Ensure that stop.arrivalTime < stop.departureTime.
+   *   5. Add stop to the stopovers list.
+   *   6. Return true; otherwise, return false.
+   * Input:
+   *   stop : Stopover - The stopover to be added.
+   *   now : EDate - The current date/time.
+   * Output: boolean - True if added successfully, false otherwise.
+   * Pre-condition: The flight must be open and still scheduled.
+   * Post-condition: If successful, the stopover is added to the flight.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addStopover(final Stopover stop, final Date now)
+  {
+    // 1. Ensure flight is open for booking and now < flight.departureTime.
+    if (!isOpenForBooking() || now.compareTo(getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 2. Validate that the stop.airport serves at least one valid city.
+    if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+      return false;
+    }
+    
+    // 3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+    if (stop.getArrivalTime().compareTo(getDepartureTime()) <= 0 ||
+        stop.getDepartureTime().compareTo(getArrivalTime()) >= 0) {
+      return false;
+    }
+    
+    // 4. Ensure that stop.arrivalTime < stop.departureTime.
+    if (stop.getArrivalTime().compareTo(stop.getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 5. Add stop to the stopovers list.
+    getStopovers().add(stop);
+    
+    // 6. Return true; otherwise, return false.
+    return true;
+  }
+
+  public boolean removeStopover(final Stopover stop, final Date now)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getConfirmedReservations()
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Flight
+```
+
+# Compilation Errors
+```
+- ERROR: The method getAirport() is undefined for the type Stopover
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	         ^^^^^^^^^^
+
+- ERROR: The method getAirport() is undefined for the type Stopover
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	                                      ^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Stopover` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createStopover()`
+  + Getter methods: public Date getDepartureTime(), public Date getArrivalTime()
+  + Setter methods: public void setDepartureTime(Date newDepartureTime), public void setArrivalTime(Date newArrivalTime)
+- Class `Airport` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createAirport()`
+  + Public methods: public void addCity(final City c)
+  + Getter methods: public String getId(), public Airport getAirport(), public EList<City> getServesForCities()
+  + Setter methods: public void setId(String newId), public void setAirport(Airport newAirport)
+- Class `Reservation` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createReservation()`
+  + Getter methods: public String getId(), public ReservationStatus getStatus(), public Passenger getPassenger(), public Flight getFlight()
+  + Setter methods: public void setId(String newId), public void setStatus(ReservationStatus newStatus), public void setPassenger(Passenger newPassenger), public void setFlight(Flight newFlight)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Flight</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Flight#getId <em>Id</em>}</li>
+ *   <li>{@link edu.flights.Flight#isOpenForBooking <em>Open For Booking</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureTime <em>Departure Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getStopovers <em>Stopovers</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureAirport <em>Departure Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrialAirport <em>Arrial Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getReservations <em>Reservations</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getFlight()
+ * @model kind="class"
+ * @generated
+ */
+public class Flight extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final boolean OPEN_FOR_BOOKING_EDEFAULT = false;
+
+  protected boolean openForBooking = OPEN_FOR_BOOKING_EDEFAULT;
+
+  protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+
+  protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
+
+  protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+
+  protected Date departureTime = DEPARTURE_TIME_EDEFAULT;
+
+  protected EList<Stopover> stopovers;
+
+  protected Airport departureAirport;
+
+  protected Airport arrialAirport;
+
+  protected EList<Reservation> reservations;
+
+  protected Flight()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getId()
+  { /* omitted */ }
+
+  public void setId(String newId)
+  { /* omitted */ }
+
+  public boolean isOpenForBooking()
+  { /* omitted */ }
+
+  public void setOpenForBooking(boolean newOpenForBooking)
+  { /* omitted */ }
+
+  public Date getArrivalTime()
+  { /* omitted */ }
+
+  public void setArrivalTime(Date newArrivalTime)
+  { /* omitted */ }
+
+  public Date getDepartureTime()
+  { /* omitted */ }
+
+  public void setDepartureTime(Date newDepartureTime)
+  { /* omitted */ }
+
+  public EList<Stopover> getStopovers()
+  { /* omitted */ }
+
+  public Airport getDepartureAirport()
+  { /* omitted */ }
+
+  public Airport basicGetDepartureAirport()
+  { /* omitted */ }
+
+  public void setDepartureAirport(Airport newDepartureAirport)
+  { /* omitted */ }
+
+  public Airport getArrialAirport()
+  { /* omitted */ }
+
+  public Airport basicGetArrialAirport()
+  { /* omitted */ }
+
+  public void setArrialAirport(Airport newArrialAirport)
+  { /* omitted */ }
+
+  public EList<Reservation> getReservations()
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds a stopover to the flight's stopover list before departure.
+   * Algorithm:
+   *   1. Ensure flight is open for booking and now < flight.departureTime.
+   *   2. Validate that the stop.airport serves at least one valid city.
+   *   3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+   *   4. Ensure that stop.arrivalTime < stop.departureTime.
+   *   5. Add stop to the stopovers list.
+   *   6. Return true; otherwise, return false.
+   * Input:
+   *   stop : Stopover - The stopover to be added.
+   *   now : EDate - The current date/time.
+   * Output: boolean - True if added successfully, false otherwise.
+   * Pre-condition: The flight must be open and still scheduled.
+   * Post-condition: If successful, the stopover is added to the flight.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addStopover(final Stopover stop, final Date now)
+  {
+    // 1. Ensure flight is open for booking and now < flight.departureTime.
+    if (!isOpenForBooking() || now.compareTo(getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 2. Validate that the stop.airport serves at least one valid city.
+    if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+      return false;
+    }
+    
+    // 3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+    if (stop.getArrivalTime().compareTo(getDepartureTime()) <= 0 ||
+        stop.getDepartureTime().compareTo(getArrivalTime()) >= 0) {
+      return false;
+    }
+    
+    // 4. Ensure that stop.arrivalTime < stop.departureTime.
+    if (stop.getArrivalTime().compareTo(stop.getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 5. Add stop to the stopovers list.
+    getStopovers().add(stop);
+    
+    // 6. Return true; otherwise, return false.
+    return true;
+  }
+
+  public boolean removeStopover(final Stopover stop, final Date now)
+  { /* omitted */ }
+
+  public EList<Reservation> getConfirmedReservations()
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Flight
+1586104 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../AirlineFlights/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../AirlineFlights/src-gen/edu/flights/
+1586220 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 252)
+	if (origin.equals(departureAirport.getCity()) &&
+	                                   ^^^^^^^
+The method getCity() is undefined for the type Airport
+----------
+2. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 253)
+	dest.equals(arrivalAirport.getCity()) &&
+	                           ^^^^^^^
+The method getCity() is undefined for the type Airport
+----------
+----------
+3. WARNING in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java (at line 20)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+----------
+4. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java (at line 488)
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	         ^^^^^^^^^^
+The method getAirport() is undefined for the type Stopover
+----------
+5. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java (at line 488)
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	                                      ^^^^^^^^^^
+The method getAirport() is undefined for the type Stopover
+----------
+5 problems (4 errors, 1 warning)
+
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 252
+Type: ERROR
+Message: The method getCity() is undefined for the type Airport
+Code line: 	if (origin.equals(departureAirport.getCity()) &&
+Caret Pos: 	                                   ^^^^^^^
+
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 253
+Type: ERROR
+Message: The method getCity() is undefined for the type Airport
+Code line: 	dest.equals(arrivalAirport.getCity()) &&
+Caret Pos: 	                           ^^^^^^^
+
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java
+Line: 20
+Type: WARNING
+Message: The import org.eclipse.emf.common.util.BasicEList is never used
+Code line: 	import org.eclipse.emf.common.util.BasicEList;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java
+Line: 488
+Type: ERROR
+Message: The method getAirport() is undefined for the type Stopover
+Code line: 	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+Caret Pos: 	         ^^^^^^^^^^
+
+1586221 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Flight.java
+Line: 488
+Type: ERROR
+Message: The method getAirport() is undefined for the type Stopover
+Code line: 	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+Caret Pos: 	                                      ^^^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  public boolean closeFlight(final String flightId, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+```
+
+# Compilation Errors
+```
+- ERROR: The method getCity() is undefined for the type Airport
+	if (origin.equals(departureAirport.getCity()) &&
+	                                   ^^^^^^^
+
+- ERROR: The method getCity() is undefined for the type Airport
+	dest.equals(arrivalAirport.getCity()) &&
+	                           ^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Flight` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createFlight()`
+  + Public methods: public boolean addStopover(final Stopover stop, final Date now), public boolean removeStopover(final Stopover stop, final Date now), public EList<Reservation> getConfirmedReservations()
+  + Getter methods: public String getId(), public boolean isOpenForBooking(), public Date getArrivalTime(), public Date getDepartureTime(), public EList<Stopover> getStopovers(), public Airport getDepartureAirport(), public Airport getArrialAirport(), public EList<Reservation> getReservations()
+  + Setter methods: public void setId(String newId), public void setOpenForBooking(boolean newOpenForBooking), public void setArrivalTime(Date newArrivalTime), public void setDepartureTime(Date newDepartureTime), public void setDepartureAirport(Airport newDepartureAirport), public void setArrialAirport(Airport newArrialAirport)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+1595566 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - Cannot invoke "java.lang.Iterable.iterator()" because "iterable" is null
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  public boolean closeFlight(final String flightId, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+```
+
+# Compilation Errors
+```
+- ERROR: The method getCity() is undefined for the type Airport
+	if (origin.equals(departureAirport.getCity()) &&
+	                                   ^^^^^^^
+
+- ERROR: The method getCity() is undefined for the type Airport
+	dest.equals(arrivalAirport.getCity()) &&
+	                           ^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Flight` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createFlight()`
+  + Public methods: public boolean addStopover(final Stopover stop, final Date now), public boolean removeStopover(final Stopover stop, final Date now), public EList<Reservation> getConfirmedReservations()
+  + Getter methods: public String getId(), public boolean isOpenForBooking(), public Date getArrivalTime(), public Date getDepartureTime(), public EList<Stopover> getStopovers(), public Airport getDepartureAirport(), public Airport getArrialAirport(), public EList<Reservation> getReservations()
+  + Setter methods: public void setId(String newId), public void setOpenForBooking(boolean newOpenForBooking), public void setArrivalTime(Date newArrivalTime), public void setDepartureTime(Date newDepartureTime), public void setDepartureAirport(Airport newDepartureAirport), public void setArrialAirport(Airport newArrialAirport)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  public boolean closeFlight(final String flightId, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getName()) &&
+            dest.equals(arrivalAirport.getName()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Flight</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Flight#getId <em>Id</em>}</li>
+ *   <li>{@link edu.flights.Flight#isOpenForBooking <em>Open For Booking</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureTime <em>Departure Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getStopovers <em>Stopovers</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureAirport <em>Departure Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrialAirport <em>Arrial Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getReservations <em>Reservations</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getFlight()
+ * @model kind="class"
+ * @generated
+ */
+public class Flight extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final boolean OPEN_FOR_BOOKING_EDEFAULT = false;
+
+  protected boolean openForBooking = OPEN_FOR_BOOKING_EDEFAULT;
+
+  protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+
+  protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
+
+  protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+
+  protected Date departureTime = DEPARTURE_TIME_EDEFAULT;
+
+  protected EList<Stopover> stopovers;
+
+  protected Airport departureAirport;
+
+  protected Airport arrialAirport;
+
+  protected EList<Reservation> reservations;
+
+  protected Flight()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public boolean isOpenForBooking()
+  { ... /* omitted */ }
+
+  public void setOpenForBooking(boolean newOpenForBooking)
+  { ... /* omitted */ }
+
+  public Date getArrivalTime()
+  { ... /* omitted */ }
+
+  public void setArrivalTime(Date newArrivalTime)
+  { ... /* omitted */ }
+
+  public Date getDepartureTime()
+  { ... /* omitted */ }
+
+  public void setDepartureTime(Date newDepartureTime)
+  { ... /* omitted */ }
+
+  public EList<Stopover> getStopovers()
+  { ... /* omitted */ }
+
+  public Airport getDepartureAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetDepartureAirport()
+  { ... /* omitted */ }
+
+  public void setDepartureAirport(Airport newDepartureAirport)
+  { ... /* omitted */ }
+
+  public Airport getArrialAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetArrialAirport()
+  { ... /* omitted */ }
+
+  public void setArrialAirport(Airport newArrialAirport)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getReservations()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds a stopover to the flight's stopover list before departure.
+   * Algorithm:
+   *   1. Ensure flight is open for booking and now < flight.departureTime.
+   *   2. Validate that the stop.airport serves at least one valid city.
+   *   3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+   *   4. Ensure that stop.arrivalTime < stop.departureTime.
+   *   5. Add stop to the stopovers list.
+   *   6. Return true; otherwise, return false.
+   * Input:
+   *   stop : Stopover - The stopover to be added.
+   *   now : EDate - The current date/time.
+   * Output: boolean - True if added successfully, false otherwise.
+   * Pre-condition: The flight must be open and still scheduled.
+   * Post-condition: If successful, the stopover is added to the flight.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addStopover(final Stopover stop, final Date now)
+  {
+    // 1. Ensure flight is open for booking and now < flight.departureTime.
+    if (!isOpenForBooking() || now.compareTo(getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 2. Validate that the stop.airport serves at least one valid city.
+    if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+      return false;
+    }
+    
+    // 3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+    if (stop.getArrivalTime().compareTo(getDepartureTime()) <= 0 ||
+        stop.getDepartureTime().compareTo(getArrivalTime()) >= 0) {
+      return false;
+    }
+    
+    // 4. Ensure that stop.arrivalTime < stop.departureTime.
+    if (stop.getArrivalTime().compareTo(stop.getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 5. Add stop to the stopovers list.
+    getStopovers().add(stop);
+    
+    // 6. Return true; otherwise, return false.
+    return true;
+  }
+
+  public boolean removeStopover(final Stopover stop, final Date now)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getConfirmedReservations()
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Flight
+```
+
+# Compilation Errors
+```
+- ERROR: The method getAirport() is undefined for the type Stopover
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	         ^^^^^^^^^^
+
+- ERROR: The method getAirport() is undefined for the type Stopover
+	if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+	                                      ^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Stopover` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createStopover()`
+  + Getter methods: public Date getDepartureTime(), public Date getArrivalTime()
+  + Setter methods: public void setDepartureTime(Date newDepartureTime), public void setArrivalTime(Date newArrivalTime)
+- Class `Airport` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createAirport()`
+  + Public methods: public void addCity(final City c)
+  + Getter methods: public String getId(), public Airport getAirport(), public EList<City> getServesForCities()
+  + Setter methods: public void setId(String newId), public void setAirport(Airport newAirport)
+- Class `Reservation` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createReservation()`
+  + Getter methods: public String getId(), public ReservationStatus getStatus(), public Passenger getPassenger(), public Flight getFlight()
+  + Setter methods: public void setId(String newId), public void setStatus(ReservationStatus newStatus), public void setPassenger(Passenger newPassenger), public void setFlight(Flight newFlight)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Flight</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Flight#getId <em>Id</em>}</li>
+ *   <li>{@link edu.flights.Flight#isOpenForBooking <em>Open For Booking</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureTime <em>Departure Time</em>}</li>
+ *   <li>{@link edu.flights.Flight#getStopovers <em>Stopovers</em>}</li>
+ *   <li>{@link edu.flights.Flight#getDepartureAirport <em>Departure Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getArrialAirport <em>Arrial Airport</em>}</li>
+ *   <li>{@link edu.flights.Flight#getReservations <em>Reservations</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getFlight()
+ * @model kind="class"
+ * @generated
+ */
+public class Flight extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final boolean OPEN_FOR_BOOKING_EDEFAULT = false;
+
+  protected boolean openForBooking = OPEN_FOR_BOOKING_EDEFAULT;
+
+  protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+
+  protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
+
+  protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+
+  protected Date departureTime = DEPARTURE_TIME_EDEFAULT;
+
+  protected EList<Stopover> stopovers;
+
+  protected Airport departureAirport;
+
+  protected Airport arrialAirport;
+
+  protected EList<Reservation> reservations;
+
+  protected Flight()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public boolean isOpenForBooking()
+  { ... /* omitted */ }
+
+  public void setOpenForBooking(boolean newOpenForBooking)
+  { ... /* omitted */ }
+
+  public Date getArrivalTime()
+  { ... /* omitted */ }
+
+  public void setArrivalTime(Date newArrivalTime)
+  { ... /* omitted */ }
+
+  public Date getDepartureTime()
+  { ... /* omitted */ }
+
+  public void setDepartureTime(Date newDepartureTime)
+  { ... /* omitted */ }
+
+  public EList<Stopover> getStopovers()
+  { ... /* omitted */ }
+
+  public Airport getDepartureAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetDepartureAirport()
+  { ... /* omitted */ }
+
+  public void setDepartureAirport(Airport newDepartureAirport)
+  { ... /* omitted */ }
+
+  public Airport getArrialAirport()
+  { ... /* omitted */ }
+
+  public Airport basicGetArrialAirport()
+  { ... /* omitted */ }
+
+  public void setArrialAirport(Airport newArrialAirport)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getReservations()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds a stopover to the flight's stopover list before departure.
+   * Algorithm:
+   *   1. Ensure flight is open for booking and now < flight.departureTime.
+   *   2. Validate that the stop.airport serves at least one valid city.
+   *   3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+   *   4. Ensure that stop.arrivalTime < stop.departureTime.
+   *   5. Add stop to the stopovers list.
+   *   6. Return true; otherwise, return false.
+   * Input:
+   *   stop : Stopover - The stopover to be added.
+   *   now : EDate - The current date/time.
+   * Output: boolean - True if added successfully, false otherwise.
+   * Pre-condition: The flight must be open and still scheduled.
+   * Post-condition: If successful, the stopover is added to the flight.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addStopover(final Stopover stop, final Date now)
+  {
+    // 1. Ensure flight is open for booking and now < flight.departureTime.
+    if (!isOpenForBooking() || now.compareTo(getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 2. Validate that the stop.airport serves at least one valid city.
+    // Skip airport validation as getAirport() is not available on Stopover
+    // This is a workaround for the compilation error
+    /*
+    if (stop.getAirport() == null || stop.getAirport().getServesForCities().isEmpty()) {
+      return false;
+    }
+    */
+    
+    // 3. Verify that stop.arrivalTime > flight.departureTime and stop.departureTime < flight.arrivalTime.
+    if (stop.getArrivalTime().compareTo(getDepartureTime()) <= 0 ||
+        stop.getDepartureTime().compareTo(getArrivalTime()) >= 0) {
+      return false;
+    }
+    
+    // 4. Ensure that stop.arrivalTime < stop.departureTime.
+    if (stop.getArrivalTime().compareTo(stop.getDepartureTime()) >= 0) {
+      return false;
+    }
+    
+    // 5. Add stop to the stopovers list.
+    getStopovers().add(stop);
+    
+    // 6. Return true; otherwise, return false.
+    return true;
+  }
+
+  public boolean removeStopover(final Stopover stop, final Date now)
+  { ... /* omitted */ }
+
+  public EList<Reservation> getConfirmedReservations()
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Flight
+1664042 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../AirlineFlights/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../AirlineFlights/src-gen/edu/flights/
+1664148 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+1664148 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 220)
+	reservation.cancel();
+	            ^^^^^^
+The method cancel() is undefined for the type Reservation
+----------
+2. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 252)
+	if (origin.equals(departureAirport.getName()) &&
+	                                   ^^^^^^^
+The method getName() is undefined for the type Airport
+----------
+3. ERROR in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java (at line 253)
+	dest.equals(arrivalAirport.getName()) &&
+	                           ^^^^^^^
+The method getName() is undefined for the type Airport
+----------
+----------
+4. WARNING in D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java (at line 20)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+4 problems (3 errors, 1 warning)
+
+1664148 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 220
+Type: ERROR
+Message: The method cancel() is undefined for the type Reservation
+Code line: 	reservation.cancel();
+Caret Pos: 	            ^^^^^^
+
+1664148 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 252
+Type: ERROR
+Message: The method getName() is undefined for the type Airport
+Code line: 	if (origin.equals(departureAirport.getName()) &&
+Caret Pos: 	                                   ^^^^^^^
+
+1664149 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airline.java
+Line: 253
+Type: ERROR
+Message: The method getName() is undefined for the type Airport
+Code line: 	dest.equals(arrivalAirport.getName()) &&
+Caret Pos: 	                           ^^^^^^^
+
+1664149 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\AirlineFlights\src-gen\edu\flights\Airport.java
+Line: 20
+Type: WARNING
+Message: The import org.eclipse.emf.common.util.BasicEList is never used
+Code line: 	import org.eclipse.emf.common.util.BasicEList;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    Flight targetFlight = null;
+    for (Flight flight : getFlights()) {
+      if (flightId.equals(flight.getId())) {
+        targetFlight = flight;
+        break;
+      }
+    }
+
+    if (targetFlight == null || !targetFlight.isOpenForBooking()) {
+      return false;
+    }
+
+    if (now.compareTo(targetFlight.getDepartureTime()) >= 0) {
+      return false;
+    }
+
+    targetFlight.setOpenForBooking(false);
+
+    EList<Reservation> confirmedReservations = targetFlight.getConfirmedReservations();
+    for (Reservation reservation : confirmedReservations) {
+      reservation.cancel();
+    }
+
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+```
+
+# Compilation Errors
+```
+- ERROR: The method cancel() is undefined for the type Reservation
+	reservation.cancel();
+	            ^^^^^^
+
+- ERROR: The method getName() is undefined for the type Airport
+	if (origin.equals(departureAirport.getName()) &&
+	                                   ^^^^^^^
+
+- ERROR: The method getName() is undefined for the type Airport
+	dest.equals(arrivalAirport.getName()) &&
+	                           ^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Flight` contains the following methods.
+  + Instance creation: Use `FlightsFactory.eINSTANCE.createFlight()`
+  + Public methods: public boolean addStopover(final Stopover stop, final Date now), public boolean removeStopover(final Stopover stop, final Date now), public EList<Reservation> getConfirmedReservations()
+  + Getter methods: public String getId(), public boolean isOpenForBooking(), public Date getArrivalTime(), public Date getDepartureTime(), public EList<Stopover> getStopovers(), public Airport getDepartureAirport(), public Airport getArrialAirport(), public EList<Reservation> getReservations()
+  + Setter methods: public void setId(String newId), public void setOpenForBooking(boolean newOpenForBooking), public void setArrivalTime(Date newArrivalTime), public void setDepartureTime(Date newDepartureTime), public void setDepartureAirport(Airport newDepartureAirport), public void setArrialAirport(Airport newArrialAirport)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.flights;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.common.util.BasicEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Airline</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.flights.Airline#getFlights <em>Flights</em>}</li>
+ * </ul>
+ *
+ * @see edu.flights.FlightsPackage#getAirline()
+ * @model kind="class"
+ * @generated
+ */
+public class Airline extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Flight> flights;
+
+  protected Airline()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Flight> getFlights()
+  { ... /* omitted */ }
+
+  public void addFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public void removeFlight(final Flight f)
+  { ... /* omitted */ }
+
+  public boolean publishFlight(final Flight f, final Date now)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Closes an open flight by verifying its current status and departure time, then cancels all confirmed reservations.
+   * Algorithm:
+   *   1. Find the flight by flightId.
+   *   2. If flight is not found or is not open, return false.
+   *   3. If now >= flight.departureTime, return false.
+   *   4. Set flight.openForBooking = false.
+   *   5. For each confirmed reservation in flight.reservations:
+   *       - Set reservation.status = CANCELLED.
+   *   6. Return true.
+   * Input:
+   *   flightId : String - The unique identifier of the flight to be closed.
+   *   now : EDate - The current date and time.
+   * Output: boolean - True if the flight was successfully closed, false otherwise.
+   * Pre-condition: The flight exists and is currently open for booking.
+   * Post-condition: Flight status is set to closed, all confirmed reservations are canceled.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean closeFlight(final String flightId, final Date now)
+  {
+    Flight targetFlight = null;
+    for (Flight flight : getFlights()) {
+      if (flightId.equals(flight.getId())) {
+        targetFlight = flight;
+        break;
+      }
+    }
+
+    if (targetFlight == null || !targetFlight.isOpenForBooking()) {
+      return false;
+    }
+
+    if (now.compareTo(targetFlight.getDepartureTime()) >= 0) {
+      return false;
+    }
+
+    targetFlight.setOpenForBooking(false);
+
+    EList<Reservation> confirmedReservations = targetFlight.getConfirmedReservations();
+    for (Reservation reservation : confirmedReservations) {
+      reservation.setStatus(ReservationStatus.CANCELLED);
+    }
+
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Searches for flights based on origin airport, travel date, and destination airport.
+   * Algorithm: Filter the flights list by origin, date, and destination parameters.
+   * Input:
+   *   origin : String - The city served by the departure airport.
+   *   date : EDate - The travel date for the flight.
+   *   dest : String - The city served by the arrival airport.
+   * Output: List<Flight> - A list of matching flights or empty list if none found.
+   * Pre-condition: None
+   * Post-condition: No changes to system state.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Flight> searchFlights(final String origin, final Date date, final String dest)
+  {
+    EList<Flight> result = new BasicEList<Flight>();
+    for (Flight flight : getFlights()) {
+      Airport departureAirport = flight.getDepartureAirport();
+      Airport arrivalAirport = flight.getArrialAirport();
+      Date departureTime = flight.getDepartureTime();
+
+      if (departureAirport != null && arrivalAirport != null && departureTime != null) {
+        if (origin.equals(departureAirport.getCity()) &&
+            dest.equals(arrivalAirport.getCity()) &&
+            isSameDay(departureTime, date)) {
+          result.add(flight);
+        }
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  private boolean isSameDay(Date date1, Date date2) { ... /* omitted */ }
+
+} // Airline
+1678551 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+1678553 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/flights 到 qwen3-coder/flights5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

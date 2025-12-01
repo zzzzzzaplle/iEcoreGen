@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="postal" nsURI="http://www.example.org/postal" nsPrefix="postal">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Every day, the mailman delivers registered mail in a geographical area assigned to him. The inhabitants are also associated with a geographical area. There are two types of registered mail: letters and parcels. As several letter carriers can intervene in the same area, we want, for each registered letter, the letter carrier who delivered it, in addition to the addressee.&#xA;functional requirement：&#xA;+ Assign a specific mailman to deliver a registered inhabitant's mail item. The mailman and the inhabitant must belong to the addressee's geographical area. And ensure the mail isn't already assigned to any mailman. Return true if the assignment is successful; otherwise, false. &#xA;&#xA;+ List all registered mail items (letters and parcels) assigned to a specified mailman. Include only mail items that specify the given mailman as the carrier. Return null if none exist.&#xA;&#xA;+ Manage inhabitants. Add a new inhabitant to a geographical area. Remove an inhabitant from the geographical area. Delete any registered mail whose addressee is that inhabitant and which has already been assigned to a mailman. Return true if the operation is successful, false otherwise. &#xA;&#xA;+ Manage mailmen. Add a mailman if they're not already assigned the geographical area.  Removing a mailman requires: keeping at least one mailman in the area; specifying a different, existing mailman to take over deliveries; successfully reassigning all mail before removal. Return true if the operation is successful, false otherwise. &#xA;&#xA;+ List all registered mail items (letters and parcels) directed to a specified inhabitant. Include only mail items that specify the given inhabitant as the addressee. Return null if none exist."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Mailman"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Inhabitant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegisteredMail" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" lowerBound="1" eType="//Mailman"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addressee" lowerBound="1" eType="//Inhabitant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Letter" eSuperTypes="//RegisteredMail"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parcel" eSuperTypes="//RegisteredMail"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeographicalArea">
+    <eOperations name="getAllDeliveries" upperBound="-1" eType="//RegisteredMail">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="addInhabitant">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="newInhabitant" eType="//Inhabitant"/>
+    </eOperations>
+    <eOperations name="removeInhabitant">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="newInhabitant" eType="//Inhabitant"/>
+    </eOperations>
+    <eOperations name="addMailman">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="newMailman" eType="//Mailman"/>
+    </eOperations>
+    <eOperations name="removeMailman">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="mailmanToRemove" eType="//Mailman"/>
+      <eParameters name="newMailman" eType="//Mailman"/>
+    </eOperations>
+    <eOperations name="assignRegisteredMailDeliver">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="carrier" eType="//Mailman"/>
+      <eParameters name="addressee" eType="//Inhabitant"/>
+      <eParameters name="mail" eType="//RegisteredMail"/>
+    </eOperations>
+    <eOperations name="listRegisteredMail" upperBound="-1" eType="//RegisteredMail">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="carrier" eType="//Mailman"/>
+    </eOperations>
+    <eOperations name="listRegisteredMailWithInhabitant" upperBound="-1" eType="//RegisteredMail">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="addressee" eType="//Inhabitant"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mailmen" upperBound="-1" eType="//Mailman" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inhabitants" upperBound="-1" eType="//Inhabitant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allMails" upperBound="-1" eType="//RegisteredMail"/>
+  </eClassifiers>
+</ecore:EPackage>

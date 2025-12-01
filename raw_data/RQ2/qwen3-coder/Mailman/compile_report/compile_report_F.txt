@@ -1,0 +1,58 @@
+================================================================================
+Mailman 系统编译报告
+================================================================================
+生成时间: 2025-11-24 21:09:39
+系统名称: Mailman
+SystemName: postal
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] postal1
+  - 样本目录: D:\EclipseWorkspace\Mailman\qwen3-coder\postal1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\qwen3-coder\postal1\compile
+
+[✓ PASS] postal2
+  - 样本目录: D:\EclipseWorkspace\Mailman\qwen3-coder\postal2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\qwen3-coder\postal2\compile
+
+[✓ PASS] postal3
+  - 样本目录: D:\EclipseWorkspace\Mailman\qwen3-coder\postal3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\qwen3-coder\postal3\compile
+
+[✓ PASS] postal4
+  - 样本目录: D:\EclipseWorkspace\Mailman\qwen3-coder\postal4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\qwen3-coder\postal4\compile
+
+[✗ FAIL] postal5
+  - 样本目录: D:\EclipseWorkspace\Mailman\qwen3-coder\postal5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\qwen3-coder\postal5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\qwen3-coder\postal5\GeographicalArea.java:236: 错误: 找不到符号
+        Iterator<RegisteredMail> iterator = mails.iterator();
+        ^
+    符号:   类 Iterator
+    位置: 类 GeographicalArea
+  1 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

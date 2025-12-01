@@ -1,0 +1,139 @@
+============================================================
+Mailman - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-23 03:12:41
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test)
+  java.lang.AssertionError: Mail for non-existent inhabitant should not be assignable
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test.java:122)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_RetrieveDeliveriesForAreaWithMultipleMailmen(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase4_RetrieveDeliveriesForAreaWithMultipleMailmen(CR2Test.java:108)
+  2) testCase1_RetrieveDeliveriesForBusyArea(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase1_RetrieveDeliveriesForBusyArea(CR2Test.java:48)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_RemoveInhabitantWithAssignedMail(CR3Test)
+  java.lang.AssertionError: Lakeside should contain assigned letter
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase2_RemoveInhabitantWithAssignedMail(CR3Test.java:64)
+  2) testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test)
+  java.lang.AssertionError: Beachfront should contain letter7
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test.java:155)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_StressTestWithMaximumReassignments(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase5_StressTestWithMaximumReassignments(CR4Test.java:312)
+  2) testCase3_FailedRemovalEdgeCases(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase3_FailedRemovalEdgeCases(CR4Test.java:194)
+  3) testCase2_CascadingMailmanRemovalWithDependencies(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase2_CascadingMailmanRemovalWithDependencies(CR4Test.java:139)
+  4) testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test.java:59)
+  5) testCase4_MixedSuccessfulAndFailedOperations(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

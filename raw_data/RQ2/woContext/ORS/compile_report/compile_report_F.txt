@@ -1,0 +1,192 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 09:29:07
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\woContext\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woContext\rideshare1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Booking.java:334: 错误: 找不到符号
+      Object availableSeatsObj = trip.eGet(RidesharePackage.Literals.TRIP__AVAILABLE_SEATS);
+                                                                    ^
+    符号:   变量 TRIP__AVAILABLE_SEATS
+    位置: 接口 Literals
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Booking.java:404: 错误: 找不到符号
+      Object currentArrivalObj = currentTrip.eGet(RidesharePackage.Literals.TRIP__ARRIVAL_DATE);
+                                                                           ^
+    符号:   变量 TRIP__ARRIVAL_DATE
+    位置: 接口 Literals
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Booking.java:405: 错误: 找不到符号
+      Object otherArrivalObj = trip.eGet(RidesharePackage.Literals.TRIP__ARRIVAL_DATE);
+                                                                  ^
+    符号:   变量 TRIP__ARRIVAL_DATE
+    位置: 接口 Literals
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Customer.java:233: 错误: 找不到符号
+      if (trip.getCapacity() < numberOfSeats) {
+              ^
+    符号:   方法 getCapacity()
+    位置: 类型为Trip的变量 trip
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Customer.java:262: 错误: 找不到符号
+      trip.setCapacity(trip.getCapacity() - numberOfSeats);
+                           ^
+    符号:   方法 getCapacity()
+    位置: 类型为Trip的变量 trip
+  D:\EclipseWorkspace\ORS\woContext\rideshare1\Trip.java:647: 错误: 找不到符号
+      if (customer == null || customer.getMembership() == null) {
+                                      ^
+    符号:   方法 getMembership()
+    位置: 类型为Customer的变量 customer
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\woContext\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woContext\rideshare2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:107: 错误: 找不到符号
+      EList<StopStation> stopStations1 = trip1.getStopStations();
+            ^
+    符号:   类 StopStation
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:108: 错误: 找不到符号
+      EList<StopStation> stopStations2 = trip2.getStopStations();
+            ^
+    符号:   类 StopStation
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:110: 错误: 找不到符号
+      for (StopStation station1 : stopStations1) {
+           ^
+    符号:   类 StopStation
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:254: 错误: 找不到符号
+      return trip1.getStartTime().compareTo(trip2.getEndTime()) < 0 && 
+                  ^
+    符号:   方法 getStartTime()
+    位置: 类型为Trip的变量 trip1
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:254: 错误: 找不到符号
+      return trip1.getStartTime().compareTo(trip2.getEndTime()) < 0 && 
+                                                 ^
+    符号:   方法 getEndTime()
+    位置: 类型为Trip的变量 trip2
+  D:\EclipseWorkspace\ORS\woContext\rideshare2\Driver.java:255: 错误: 找不到符号
+             trip2.getStartTime().compareTo(trip1.getEndTime()) < 0;
+                  ^
+    符号:   方法 getStartTime()
+    位置: 类型为Trip的变量 trip2
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\woContext\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woContext\rideshare3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Booking.java:399: 错误: 找不到符号
+      if (thisTrip == null || otherTrip == null) {
+                              ^
+    符号:   变量 otherTrip
+    位置: 类 Booking
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Booking.java:405: 错误: 找不到符号
+      Date otherDate = otherTrip.getDepartureDate();
+                       ^
+    符号:   变量 otherTrip
+    位置: 类 Booking
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Booking.java:411: 错误: 找不到符号
+      return thisTrip.isTimeConflicting(otherTrip.getDepartureTime(), otherTrip.getArrivalTime()) ||
+                                        ^
+    符号:   变量 otherTrip
+    位置: 类 Booking
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Booking.java:411: 错误: 找不到符号
+      return thisTrip.isTimeConflicting(otherTrip.getDepartureTime(), otherTrip.getArrivalTime()) ||
+                                                                      ^
+    符号:   变量 otherTrip
+    位置: 类 Booking
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Booking.java:412: 错误: 找不到符号
+             otherTrip.isTimeConflicting(thisTrip.getDepartureTime(), thisTrip.getArrivalTime());
+             ^
+    符号:   变量 otherTrip
+    位置: 类 Booking
+  D:\EclipseWorkspace\ORS\woContext\rideshare3\Customer.java:213: 错误: 找不到符号
+          totalPoints += award.getBonusPoints(); // Assuming Award has getBonusPoints()
+                              ^
+    符号:   方法 getBonusPoints()
+    位置: 类型为Award的变量 award
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\woContext\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woContext\rideshare4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare4\Driver.java:143: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                           ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare4\Driver.java:143: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                                                       ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\woContext\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woContext\rideshare5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woContext\rideshare5\Driver.java:142: 错误: 找不到符号
+        if (existingTrip.getDepartureDate().equals(newTrip.getDepartureDate())) {
+                                                   ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare5\Driver.java:143: 错误: 找不到符号
+          if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                             ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woContext\rideshare5\Driver.java:143: 错误: 找不到符号
+          if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                                                         ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

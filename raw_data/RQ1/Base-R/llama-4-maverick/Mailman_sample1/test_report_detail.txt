@@ -1,0 +1,88 @@
+============================================================
+Mailman - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-23 19:32:56
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_RetrieveDeliveriesForAreaWithUnassignedMail(CR2Test)
+  java.lang.AssertionError: Result should be empty since mail is unassigned
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase3_RetrieveDeliveriesForAreaWithUnassignedMail(CR2Test.java:109)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_RemoveNonExistentInhabitant(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "GeographicalArea.removeInhabitant(Inhabitant)" because "<local2>" is null
+  	at MailDeliveryManager.removeInhabitantFromGeographicalArea(FJC.java:400)
+  	at CR3Test.testCase4_RemoveNonExistentInhabitant(CR3Test.java:126)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_ListMailForNonExistentInhabitant(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "GeographicalArea.getRegisteredMails()" because "<local2>" is null
+  	at MailDeliveryManager.listRegisteredMailForInhabitant(FJC.java:440)
+  	at CR5Test.testCase3_ListMailForNonExistentInhabitant(CR5Test.java:97)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

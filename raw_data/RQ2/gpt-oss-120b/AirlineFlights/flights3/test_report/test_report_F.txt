@@ -1,0 +1,98 @@
+================================================================================
+flights3 测试报告
+================================================================================
+生成时间: 2025-11-27 12:59:18
+样本名称: flights3
+总测试数: 30
+通过: 26
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_TwoNewPassengersSucceed(edu.flights.flights3.test.CR2Test)
+  org.junit.ComparisonFailure: First passenger should be Peter expected:<[Peter]> but was:<[Beck]>
+  	at org.junit.Assert.assertEquals(Assert.java:117)
+  	at edu.flights.flights3.test.CR2Test.testCase1_TwoNewPassengersSucceed(CR2Test.java:60)
+  2) testCase3_PassengerAlreadyBookedEarlier(edu.flights.flights3.test.CR2Test)
+  java.lang.AssertionError: Booking should fail due to duplicate passenger in existing booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights3.test.CR2Test.testCase3_PassengerAlreadyBookedEarlier(CR2Test.java:145)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase2_ThreeConfirmedReservationsCanceled(edu.flights.flights3.test.CR4Test)
+  java.lang.AssertionError: Reservation should be cancelled expected:<CANCELLED> but was:<CONFIRMED>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.flights.flights3.test.CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:107)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_AddFirstStopoverInsideJourneyWindow(edu.flights.flights3.test.CR6Test)
+  java.lang.AssertionError: Stopover should be added successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights3.test.CR6Test.testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test.java:63)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 30
+通过: 26
+失败: 4
+成功率: 86.7%
+================================================================================

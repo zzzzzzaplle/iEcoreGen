@@ -1,0 +1,107 @@
+============================================================
+Cinemas - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-23 18:07:53
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase3_AddMultipleRooms(CR1Test)
+  java.lang.AssertionError: Second room addition should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase3_AddMultipleRooms(CR1Test.java:58)
+  2) testCase5_AddDuplicateRoomAcrossMultipleCinemas(CR1Test)
+  java.lang.AssertionError: Adding room2 to cinema1 should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_AddDuplicateRoomAcrossMultipleCinemas(CR1Test.java:93)
+  3) testCase4_AddMultipleUniqueRooms(CR1Test)
+  java.lang.AssertionError: Second unique room addition should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase4_AddMultipleUniqueRooms(CR1Test.java:73)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 5/6 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_AssignScreeningAtCurrentTimeBoundary(CR5Test)
+  java.lang.AssertionError: Should not assign screening at current time boundary
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase4_AssignScreeningAtCurrentTimeBoundary(CR5Test.java:74)
+  
+  FAILURES!!!
+  Tests run: 6,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_cancelAtExactScreeningTimeBoundary(CR6Test)
+  java.lang.AssertionError: Screening at exact time boundary should not be canceled
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase3_cancelAtExactScreeningTimeBoundary(CR6Test.java:70)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 3/6
+- 测试失败: 3/6
+============================================================

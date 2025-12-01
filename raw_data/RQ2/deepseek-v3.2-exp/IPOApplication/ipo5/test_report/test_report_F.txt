@@ -1,0 +1,83 @@
+================================================================================
+ipo5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:00:01
+样本名称: ipo5
+总测试数: 26
+通过: 23
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 6
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_AllRequestsCanceled(edu.ipo.ipo5.test.CR3Test)
+  java.lang.AssertionError: Customer with canceled pending application should return 0 expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.ipo.ipo5.test.CR3Test.testCase5_AllRequestsCanceled(CR3Test.java:268)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase5_CancelAfterPriorCancellation(edu.ipo.ipo5.test.CR5Test)
+  java.lang.AssertionError: expected:<1> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.ipo.ipo5.test.CR5Test.testCase5_CancelAfterPriorCancellation(CR5Test.java:184)
+  2) testCase1_CancelStillPendingRequest(edu.ipo.ipo5.test.CR5Test)
+  java.lang.AssertionError: expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.ipo.ipo5.test.CR5Test.testCase1_CancelStillPendingRequest(CR5Test.java:108)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 26
+通过: 23
+失败: 3
+成功率: 88.5%
+================================================================================

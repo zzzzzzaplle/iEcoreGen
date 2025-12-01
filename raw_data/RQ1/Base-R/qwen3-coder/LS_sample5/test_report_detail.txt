@@ -1,0 +1,27 @@
+============================================================
+LS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:30:31
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\qwen3-coder\LS_sample5\src\main\FJC.java:296: 错误: 需要')'
+                  !loan.getStartDate().isAfter endDate && 
+                                              ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\qwen3-coder\LS_sample5\src\main\FJC.java:296: 错误: 不是语句
+                  !loan.getStartDate().isAfter endDate && 
+                                                       ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\qwen3-coder\LS_sample5\src\main\FJC.java:297: 错误: 需要';'
+                  !loan.getEndDate().isBefore(startDate)) {
+                                                        ^
+  3 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

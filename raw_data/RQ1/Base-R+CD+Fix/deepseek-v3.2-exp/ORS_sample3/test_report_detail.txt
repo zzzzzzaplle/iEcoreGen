@@ -1,0 +1,94 @@
+============================================================
+ORS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 12:17:23
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test)
+  java.lang.AssertionError: Booking should be eligible
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:89)
+  2) testCase5_bookingDeniedWhenCustomerHasOverlappingBooking(CR1Test)
+  java.lang.AssertionError: Booking should be denied due to overlapping booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase5_bookingDeniedWhenCustomerHasOverlappingBooking(CR1Test.java:255)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_completeTimeEnclosureRejection(CR5Test)
+  java.lang.AssertionError: Completely overlapping trip should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase4_completeTimeEnclosureRejection(CR5Test.java:86)
+  2) testCase2_postingDeniedDueToTimeConflict(CR5Test)
+  java.lang.AssertionError: Trip with time conflict should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase2_postingDeniedDueToTimeConflict(CR5Test.java:52)
+  3) testCase5_multipleExistingTripComparison(CR5Test)
+  java.lang.AssertionError: Trip conflicting with existing trips should be denied
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR5Test.testCase5_multipleExistingTripComparison(CR5Test.java:118)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

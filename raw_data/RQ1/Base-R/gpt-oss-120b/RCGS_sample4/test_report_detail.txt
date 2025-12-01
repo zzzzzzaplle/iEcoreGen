@@ -1,0 +1,93 @@
+============================================================
+RCGS - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-22 14:24:25
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase1_SingleRentalCalculation(CR2Test)
+  java.lang.AssertionError: Total revenue should be 800 CNY expected:<800.0> but was:<550.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR2Test.testCase1_SingleRentalCalculation(CR2Test.java:56)
+  2) testCase3_MultipleRentalsWithSameDailyPrice(CR2Test)
+  java.lang.AssertionError: Total revenue should be 720 CNY for rentals with same daily price expected:<720.0> but was:<480.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR2Test.testCase3_MultipleRentalsWithSameDailyPrice(CR2Test.java:111)
+  3) testCase4_MixedPricesCalculation(CR2Test)
+  java.lang.AssertionError: Total revenue should be 1150 CNY for mixed price rentals expected:<1150.0> but was:<910.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR2Test.testCase4_MixedPricesCalculation(CR2Test.java:156)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_NoOverdueRentals(CR3Test)
+  java.lang.AssertionError: Should not find any overdue customers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase2_NoOverdueRentals(CR3Test.java:77)
+  2) testCase5_FutureDueDateRentals(CR3Test)
+  java.lang.AssertionError: Should not find any overdue customers for future due dates
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase5_FutureDueDateRentals(CR3Test.java:181)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

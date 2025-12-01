@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="employee" nsURI="http://www.example.org/employee" nsPrefix="employee">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Employee Management System&#xA;A company has more than one employee. Each employee object contains information about the department, name, date of birth, and social insurance number. These employees are included in the categories of workers, sales people, and managers. In addition, while workers have information such as weekly working hours and hourly rates, the sales persons have information such as fixed salary, amount of sales made, and commission percentage. The managers only get a fixed salary, and have subordinates. Workers are separated as shift workers and non-shift workers. Off-shift workers have weekend and official holiday permits. Shift workers receive premiums for working on holidays. The company has production, control, and delivery departments. Each department has to be controlled by a manager. Shift workers can only work in the delivery department.&#xA;In addition to the above basic information, the manager object also has position information. &#xA;Functional requirement:&#xA;+ Calculate the total salary of all employees in the company. Total salary = sum(workers' salary + sales people's salary + managers' salary). Workers' salary = weeklyWorkingHour * hourlyRates + [holiday premiums for shift workers]. Sales people's salary = salary + amountOfSales * commissionPercentage. Managers' salary = salary.&#xA;&#xA;+ Find average working hours per week for all workers in the delivery department.  Return 0 if there are no workers in the delivery department.&#xA;&#xA;+ Determine the total commission amount for all salespeople in the company. Sum(amountOfSales * commissionPercentage) for all salespeople.&#xA;&#xA;+ Calculate total holiday premiums paid to all shift workers in the company.  Return 0 if there are no shift workers in the delivery department.&#xA;&#xA;+ Get the number of direct subordinate employees for each manager. &#xA;"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="DepartmentType">
+    <eLiterals name="PRODUCTION"/>
+    <eLiterals name="CONTROL" value="1"/>
+    <eLiterals name="DELIVERY" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="department">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="birthDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="socialInsuranceNumber">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="company" lowerBound="1" eType="//Company" eOpposite="//Company/employees"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Worker" abstract="true" eSuperTypes="//Employee">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeklyWorkingHour">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hourlyRates">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="//Employee">
+    <eOperations name="getDirectSubordinateEmployeesCount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Gets the number of direct subordinate employees for the manager.&#xA;Algorithm: &#xA;1. Return the size of the subordinates list.&#xA;Input: None&#xA;Output: The number of direct subordinate employees for the manager (int)&#xA;Pre-condition: The manager has been initialized with subordinates.&#xA;Post-condition: The count is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subordinates" upperBound="-1" eType="//Employee"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SalesPeople" eSuperTypes="//Employee">
+    <eOperations name="getTotalCommission">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total commission for the salesperson.&#xA;Algorithm: &#xA;1. Return amountOfSales * commissionPercentage.&#xA;Input: None&#xA;Output: The total commission for the salesperson (double)&#xA;Pre-condition: The salesperson has been initialized with amountOfSales and commissionPercentage.&#xA;Post-condition: The total commission is calculated and returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amountOfSales">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commissionPercentage">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShiftWorker" eSuperTypes="//Worker">
+    <eOperations name="calculateHolidayPremium">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the holiday premium for the shift worker.&#xA;Algorithm: &#xA;1. Return holidayPremium.&#xA;Input: None&#xA;Output: The holiday premium for the shift worker (double)&#xA;Pre-condition: The shift worker has been initialized with holidayPremium.&#xA;Post-condition: The holiday premium is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="holidayPremium">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OffShiftWorker" eSuperTypes="//Worker"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
+    <eOperations name="calculateAverageWorkerWorkingHours">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the average working hours per week for all workers in the department.&#xA;Algorithm: &#xA;1. Initialize totalWorkingHours to 0 and workerCount to 0.&#xA;2. Iterate through all employees in the department.&#xA;3. For each employee, check if it's a Worker.&#xA;4. If it's a Worker, add its weeklyWorkingHour to totalWorkingHours and increment workerCount.&#xA;5. If workerCount is 0, return 0.&#xA;6. Return totalWorkingHours / workerCount.&#xA;Input: None&#xA;Output: The average working hours per week for all workers in the department (double)&#xA;Pre-condition: The department has been initialized with employees.&#xA;Post-condition: The average working hours are calculated and returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//DepartmentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="//Manager"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1" eType="//Employee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="company" lowerBound="1" eType="//Company" eOpposite="//Company/departments"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eOperations name="calculateTotalEmployeeSalary">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total salary of all employees in the company.&#xA;Algorithm: &#xA;1. Initialize totalSalary to 0.&#xA;2. Iterate through all employees in the company.&#xA;3. For each employee, check its type.&#xA;4. If it's a Worker, add its salary (weeklyWorkingHour * hourlyRates + holiday premiums if it's a ShiftWorker) to totalSalary.&#xA;5. If it's a SalesPeople, add its salary (salary + amountOfSales * commissionPercentage) to totalSalary.&#xA;6. If it's a Manager, add its salary to totalSalary.&#xA;7. Return totalSalary.&#xA;Input: None&#xA;Output: The total salary of all employees in the company (double)&#xA;Pre-condition: The company has been initialized with employees.&#xA;Post-condition: The total salary is calculated and returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="calculateTotalSalesPeopleCommission">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total commission amount for all salespeople in the company.&#xA;Algorithm: &#xA;1. Initialize totalCommission to 0.&#xA;2. Iterate through all employees in the company.&#xA;3. For each employee, check if it's a SalesPeople.&#xA;4. If it's a SalesPeople, add its commission (amountOfSales * commissionPercentage) to totalCommission.&#xA;5. Return totalCommission.&#xA;Input: None&#xA;Output: The total commission amount for all salespeople in the company (double)&#xA;Pre-condition: The company has been initialized with employees.&#xA;Post-condition: The total commission is calculated and returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="calculateTotalShiftWorkerHolidayPremiums">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total holiday premiums paid to all shift workers in the company.&#xA;Algorithm: &#xA;1. Initialize totalHolidayPremiums to 0.&#xA;2. Iterate through all employees in the company.&#xA;3. For each employee, check if it's a ShiftWorker.&#xA;4. If it's a ShiftWorker, add its holiday premium to totalHolidayPremiums.&#xA;5. Return totalHolidayPremiums.&#xA;Input: None&#xA;Output: The total holiday premiums paid to all shift workers in the company (double)&#xA;Pre-condition: The company has been initialized with employees.&#xA;Post-condition: The total holiday premiums are calculated and returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departments" upperBound="-1" eType="//Department" containment="true" eOpposite="//Department/company"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1" eType="//Employee" containment="true" eOpposite="//Employee/company"/>
+  </eClassifiers>
+</ecore:EPackage>

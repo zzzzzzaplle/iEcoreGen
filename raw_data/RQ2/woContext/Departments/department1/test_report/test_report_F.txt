@@ -1,0 +1,86 @@
+================================================================================
+department1 测试报告
+================================================================================
+生成时间: 2025-11-25 00:14:29
+样本名称: department1
+总测试数: 25
+通过: 21
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_AssignToNonExistentDepartment(edu.department.department1.test.CR1Test)
+  java.lang.AssertionError: Should return true when office belongs to department and no headquarter exists
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.department.department1.test.CR1Test.testCase5_AssignToNonExistentDepartment(CR1Test.java:161)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase5_DeleteDepartmentWithManagerButNoOffices(edu.department.department1.test.CR3Test)
+  java.lang.AssertionError: Employee E201 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department1.test.CR3Test.testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test.java:168)
+  2) testCase3_DeleteDepartmentWithOnlyOffices(edu.department.department1.test.CR3Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.deleteDepartment(Company.java:210)
+  	at edu.department.department1.test.CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:111)
+  3) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department1.test.CR3Test)
+  java.lang.AssertionError: Employee E101 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department1.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:73)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 21
+失败: 4
+成功率: 84.0%
+================================================================================

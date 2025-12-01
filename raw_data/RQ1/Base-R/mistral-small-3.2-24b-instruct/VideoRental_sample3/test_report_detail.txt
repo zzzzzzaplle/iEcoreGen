@@ -1,0 +1,136 @@
+============================================================
+VideoRental - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-23 04:31:48
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_ReturnedFiveDaysLate(CR1Test)
+  java.lang.AssertionError: expected:<3.0> but was:<1.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase5_ReturnedFiveDaysLate(CR1Test.java:188)
+  2) testCase4_UnreturnedButNotOverdue(CR1Test)
+  java.lang.AssertionError: expected:<0.0> but was:<-3.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase4_UnreturnedButNotOverdue(CR1Test.java:147)
+  3) testCase2_UnreturnedAndThreeDaysOverdue(CR1Test)
+  java.lang.AssertionError: expected:<1.5> but was:<2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase2_UnreturnedAndThreeDaysOverdue(CR1Test.java:83)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_TapeExistsButHasOverdueRental(CR2Test)
+  java.lang.AssertionError: Tape T004 should be unavailable when overdue and not returned
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase4_TapeExistsButHasOverdueRental(CR2Test.java:114)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_CustomerHasOverdueFees(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because "this.returnDate" is null
+  	at VideoRental.calculateOverdueAmount(FJC.java:170)
+  	at Customer.lambda$hasPastDueAmounts$1(FJC.java:52)
+  	at java.base/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+  	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+  	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+  	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+  	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+  	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+  	at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+  	at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+  	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+  	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:632)
+  	at Customer.hasPastDueAmounts(FJC.java:52)
+  	at VideoRental.addVideoTapeRental(FJC.java:199)
+  	at CR3Test.testCase3_CustomerHasOverdueFees(CR3Test.java:91)
+  2) testCase1_SuccessfulRental(CR3Test)
+  java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because "this.returnDate" is null
+  	at VideoRental.calculateOverdueAmount(FJC.java:170)
+  	at Customer.lambda$hasPastDueAmounts$1(FJC.java:52)
+  	at java.base/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+  	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+  	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+  	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+  	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+  	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+  	at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+  	at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\VideoRental_sample3\src\test\CR4Test.java:73: 错误: 不是语句
+          rentals.add
+                 ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\VideoRental_sample3\src\test\CR4Test.java:73: 错误: 进行语法分析时已到达文件结尾
+          rentals.add
+                     ^
+  2 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 1/4
+- 测试失败: 3/4
+============================================================

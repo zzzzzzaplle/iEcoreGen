@@ -1,0 +1,71 @@
+============================================================
+Mailman - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:41:01
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR3Test.java:62: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> paulMailBefore = lakeside.listRegisteredMail(paul);
+                                                                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR3Test.java:72: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> paulMailAfter = lakeside.listRegisteredMail(paul);
+                                                                           ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR3Test.java:109: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> rachelMailBefore = beachfront.listRegisteredMail(rachel);
+                                                                                ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR3Test.java:120: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR5Test.java:60: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> result = geographicalArea.listRegisteredMail(inhabitantZoe);
+                                                                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR5Test.java:78: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> result = geographicalArea.listRegisteredMail(inhabitantMia);
+                                                                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR5Test.java:90: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+          List<RegisteredMail> result = geographicalArea.listRegisteredMail(nonExistentNoah);
+                                                                            ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\Mailman_sample3\src\test\CR5Test.java:116: 错误: 不兼容的类型: Inhabitant无法转换为Mailman
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 3/5
+- 测试通过: 3/3
+- 测试失败: 0/3
+============================================================

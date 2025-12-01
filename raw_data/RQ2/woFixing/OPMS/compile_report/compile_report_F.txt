@@ -1,0 +1,142 @@
+================================================================================
+OPMS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:41:57
+系统名称: OPMS
+SystemName: project
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] project1
+  - 样本目录: D:\EclipseWorkspace\OPMS\woFixing\project1
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woFixing\project1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woFixing\project1\Department.java:331: 错误: 找不到符号
+      EList<FundingGroupType> fundingGroupTypes = new BasicEList<FundingGroupType>();
+                                                      ^
+    符号:   类 BasicEList
+    位置: 类 Department
+  D:\EclipseWorkspace\OPMS\woFixing\project1\Company.java:135: 错误: 找不到符号
+          if (project.isIsProduction()) {
+                     ^
+    符号:   方法 isIsProduction()
+    位置: 类型为Project的变量 project
+  D:\EclipseWorkspace\OPMS\woFixing\project1\Company.java:136: 错误: 找不到符号
+            totalCount += project.getEmployees().size();
+                                 ^
+    符号:   方法 getEmployees()
+    位置: 类型为Project的变量 project
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] project2
+  - 样本目录: D:\EclipseWorkspace\OPMS\woFixing\project2
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woFixing\project2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woFixing\project2\Company.java:135: 错误: 找不到符号
+          if (project.isIsProduction()) {
+                     ^
+    符号:   方法 isIsProduction()
+    位置: 类型为Project的变量 project
+  D:\EclipseWorkspace\OPMS\woFixing\project2\Company.java:136: 错误: 找不到符号
+            totalEmployees += project.getEmployees().size();
+                                     ^
+    符号:   方法 getEmployees()
+    位置: 类型为Project的变量 project
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] project3
+  - 样本目录: D:\EclipseWorkspace\OPMS\woFixing\project3
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woFixing\project3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woFixing\project3\Department.java:332: 错误: 找不到符号
+          fundingGroupTypes.add(((CommunityProject) project).getFundingGroupType());
+                                                            ^
+    符号:   方法 getFundingGroupType()
+    位置: 类 CommunityProject
+  D:\EclipseWorkspace\OPMS\woFixing\project3\Company.java:135: 错误: 找不到符号
+          if (project.isIsProduction()) {
+                     ^
+    符号:   方法 isIsProduction()
+    位置: 类型为Project的变量 project
+  D:\EclipseWorkspace\OPMS\woFixing\project3\Company.java:136: 错误: 找不到符号
+            totalEmployees += project.getEmployees().size();
+                                     ^
+    符号:   方法 getEmployees()
+    位置: 类型为Project的变量 project
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] project4
+  - 样本目录: D:\EclipseWorkspace\OPMS\woFixing\project4
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woFixing\project4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woFixing\project4\Department.java:341: 错误: 找不到符号
+          fundingGroupTypes.add(communityProject.getFundingGroupType());
+                                                ^
+    符号:   方法 getFundingGroupType()
+    位置: 类型为CommunityProject的变量 communityProject
+  D:\EclipseWorkspace\OPMS\woFixing\project4\Company.java:136: 错误: 找不到符号
+            totalCount += ((ProductionProject) project).getEmployees().size();
+                                                       ^
+    符号:   方法 getEmployees()
+    位置: 类 ProductionProject
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] project5
+  - 样本目录: D:\EclipseWorkspace\OPMS\woFixing\project5
+  - Java文件数: 15
+  - 编译输出: D:\EclipseWorkspace\OPMS\woFixing\project5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woFixing\project5\Department.java:331: 错误: 找不到符号
+      EList<FundingGroupType> fundingGroupTypes = new BasicEList<FundingGroupType>();
+                                                      ^
+    符号:   类 BasicEList
+    位置: 类 Department
+  D:\EclipseWorkspace\OPMS\woFixing\project5\Company.java:135: 错误: 找不到符号
+          if (project.isIsProductionProject()) {
+                     ^
+    符号:   方法 isIsProductionProject()
+    位置: 类型为Project的变量 project
+  D:\EclipseWorkspace\OPMS\woFixing\project5\Company.java:136: 错误: 找不到符号
+            totalEmployees += project.getEmployees().size();
+                                     ^
+    符号:   方法 getEmployees()
+    位置: 类型为Project的变量 project
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

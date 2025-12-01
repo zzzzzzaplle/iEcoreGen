@@ -1,0 +1,114 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CR1Test {
+    
+    private AcademicProgram academicProgram;
+    
+    @Before
+    public void setUp() {
+        academicProgram = new AcademicProgram();
+    }
+    
+    @Test
+    public void testCase1_SingleClassroomInAcademicProgram() {
+        // Create a course with a classroom capacity of 30
+        Course course = new Course();
+        Classroom classroom = new Classroom();
+        classroom.setCapacity(30);
+        course.setClassroom(classroom);
+        
+        // Add the course to the academic program
+        academicProgram.addCourse(course);
+        
+        // Calculate total capacity and verify it's 30
+        int result = academicProgram.sumClassroomCapacity();
+        assertEquals("Total classroom capacity should be 30 for a single classroom", 30, result);
+    }
+    
+    @Test
+    public void testCase2_MultipleClassroomsWithDifferentCapacities() {
+        // Create three courses with different classroom capacities
+        Course course1 = new Course();
+        Classroom classroom1 = new Classroom();
+        classroom1.setCapacity(25);
+        course1.setClassroom(classroom1);
+        
+        Course course2 = new Course();
+        Classroom classroom2 = new Classroom();
+        classroom2.setCapacity(40);
+        course2.setClassroom(classroom2);
+        
+        Course course3 = new Course();
+        Classroom classroom3 = new Classroom();
+        classroom3.setCapacity(35);
+        course3.setClassroom(classroom3);
+        
+        // Add all courses to the academic program
+        academicProgram.addCourse(course1);
+        academicProgram.addCourse(course2);
+        academicProgram.addCourse(course3);
+        
+        // Calculate total capacity and verify it's 100 (25 + 40 + 35)
+        int result = academicProgram.sumClassroomCapacity();
+        assertEquals("Total classroom capacity should be 100 for three classrooms with capacities 25, 40, and 35", 100, result);
+    }
+    
+    @Test
+    public void testCase3_TwoIdenticalClassrooms() {
+        // Create two courses with identical classroom capacities of 50
+        Course course1 = new Course();
+        Classroom classroom1 = new Classroom();
+        classroom1.setCapacity(50);
+        course1.setClassroom(classroom1);
+        
+        Course course2 = new Course();
+        Classroom classroom2 = new Classroom();
+        classroom2.setCapacity(50);
+        course2.setClassroom(classroom2);
+        
+        // Add both courses to the academic program
+        academicProgram.addCourse(course1);
+        academicProgram.addCourse(course2);
+        
+        // Calculate total capacity and verify it's 100 (50 + 50)
+        int result = academicProgram.sumClassroomCapacity();
+        assertEquals("Total classroom capacity should be 100 for two identical classrooms with capacity 50 each", 100, result);
+    }
+    
+    @Test
+    public void testCase4_EmptyAcademicProgram() {
+        // Academic program has no courses (empty by default from setUp)
+        
+        // Calculate total capacity and verify it's 0
+        int result = academicProgram.sumClassroomCapacity();
+        assertEquals("Total classroom capacity should be 0 for an empty academic program", 0, result);
+    }
+    
+    @Test
+    public void testCase5_LargeNumberOfClassrooms() {
+        // Create five courses with classroom capacities 15, 20, 25, 30, 40
+        int[] capacities = {15, 20, 25, 30, 40};
+        List<Course> courses = new ArrayList<>();
+        
+        for (int capacity : capacities) {
+            Course course = new Course();
+            Classroom classroom = new Classroom();
+            classroom.setCapacity(capacity);
+            course.setClassroom(classroom);
+            courses.add(course);
+        }
+        
+        // Add all courses to the academic program
+        for (Course course : courses) {
+            academicProgram.addCourse(course);
+        }
+        
+        // Calculate total capacity and verify it's 130 (15+20+25+30+40)
+        int result = academicProgram.sumClassroomCapacity();
+        assertEquals("Total classroom capacity should be 130 for five classrooms with capacities 15, 20, 25, 30, 40", 130, result);
+    }
+}

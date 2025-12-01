@@ -1,0 +1,68 @@
+============================================================
+AcademicProgram - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-25 23:59:28
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek-v3.2-exp\AcademicProgram_sample2\src\test\CR1Test.java:112: 错误: 进行语法分析时已到达文件结尾
+      public void testCase5_LargeNumberOfClassrooms() {
+                                                       ^
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_averageGradeCalculationWithMixOfValidAndZeroGrades(CR3Test)
+  java.lang.AssertionError: Average grade should include both valid and zero grades in calculation expected:<55.0> but was:<82.5>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase5_averageGradeCalculationWithMixOfValidAndZeroGrades(CR3Test.java:143)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

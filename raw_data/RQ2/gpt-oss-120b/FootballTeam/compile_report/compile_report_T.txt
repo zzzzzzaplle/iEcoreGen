@@ -1,0 +1,47 @@
+================================================================================
+FootballTeam 系统编译报告
+================================================================================
+生成时间: 2025-11-27 12:57:36
+系统名称: FootballTeam
+SystemName: footballteam
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] footballteam1
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam1\compile
+
+[✓ PASS] footballteam2
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam2\compile
+
+[✓ PASS] footballteam3
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam3\compile
+
+[✓ PASS] footballteam4
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam4\compile
+
+[✓ PASS] footballteam5
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\gpt-oss-120b\footballteam5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

@@ -1,0 +1,47 @@
+================================================================================
+RCGS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:13:05
+系统名称: RCGS
+SystemName: carrental
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] carrental1
+  - 样本目录: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental1\compile
+
+[✓ PASS] carrental2
+  - 样本目录: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental2\compile
+
+[✓ PASS] carrental3
+  - 样本目录: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental3\compile
+
+[✓ PASS] carrental4
+  - 样本目录: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental4\compile
+
+[✓ PASS] carrental5
+  - 样本目录: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woReqDecomp\carrental5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

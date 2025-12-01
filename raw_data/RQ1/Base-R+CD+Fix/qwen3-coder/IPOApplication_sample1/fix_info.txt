@@ -1,0 +1,13 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-25 01:52:12
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\IPOApplication_sample1\src\main\FJC.java:263: 错误: 进行语法分析时已到达文件结尾
+        contentBuilder.append("Number of Shares: ").append(shares).append("\n");
+                                                                                ^
+1 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

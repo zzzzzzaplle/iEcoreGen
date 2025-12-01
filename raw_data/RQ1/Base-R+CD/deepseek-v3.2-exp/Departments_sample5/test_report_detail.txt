@@ -1,0 +1,77 @@
+============================================================
+Departments - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:33:28
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test)
+  java.lang.AssertionError: Manager should be removed from department expected null, but was:<Employee@4b6995df>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:75)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CheckAfterManagerRemoval(CR4Test)
+  java.lang.AssertionError: Department after manager removal should return false
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:72)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

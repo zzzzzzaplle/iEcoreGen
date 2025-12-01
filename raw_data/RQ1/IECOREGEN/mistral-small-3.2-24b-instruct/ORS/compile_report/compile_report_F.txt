@@ -1,0 +1,195 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:16:01
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:330: 错误: 找不到符号
+      if (this.customer == null || this.trip == null) {
+                                       ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:340: 错误: 找不到符号
+      if (this.trip.getNumberOfSeats() < this.numberOfSeats) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:346: 错误: 找不到符号
+      Date departureTime = this.trip.getDepartureDate();
+                               ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:355: 错误: 找不到符号
+        if (existingBooking.overlapsWith(this.trip)) {
+                                             ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:383: 错误: 找不到符号
+      if (this.trip != null) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:384: 错误: 找不到符号
+        int currentSeats = this.trip.getNumberOfSeats();
+                               ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:385: 错误: 找不到符号
+        this.trip.setNumberOfSeats(currentSeats - this.numberOfSeats);
+            ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare1\Booking.java:386: 错误: 找不到符号
+        this.trip.getBookings().add(this);
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare2\Trip.java:575: 错误: 找不到符号
+      double discountRate = customer.getMembershipPackage().getDiscountRate();
+                                                           ^
+    符号:   方法 getDiscountRate()
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare2\Trip.java:611: 错误: 找不到符号
+          double distance = this.getDistance();
+                                ^
+    符号: 方法 getDistance()
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare2\Trip.java:613: 错误: 找不到符号
+          double rewardRate = customer.getMembershipPackage().getRewardRate();
+                                                             ^
+    符号:   方法 getRewardRate()
+    位置: 类 MembershipPackage
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:330: 错误: 找不到符号
+      if (this.customer == null || this.trip == null) {
+                                       ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:340: 错误: 找不到符号
+      if (this.trip.getNumberOfSeats() <= 0) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:346: 错误: 找不到符号
+      Date departureTime = this.trip.getDepartureDate();
+                               ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:355: 错误: 找不到符号
+        if (booking != this && booking.overlapsWith(this.trip)) {
+                                                        ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:383: 错误: 找不到符号
+      if (this.trip != null) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:384: 错误: 找不到符号
+        int availableSeats = this.trip.getNumberOfSeats() - this.numberOfSeats;
+                                 ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:385: 错误: 找不到符号
+        this.trip.setNumberOfSeats(availableSeats);
+            ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare3\Booking.java:413: 错误: 找不到符号
+      if (trip == null || this.trip == null) {
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare4\Trip.java:576: 错误: 找不到符号
+      double discountRate = customer.getMembershipPackage().getDiscountRate();
+                                                           ^
+    符号:   方法 getDiscountRate()
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare4\Trip.java:611: 错误: 找不到符号
+      double pointsRate = customer.getMembershipPackage().getPointsRate();
+                                                         ^
+    符号:   方法 getPointsRate()
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare4\Trip.java:617: 错误: 找不到符号
+      double distance = this.calculateDistance(); // This method would need to be implemented
+                            ^
+    符号: 方法 calculateDistance()
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:334: 错误: 找不到符号
+      if (this.trip == null || !this.trip.bookSeats(this.numberOfSeats)) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:334: 错误: 找不到符号
+      if (this.trip == null || !this.trip.bookSeats(this.numberOfSeats)) {
+                                    ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:339: 错误: 找不到符号
+        if (booking != this && booking.overlapsWith(this.trip)) {
+                                                        ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:367: 错误: 找不到符号
+      if (this.trip != null) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:368: 错误: 找不到符号
+        int currentSeats = this.trip.getNumberOfSeats();
+                               ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:369: 错误: 找不到符号
+        this.trip.setNumberOfSeats(currentSeats - this.numberOfSeats);
+            ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:393: 错误: 找不到符号
+      if (this.trip == null || trip == null) {
+              ^
+    符号: 变量 trip
+  D:\EclipseWorkspace\ORS\mistral-small-3.2-24b-instruct\rideshare5\Booking.java:397: 错误: 找不到符号
+      String currentDeparture = this.trip.getDepartureTime();
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

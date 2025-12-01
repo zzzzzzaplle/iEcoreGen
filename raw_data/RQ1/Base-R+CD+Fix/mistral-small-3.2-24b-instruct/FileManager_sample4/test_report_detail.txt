@@ -1,0 +1,79 @@
+============================================================
+FileManager - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-24 15:34:56
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CountDocumentsWithAllEditorsUsed(CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase5_CountDocumentsWithAllEditorsUsed(CR4Test.java:147)
+  2) testCase2_CountDocumentsWithSingleEditorType(CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:70)
+  3) testCase3_CountDocumentsAfterRemoval(CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:102)
+  4) testCase1_CountDocumentsWithMixedEditorTypes(CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR4Test.testCase1_CountDocumentsWithMixedEditorTypes(CR4Test.java:46)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

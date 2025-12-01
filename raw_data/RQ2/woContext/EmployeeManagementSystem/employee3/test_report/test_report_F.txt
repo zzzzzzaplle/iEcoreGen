@@ -1,0 +1,60 @@
+================================================================================
+employee3 测试报告
+================================================================================
+生成时间: 2025-11-25 00:24:14
+样本名称: employee3
+总测试数: 25
+通过: 24
+失败: 1
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(edu.employee.employee3.test.CR1Test)
+  java.lang.AssertionError: expected:<2528.0> but was:<2328.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee3.test.CR1Test.testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(CR1Test.java:148)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 24
+失败: 1
+成功率: 96.0%
+================================================================================

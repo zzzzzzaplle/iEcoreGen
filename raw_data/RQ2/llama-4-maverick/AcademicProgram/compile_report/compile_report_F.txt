@@ -1,0 +1,68 @@
+================================================================================
+AcademicProgram 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:07:41
+系统名称: AcademicProgram
+SystemName: academic
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] academic1
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic1\compile
+
+[✓ PASS] academic2
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic2\compile
+
+[✗ FAIL] academic3
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic3\Student.java:83: 错误: 找不到符号
+      ((EList<Enrollment>)eGet(edu.academic.AcademicPackage.Literals.STUDENT__ENROLLMENTS, true)).add(enrollment);
+                                                                    ^
+    符号:   变量 STUDENT__ENROLLMENTS
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic3\Student.java:119: 错误: 找不到符号
+      for (Enrollment enrollment : (EList<Enrollment>)eGet(edu.academic.AcademicPackage.Literals.STUDENT__ENROLLMENTS, true)) {
+                                                                                                ^
+    符号:   变量 STUDENT__ENROLLMENTS
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic3\Student.java:127: 错误: 找不到符号
+        ((EList<Enrollment>)eGet(edu.academic.AcademicPackage.Literals.STUDENT__ENROLLMENTS, true)).remove(enrollmentToDrop);
+                                                                      ^
+    符号:   变量 STUDENT__ENROLLMENTS
+    位置: 接口 Literals
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] academic4
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic4\compile
+
+[✓ PASS] academic5
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\llama-4-maverick\academic5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

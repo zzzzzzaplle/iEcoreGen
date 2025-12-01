@@ -1,0 +1,74 @@
+================================================================================
+department1 测试报告
+================================================================================
+生成时间: 2025-11-25 15:15:02
+样本名称: department1
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_AssignToNonExistentDepartment(edu.department.department1.test.CR1Test)
+  java.lang.AssertionError: Should return true when office belongs to department and no headquarter exists
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.department.department1.test.CR1Test.testCase5_AssignToNonExistentDepartment(CR1Test.java:161)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department1.test.CR3Test)
+  java.lang.AssertionError: Department offices should be empty
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department1.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:76)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

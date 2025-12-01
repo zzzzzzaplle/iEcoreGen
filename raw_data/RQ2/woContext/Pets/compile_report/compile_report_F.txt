@@ -1,0 +1,99 @@
+================================================================================
+Pets 系统编译报告
+================================================================================
+生成时间: 2025-11-25 08:58:03
+系统名称: Pets
+SystemName: pets
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] pets1
+  - 样本目录: D:\EclipseWorkspace\Pets\woContext\pets1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woContext\pets1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woContext\pets1\House.java:219: 错误: 找不到符号
+        if (type.equalsIgnoreCase(((PetImpl)pet).getType())) {
+                                    ^
+    符号:   类 PetImpl
+    位置: 类 House
+  D:\EclipseWorkspace\Pets\woContext\pets1\House.java:256: 错误: 找不到符号
+        if (type.equalsIgnoreCase(((PetImpl)pet).getType())) {
+                                    ^
+    符号:   类 PetImpl
+    位置: 类 House
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] pets2
+  - 样本目录: D:\EclipseWorkspace\Pets\woContext\pets2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woContext\pets2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woContext\pets2\House.java:116: 错误: 无法将类 EObjectContainmentEList<E>中的构造器 EObjectContainmentEList应用到给定类型;
+      EList<String> names = new EObjectContainmentEList<String>(String.class, this);
+                            ^
+    需要: Class<?>,InternalEObject,int
+    找到:    Class<String>,House
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentEList中声明的Object
+  D:\EclipseWorkspace\Pets\woContext\pets2\House.java:160: 错误: 无法将类 EObjectContainmentEList<E>中的构造器 EObjectContainmentEList应用到给定类型;
+        lived = new EObjectContainmentEList<Pet>(Pet.class, this);
+                ^
+    需要: Class<?>,InternalEObject,int
+    找到:    Class<Pet>,House
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentEList中声明的Object
+  D:\EclipseWorkspace\Pets\woContext\pets2\House.java:223: 错误: 无法将类 EObjectContainmentEList<E>中的构造器 EObjectContainmentEList应用到给定类型;
+      EList<Pet> petsOfType = new EObjectContainmentEList<Pet>(Pet.class, this);
+                              ^
+    需要: Class<?>,InternalEObject,int
+    找到:    Class<Pet>,House
+    原因: 实际参数列表和形式参数列表长度不同
+    其中, E是类型变量:
+      E扩展已在类 EObjectContainmentEList中声明的Object
+  D:\EclipseWorkspace\Pets\woContext\pets2\House.java:226: 错误: 找不到符号
+          if ((type != null && type.equalsIgnoreCase("dog") && "dog".equalsIgnoreCase(pet.getType())) ||
+                                                                                         ^
+    符号:   方法 getType()
+    位置: 类型为Pet的变量 pet
+  D:\EclipseWorkspace\Pets\woContext\pets2\House.java:227: 错误: 找不到符号
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] pets3
+  - 样本目录: D:\EclipseWorkspace\Pets\woContext\pets3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woContext\pets3\compile
+
+[✓ PASS] pets4
+  - 样本目录: D:\EclipseWorkspace\Pets\woContext\pets4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woContext\pets4\compile
+
+[✓ PASS] pets5
+  - 样本目录: D:\EclipseWorkspace\Pets\woContext\pets5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Pets\woContext\pets5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

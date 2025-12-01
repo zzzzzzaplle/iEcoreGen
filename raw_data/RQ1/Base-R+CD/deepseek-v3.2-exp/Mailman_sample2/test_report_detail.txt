@@ -1,0 +1,109 @@
+============================================================
+Mailman - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 18:00:14
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test)
+  java.lang.AssertionError: expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR2Test.testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test.java:226)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_StressTestWithMaximumReassignments(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase5_StressTestWithMaximumReassignments(CR4Test.java:349)
+  2) testCase3_FailedRemovalEdgeCases(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase3_FailedRemovalEdgeCases(CR4Test.java:210)
+  3) testCase2_CascadingMailmanRemovalWithDependencies(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase2_CascadingMailmanRemovalWithDependencies(CR4Test.java:178)
+  4) testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR4Test.testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test.java:121)
+  5) testCase4_MixedSuccessfulAndFailedOperations(CR4Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\deepseek-v3.2-exp\Mailman_sample2\src\test\CR5Test.java:22: 错误: 无法将类 Mailman中的构造器 Mailman应用到给定类型;
+          mailman = new Mailman("M001", "Aaron");
+                    ^
+    需要: 没有参数
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\deepseek-v3.2-exp\Mailman_sample2\src\test\CR5Test.java:26: 错误: 无法将类 Inhabitant中的构造器 Inhabitant应用到给定类型;
+          inhabitant = new Inhabitant("I001", "Zoe");
+                       ^
+    需要: 没有参数
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 2/4
+- 测试失败: 2/4
+============================================================

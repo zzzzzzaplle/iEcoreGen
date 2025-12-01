@@ -1,0 +1,2481 @@
+   * Pre-condition: Artwork must not be null
+   * Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    if (artwork != null) {
+      getArtwork().add(artwork);
+      artwork.setAuthor(this);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+98538 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../OAGS/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../OAGS/src-gen/edu/artgallery/
+99006 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+99006 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+99006 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+99007 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+99010 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample2.mwe2 启动完成
+正在拷贝 src-gen/edu/artgallery 到 deepseek-v3.2-exp/artgallery2...
+拷贝完成！
+
+======================================
+正在启动 sample3.mwe2...
+======================================
+99383 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+99529 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project OAGS at 'file:/D:/EclipseWorkspace/OAGS/'
+99531 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+99539 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@4c1fed69
+99539 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+99541 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+99543 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Online Art Gallery System allows artists to put their artwork on auction. Each artist has a name, phone number, id, email, address and gender. To place artwork in an auction, each artist need a membership which can be of types -- individual membership, agency membership, and agency affiliate memberships. Each membership has an ID, start date, end date, and reward points. The date format is "yyyy-MM-dd". An artist can have multiple artworks where each artwork has a title, description, category (painting, sculpture, and architecture), and price.
+functional requirement：+ Calculate the total price of an artist’s artworks: Given an artist, sum the prices of all their artworks.
+
++ Get reward points within a specific period: Given an artist and a time period, verify that the artist’s membership is valid during that interval and return the reward points (inclusive of the boundary dates).
+
++ Count an artist’s artworks by category: Given an artist, count the number of their artworks in each category (painting, sculpture, architecture).
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title artgallery Model
+
+class Artist {
+    address : String
+    email : String
+    gender : Gender
+    id : String
+    name : String
+    phoneNumber : String
+    artwork : List<Artwork>
+    membership : Membership
+    addArtwork(artwork : Artwork) : void
+    calculateRewardPoints(startDate : EDate, endDate : EDate) : int
+    calculateTotalPrice() : double
+    countArtworksByCategory() : EMap
+}
+class Artwork {
+    category : ArtworkCategory
+    description : String
+    price : double
+    title : String
+    author : Artist
+}
+class Membership {
+    ID : String
+    endDate : EDate
+    rewardPoint : int
+    startDate : EDate
+    type : MembershipType
+    artist : Artist
+}
+enum ArtworkCategory {
+    PAINTING
+    SCULPTURE
+    ARCHITECTURE
+}
+enum Gender {
+    MALE
+    FEMALE
+}
+enum MembershipType {
+    INDIVIDUAL
+    AGENCY
+    AGENCY_AFFILIATE
+}
+
+Artist *-- "*" Artwork : artwork  'opposite: author
+Artist *-- Membership : membership  'opposite: artist
+Artwork --> Artist : author  'opposite: artwork
+Membership --> Artist : artist  'opposite: membership
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+107947 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@50eae15a (name: countArtworksByCategory) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Counts number of artworks in each category (painting, sculpture, architecture)
+Algorithm:
+  1. Initialize counters for each category to 0
+  2. Iterate through all artworks
+  3. For each artwork, increment counter for its category
+  4. Return EMap with category counts
+Input: None
+Output:
+  - EMap: mapping of ArtworkCategory to count (integer)
+  - Format: {PAINTING: count, SCULPTURE: count, ARCHITECTURE: count}
+Pre-condition: Artist object must be properly initialized
+Post-condition: Returns category counts without modifying artwork collection, org.eclipse.emf.ecore.impl.EOperationImpl@1c618295 (name: calculateRewardPoints) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates reward points for artist's membership within a specific time period
+Algorithm:
+  1. Validate input dates and membership
+  2. Check if membership is active during the period
+  3. Return reward points if valid, otherwise return 0
+Input:
+  - startDate: EDate representing start of period (format: yyyy-MM-dd)
+  - endDate: EDate representing end of period (format: yyyy-MM-dd)
+  - startDate must be <= endDate
+Output: 
+  - int: reward points if membership is valid during period, otherwise 0
+Pre-condition: Artist must have a valid membership object
+Post-condition: Returns reward points without modifying membership state, org.eclipse.emf.ecore.impl.EOperationImpl@12f12744 (name: addArtwork) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Adds an artwork to the artist's collection
+Algorithm: 
+  1. Check if artwork parameter is valid
+  2. Add artwork to artist's artwork list
+  3. Set artwork's author to this artist
+Input: 
+  - artwork: Artwork object to be added to the collection
+  - Must not be null
+  - Must have valid title, price, and category
+Output: None (void)
+Pre-condition: Artist object must be properly initialized
+Post-condition: Artist's artwork list contains the new artwork, artwork's author reference is set to this artist, org.eclipse.emf.ecore.impl.EOperationImpl@344acc03 (name: calculateTotalPrice) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total price of all artworks owned by the artist
+Algorithm:
+  1. Initialize total = 0
+  2. Iterate through all artworks in collection
+  3. Sum the price of each artwork
+  4. Return total sum
+Input: None
+Output: 
+  - double: total price of all artworks
+  - Returns 0.0 if no artworks exist
+Pre-condition: Artist object must be properly initialized
+Post-condition: Returns calculated total without modifying artwork prices}
+107950 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+107987 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../OAGS/src-gen/edu/artgallery
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. Iterate through all artworks in collection
+   *   3. Sum the price of each artwork
+   *   4. Return total sum
+   * Input: None
+   * Output: 
+   *   - double: total price of all artworks
+   *   - Returns 0.0 if no artworks exist
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Returns calculated total without modifying artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateTotalPrice()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific time period
+   * Algorithm:
+   *   1. Validate input dates and membership
+   *   2. Check if membership is active during the period
+   *   3. Return reward points if valid, otherwise return 0
+   * Input:
+   *   - startDate: EDate representing start of period (format: yyyy-MM-dd)
+   *   - endDate: EDate representing end of period (format: yyyy-MM-dd)
+   *   - startDate must be <= endDate
+   * Output: 
+   *   - int: reward points if membership is valid during period, otherwise 0
+   * Pre-condition: Artist must have a valid membership object
+   * Post-condition: Returns reward points without modifying membership state
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category (painting, sculpture, architecture)
+   * Algorithm:
+   *   1. Initialize counters for each category to 0
+   *   2. Iterate through all artworks
+   *   3. For each artwork, increment counter for its category
+   *   4. Return EMap with category counts
+   * Input: None
+   * Output:
+   *   - EMap: mapping of ArtworkCategory to count (integer)
+   *   - Format: {PAINTING: count, SCULPTURE: count, ARCHITECTURE: count}
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Returns category counts without modifying artwork collection
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork parameter is valid
+   *   2. Add artwork to artist's artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added to the collection
+   *   - Must not be null
+   *   - Must have valid title, price, and category
+   * Output: None (void)
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Artist's artwork list contains the new artwork, artwork's author reference is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Artwork` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createArtwork()`
+  + Getter methods: public String getTitle(), public String getDescription(), public ArtworkCategory getCategory(), public double getPrice(), public Artist getAuthor()
+  + Setter methods: public void setTitle(String newTitle), public void setDescription(String newDescription), public void setCategory(ArtworkCategory newCategory), public void setPrice(double newPrice), public void setAuthor(Artist newAuthor)
+- Class `Membership` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createMembership()`
+  + Getter methods: public String getID(), public Date getStartDate(), public Date getEndDate(), public int getRewardPoint(), public MembershipType getType(), public Artist getArtist()
+  + Setter methods: public void setID(String newID), public void setStartDate(Date newStartDate), public void setEndDate(Date newEndDate), public void setRewardPoint(int newRewardPoint), public void setType(MembershipType newType), public void setArtist(Artist newArtist)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. Iterate through all artworks in collection
+   *   3. Sum the price of each artwork
+   *   4. Return total sum
+   * Input: None
+   * Output: 
+   *   - double: total price of all artworks
+   *   - Returns 0.0 if no artworks exist
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Returns calculated total without modifying artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPrice()
+  {
+    double total = 0.0;
+    if (getArtwork() != null) {
+      for (Artwork artwork : getArtwork()) {
+        total += artwork.getPrice();
+      }
+    }
+    return total;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific time period
+   * Algorithm:
+   *   1. Validate input dates and membership
+   *   2. Check if membership is active during the period
+   *   3. Return reward points if valid, otherwise return 0
+   * Input:
+   *   - startDate: EDate representing start of period (format: yyyy-MM-dd)
+   *   - endDate: EDate representing end of period (format: yyyy-MM-dd)
+   *   - startDate must be <= endDate
+   * Output: 
+   *   - int: reward points if membership is valid during period, otherwise 0
+   * Pre-condition: Artist must have a valid membership object
+   * Post-condition: Returns reward points without modifying membership state
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    if (startDate == null || endDate == null || startDate.after(endDate)) {
+      return 0;
+    }
+    
+    Membership membership = getMembership();
+    if (membership == null) {
+      return 0;
+    }
+    
+    Date membershipStart = membership.getStartDate();
+    Date membershipEnd = membership.getEndDate();
+    
+    if (membershipStart == null || membershipEnd == null) {
+      return 0;
+    }
+    
+    // Check if the period overlaps with membership period
+    if (!startDate.after(membershipEnd) && !endDate.before(membershipStart)) {
+      return membership.getRewardPoint();
+    }
+    
+    return 0;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category (painting, sculpture, architecture)
+   * Algorithm:
+   *   1. Initialize counters for each category to 0
+   *   2. Iterate through all artworks
+   *   3. For each artwork, increment counter for its category
+   *   4. Return EMap with category counts
+   * Input: None
+   * Output:
+   *   - EMap: mapping of ArtworkCategory to count (integer)
+   *   - Format: {PAINTING: count, SCULPTURE: count, ARCHITECTURE: count}
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Returns category counts without modifying artwork collection
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    Map<ArtworkCategory, Integer> categoryCounts = new HashMap<>();
+    
+    // Initialize all categories to 0
+    for (ArtworkCategory category : ArtworkCategory.values()) {
+      categoryCounts.put(category, 0);
+    }
+    
+    if (getArtwork() != null) {
+      for (Artwork artwork : getArtwork()) {
+        ArtworkCategory category = artwork.getCategory();
+        if (category != null) {
+          categoryCounts.put(category, categoryCounts.get(category) + 1);
+        }
+      }
+    }
+    
+    return categoryCounts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork parameter is valid
+   *   2. Add artwork to artist's artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added to the collection
+   *   - Must not be null
+   *   - Must have valid title, price, and category
+   * Output: None (void)
+   * Pre-condition: Artist object must be properly initialized
+   * Post-condition: Artist's artwork list contains the new artwork, artwork's author reference is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    if (artwork != null) {
+      if (getArtwork() == null) {
+        // Initialize the artwork list if it doesn't exist
+        // This would typically be done in the constructor, but we handle it here for safety
+      }
+      getArtwork().add(artwork);
+      artwork.setAuthor(this);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+133403 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../OAGS/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../OAGS/src-gen/edu/artgallery/
+133655 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+133655 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+133655 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+133656 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+133657 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample3.mwe2 启动完成
+正在拷贝 src-gen/edu/artgallery 到 deepseek-v3.2-exp/artgallery3...
+拷贝完成！
+
+======================================
+正在启动 sample4.mwe2...
+======================================
+134044 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+134130 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project OAGS at 'file:/D:/EclipseWorkspace/OAGS/'
+134132 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+134139 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@259647f2
+134139 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+134142 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+134143 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Online Art Gallery System allows artists to put their artwork on auction. Each artist has a name, phone number, id, email, address and gender. To place artwork in an auction, each artist need a membership which can be of types -- individual membership, agency membership, and agency affiliate memberships. Each membership has an ID, start date, end date, and reward points. The date format is "yyyy-MM-dd". An artist can have multiple artworks where each artwork has a title, description, category (painting, sculpture, and architecture), and price.
+functional requirement：+ Calculate the total price of an artist’s artworks: Given an artist, sum the prices of all their artworks.
+
++ Get reward points within a specific period: Given an artist and a time period, verify that the artist’s membership is valid during that interval and return the reward points (inclusive of the boundary dates).
+
++ Count an artist’s artworks by category: Given an artist, count the number of their artworks in each category (painting, sculpture, architecture).
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title artgallery Model
+
+class Artist {
+    address : String
+    email : String
+    gender : Gender
+    id : String
+    name : String
+    phoneNumber : String
+    artwork : List<Artwork>
+    membership : Membership
+    addArtwork(artwork : Artwork) : void
+    calculateRewardPoints(startDate : EDate, endDate : EDate) : int
+    calculateTotalPrice() : double
+    countArtworksByCategory() : EMap
+}
+class Artwork {
+    category : ArtworkCategory
+    description : String
+    price : double
+    title : String
+    author : Artist
+}
+class Membership {
+    ID : String
+    endDate : EDate
+    rewardPoint : int
+    startDate : EDate
+    type : MembershipType
+    artist : Artist
+}
+enum ArtworkCategory {
+    PAINTING
+    SCULPTURE
+    ARCHITECTURE
+}
+enum Gender {
+    MALE
+    FEMALE
+}
+enum MembershipType {
+    INDIVIDUAL
+    AGENCY
+    AGENCY_AFFILIATE
+}
+
+Artist *-- "*" Artwork : artwork  'opposite: author
+Artist *-- Membership : membership  'opposite: artist
+Artwork --> Artist : author  'opposite: artwork
+Membership --> Artist : artist  'opposite: membership
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+142638 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@64f34c91 (name: calculateTotalPrice) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total price of all artworks owned by the artist
+Algorithm:
+  1. Initialize total = 0
+  2. For each artwork in artwork list:
+       total += artwork.price
+  3. Return total
+Input: None
+Output: 
+  - double: Sum of prices of all artworks, range >= 0
+Pre-condition: Artist exists and has artworks collection
+Post-condition: Returns accurate sum of all artwork prices, org.eclipse.emf.ecore.impl.EOperationImpl@4e09c3b0 (name: addArtwork) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Adds an artwork to the artist's collection
+Algorithm: 
+  1. Check if artwork is not null
+  2. Add artwork to the artwork list
+  3. Set artwork's author to this artist
+Input: 
+  - artwork: Artwork object to be added, must not be null
+Output: None
+Pre-condition: Artist exists and artwork is not null
+Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist, org.eclipse.emf.ecore.impl.EOperationImpl@158f0af4 (name: calculateRewardPoints) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates reward points for artist's membership within a specific period
+Algorithm:
+  1. Verify membership exists and is valid
+  2. Check if startDate <= endDate
+  3. Check if membership period overlaps with given period:
+       - membership.startDate <= endDate AND membership.endDate >= startDate
+  4. If valid overlap exists, return membership.rewardPoint
+  5. Else return 0
+Input:
+  - startDate: EDate start of period (format: yyyy-MM-dd)
+  - endDate: EDate end of period (format: yyyy-MM-dd)
+Output:
+  - int: Reward points if membership valid in period, otherwise 0
+Pre-condition: Artist has membership, dates are valid and startDate <= endDate
+Post-condition: Returns correct reward points for valid period overlap, org.eclipse.emf.ecore.impl.EOperationImpl@7a174e4b (name: countArtworksByCategory) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Counts number of artworks in each category for the artist
+Algorithm:
+  1. Initialize empty map with ArtworkCategory keys and Integer values
+  2. For each artwork in artwork list:
+       category = artwork.category
+       currentCount = map.getOrDefault(category, 0)
+       map.put(category, currentCount + 1)
+  3. Return the map
+Input: None
+Output:
+  - EMap<ArtworkCategory, Integer>: Map with counts for each category
+Pre-condition: Artist exists and has artworks collection
+Post-condition: Returns accurate counts for all artwork categories}
+142641 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+142669 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../OAGS/src-gen/edu/artgallery
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. For each artwork in artwork list:
+   *        total += artwork.price
+   *   3. Return total
+   * Input: None
+   * Output: 
+   *   - double: Sum of prices of all artworks, range >= 0
+   * Pre-condition: Artist exists and has artworks collection
+   * Post-condition: Returns accurate sum of all artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateTotalPrice()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific period
+   * Algorithm:
+   *   1. Verify membership exists and is valid
+   *   2. Check if startDate <= endDate
+   *   3. Check if membership period overlaps with given period:
+   *        - membership.startDate <= endDate AND membership.endDate >= startDate
+   *   4. If valid overlap exists, return membership.rewardPoint
+   *   5. Else return 0
+   * Input:
+   *   - startDate: EDate start of period (format: yyyy-MM-dd)
+   *   - endDate: EDate end of period (format: yyyy-MM-dd)
+   * Output:
+   *   - int: Reward points if membership valid in period, otherwise 0
+   * Pre-condition: Artist has membership, dates are valid and startDate <= endDate
+   * Post-condition: Returns correct reward points for valid period overlap
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category for the artist
+   * Algorithm:
+   *   1. Initialize empty map with ArtworkCategory keys and Integer values
+   *   2. For each artwork in artwork list:
+   *        category = artwork.category
+   *        currentCount = map.getOrDefault(category, 0)
+   *        map.put(category, currentCount + 1)
+   *   3. Return the map
+   * Input: None
+   * Output:
+   *   - EMap<ArtworkCategory, Integer>: Map with counts for each category
+   * Pre-condition: Artist exists and has artworks collection
+   * Post-condition: Returns accurate counts for all artwork categories
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork is not null
+   *   2. Add artwork to the artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added, must not be null
+   * Output: None
+   * Pre-condition: Artist exists and artwork is not null
+   * Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Artwork` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createArtwork()`
+  + Getter methods: public String getTitle(), public String getDescription(), public ArtworkCategory getCategory(), public double getPrice(), public Artist getAuthor()
+  + Setter methods: public void setTitle(String newTitle), public void setDescription(String newDescription), public void setCategory(ArtworkCategory newCategory), public void setPrice(double newPrice), public void setAuthor(Artist newAuthor)
+- Class `Membership` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createMembership()`
+  + Getter methods: public String getID(), public Date getStartDate(), public Date getEndDate(), public int getRewardPoint(), public MembershipType getType(), public Artist getArtist()
+  + Setter methods: public void setID(String newID), public void setStartDate(Date newStartDate), public void setEndDate(Date newEndDate), public void setRewardPoint(int newRewardPoint), public void setType(MembershipType newType), public void setArtist(Artist newArtist)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. For each artwork in artwork list:
+   *        total += artwork.price
+   *   3. Return total
+   * Input: None
+   * Output: 
+   *   - double: Sum of prices of all artworks, range >= 0
+   * Pre-condition: Artist exists and has artworks collection
+   * Post-condition: Returns accurate sum of all artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPrice()
+  {
+    double total = 0.0;
+    if (artwork != null) {
+      for (Artwork art : artwork) {
+        total += art.getPrice();
+      }
+    }
+    return total;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific period
+   * Algorithm:
+   *   1. Verify membership exists and is valid
+   *   2. Check if startDate <= endDate
+   *   3. Check if membership period overlaps with given period:
+   *        - membership.startDate <= endDate AND membership.endDate >= startDate
+   *   4. If valid overlap exists, return membership.rewardPoint
+   *   5. Else return 0
+   * Input:
+   *   - startDate: EDate start of period (format: yyyy-MM-dd)
+   *   - endDate: EDate end of period (format: yyyy-MM-dd)
+   * Output:
+   *   - int: Reward points if membership valid in period, otherwise 0
+   * Pre-condition: Artist has membership, dates are valid and startDate <= endDate
+   * Post-condition: Returns correct reward points for valid period overlap
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    if (membership == null) {
+      return 0;
+    }
+    
+    if (startDate == null || endDate == null || startDate.after(endDate)) {
+      return 0;
+    }
+    
+    Date membershipStart = membership.getStartDate();
+    Date membershipEnd = membership.getEndDate();
+    
+    if (membershipStart == null || membershipEnd == null) {
+      return 0;
+    }
+    
+    // Check if membership period overlaps with given period
+    if (membershipStart.compareTo(endDate) <= 0 && membershipEnd.compareTo(startDate) >= 0) {
+      return membership.getRewardPoint();
+    }
+    
+    return 0;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category for the artist
+   * Algorithm:
+   *   1. Initialize empty map with ArtworkCategory keys and Integer values
+   *   2. For each artwork in artwork list:
+   *        category = artwork.category
+   *        currentCount = map.getOrDefault(category, 0)
+   *        map.put(category, currentCount + 1)
+   *   3. Return the map
+   * Input: None
+   * Output:
+   *   - EMap<ArtworkCategory, Integer>: Map with counts for each category
+   * Pre-condition: Artist exists and has artworks collection
+   * Post-condition: Returns accurate counts for all artwork categories
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    Map<ArtworkCategory, Integer> categoryCount = new HashMap<>();
+    if (artwork != null) {
+      for (Artwork art : artwork) {
+        ArtworkCategory category = art.getCategory();
+        if (category != null) {
+          int currentCount = categoryCount.getOrDefault(category, 0);
+          categoryCount.put(category, currentCount + 1);
+        }
+      }
+    }
+    return categoryCount;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork is not null
+   *   2. Add artwork to the artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added, must not be null
+   * Output: None
+   * Pre-condition: Artist exists and artwork is not null
+   * Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    if (artwork != null) {
+      getArtwork().add(artwork);
+      artwork.setAuthor(this);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+252106 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../OAGS/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../OAGS/src-gen/edu/artgallery/
+252284 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+252284 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+252284 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+252285 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+252286 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample4.mwe2 启动完成
+正在拷贝 src-gen/edu/artgallery 到 deepseek-v3.2-exp/artgallery4...
+拷贝完成！
+
+======================================
+正在启动 sample5.mwe2...
+======================================
+252531 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+252620 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project OAGS at 'file:/D:/EclipseWorkspace/OAGS/'
+252623 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+252631 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@5e4a9c16
+252631 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+252634 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+252634 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Online Art Gallery System allows artists to put their artwork on auction. Each artist has a name, phone number, id, email, address and gender. To place artwork in an auction, each artist need a membership which can be of types -- individual membership, agency membership, and agency affiliate memberships. Each membership has an ID, start date, end date, and reward points. The date format is "yyyy-MM-dd". An artist can have multiple artworks where each artwork has a title, description, category (painting, sculpture, and architecture), and price.
+functional requirement：+ Calculate the total price of an artist’s artworks: Given an artist, sum the prices of all their artworks.
+
++ Get reward points within a specific period: Given an artist and a time period, verify that the artist’s membership is valid during that interval and return the reward points (inclusive of the boundary dates).
+
++ Count an artist’s artworks by category: Given an artist, count the number of their artworks in each category (painting, sculpture, architecture).
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title artgallery Model
+
+class Artist {
+    address : String
+    email : String
+    gender : Gender
+    id : String
+    name : String
+    phoneNumber : String
+    artwork : List<Artwork>
+    membership : Membership
+    addArtwork(artwork : Artwork) : void
+    calculateRewardPoints(startDate : EDate, endDate : EDate) : int
+    calculateTotalPrice() : double
+    countArtworksByCategory() : EMap
+}
+class Artwork {
+    category : ArtworkCategory
+    description : String
+    price : double
+    title : String
+    author : Artist
+}
+class Membership {
+    ID : String
+    endDate : EDate
+    rewardPoint : int
+    startDate : EDate
+    type : MembershipType
+    artist : Artist
+}
+enum ArtworkCategory {
+    PAINTING
+    SCULPTURE
+    ARCHITECTURE
+}
+enum Gender {
+    MALE
+    FEMALE
+}
+enum MembershipType {
+    INDIVIDUAL
+    AGENCY
+    AGENCY_AFFILIATE
+}
+
+Artist *-- "*" Artwork : artwork  'opposite: author
+Artist *-- Membership : membership  'opposite: artist
+Artwork --> Artist : author  'opposite: artwork
+Membership --> Artist : artist  'opposite: membership
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+270199 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@36bf903c (name: addArtwork) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Adds an artwork to the artist's collection
+Algorithm: 
+  1. Check if artwork is not null
+  2. Add artwork to the artwork list
+  3. Set artwork's author to this artist
+Input: 
+  - artwork: Artwork object to be added to artist's collection
+  - Format: Artwork instance
+  - Value range: Must be non-null and valid Artwork object
+Output: None
+Pre-condition: Artist exists and artwork list is initialized
+Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist, org.eclipse.emf.ecore.impl.EOperationImpl@2a073f4f (name: calculateTotalPrice) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total price of all artworks owned by the artist
+Algorithm:
+  1. Initialize total = 0
+  2. For each artwork in artwork list:
+       total += artwork.price
+  3. Return total
+Input: None
+Output: 
+  - Total price as double
+  - Format: Floating point number
+  - Value range: >= 0
+Pre-condition: Artist exists and artwork list is initialized
+Post-condition: Returns sum of all artwork prices, org.eclipse.emf.ecore.impl.EOperationImpl@55b9ffd0 (name: calculateRewardPoints) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates reward points for artist's membership within a specific period
+Algorithm:
+  1. Verify membership exists and is valid
+  2. Check if startDate <= endDate
+  3. Check if membership period overlaps with given period:
+       IF (startDate <= endDate AND membership.endDate >= startDate AND membership.startDate <= endDate)
+       THEN return membership.rewardPoint
+       ELSE return 0
+Input:
+  - startDate: Start date of the period (inclusive)
+  - endDate: End date of the period (inclusive)
+  - Format: EDate objects in "yyyy-MM-dd" format
+  - Value range: Valid dates with startDate <= endDate
+Output:
+  - Reward points as integer
+  - Format: Whole number
+  - Value range: >= 0 (0 if membership not valid in period)
+Pre-condition: Artist has membership, dates are valid
+Post-condition: Returns reward points if membership valid in period, otherwise 0, org.eclipse.emf.ecore.impl.EOperationImpl@a5f5b96 (name: countArtworksByCategory) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Counts number of artworks in each category for the artist
+Algorithm:
+  1. Initialize a map with all ArtworkCategory values set to 0
+  2. For each artwork in artwork list:
+       category = artwork.category
+       map[category] += 1
+  3. Return the map
+Input: None
+Output:
+  - EMap containing counts per category
+  - Format: Map<ArtworkCategory, Integer>
+  - Value range: Keys: PAINTING, SCULPTURE, ARCHITECTURE; Values: >= 0
+Pre-condition: Artist exists and artwork list is initialized
+Post-condition: Returns count of artworks for each category}
+270203 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+270238 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../OAGS/src-gen/edu/artgallery
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. For each artwork in artwork list:
+   *        total += artwork.price
+   *   3. Return total
+   * Input: None
+   * Output: 
+   *   - Total price as double
+   *   - Format: Floating point number
+   *   - Value range: >= 0
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Returns sum of all artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateTotalPrice()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific period
+   * Algorithm:
+   *   1. Verify membership exists and is valid
+   *   2. Check if startDate <= endDate
+   *   3. Check if membership period overlaps with given period:
+   *        IF (startDate <= endDate AND membership.endDate >= startDate AND membership.startDate <= endDate)
+   *        THEN return membership.rewardPoint
+   *        ELSE return 0
+   * Input:
+   *   - startDate: Start date of the period (inclusive)
+   *   - endDate: End date of the period (inclusive)
+   *   - Format: EDate objects in "yyyy-MM-dd" format
+   *   - Value range: Valid dates with startDate <= endDate
+   * Output:
+   *   - Reward points as integer
+   *   - Format: Whole number
+   *   - Value range: >= 0 (0 if membership not valid in period)
+   * Pre-condition: Artist has membership, dates are valid
+   * Post-condition: Returns reward points if membership valid in period, otherwise 0
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category for the artist
+   * Algorithm:
+   *   1. Initialize a map with all ArtworkCategory values set to 0
+   *   2. For each artwork in artwork list:
+   *        category = artwork.category
+   *        map[category] += 1
+   *   3. Return the map
+   * Input: None
+   * Output:
+   *   - EMap containing counts per category
+   *   - Format: Map<ArtworkCategory, Integer>
+   *   - Value range: Keys: PAINTING, SCULPTURE, ARCHITECTURE; Values: >= 0
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Returns count of artworks for each category
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork is not null
+   *   2. Add artwork to the artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added to artist's collection
+   *   - Format: Artwork instance
+   *   - Value range: Must be non-null and valid Artwork object
+   * Output: None
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Artwork` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createArtwork()`
+  + Getter methods: public String getTitle(), public String getDescription(), public ArtworkCategory getCategory(), public double getPrice(), public Artist getAuthor()
+  + Setter methods: public void setTitle(String newTitle), public void setDescription(String newDescription), public void setCategory(ArtworkCategory newCategory), public void setPrice(double newPrice), public void setAuthor(Artist newAuthor)
+- Class `Membership` contains the following methods.
+  + Instance creation: Use `ArtgalleryFactory.eINSTANCE.createMembership()`
+  + Getter methods: public String getID(), public Date getStartDate(), public Date getEndDate(), public int getRewardPoint(), public MembershipType getType(), public Artist getArtist()
+  + Setter methods: public void setID(String newID), public void setStartDate(Date newStartDate), public void setEndDate(Date newEndDate), public void setRewardPoint(int newRewardPoint), public void setType(MembershipType newType), public void setArtist(Artist newArtist)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.artgallery;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Artist</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.artgallery.Artist#getName <em>Name</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getPhoneNumber <em>Phone Number</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getId <em>Id</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getGender <em>Gender</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getArtwork <em>Artwork</em>}</li>
+ *   <li>{@link edu.artgallery.Artist#getMembership <em>Membership</em>}</li>
+ * </ul>
+ *
+ * @see edu.artgallery.ArtgalleryPackage#getArtist()
+ * @model kind="class"
+ * @generated
+ */
+public class Artist extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String PHONE_NUMBER_EDEFAULT = null;
+
+  protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
+
+  protected static final String ID_EDEFAULT = null;
+
+  protected String id = ID_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+  protected Gender gender = GENDER_EDEFAULT;
+
+  protected EList<Artwork> artwork;
+
+  protected Membership membership;
+
+  protected Artist()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getPhoneNumber()
+  { ... /* omitted */ }
+
+  public void setPhoneNumber(String newPhoneNumber)
+  { ... /* omitted */ }
+
+  public String getId()
+  { ... /* omitted */ }
+
+  public void setId(String newId)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public Gender getGender()
+  { ... /* omitted */ }
+
+  public void setGender(Gender newGender)
+  { ... /* omitted */ }
+
+  public EList<Artwork> getArtwork()
+  { ... /* omitted */ }
+
+  public Membership getMembership()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetMembership(Membership newMembership, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setMembership(Membership newMembership)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total price of all artworks owned by the artist
+   * Algorithm:
+   *   1. Initialize total = 0
+   *   2. For each artwork in artwork list:
+   *        total += artwork.price
+   *   3. Return total
+   * Input: None
+   * Output: 
+   *   - Total price as double
+   *   - Format: Floating point number
+   *   - Value range: >= 0
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Returns sum of all artwork prices
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateTotalPrice()
+  {
+    double total = 0.0;
+    if (artwork != null) {
+      for (Artwork art : artwork) {
+        if (art != null) {
+          total += art.getPrice();
+        }
+      }
+    }
+    return total;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates reward points for artist's membership within a specific period
+   * Algorithm:
+   *   1. Verify membership exists and is valid
+   *   2. Check if startDate <= endDate
+   *   3. Check if membership period overlaps with given period:
+   *        IF (startDate <= endDate AND membership.endDate >= startDate AND membership.startDate <= endDate)
+   *        THEN return membership.rewardPoint
+   *        ELSE return 0
+   * Input:
+   *   - startDate: Start date of the period (inclusive)
+   *   - endDate: End date of the period (inclusive)
+   *   - Format: EDate objects in "yyyy-MM-dd" format
+   *   - Value range: Valid dates with startDate <= endDate
+   * Output:
+   *   - Reward points as integer
+   *   - Format: Whole number
+   *   - Value range: >= 0 (0 if membership not valid in period)
+   * Pre-condition: Artist has membership, dates are valid
+   * Post-condition: Returns reward points if membership valid in period, otherwise 0
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateRewardPoints(final Date startDate, final Date endDate)
+  {
+    if (membership == null) {
+      return 0;
+    }
+    
+    if (startDate == null || endDate == null || startDate.after(endDate)) {
+      return 0;
+    }
+    
+    Date membershipStart = membership.getStartDate();
+    Date membershipEnd = membership.getEndDate();
+    
+    if (membershipStart == null || membershipEnd == null) {
+      return 0;
+    }
+    
+    // Check if membership period overlaps with given period
+    if (!membershipEnd.before(startDate) && !membershipStart.after(endDate)) {
+      return membership.getRewardPoint();
+    }
+    
+    return 0;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts number of artworks in each category for the artist
+   * Algorithm:
+   *   1. Initialize a map with all ArtworkCategory values set to 0
+   *   2. For each artwork in artwork list:
+   *        category = artwork.category
+   *        map[category] += 1
+   *   3. Return the map
+   * Input: None
+   * Output:
+   *   - EMap containing counts per category
+   *   - Format: Map<ArtworkCategory, Integer>
+   *   - Value range: Keys: PAINTING, SCULPTURE, ARCHITECTURE; Values: >= 0
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Returns count of artworks for each category
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public Map<ArtworkCategory, Integer> countArtworksByCategory()
+  {
+    java.util.HashMap<ArtworkCategory, Integer> result = new java.util.HashMap<>();
+    
+    // Initialize all categories to 0
+    for (ArtworkCategory category : ArtworkCategory.values()) {
+      result.put(category, 0);
+    }
+    
+    if (artwork != null) {
+      for (Artwork art : artwork) {
+        if (art != null) {
+          ArtworkCategory category = art.getCategory();
+          if (category != null) {
+            result.put(category, result.get(category) + 1);
+          }
+        }
+      }
+    }
+    
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Adds an artwork to the artist's collection
+   * Algorithm: 
+   *   1. Check if artwork is not null
+   *   2. Add artwork to the artwork list
+   *   3. Set artwork's author to this artist
+   * Input: 
+   *   - artwork: Artwork object to be added to artist's collection
+   *   - Format: Artwork instance
+   *   - Value range: Must be non-null and valid Artwork object
+   * Output: None
+   * Pre-condition: Artist exists and artwork list is initialized
+   * Post-condition: Artwork is added to artist's collection and artwork's author is set to this artist
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void addArtwork(final Artwork artwork)
+  {
+    if (artwork != null) {
+      if (this.artwork == null) {
+        this.artwork = new org.eclipse.emf.common.util.BasicEList<Artwork>();
+      }
+      this.artwork.add(artwork);
+      artwork.setAuthor(this);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Artist
+371939 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../OAGS/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../OAGS/src-gen/edu/artgallery/
+372113 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+372113 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+372113 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+372113 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+372115 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/artgallery 到 deepseek-v3.2-exp/artgallery5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

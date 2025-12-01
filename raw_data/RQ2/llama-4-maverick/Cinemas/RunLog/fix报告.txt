@@ -1,0 +1,8 @@
+发现的错误：方法未定义错误
+位置: Customer.java 第299行
+错误信息: The method getStockTransactions() is undefined for the type InvestmentAccount
+
+修复的错误1：
+问题: 在removeInvestmentAccount方法中错误地调用了getStockTransactions()方法
+根本原因: InvestmentAccount类中实际的方法名是getTransactions()，而不是getStockTransactions()
+修复方案: 直接移除；

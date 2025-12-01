@@ -1,0 +1,63 @@
+================================================================================
+EmployeeManagementSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:15:13
+系统名称: EmployeeManagementSystem
+SystemName: employee
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] employee1
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee1
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee1\compile
+
+[✓ PASS] employee2
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee2
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee2\compile
+
+[✓ PASS] employee3
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee3
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee3\compile
+
+[✓ PASS] employee4
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee4
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee4\compile
+
+[✗ FAIL] employee5
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee5
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee5\Company.java:149: 错误: 找不到符号
+          totalSalary += worker.getWeeklyWorkingHours() * worker.getHourlyRate();
+                               ^
+    符号:   方法 getWeeklyWorkingHours()
+    位置: 类型为Worker的变量 worker
+  D:\EclipseWorkspace\EmployeeManagementSystem\mistral-small-3.2-24b-instruct\employee5\Company.java:149: 错误: 找不到符号
+          totalSalary += worker.getWeeklyWorkingHours() * worker.getHourlyRate();
+                                                                ^
+    符号:   方法 getHourlyRate()
+    位置: 类型为Worker的变量 worker
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

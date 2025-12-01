@@ -1,0 +1,82 @@
+============================================================
+Cinemas - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-25 09:05:16
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\Cinemas_sample3\src\test\CR3Test.java:79: 错误: 找不到符号
+      public void testCase5_AddFilmAfterRemoval() throws ParseException {
+                                                         ^
+    符号:   类 ParseException
+    位置: 类 CR3Test
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 6/6 通过
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_CancelAlreadyCancelledScreening(CR6Test)
+  java.lang.AssertionError: expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR6Test.testCase4_CancelAlreadyCancelledScreening(CR6Test.java:80)
+  2) testCase1_CancelFutureScreening(CR6Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR6Test.testCase1_CancelFutureScreening(CR6Test.java:32)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 5/6
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

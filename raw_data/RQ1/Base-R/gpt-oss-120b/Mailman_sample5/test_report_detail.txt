@@ -1,0 +1,91 @@
+============================================================
+Mailman - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 09:24:49
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase1_AssignMailmanToLetterInSameArea(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "RegisteredMail.getArea()" is null
+  	at GeographicalArea.assignMail(FJC.java:64)
+  	at CR1Test.testCase1_AssignMailmanToLetterInSameArea(CR1Test.java:83)
+  2) testCase3_AssignNonExistentMailman(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "RegisteredMail.getArea()" is null
+  	at GeographicalArea.assignMail(FJC.java:64)
+  	at CR1Test.testCase3_AssignNonExistentMailman(CR1Test.java:116)
+  3) testCase5_ReassignMailmanToAlreadyAssignedMail(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "RegisteredMail.getArea()" is null
+  	at GeographicalArea.assignMail(FJC.java:64)
+  	at CR1Test.testCase5_ReassignMailmanToAlreadyAssignedMail(CR1Test.java:147)
+  4) testCase2_AssignMailmanToParcelInDifferentArea(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "RegisteredMail.getArea()" is null
+  	at GeographicalArea.assignMail(FJC.java:64)
+  	at CR1Test.testCase2_AssignMailmanToParcelInDifferentArea(CR1Test.java:100)
+  5) testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test)
+  java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "RegisteredMail.getArea()" is null
+  	at GeographicalArea.assignMail(FJC.java:64)
+  	at CR1Test.testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test.java:132)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_MixedSuccessfulAndFailedOperations(CR4Test)
+  java.lang.AssertionError: Adding duplicate mailman should fail
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase4_MixedSuccessfulAndFailedOperations(CR4Test.java:226)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

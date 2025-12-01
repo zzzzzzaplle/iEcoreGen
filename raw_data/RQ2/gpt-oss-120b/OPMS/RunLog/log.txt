@@ -1,0 +1,3002 @@
+  protected static final int SHARE_EDEFAULT = 0;
+
+  protected int share = SHARE_EDEFAULT;
+
+  protected static final double AMOUNT_OF_MONEY_EDEFAULT = 0.0;
+
+  protected double amountOfMoney = AMOUNT_OF_MONEY_EDEFAULT;
+
+  protected static final ApplicationStatus STATUS_EDEFAULT = ApplicationStatus.PENDING;
+
+  protected ApplicationStatus status STATUS;
+
+ protected EList<Email> emails;
+
+  protected Company company;
+
+  protected Document allowance;
+
+  protected Application()
+  { /* omitted constructor body */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ return null; }
+
+  public int getShare()
+  {
+    return share;
+  }
+
+  public void setShare(int newShare)
+  {
+    share = newShare;
+  }
+
+  public double getAmountOfMoney()
+  {
+    return amountOfMoney;
+  }
+
+  public void setOfMoney(double newAmountOfMoney)
+  {
+    amountOfMoney = newAmountOfMoney;
+  }
+
+  public ApplicationStatus getStatus()
+     return status;
+  }
+
+  public void setStatus(ApplicationStatus newStatus)
+  {
+    status = newStatus;
+  }
+
+  public Customer getCustomer()
+  {
+    // Placeholder implementation – in a full EMF model this would return the container or a reference.
+    return null;
+  }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  {
+    // Placeholder – no special handling required for this stub.
+    return msgs;
+  }
+
+  public void setCustomer(Customer newCustomer)
+  {
+    // Placeholder – no persistence logic needed for compilation.
+  }
+
+  public EList<Email> getEmails()
+  {
+    if (emails == null)
+    {
+      emails = new BasicEList<Email>();
+    }
+    return emails;
+  }
+
+  public Company getCompany()
+  {
+    return company;
+  }
+
+  public Company basicGetCompany()
+  {
+    return company;
+  }
+
+  public void setCompany(Company newCompany)
+  {
+    company = new;
+  }
+
+  public Document getAllowance()
+  {
+    return allowance;
+  }
+
+  public Document basicGetAllowance()
+  {
+    return allowance;
+  }
+
+  public void setAllowance(Document newAllowance)
+  {
+    allowance = newAllowance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Approve a pending IPO application after verifying the customer's eligibility.
+   *   Upon successful approval, the system sends informational emails to the customer
+   *   and the target company.
+   * Input:
+   *   None (operates on the current Application instance).
+   * Output:
+   *   boolean – true if the application was successfully approved and emails sent,
+   *             false otherwise.
+   * Pre-condition:
+   *   - The Application instance exists.
+   *   - Application.status == PENDING.
+   *   - Application.customer.canApplyForIPO == true.
+   * Algorithm:
+   *   1. Verify that status is PENDING; if not return false.
+   *   2. Verify that the linked Customer is eligible (customer.canApplyForIPO).
+   *      If not eligible, return false.
+   *   3. Application.status = APPROVAL.
+   *   4. Call sendEmailsToCustomerCompany().
+   *   5. Return true.
+   * Post-condition:
+   *   - Application.status == APPROVAL.
+   *   - Two Email objects ( email, company email) are created,
+   *     stored in.emails, and dispatched.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean approve()
+  {
+    // 1. Verify status is PENDING
+    if (getStatus() != ApplicationStatus.PENDING) {
+ return false;
+    }
+    // 2. Verify customer eligibility
+    Customer cust = getCustomer();
+    if (cust == null || !cust.isCanApplyForIPO()) {
+      return false;
+    }
+    // 3. Set status to APPROVAL
+    setStatus(ApplicationStatus.APPROVAL);
+    // 4. Send informational emails
+    sendEmailsToCustomerAndCompany();
+    // 5. Success
+    return true;
+  }
+
+  public boolean reject()
+  {
+    // Placeholder implementation
+    return false;
+  }
+
+  public boolean cancel()
+  {
+    // Placeholder implementation
+    return false;
+  }
+
+  public void sendEmailsToCustomerAndCompany()
+  {
+    // Placeholder implementation – actual email creation/sending logic omitted.
+  }
+
+  public void sendRejectionEmail()
+  {
+    // Placeholder implementation.
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    return super.eBasicRemoveFromContainerFeature(msgs);
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    super.eSet(featureID, newValue);
+  }
+
+ Override
+  public void eUnset(int feature)
+  {
+    super.eUnset(featureID);
+  }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    return super.eIsSet(featureID);
+  }
+
+  @Override
+  public String toString()
+  {
+    return super.toString();
+  }
+
+  /** @LLM */
+  public NotificationChain eAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    // Placeholder – no special handling needed.
+    return msgs;
+  }
+
+} // Application
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the total number of IPO applications submitted by the customer that
+   *   have already been reviewed (i.e., status is APPROVAL or REJECTED).
+   * Input:
+   *   None.
+   * Output:
+   *   int – count of reviewed applications; 0 if none.
+   * Pre-condition:
+   *   - Customer instance is valid.
+   * Algorithm:
+   *   1. Initialize counter = 0.
+   *   2. For each Application app in Customer.applications:
+   *        a) If app.status == APPROVAL or app.status == REJECTED:
+   *              increment counter.
+   *   3. Return counter.
+   * Post-condition:
+   *   - Returns an integer >= 0 representing reviewed applications.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int getApplicationCount()
+  {
+    int counter = 0;
+    for (Application app : getApplications()) {
+      Application status = app.getStatus();
+      if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  public double getApprovedTotalAmount()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Allows a customer to cancel a pending IPO application identified by the
+   *   target company's name.
+   * Input:
+   *   - companyName : String
+   *       Name of the company whose pending application should be cancelled.
+   * Output:
+   *   boolean – true if a pending application was found and cancelled; false otherwise.
+   * Pre-condition:
+   *   - companyName is non‑null and non‑empty.
+   * Algorithm:
+   *   1. Iterate over Customer.applications.
+   *   2. For each Application app:
+   *        a) If app.company.name equals companyName (case‑insensitive) AND
+   *           app.status == PENDING:
+   *              i) Call app.cancel().
+   *              ii) Return true.
+   *   3. If no matching pending application is found, return false.
+   * Post-condition:
+   *   - The specified pending Application is removed from Customer.applications.
+   *   - No email is sent as a result of cancellation.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    if (companyName == null || companyName.isEmpty()) {
+      return false;
+    }
+
+    Iterator<Application> iterator = getApplications().iterator();
+    whileiterator.hasNext()) {
+      Application app = iterator.next();
+      Company comp = app.getCompany();
+      if (comp != null && comp.getName() != null
+          && comp.getName().equalsIgnoreCase(companyName)
+          && app.getStatus() == ApplicationStatus.PENDING) {
+        // Cancel the application and remove it from the list
+        app.cancel();
+        iterator.remove();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemoveInternalEObject
+
+  int featureID, NotificationChain
+
+} // Customer
+```
+
+# Compilation Errors
+```
+- ERROR: Type mismatch: cannot convert from ApplicationStatus to Application
+	Application status = app.getStatus();
+	                     ^^^^^^^^^^^^^^^
+
+- ERROR: Incompatible operand types Application and ApplicationStatus
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Incompatible operand types Application and ApplicationStatus
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error on token ")", ; expected
+	whileiterator.hasNext()) {
+	                       ^
+
+- ERROR: The annotation @Override is disallowed for this location
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Application` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createApplication()`
+  + Public methods: public boolean approve(), public boolean reject(), public boolean cancel(), public void sendEmailsToCustomerAndCompany(), public void sendRejectionEmail()
+  + Getter methods: public int getShare(), public double getAmountOfMoney(), public ApplicationStatus getStatus(), public Customer getCustomer(), public EList<Email> getEmails(), public Company getCompany(), public Document getAllowance()
+  + Setter methods: public void setShare(int newShare), public void setAmountOfMoney(double newAmountOfMoney), public void setStatus(ApplicationStatus newStatus), public void setCustomer(Customer newCustomer), public void setCompany(Company newCompany), public void setAllowance(Document newAllowance)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+ org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the total number of IPO applications submitted by the customer that
+   *   have already been reviewed (i.e., status is APPROVAL or REJECTED).
+   * Input:
+   *   None.
+   * Output:
+   *   int – count of reviewed applications; 0 if none.
+   * Pre-condition:
+   *   - Customer instance is valid.
+   * Algorithm:
+   *   1. Initialize counter = 0.
+   *   2. For each Application app in Customer.applications:
+   *        a) If app.status == APPROVAL or app.status == REJECTED:
+   *              increment counter.
+   *   3 Return.
+   * Post-condition:
+   *   - Returns an integer >= 0 representing reviewed applications.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int getApplicationCount()
+  {
+    int counter = 0;
+    for (Application app : getApplications()) {
+      ApplicationStatus status = app.getStatus();
+      if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  public double getApprovedTotalAmount()
+  { ... omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Allows a customer to cancel a pending IPO application identified by the
+   *   target company's name.
+   * Input:
+   *   - companyName : String
+   *       Name of the company whose should be cancelled.
+   * Output:
+   *   boolean – true if a pending application was found and cancelled; false otherwise.
+   * Pre-condition:
+   *   - companyName is non‑null and non‑empty.
+   * Algorithm:
+   *   1. Iterate over Customer.applications.
+   *   2. For each Application app:
+   *        a) If app.company.name equals companyName (case‑insensitive) AND
+   *           app.status == PENDING:
+   *              i) Call app.cancel().
+   *              ii) Return true.
+   *   3. If no matching pending application is found, return false.
+   * Post-condition:
+   *   - The specified pending Application is removed from Customer.applications.
+   *   - No email is sent as a result of cancellation.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    if (companyName == null || companyName.isEmpty()) {
+      return false;
+    }
+
+    Iterator<Application> iterator = getApplications().iterator();
+    while (iterator.hasNext()) {
+      Application app = iterator.next();
+      Company comp = app.getCompany();
+      if (comp != null && comp.getName() != null
+          && comp.getName().equalsIgnoreCase(companyName)
+          && app.getStatus() == ApplicationStatus.PENDING) {
+        // Cancel the application and remove it from the list        app.cancel();
+        iterator.remove();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Customer
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getReceiver()
+  { ... /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { ... /* omitted */ }
+
+  public String getContent()
+  { ... /* omitted */ }
+
+  public void setContent(String newContent)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Generates the body of an informational email that includes required details
+   *   about the IPO purchase. The same content is used for both the customer and the
+   *   target company.
+   * Input:
+   *   - company : Company
+   *       Target company; must be non‑null.
+   *   - shares : int
+   *       Number of shares purchased; > 0.
+   *   - customer : Customer
+   *       Applicant; must be non‑null.
+   *   - amount : double
+   *       Monetary amount paid; > 0.
+   * Output:
+   *   String – formatted email content containing:
+   *       * Customer name, surname, email, telephone
+   *       * Company name
+   *       * Number of shares
+   *       * Amount paid (currency formatted to two decimals)
+   * Pre-condition:
+   *   - All input parameters are non‑null and satisfy value constraints.
+   * Algorithm:
+   *   1. Format amount to a string with two decimal places (e.g., "$1234.56").
+   *   2. Build a multi‑line string:
+   *        "Dear {customer.name} {customer.surname},\n"
+   *        "Your IPO application for {company.name} has been approved.\n"
+   *        "Details:\n"
+   *        "- Email: {customer.email}\n"
+   *        "- Telephone: {customer.telephone}\n"
+   *        "- Shares Purchased: {shares}\n"
+   * "- Amount Paid: {formattedAmount}\n"
+   *        "Thank you for your application."
+   *   3. Return the constructed string.
+   * Post-condition:
+   *   - Returns a non‑empty, human‑readable email body ready to be sent.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  {
+    // Format the amount to two decimal places with a dollar sign.
+    String formatted = String.format(Locale.US, "$%.2f", amount);
+
+    // Build the email body.
+    StringBuilder sb = new StringBuilder();
+    sb.append("Dear ").append(customer.getName()).append(' ').append(customer.getSurname()).append(",\n");
+    sb.append("Your IPO application for ").append(company.getName()).append(" has been approved.\n");
+    sb.append("Details:\n");
+    sb.append("- Email: ").append(customer.getEmail()).append("\n");
+    sb.append("- Telephone: ").append(customer.getTelephone()).append("\n");
+    sb.append("- Shares Purchased: ").append(shares).append("\n");
+    sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+    sb.append("Thank you for your application.");
+
+    return sb.toString();
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Email
+```
+
+# Compilation Errors
+```
+- ERROR: The import org.eclipse.ecore cannot be resolved
+	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+	       ^^^^^^^^^^^^^^^^^
+
+- ERROR: formattedAmount cannot be resolved to a variable
+	sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+	                                    ^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getReceiver()
+  { /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { /* omitted */ }
+
+  public String getContent()
+  { /* omitted */ }
+
+  public void setContent(String newContent)
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Generates the body of an informational email that includes required details
+   *   about the IPO purchase. The same content is used for both the customer and the
+   *   target company.
+   * Input:
+   *   - company : Company
+   *       Target company; must be non‑null.
+   *   - shares : int
+   *       Number of shares purchased; > 0.
+   *   - customer : Customer
+   *       Applicant; must be non‑null.
+   *   - amount : double
+   *       Monetary amount paid; > 0.
+   * Output:
+   *   String – formatted email content containing:
+   *       * Customer name, surname, email, telephone
+   *       * Company name
+   *       * Number of shares
+   *       * Amount paid (currency formatted to two decimals)
+   * Pre-condition:
+   *   - All input parameters are non‑null and satisfy value constraints.
+   * Algorithm:
+   *   1. Format amount to a string with two decimal places (e.g., "$1234.56").
+   *   2. Build a multi‑line string:
+   *        "Dear {customer.name} {customer.surname},\n"
+   *        "Your IPO application for {company.name} has been approved.\n"
+   *        "Details:\n"
+   *        "- Email: {customer.email}\n"
+   *        "- Telephone: {customer.telephone}\n"
+   *        "- Shares Purchased: {shares}\n"
+   * "- Amount Paid: {formattedAmount}\n"
+   *        "Thank you for your application."
+   *   3. Return the constructed string.
+   * Post-condition:
+   *   - Returns a non‑empty, human‑readable email body ready to be sent.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public String createEmailContent(final Company company, final int shares, final Customer customer, double amount)
+  {
+    // Format the amount to two decimal places with a dollar sign.
+    String formatted = String.format(Locale.US, "$%.2f", amount);
+
+    // Build the email body.
+    StringBuilder sb = new StringBuilder();
+    sb.append("Dear ").append(customer.getName()).append(' ').append(customer.getSurname()).append(",\n");
+    sb.append("Your IPO application for ").append(company.getName()).append(" has been approved.\n");
+    sb.append("Details:\n");
+    sb.append("- Email: ").append(customer.getEmail()).append("\n");
+    sb.append("- Telephone: ").append(customer.getTelephone()).append("\n");
+    sb.append("- Shares Purchased: ").append(shares).append("\n");
+    sb.append("- Amount Paid: ").append(formatted).append("\n");
+    sb.append("Thank you for your application.");
+
+    return sb.toString();
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Email
+1175943 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../IPOApplication/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../IPOApplication/src-gen/edu/ipo/
+1176043 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+1176043 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java (at line 23)
+	import edu.ipo.IpoFactory;
+	       ^^^^^^^^^^^^^^^^^^
+The import edu.ipo.IpoFactory is never used
+----------
+2. WARNING in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java (at line 24)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+----------
+3. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 739)
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+The annotation @Override is disallowed for this location
+----------
+4. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 740)
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Syntax error, insert ";" to complete FieldDeclaration
+----------
+5. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 742)
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+Syntax error, insert ";" to complete FieldDeclaration
+----------
+----------
+6. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java (at line 13)
+	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+	       ^^^^^^^^^^^^^^^^^
+The import org.eclipse.ecore cannot be resolved
+----------
+6 problems (4 errors, 2 warnings)
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java
+Line: 23
+Type: WARNING
+Message: The import edu.ipo.IpoFactory is never used
+Code line: 	import edu.ipo.IpoFactory;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java
+Line: 24
+Type: WARNING
+Message: The import org.eclipse.emf.common.util.BasicEList is never used
+Code line: 	import org.eclipse.emf.common.util.BasicEList;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 739
+Type: ERROR
+Message: The annotation @Override is disallowed for this location
+Code line: 	/** @LLM */ @Override
+Caret Pos: 	            ^^^^^^^^^
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 740
+Type: ERROR
+Message: Syntax error, insert ";" to complete FieldDeclaration
+Code line: 	public NotificationChain eInverseRemoveInternalEObject
+Caret Pos: 	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 742
+Type: ERROR
+Message: Syntax error, insert ";" to complete FieldDeclaration
+Code line: 	/** @LLM */ int featureID, NotificationChain
+Caret Pos: 	                           ^^^^^^^^^^^^^^^^^
+
+1176044 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java
+Line: 13
+Type: ERROR
+Message: The import org.eclipse.ecore cannot be resolved
+Code line: 	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { ... /* omitted */ }
+
+  public int getApplicationCount()
+  { ... /* omitted */ }
+
+  public double getApprovedTotalAmount()
+  { ... /* omitted */ }
+
+  public boolean cancelApplication(final String companyName)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemoveInternalEObject
+
+  int featureID, NotificationChain
+
+} // Customer
+```
+
+# Compilation Errors
+```
+- ERROR: The annotation @Override is disallowed for this location
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Application` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createApplication()`
+  + Public methods: public boolean approve(), public boolean reject(), public boolean cancel(), public void sendEmailsToCustomerAndCompany(), public void sendRejectionEmail()
+  + Getter methods: public int getShare(), public double getAmountOfMoney(), public ApplicationStatus getStatus(), public Customer getCustomer(), public EList<Email> getEmails(), public Company getCompany(), public Document getAllowance()
+  + Setter methods: public void setShare(int newShare), public void setAmountOfMoney(double newAmountOfMoney), public void setStatus(ApplicationStatus newStatus), public void setCustomer(Customer newCustomer), public void setCompany(Company newCompany), public void setAllowance(Document newAllowance)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+io.github.pigmesh.ai.deepseek.core.OpenAiHttpException: {"error":{"message":"User not found.","code":401}}
+1178756 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - Cannot invoke "String.lines()" because "output" is null
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { ... /* omitted */ }
+
+  public int getApplicationCount()
+  { ... /* omitted */ }
+
+  public double getApprovedTotalAmount()
+  { ... /* omitted */ }
+
+  public boolean cancelApplication(final String companyName)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemoveInternalEObject
+
+  int featureID, NotificationChain
+
+} // Customer
+```
+
+# Compilation Errors
+```
+- ERROR: The annotation @Override is disallowed for this location
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Application` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createApplication()`
+  + Public methods: public boolean approve(), public boolean reject(), public boolean cancel(), public void sendEmailsToCustomerAndCompany(), public void sendRejectionEmail()
+  + Getter methods: public int getShare(), public double getAmountOfMoney(), public ApplicationStatus getStatus(), public Customer getCustomer(), public EList<Email> getEmails(), public Company getCompany(), public Document getAllowance()
+  + Setter methods: public void setShare(int newShare), public void setAmountOfMoney(double newAmountOfMoney), public void setStatus(ApplicationStatus newStatus), public void setCustomer(Customer newCustomer), public void setCompany(Company newCompany), public void setAllowance(Document newAllowance)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <emurname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#get <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  static final boolean CAN_APPLY_FOR_IPO_EDEFAULT =;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getName()
+  { /* omitted */ }
+
+ public void setName(String newName)
+  { /* omitted */ }
+
+  public String getSurname()
+  { /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { /* omitted */ }
+
+  public String getEmail()
+  { /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { /* omitted */ }
+
+  public String getTelephone()
+  { /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { /* omitted */ }
+
+  public EList<Application> getApplications()
+  { /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { /* omitted */ }
+
+  public int getApplicationCount()
+  { /* omitted */ }
+
+  public double getApprovedTotalAmount()
+  { /* omitted */ }
+
+  public boolean cancelApplication(final String companyName)
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* omitted */ }
+
+  @Override
+  public ObjectGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+  // The erroneous incomplete method that caused compilation errors has been removed.
+
+} // Customer
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getReceiver()
+  { ... /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { ... /* omitted */ }
+
+  public String getContent()
+  { ... /* omitted */ }
+
+  public void setContent(String newContent)
+  { ... /* omitted */ }
+
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Email
+```
+
+# Compilation Errors
+```
+- ERROR: The import org.eclipse.ecore cannot be resolved
+	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+	       ^^^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getReceiver()
+  { /* omitted */ }
+
+  public void setReceiver(StringReceiver)
+  { /* omitted */ }
+
+  public String getContent()
+  { /* omitted */ }
+
+  public void setContent(String newContent)
+  { /* omitted */ }
+
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  { /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Email
+1190579 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../IPOApplication/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../IPOApplication/src-gen/edu/ipo/
+1190707 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java (at line 23)
+	import edu.ipo.IpoFactory;
+	       ^^^^^^^^^^^^^^^^^^
+The import edu.ipo.IpoFactory is never used
+----------
+2. WARNING in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java (at line 24)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+----------
+3. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 468)
+	Application status = app.getStatus();
+	                     ^^^^^^^^^^^^^^^
+Type mismatch: cannot convert from ApplicationStatus to Application
+----------
+4. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 469)
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Incompatible operand types Application and ApplicationStatus
+----------
+5. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 469)
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Incompatible operand types Application and ApplicationStatus
+----------
+6. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 549)
+	whileiterator.hasNext()) {
+	                       ^
+Syntax error on token ")", ; expected
+----------
+7. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 740)
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+The annotation @Override is disallowed for this location
+----------
+8. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 741)
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Syntax error, insert ";" to complete FieldDeclaration
+----------
+9. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java (at line 743)
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+Syntax error, insert ";" to complete FieldDeclaration
+----------
+----------
+10. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java (at line 13)
+	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+	       ^^^^^^^^^^^^^^^^^
+The import org.eclipse.ecore cannot be resolved
+----------
+11. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java (at line 214)
+	sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+	                                    ^^^^^^^^^^^^^^^
+formattedAmount cannot be resolved to a variable
+----------
+11 problems (9 errors, 2 warnings)
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java
+Line: 23
+Type: WARNING
+Message: The import edu.ipo.IpoFactory is never used
+Code line: 	import edu.ipo.IpoFactory;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java
+Line: 24
+Type: WARNING
+Message: The import org.eclipse.emf.common.util.BasicEList is never used
+Code line: 	import org.eclipse.emf.common.util.BasicEList;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 468
+Type: ERROR
+Message: Type mismatch: cannot convert from ApplicationStatus to Application
+Code line: 	Application status = app.getStatus();
+Caret Pos: 	                     ^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 469
+Type: ERROR
+Message: Incompatible operand types Application and ApplicationStatus
+Code line: 	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+Caret Pos: 	    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 469
+Type: ERROR
+Message: Incompatible operand types Application and ApplicationStatus
+Code line: 	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+Caret Pos: 	                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 549
+Type: ERROR
+Message: Syntax error on token ")", ; expected
+Code line: 	whileiterator.hasNext()) {
+Caret Pos: 	                       ^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 740
+Type: ERROR
+Message: The annotation @Override is disallowed for this location
+Code line: 	/** @LLM */ @Override
+Caret Pos: 	            ^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 741
+Type: ERROR
+Message: Syntax error, insert ";" to complete FieldDeclaration
+Code line: 	public NotificationChain eInverseRemoveInternalEObject
+Caret Pos: 	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Customer.java
+Line: 743
+Type: ERROR
+Message: Syntax error, insert ";" to complete FieldDeclaration
+Code line: 	/** @LLM */ int featureID, NotificationChain
+Caret Pos: 	                           ^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java
+Line: 13
+Type: ERROR
+Message: The import org.eclipse.ecore cannot be resolved
+Code line: 	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+Caret Pos: 	       ^^^^^^^^^^^^^^^^^
+
+1190707 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Email.java
+Line: 214
+Type: ERROR
+Message: formattedAmount cannot be resolved to a variable
+Code line: 	sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+Caret Pos: 	                                    ^^^^^^^^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import java.util.Iterator;
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the total number of IPO applications submitted by the customer that
+   *   have already been reviewed (i.e., status is APPROVAL or REJECTED).
+   * Input:
+   *   None.
+   * Output:
+   *   int – count of reviewed applications; 0 if none.
+   * Pre-condition:
+   *   - Customer instance is valid.
+   * Algorithm:
+   *   1. Initialize counter = 0.
+   *   2. For each Application app in Customer.applications:
+   *        a) If app.status == APPROVAL or app.status == REJECTED:
+   *              increment counter.
+   *   3. Return counter.
+   * Post-condition:
+   *   - Returns an integer >= 0 representing reviewed applications.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int getApplicationCount()
+  {
+    int counter = 0;
+    for (Application app : getApplications()) {
+      Application status = app.getStatus();
+      if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  public double getApprovedTotalAmount()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Allows a customer to cancel a pending IPO application identified by the
+   *   target company's name.
+   * Input:
+   *   - companyName : String
+   *       Name of the company whose pending application should be cancelled.
+   * Output:
+   *   boolean – true if a pending application was found and cancelled; false otherwise.
+   * Pre-condition:
+   *   - companyName is non‑null and non‑empty.
+   * Algorithm:
+   *   1. Iterate over Customer.applications.
+   *   2. For each Application app:
+   *        a) If app.company.name equals companyName (case‑insensitive) AND
+   *           app.status == PENDING:
+   *              i) Call app.cancel().
+   *              ii) Return true.
+   *   3. If no matching pending application is found, return false.
+   * Post-condition:
+   *   - The specified pending Application is removed from Customer.applications.
+   *   - No email is sent as a result of cancellation.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    if (companyName == null || companyName.isEmpty()) {
+      return false;
+    }
+
+    Iterator<Application> iterator = getApplications().iterator();
+    whileiterator.hasNext()) {
+      Application app = iterator.next();
+      Company comp = app.getCompany();
+      if (comp != null && comp.getName() != null
+          && comp.getName().equalsIgnoreCase(companyName)
+          && app.getStatus() == ApplicationStatus.PENDING) {
+        // Cancel the application and remove it from the list
+        app.cancel();
+        iterator.remove();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemoveInternalEObject
+
+  int featureID, NotificationChain
+
+} // Customer
+```
+
+# Compilation Errors
+```
+- ERROR: Type mismatch: cannot convert from ApplicationStatus to Application
+	Application status = app.getStatus();
+	                     ^^^^^^^^^^^^^^^
+
+- ERROR: Incompatible operand types Application and ApplicationStatus
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Incompatible operand types Application and ApplicationStatus
+	if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+	                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error on token ")", ; expected
+	whileiterator.hasNext()) {
+	                       ^
+
+- ERROR: The annotation @Override is disallowed for this location
+	/** @LLM */ @Override
+	            ^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	public NotificationChain eInverseRemoveInternalEObject
+	                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ERROR: Syntax error, insert ";" to complete FieldDeclaration
+	/** @LLM */ int featureID, NotificationChain
+	                           ^^^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Application` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createApplication()`
+  + Public methods: public boolean approve(), public boolean reject(), public boolean cancel(), public void sendEmailsToCustomerAndCompany(), public void sendRejectionEmail()
+  + Getter methods: public int getShare(), public double getAmountOfMoney(), public ApplicationStatus getStatus(), public Customer getCustomer(), public EList<Email> getEmails(), public Company getCompany(), public Document getAllowance()
+  + Setter methods: public void setShare(int newShare), public void setAmountOfMoney(double newAmountOfMoney), public void setStatus(ApplicationStatus newStatus), public void setCustomer(Customer newCustomer), public void setCompany(Company newCompany), public void setAllowance(Document newAllowance)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+import java.util.Iterator;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import edu.ipo.IpoFactory;
+import edu.ipo.Application;
+import edu.ipo.ApplicationStatus;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { /* ... omitted ... */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* ... omitted ... */ }
+
+  public String getName()
+  { /* ... omitted ... */ }
+
+  public void setName(String newName)
+  { /* ... omitted ... */ }
+
+  public String getSurname()
+  { /* ... omitted ... */ }
+
+  public setSurname(String newSurname)
+  { /* ... omitted ... */ }
+
+  public String getEmail()
+  { /* ... omitted ... */ }
+
+  public void setEmail(String newEmail)
+  { /* ... omitted ... */ }
+
+  public String getTelephone()
+  { /* ... omitted ... */ }
+
+  public void setTelephone(String newTelephone)
+  { /* ... omitted ... */ }
+
+  public boolean isCanApplyForIPO()
+  { /* ... omitted ... */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { /* ... omitted ... */ }
+
+  public EList<Application> getApplications()
+  { /* ... omitted ... */ }
+
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  { /* ... omitted ... */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Returns the total number of IPO applications submitted by the customer that
+   *   have already been reviewed (i.e., status is APPROVAL or REJECTED).
+   * Input:
+   *   None.
+   * Output:
+   *   int – count of reviewed applications; 0 if none.
+   * Pre-condition:
+   *   - Customer instance is valid.
+   * Algorithm:
+   *   1. Initialize counter = 0.
+   *   2. For each Application app in Customer.applications:
+   *        a) If app.status == APPROVAL or app.status == REJECTED:
+   *              increment counter.
+   *   3. Return counter.
+   * Post-condition:
+   *   - Returns an integer >= 0 representing reviewed applications.
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int getApplicationCount()
+  {
+    int counter = 0;
+    for (Application app : getApplications()) {
+      ApplicationStatus status = app.getStatus();
+      if (status == ApplicationStatus.APPROVAL || status == ApplicationStatus.REJECTED) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  public double getApprovedTotalAmount()
+  { /* ... omitted ... */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Allows a customer to cancel a pending IPO application identified by the
+   *   target company's name.
+   * Input:
+   *   - companyName : String
+   *       Name of company whose pending application should be cancelled.
+   * Output:
+   *   boolean – true if a pending application was found and cancelled; false otherwise.
+   * Pre-condition:
+   *   - companyName is non‑null and non‑empty.
+   * Algorithm:
+   *   1. Iterate over Customer.applications.
+   *   2. For each Application app:
+   *        a) If app.company.name equals companyName (case‑insensitive) AND
+   *           app.status == PENDING:
+   *              i) Call app.cancel().
+   *              ii) Return true.
+   *   3. If no matching pending application is found, return false.
+   * Post-condition:
+   *   - The specified pending Application is removed from Customer.applications.
+   *   - No email is sent as a result of cancellation.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    if (companyName == null || companyName.isEmpty()) {
+      return false;
+    }
+
+    Iterator<Application> iterator = getApplications().iterator();
+    while (iterator.hasNext()) {
+      Application app = iterator.next();
+      Company comp = app.getCompany();
+      if (comp != null && comp.getName() != null
+          && comp.getName().equalsIgnoreCase(companyName)
+          && app.getStatus() == ApplicationStatus.PENDING) {
+        // Cancel the application and remove it from the list
+        app.cancel();
+        iterator.remove();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* ... omitted ... */ }
+
+  @Override
+  public NotificationChain eInverseRemoveInternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { /* ... omitted ... */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* ... omitted ... */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, newValue)
+  { /* ... omitted ... */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* ... omitted ... */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* ... omitted ... */ }
+
+  @Override
+  public String toString()
+  { /* ... omitted ... */ }
+
+} // Customer
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getReceiver()
+  { ... /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { ... /* omitted */ }
+
+  public String getContent()
+  { ... /* omitted */ }
+
+  public void setContent(String newContent)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Generates the body of an informational email that includes required details
+   *   about the IPO purchase. The same content is used for both the customer and the
+   *   target company.
+   * Input:
+   *   - company : Company
+   *       Target company; must be non‑null.
+   *   - shares : int
+   *       Number of shares purchased; > 0.
+   *   - customer : Customer
+   *       Applicant; must be non‑null.
+   *   - amount : double
+   *       Monetary amount paid; > 0.
+   * Output:
+   *   String – formatted email content containing:
+   *       * Customer name, surname, email, telephone
+   *       * Company name
+   *       * Number of shares
+   *       * Amount paid (currency formatted to two decimals)
+   * Pre-condition:
+   *   - All input parameters are non‑null and satisfy value constraints.
+   * Algorithm:
+   *   1. Format amount to a string with two decimal places (e.g., "$1234.56").
+   *   2. Build a multi‑line string:
+   *        "Dear {customer.name} {customer.surname},\n"
+   *        "Your IPO application for {company.name} has been approved.\n"
+   *        "Details:\n"
+   *        "- Email: {customer.email}\n"
+   *        "- Telephone: {customer.telephone}\n"
+   *        "- Shares Purchased: {shares}\n"
+   * "- Amount Paid: {formattedAmount}\n"
+   *        "Thank you for your application."
+   *   3. Return the constructed string.
+   * Post-condition:
+   *   - Returns a non‑empty, human‑readable email body ready to be sent.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  {
+    // Format the amount to two decimal places with a dollar sign.
+    String formatted = String.format(Locale.US, "$%.2f", amount);
+
+    // Build the email body.
+    StringBuilder sb = new StringBuilder();
+    sb.append("Dear ").append(customer.getName()).append(' ').append(customer.getSurname()).append(",\n");
+    sb.append("Your IPO application for ").append(company.getName()).append(" has been approved.\n");
+    sb.append("Details:\n");
+    sb.append("- Email: ").append(customer.getEmail()).append("\n");
+    sb.append("- Telephone: ").append(customer.getTelephone()).append("\n");
+    sb.append("- Shares Purchased: ").append(shares).append("\n");
+    sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+    sb.append("Thank you for your application.");
+
+    return sb.toString();
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Email
+```
+
+# Compilation Errors
+```
+- ERROR: The import org.eclipse.ecore cannot be resolved
+	import org.eclipse.ecore.impl.MinimalEObjectImpl;
+	       ^^^^^^^^^^^^^^^^^
+
+- ERROR: formattedAmount cannot be resolved to a variable
+	sb.append("- Amount Paid: ").append(formattedAmount).append("\n");
+	                                    ^^^^^^^^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import java.util.Locale;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final CONTENT_EDEFAULT = null;
+
+  String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { /* omitted */ }
+
+  public String getReceiver()
+  { /* omitted */ }
+
+  public void set(String newReceiver)
+  { /* omitted */ }
+
+  public String getContent()
+  { /* omitted */ }
+
+  public void setContent(String newContent)
+  { /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Generates the body of an informational email that includes required details
+   *   about the IPO purchase. The same content is used for both the customer and the
+   *   target company.
+   * Input:
+   *   - company : Company
+   *       Target company; must be non‑null.
+   *   - shares : int
+   *       Number of shares purchased; > 0.
+   *   - customer : Customer
+   *       Applicant; must be non‑null.
+   *   - amount : double
+   *       paid; > 0.
+   * Output:
+   *   String – formatted email content containing:
+   *       * Customer name, surname, email, telephone
+   *       * Company name
+   *       * Number of shares
+   *       * Amount paid (currency formatted to two decimals)
+   * Pre-condition:
+   *   - All input parameters are non‑null and satisfy value constraints.
+   * Algorithm:
+     1. Format amount to a string with two decimal places (e.g., "$1234.56").
+   *   2. Build a multi‑line string:
+   *        "Dear {customer.name} {customer.surname},\n"
+   *        "Your IPO application for {company.name} has been approved.\n"
+   *        "Details:\n"
+   *        "- Email: {customer.email}\n"
+   *        "- Telephone: {customer.telephone}\n"
+   *        "- Shares Purchased: {shares}\n"
+   * "- Amount Paid: {formattedAmount}\n"
+   *        "Thank you for your application."
+   *   3. Return the constructed string.
+   * Post-condition:
+   *   - Returns a non‑empty, human‑readable email body ready to be sent.
+   * <!-- end-model-doc   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public String createContent(final Company company, final int shares, final Customer customer, final double amount)
+  {
+    // Format the amount to two decimal places with a dollar sign.
+    String formatted = String.format(Locale.US, "$%.2f", amount);
+
+    // Build the email body.
+    StringBuilder sb = new StringBuilder();
+    sb.append("Dear ").append(customer.getName()).append(' ').append(customer.getSurname()).append(",\n");
+    sb.append("Your IPO application for ").append(company.getName()).append(" has been approved.\n");
+    sb.append("Details:\n");
+    sb.append("- Email: ").append(customer.getEmail()).append("\n");
+    sb.append("- Telephone: ").append(customer.getTelephone()).append("\n");
+    sb.append("- Shares Purchased: ").append(shares).append("\n");
+    sb.append("- Amount Paid: ").append(formatted).append("\n");
+    sb.append("Thank you for your application.");
+
+    return sb.toString();
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { /* omitted */ }
+
+  @Override
+  public String toString()
+  { /* omitted */ }
+
+} // Email
+1212755 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+1212756 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/ipo 到 gpt-oss-120b/ipo5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

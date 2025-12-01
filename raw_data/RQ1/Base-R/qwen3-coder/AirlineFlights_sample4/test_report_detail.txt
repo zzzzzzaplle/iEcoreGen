@@ -1,0 +1,134 @@
+============================================================
+AirlineFlights - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:14:54
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\AirlineFlights_sample4\src\test\CR1Test.java:74: 错误: 进行语法分析时已到达文件结尾
+      public void testCase3_sameDepartureAndArrivalAirport() {
+                                                              ^
+  1 个错误
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase2_duplicatePassengerInSameRequest(CR2Test)
+  java.lang.AssertionError: Booking should fail due to duplicate passengers in same request
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase2_duplicatePassengerInSameRequest(CR2Test.java:95)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_flightDepartedBlocksConfirmation(CR3Test)
+  java.lang.AssertionError: Due to time mocking limitation, this may return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase3_flightDepartedBlocksConfirmation(CR3Test.java:155)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_NoReservationsToCancel(CR4Test)
+  java.lang.AssertionError: Close flight should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase1_NoReservationsToCancel(CR4Test.java:54)
+  2) testCase2_ThreeConfirmedReservationsCanceled(CR4Test)
+  java.lang.AssertionError: Close flight should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:115)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase3_DeleteExistingStopover(CR6Test)
+  java.lang.AssertionError: Stopover should be deleted successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR6Test.testCase3_DeleteExistingStopover(CR6Test.java:111)
+  2) testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test)
+  java.lang.AssertionError: Stopover should be added successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR6Test.testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test.java:47)
+  3) testCase5_AttemptRemovalAfterDeparture(CR6Test)
+  java.lang.AssertionError: Stopover should not be deleted after departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase5_AttemptRemovalAfterDeparture(CR6Test.java:193)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 5/6
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

@@ -1,0 +1,63 @@
+================================================================================
+carrental3 测试报告
+================================================================================
+生成时间: 2025-11-25 14:48:01
+样本名称: carrental3
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_CountRentalsWithNoRecords(edu.carrental.carrental3.test.CR5Test)
+  org.eclipse.emf.common.util.BasicEList$BasicIndexOutOfBoundsException: index=0, size=0
+  	at org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:345)
+  	at edu.carrental.carrental3.test.CR5Test.testCase3_CountRentalsWithNoRecords(CR5Test.java:160)
+  2) testCase2_CountRentalsForMultipleCustomers(edu.carrental.carrental3.test.CR5Test)
+  java.lang.AssertionError: Customer C002 should have 5 rentals expected:<5> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.carrental.carrental3.test.CR5Test.testCase2_CountRentalsForMultipleCustomers(CR5Test.java:148)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

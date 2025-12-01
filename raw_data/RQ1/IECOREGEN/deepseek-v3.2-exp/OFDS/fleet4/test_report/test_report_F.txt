@@ -1,0 +1,101 @@
+================================================================================
+fleet4 测试报告
+================================================================================
+生成时间: 2025-11-17 17:06:08
+样本名称: fleet4
+总测试数: 20
+通过: 14
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_MultipleDriversForOneVehicle(edu.fleet.fleet4.test.CR2Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getPartTimeDriverVehicleRegistrationNumbers(Company.java:266)
+  	at edu.fleet.fleet4.test.CR2Test.testCase4_MultipleDriversForOneVehicle(CR2Test.java:228)
+  2) testCase1_SinglePartTimeEmployeeVehicleRetrieval(edu.fleet.fleet4.test.CR2Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getPartTimeDriverVehicleRegistrationNumbers(Company.java:266)
+  	at edu.fleet.fleet4.test.CR2Test.testCase1_SinglePartTimeEmployeeVehicleRetrieval(CR2Test.java:76)
+  3) testCase3_MixedEmployeesAndVehicles(edu.fleet.fleet4.test.CR2Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getPartTimeDriverVehicleRegistrationNumbers(Company.java:266)
+  	at edu.fleet.fleet4.test.CR2Test.testCase3_MixedEmployeesAndVehicles(CR2Test.java:177)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_MixedVehiclesState(edu.fleet.fleet4.test.CR4Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getCurrentDriversNames(Company.java:301)
+  	at edu.fleet.fleet4.test.CR4Test.testCase4_MixedVehiclesState(CR4Test.java:182)
+  2) testCase1_SingleEmployeeWithVehicle(edu.fleet.fleet4.test.CR4Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getCurrentDriversNames(Company.java:301)
+  	at edu.fleet.fleet4.test.CR4Test.testCase1_SingleEmployeeWithVehicle(CR4Test.java:49)
+  3) testCase2_MultipleEmployeesMultipleVehicles(edu.fleet.fleet4.test.CR4Test)
+  java.lang.ClassCastException: class java.lang.String cannot be cast to class org.eclipse.emf.ecore.InternalEObject (java.lang.String is in module java.base of loader 'bootstrap'; org.eclipse.emf.ecore.InternalEObject is in unnamed module of loader 'app')
+  	at org.eclipse.emf.ecore.util.EcoreEList.inverseAdd(EcoreEList.java:260)
+  	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:312)
+  	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:304)
+  	at edu.fleet.Company.getCurrentDriversNames(Company.java:301)
+  	at edu.fleet.fleet4.test.CR4Test.testCase2_MultipleEmployeesMultipleVehicles(CR4Test.java:92)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 14
+失败: 6
+成功率: 70.0%
+================================================================================

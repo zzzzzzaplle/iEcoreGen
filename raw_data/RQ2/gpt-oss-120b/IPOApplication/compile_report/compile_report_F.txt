@@ -1,0 +1,59 @@
+================================================================================
+IPOApplication 系统编译报告
+================================================================================
+生成时间: 2025-11-19 15:13:32
+系统名称: IPOApplication
+SystemName: ipo
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] ipo1
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo1\compile
+
+[✓ PASS] ipo2
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo2\compile
+
+[✓ PASS] ipo3
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo3\compile
+
+[✗ FAIL] ipo4
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo4\Customer.java:22: 错误: 程序包org.eclipse.emf.notify不存在
+  import org.eclipse.emf.notify.NotificationChain;
+                               ^
+  D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo4\Customer.java:28: 错误: 程序包org.eclipse.ecore不存在
+  import org.eclipse.ecore.EClass;
+                          ^
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] ipo5
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\gpt-oss-120b\ipo5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

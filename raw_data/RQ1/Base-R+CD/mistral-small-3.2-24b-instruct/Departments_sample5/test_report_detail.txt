@@ -1,0 +1,76 @@
+============================================================
+Departments - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 15:49:38
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test)
+  java.lang.AssertionError: Employee E201 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR3Test.testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test.java:140)
+  2) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test)
+  java.lang.AssertionError: Employee E101 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:68)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\Departments_sample5\src\test\CR4Test.java:59: 错误: 找不到符号
+          department.deleteEmployee(employee);
+                    ^
+    符号:   方法 deleteEmployee(Employee)
+    位置: 类型为Department的变量 department
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

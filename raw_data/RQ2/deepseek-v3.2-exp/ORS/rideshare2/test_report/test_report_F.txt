@@ -1,0 +1,160 @@
+================================================================================
+rideshare2 测试报告
+================================================================================
+生成时间: 2025-11-27 13:01:57
+样本名称: rideshare2
+总测试数: 25
+通过: 12
+失败: 13
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase5_BookingDeniedWhenCustomerHasOverlappingBooking(edu.rideshare.rideshare2.test.CR1Test)
+  java.lang.AssertionError: Trip T300 seats should remain unchanged expected:<40> but was:<36>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare2.test.CR1Test.testCase5_BookingDeniedWhenCustomerHasOverlappingBooking(CR1Test.java:225)
+  2) testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(edu.rideshare.rideshare2.test.CR1Test)
+  java.lang.AssertionError: Booking should be eligible
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.rideshare.rideshare2.test.CR1Test.testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:66)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase2_DiscountDeniedForLateBooking(edu.rideshare.rideshare2.test.CR2Test)
+  java.lang.AssertionError: expected:<200.0> but was:<180.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare2.test.CR2Test.testCase2_DiscountDeniedForLateBooking(CR2Test.java:70)
+  2) testCase3_Exact24HourBoundaryForDiscount(edu.rideshare.rideshare2.test.CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<90.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare2.test.CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:94)
+  3) testCase5_DiscountAppliesOnlyToEligibleMembershipType(edu.rideshare.rideshare2.test.CR2Test)
+  java.lang.AssertionError: expected:<150.0> but was:<135.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare2.test.CR2Test.testCase5_DiscountAppliesOnlyToEligibleMembershipType(CR2Test.java:140)
+  4) testCase1_20PercentDiscountAppliedForEarlyBooking(edu.rideshare.rideshare2.test.CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<90.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare2.test.CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:46)
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(edu.rideshare.rideshare2.test.CR4Test)
+  java.lang.AssertionError: expected:<25> but was:<60>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.rideshare.rideshare2.test.CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:60)
+  2) testCase4_MultipleSeatsEdgeCase(edu.rideshare.rideshare2.test.CR4Test)
+  java.lang.AssertionError: expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.rideshare.rideshare2.test.CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:154)
+  3) testCase3_PartialMonthInclusion(edu.rideshare.rideshare2.test.CR4Test)
+  java.lang.AssertionError: expected:<15> but was:<40>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.rideshare.rideshare2.test.CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:125)
+  4) testCase5_LargeSeatQuantity(edu.rideshare.rideshare2.test.CR4Test)
+  java.lang.AssertionError: expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.rideshare.rideshare2.test.CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:216)
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_CompleteTimeEnclosureRejection(edu.rideshare.rideshare2.test.CR5Test)
+  java.lang.AssertionError: Trip completely enclosed in existing trip should be rejected
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.rideshare.rideshare2.test.CR5Test.testCase4_CompleteTimeEnclosureRejection(CR5Test.java:110)
+  2) testCase2_PostingDeniedDueToTimeConflict(edu.rideshare.rideshare2.test.CR5Test)
+  java.lang.AssertionError: Trip with time conflict should be rejected
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.rideshare.rideshare2.test.CR5Test.testCase2_PostingDeniedDueToTimeConflict(CR5Test.java:66)
+  3) testCase5_MultipleExistingTripComparison(edu.rideshare.rideshare2.test.CR5Test)
+  java.lang.AssertionError: Trip overlapping with any existing trip should be rejected
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.rideshare.rideshare2.test.CR5Test.testCase5_MultipleExistingTripComparison(CR5Test.java:144)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 12
+失败: 13
+成功率: 48.0%
+================================================================================

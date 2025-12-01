@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ipo" nsURI="http://www.example.org/ipo" nsPrefix="ipo">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Customer&#xA;+ Retail customers should be eligible for applying IPO.&#xA;+ Customers who will make IPO Applications must share their name, surname, email address, and telephone number information with the related company. &#xA;&#xA;Software System&#xA;+ When a customer applies IPO, he is required to upload legal allowance documentation. &#xA;+ When the customer completes the application process successfully, the bank should send two information emails, one for the customer and another for the company. &#xA;+ If the customer has many failed attempts, the bank should restrict the customer from the application process. If they would like to apply anyway, they should call the &quot;call center&quot; and request IPO application access.&#xA;&#xA;Rules&#xA;+ Even though the customer completed the process successfully, the purchase is still being determined. Related companies always have a right to reject customers' applications. If a company rejects the customer, our system should inform the customer.&#xA;+ Email content should include below information:&#xA; - Customer's name, surname, email address, telephone number&#xA; - Applied company named&#xA; - Number of shares that have been purchased&#xA; - The amount of money that has been paid&#xA;&#xA;Functional requirement:&#xA;+ &quot;Create an IPO application&quot;. A retail customer begins an IPO application by supplying the target company, the number of shares (>0), the amount of money, and uploading the document(non-null). The system first checks that the customer is still eligible to apply for IPOs and has no approved application for the same company; only then is an application record created. It returns true on success; otherwise, false.&#xA;&#xA;+ &quot;Approve or reject an application&quot;. If the application is rejected, the bank immediately emails the customer a rejection notice. The bank approves a specific application after verifying that the customer current can apply for IPO. If the application is approved, the bank sends two information emails: one to the customer and one to the company. The operation returns true if on success; otherwise, false.&#xA;&#xA;+ &quot;Retrieve a customer's application-count summary&quot;. The customer can report how many IPO applications has filed in total, including approval and rejected applications. Applications that have not yet been reviewed by the bank are not included. It returns 0 if the customer has no recorded applications.&#xA;&#xA;+ &quot;Query total approval IPO applications amount for a customer&quot;. A customer may request an aggregate view of the customer's approved IPO purchases. Returns the sum of all approved application amounts.&#xA;&#xA;+ &quot;Cancel an pending application&quot;. Providing the specific company name, a customer can cancel an application that is neither approved nor rejected by the bank. The operation returns true if the cancellation succeeds, otherwise, false."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApplicationStatus">
+    <eLiterals name="PENDING"/>
+    <eLiterals name="APPROVAL" value="1"/>
+    <eLiterals name="REJECTED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Document"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Email">
+    <eOperations name="createEmailContent">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Creates the email content for IPO application information.&#xA;Algorithm:&#xA;1. Format all required information into a standardized email template&#xA;2. Include customer's name, surname, email, telephone&#xA;3. Include company name, share count, and amount&#xA;4. Return formatted string&#xA;Input:&#xA;- company: Company object being applied to&#xA;- shares: Number of shares to be purchased&#xA;- customer: Customer object making the application&#xA;- amount: Amount of money to be invested&#xA;Output:&#xA;- String: Formatted email content including all required information&#xA;Pre-condition: All input parameters must be valid and non-null&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="company" eType="//Company"/>
+      <eParameters name="shares">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eParameters>
+      <eParameters name="customer" eType="//Customer"/>
+      <eParameters name="amount">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="receiver">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eOperations name="createApplication">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Creates a new IPO application for a customer to apply to a specific company.&#xA;Algorithm:&#xA;1. Check if customer is eligible to apply (canApplyForIPO is true)&#xA;2. Check if customer already has an approved application for the same company&#xA;3. If checks pass, create new Application object and add it to customer's applications&#xA;4. Return true if successful, false otherwise&#xA;Input:&#xA;- company: Company object that the customer wants to apply to&#xA;- shares: Number of shares to purchase (must be > 0)&#xA;- amount: Amount of money to invest (must be > 0)&#xA;- doc: Legal allowance document (must not be null)&#xA;Output:&#xA;- boolean: true if application was created successfully, false otherwise&#xA;Pre-condition: Customer must be a retail customer&#xA;Post-condition: If successful, customer's applications list will be updated with new application"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="company" eType="//Company"/>
+      <eParameters name="shares">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eParameters>
+      <eParameters name="amount">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eParameters>
+      <eParameters name="doc" eType="//Document"/>
+    </eOperations>
+    <eOperations name="getApplicationCount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Returns the total count of approved and rejected applications for the customer.&#xA;Algorithm:&#xA;1. Filter customer's applications to only include those that are either APPROVED or REJECTED&#xA;2. Return count of these applications&#xA;3. Return 0 if no applications meet the criteria&#xA;Input: None (uses customer's existing data)&#xA;Output:&#xA;- int: Count of approved and rejected applications (0 if none exist)&#xA;Pre-condition: None&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getApprovedTotalAmount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Returns the sum of all approved application amounts for the customer.&#xA;Algorithm:&#xA;1. Filter customer's applications to only include those that are APPROVED&#xA;2. Sum the amountOfMoney field from each of these applications&#xA;3. Return the total sum&#xA;4. Return 0 if no approved applications exist&#xA;Input: None (uses customer's existing data)&#xA;Output:&#xA;- double: Sum of all approved application amounts (0 if none exist)&#xA;Pre-condition: None&#xA;Post-condition: None"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="cancelApplication">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Cancels a pending application for a specific company.&#xA;Algorithm:&#xA;1. Find application for the specified company that is in PENDING status&#xA;2. If found, call application.cancel()&#xA;3. Return true if cancellation was successful, false otherwise&#xA;Input:&#xA;- companyName: Name of the company to cancel application for&#xA;Output:&#xA;- boolean: true if cancellation was successful, false otherwise&#xA;Pre-condition: Customer must have at least one pending application for the company&#xA;Post-condition: If successful, application will be removed from customer's applications"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="companyName">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephone">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canApplyForIPO">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1" eType="//Application" containment="true" eOpposite="//Application/customer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Application">
+    <eOperations name="approve">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Approves an IPO application after verifying eligibility.&#xA;Algorithm:&#xA;1. Check if customer can still apply for IPO&#xA;2. If eligible, set application status to APPROVED&#xA;3. Send information emails to both customer and company&#xA;4. Return true if successful, false otherwise&#xA;Input: None (uses application's existing data)&#xA;Output:&#xA;- boolean: true if approval was successful, false otherwise&#xA;Pre-condition: Application must be in PENDING status&#xA;Post-condition: If successful, application status will be updated and emails will be sent"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="reject">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Rejects an IPO application and notifies the customer.&#xA;Algorithm:&#xA;1. Set application status to REJECTED&#xA;2. Send rejection email to customer&#xA;3. Return true&#xA;Input: None (uses application's existing data)&#xA;Output:&#xA;- boolean: true if rejection was successful, false otherwise&#xA;Pre-condition: Application must be in PENDING status&#xA;Post-condition: If successful, application status will be updated and rejection email will be sent"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="cancel">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Cancels a pending IPO application for a specific company.&#xA;Algorithm:&#xA;1. Check if application exists and is in PENDING status&#xA;2. If valid, remove the application from customer's applications list&#xA;3. Return true if successful, false otherwise&#xA;Input: Uses application's existing data&#xA;Output:&#xA;- boolean: true if cancellation was successful, false otherwise&#xA;Pre-condition: Application must be in PENDING status&#xA;Post-condition: If successful, application will be removed from customer's applications"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="sendEmailsToCustomerAndCompany">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Sends information emails to both customer and company after application approval.&#xA;Algorithm:&#xA;1. Create email content for customer using customer's data&#xA;2. Create email content for company using application data&#xA;3. Send emails to both parties&#xA;Input: None (uses application's existing data)&#xA;Output: None (void)&#xA;Pre-condition: Application must be in APPROVED status&#xA;Post-condition: Emails will be sent to customer and company"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="sendRejectionEmail">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Sends rejection email to customer when application is rejected.&#xA;Algorithm:&#xA;1. Create rejection email content&#xA;2. Send email to customer&#xA;Input: None (uses application's existing data)&#xA;Output: None (void)&#xA;Pre-condition: Application must be in REJECTED status&#xA;Post-condition: Rejection email will be sent to customer"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="share">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amountOfMoney">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="//ApplicationStatus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" lowerBound="1" eType="//Customer" eOpposite="//Customer/applications"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="emails" upperBound="-1" eType="//Email" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="company" eType="//Company"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowance" eType="//Document"/>
+  </eClassifiers>
+</ecore:EPackage>

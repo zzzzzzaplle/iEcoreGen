@@ -1,0 +1,5 @@
+// ==version1==
+```
+A company has several warehouses located in different cities. In each of the warehouses is stored merchandise, the different products it needs for its activity. Two different warehouses can have the same products. For each product we also want to know its supplier (name, address), its name, whether it is toxic or not and what volume (m^3) it occupies. For each warehouse we want to know its surface (m²) and its address.
+```
+// ==end==

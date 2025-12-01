@@ -1,0 +1,24 @@
+============================================================
+EmployeeManagementSystem - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:42:40
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\EmployeeManagementSystem_sample2\src\main\FJC.java:5: 错误: 类 Employee 是公共的, 应在名为 Employee.java 的文件中声明
+  public abstract class Employee {
+                  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\EmployeeManagementSystem_sample2\src\main\FJC.java:129: 错误: 类 Worker 是公共的, 应在名为 Worker.java 的文件中声明
+  public abstract class Worker extends Employee {
+                  ^
+  2 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

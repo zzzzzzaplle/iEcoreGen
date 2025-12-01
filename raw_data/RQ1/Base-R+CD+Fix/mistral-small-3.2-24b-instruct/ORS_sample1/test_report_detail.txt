@@ -1,0 +1,158 @@
+============================================================
+ORS - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-24 17:42:48
+
+【FJC 编译】
+状态: 成功
+修复次数: 1 次
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test)
+  java.lang.AssertionError: Booking should be eligible
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_validBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:68)
+  2) testCase4_bookingAllowedWithMultipleNonOverlappingTrips(CR1Test)
+  java.lang.AssertionError: Booking should be allowed with non-overlapping trips
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase4_bookingAllowedWithMultipleNonOverlappingTrips(CR1Test.java:185)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_Exact24HourBoundaryForDiscount(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:84)
+  2) testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:38)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(CR4Test)
+  java.lang.AssertionError: Points calculation with multiple bookings should return 25 expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:68)
+  2) testCase4_MultipleSeatsEdgeCase(CR4Test)
+  java.lang.AssertionError: Multiple seats edge case should return 10 expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:172)
+  3) testCase3_PartialMonthInclusion(CR4Test)
+  java.lang.AssertionError: Partial month inclusion should return 15 expected:<15> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:141)
+  4) testCase5_LargeSeatQuantity(CR4Test)
+  java.lang.AssertionError: C8 large seat quantity should return 500 expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:232)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase3_backToBackTripsAllowed(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "this.bookings" is null
+  	at Trip.isTimeConflicting(FJC.java:308)
+  	at Driver.canPostTrip(FJC.java:77)
+  	at CR5Test.testCase3_backToBackTripsAllowed(CR5Test.java:69)
+  2) testCase4_completeTimeEnclosureRejection(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "this.bookings" is null
+  	at Trip.isTimeConflicting(FJC.java:308)
+  	at Driver.canPostTrip(FJC.java:77)
+  	at CR5Test.testCase4_completeTimeEnclosureRejection(CR5Test.java:87)
+  3) testCase1_validTripPostingWithTimeGap(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "this.bookings" is null
+  	at Trip.isTimeConflicting(FJC.java:308)
+  	at Driver.canPostTrip(FJC.java:77)
+  	at CR5Test.testCase1_validTripPostingWithTimeGap(CR5Test.java:33)
+  4) testCase2_postingDeniedDueToTimeConflict(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "this.bookings" is null
+  	at Trip.isTimeConflicting(FJC.java:308)
+  	at Driver.canPostTrip(FJC.java:77)
+  	at CR5Test.testCase2_postingDeniedDueToTimeConflict(CR5Test.java:51)
+  5) testCase5_multipleExistingTripComparison(CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "this.bookings" is null
+  	at Trip.isTimeConflicting(FJC.java:308)
+  	at Driver.canPostTrip(FJC.java:77)
+  	at CR5Test.testCase5_multipleExistingTripComparison(CR5Test.java:115)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

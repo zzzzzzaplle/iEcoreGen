@@ -1,0 +1,63 @@
+================================================================================
+department5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:12:06
+样本名称: department5
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase5_DeleteDepartmentWithManagerButNoOffices(edu.department.department5.test.CR3Test)
+  java.lang.AssertionError: Employee E201 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department5.test.CR3Test.testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test.java:168)
+  2) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department5.test.CR3Test)
+  java.lang.AssertionError: Employee E101 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department5.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:73)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

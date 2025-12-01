@@ -1,0 +1,138 @@
+================================================================================
+postal1 测试报告
+================================================================================
+生成时间: 2025-11-25 15:17:00
+样本名称: postal1
+总测试数: 25
+通过: 14
+失败: 11
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_AssignMailmanToLetterInSameArea(edu.postal.postal1.test.CR1Test)
+  java.lang.AssertionError: Mailman should be successfully assigned to letter in same area
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR1Test.testCase1_AssignMailmanToLetterInSameArea(CR1Test.java:47)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_ListMailForMailmanWithMixedMailTypes(edu.postal.postal1.test.CR2Test)
+  java.lang.AssertionError: Should contain 2 mail items expected:<2> but was:<3>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.postal.postal1.test.CR2Test.testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test.java:197)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase2_RemoveInhabitantWithAssignedMail(edu.postal.postal1.test.CR3Test)
+  java.lang.AssertionError: Paul should be in inhabitants list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR3Test.testCase2_RemoveInhabitantWithAssignedMail(CR3Test.java:62)
+  2) testCase1_AddNewInhabitantToArea(edu.postal.postal1.test.CR3Test)
+  java.lang.AssertionError: Should successfully add new inhabitant to area
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR3Test.testCase1_AddNewInhabitantToArea(CR3Test.java:36)
+  3) testCase3_AddMultipleInhabitantsToArea(edu.postal.postal1.test.CR3Test)
+  java.lang.AssertionError: Should successfully add Linda
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR3Test.testCase3_AddMultipleInhabitantsToArea(CR3Test.java:84)
+  4) testCase5_RemoveInhabitantWithMultipleMailItems(edu.postal.postal1.test.CR3Test)
+  java.lang.AssertionError: Rachel should be in inhabitants list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR3Test.testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test.java:142)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase5_StressTestWithMaximumReassignments(edu.postal.postal1.test.CR4Test)
+  java.lang.AssertionError: Alpha should be successfully removed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR4Test.testCase5_StressTestWithMaximumReassignments(CR4Test.java:355)
+  2) testCase3_FailedRemovalEdgeCases(edu.postal.postal1.test.CR4Test)
+  java.lang.AssertionError: Paul should be successfully removed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR4Test.testCase3_FailedRemovalEdgeCases(CR4Test.java:198)
+  3) testCase2_CascadingMailmanRemovalWithDependencies(edu.postal.postal1.test.CR4Test)
+  java.lang.AssertionError: Yvonne should be successfully removed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR4Test.testCase2_CascadingMailmanRemovalWithDependencies(CR4Test.java:156)
+  4) testCase1_ComplexMailmanRemovalWithMultipleReassignments(edu.postal.postal1.test.CR4Test)
+  java.lang.AssertionError: Alice should be successfully removed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR4Test.testCase1_ComplexMailmanRemovalWithMultipleReassignments(CR4Test.java:83)
+  5) testCase4_MixedSuccessfulAndFailedOperations(edu.postal.postal1.test.CR4Test)
+  java.lang.AssertionError: Mario should be successfully removed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.postal.postal1.test.CR4Test.testCase4_MixedSuccessfulAndFailedOperations(CR4Test.java:251)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 14
+失败: 11
+成功率: 56.0%
+================================================================================

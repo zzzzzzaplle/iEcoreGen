@@ -1,0 +1,47 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-27 12:55:01
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare1\compile
+
+[✓ PASS] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare2\compile
+
+[✓ PASS] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare3\compile
+
+[✓ PASS] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare4\compile
+
+[✓ PASS] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\deepseek-v3.2-exp\rideshare5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

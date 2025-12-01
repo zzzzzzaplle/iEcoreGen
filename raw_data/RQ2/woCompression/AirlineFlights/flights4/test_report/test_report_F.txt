@@ -1,0 +1,126 @@
+================================================================================
+flights4 测试报告
+================================================================================
+生成时间: 2025-11-27 16:22:12
+样本名称: flights4
+总测试数: 15
+通过: 11
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(edu.flights.flights4.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights4.test.CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:61)
+  2) testCase5_SecondPublishAttempt(edu.flights.flights4.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights4.test.CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:202)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_PassengerAlreadyBookedEarlier(edu.flights.flights4.test.CR2Test)
+  java.lang.AssertionError: Booking should fail due to duplicate passenger in existing booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR2Test.testCase3_PassengerAlreadyBookedEarlier(CR2Test.java:150)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woCompression\flights4\test\CR3Test.java:112: 错误: 找不到符号
+          assertEquals("Reservation status should be CANCELLED", ReservationStatus.CANCELLED, reservation.getStatus());
+                                                                                  ^
+    符号:   变量 CANCELLED
+    位置: 类 ReservationStatus
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woCompression\flights4\test\CR4Test.java:107: 错误: 找不到符号
+              assertEquals("Reservation should be cancelled", ReservationStatus.CANCELLED, reservation.getStatus());
+                                                                               ^
+    符号:   变量 CANCELLED
+    位置: 类 ReservationStatus
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woCompression\flights4\test\CR5Test.java:161: 错误: 找不到符号
+          resC.setStatus(ReservationStatus.CANCELLED);
+                                          ^
+    符号:   变量 CANCELLED
+    位置: 类 ReservationStatus
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_FlightClosedPreventsModification(edu.flights.flights4.test.CR6Test)
+  java.lang.AssertionError: Stopover should not be added to closed flight
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights4.test.CR6Test.testCase4_FlightClosedPreventsModification(CR6Test.java:200)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 15
+通过: 11
+失败: 4
+成功率: 73.3%
+================================================================================

@@ -1,0 +1,77 @@
+================================================================================
+fs3 测试报告
+================================================================================
+生成时间: 2025-11-25 00:23:52
+样本名称: fs3
+总测试数: 25
+通过: 22
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase2_NoDocumentsForAnEditor(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase2_NoDocumentsForAnEditor(CR2Test.java:72)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase2_CountDocumentsWithSingleEditorType(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: ImageEditor should not be present expected null, but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.fs.fs3.test.CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:95)
+  2) testCase4_CountDocumentsWithNoEditors(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: Result should be empty when no editors exist
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.fs.fs3.test.CR4Test.testCase4_CountDocumentsWithNoEditors(CR4Test.java:154)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 22
+失败: 3
+成功率: 88.0%
+================================================================================

@@ -1,0 +1,129 @@
+================================================================================
+flights1 测试报告
+================================================================================
+生成时间: 2025-11-27 16:21:59
+样本名称: flights1
+总测试数: 30
+通过: 23
+失败: 7
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(edu.flights.flights1.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights1.test.CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:61)
+  2) testCase5_SecondPublishAttempt(edu.flights.flights1.test.CR1Test)
+  java.lang.AssertionError: Flight should be added to airline's flight list
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights1.test.CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:202)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_PassengerAlreadyBookedEarlier(edu.flights.flights1.test.CR2Test)
+  java.lang.AssertionError: Booking should fail due to duplicate passenger in existing booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.flights.flights1.test.CR2Test.testCase3_PassengerAlreadyBookedEarlier(CR2Test.java:150)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase3_FlightClosedReturnsZero(edu.flights.flights1.test.CR5Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.flights.Flight.getConfirmedReservations(Flight.java:542)
+  	at edu.flights.flights1.test.CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:109)
+  2) testCase1_FlightWithThreeConfirmations(edu.flights.flights1.test.CR5Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:699)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.flights.Flight.getConfirmedReservations(Flight.java:542)
+  	at edu.flights.flights1.test.CR5Test.testCase1_FlightWithThreeConfirmations(CR5Test.java:51)
+  3) testCase5_MixedReservationStatuses(edu.flights.flights1.test.CR5Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:699)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.flights.Flight.getConfirmedReservations(Flight.java:542)
+  	at edu.flights.flights1.test.CR5Test.testCase5_MixedReservationStatuses(CR5Test.java:177)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_AddFirstStopoverInsideJourneyWindow(edu.flights.flights1.test.CR6Test)
+  java.lang.AssertionError: Stopover should be added successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.flights.flights1.test.CR6Test.testCase1_AddFirstStopoverInsideJourneyWindow(CR6Test.java:63)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 30
+通过: 23
+失败: 7
+成功率: 76.7%
+================================================================================

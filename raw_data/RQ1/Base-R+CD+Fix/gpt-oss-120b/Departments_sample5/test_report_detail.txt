@@ -1,0 +1,74 @@
+============================================================
+Departments - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 00:34:03
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CheckAfterManagerRemoval(CR4Test)
+  java.lang.AssertionError: After manager removal, department should return false
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:67)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\Departments_sample5\src\test\CR5Test.java:143: 错误: 找不到符号
+      private List<Office> offices = new ArrayList<>();
+                                         ^
+    符号:   类 ArrayList
+    位置: 类 Department
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\Departments_sample5\src\test\CR5Test.java:202: 错误: 找不到符号
+          if (Objects.equals(manager, employee)) {
+              ^
+    符号:   变量 Objects
+    位置: 类 Department
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

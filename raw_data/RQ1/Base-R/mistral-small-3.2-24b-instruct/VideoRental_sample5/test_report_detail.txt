@@ -1,0 +1,72 @@
+============================================================
+VideoRental - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-23 04:32:51
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_UnreturnedButNotOverdue(CR1Test)
+  java.lang.AssertionError: expected:<0.0> but was:<-2.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase4_UnreturnedButNotOverdue(CR1Test.java:103)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\VideoRental_sample5\src\test\CR4Test.java:21: 错误: 未结束的字符串文字
+          customer.setAccountNumber("C
+                                    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\VideoRental_sample5\src\test\CR4Test.java:21: 错误: 进行语法分析时已到达文件结尾
+          customer.setAccountNumber("C
+                                      ^
+  2 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

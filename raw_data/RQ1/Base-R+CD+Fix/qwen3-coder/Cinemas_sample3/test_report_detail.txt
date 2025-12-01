@@ -1,0 +1,64 @@
+============================================================
+Cinemas - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-25 00:39:28
+
+【FJC 编译】
+状态: 成功
+修复次数: 2 次
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\Cinemas_sample3\src\test\CR4Test.java:33: 错误: films 在 Cinema 中是 private 访问控制
+          assertFalse("Film should no longer exist in cinema", cinema.films.contains(filmF1));
+                                                                     ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\Cinemas_sample3\src\test\CR4Test.java:64: 错误: films 在 Cinema 中是 private 访问控制
+          assertFalse("Film should no longer exist in cinema", cinema.films.contains(filmF1));
+                                                                     ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\Cinemas_sample3\src\test\CR4Test.java:65: 错误: screenings 在 Cinema 中是 private 访问控制
+          assertEquals("All screenings should be removed", 0, cinema.screenings.size());
+                                                                    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\qwen\qwen3-coder\Cinemas_sample3\src\test\CR4Test.java:84: 错误: films 在 Cinema 中是 private 访问控制
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 6/6 通过
+
+[✓ PASS] CR6Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 5/6
+- 测试通过: 5/5
+- 测试失败: 0/5
+============================================================

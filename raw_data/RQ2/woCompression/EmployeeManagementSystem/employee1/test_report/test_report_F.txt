@@ -1,0 +1,71 @@
+================================================================================
+employee1 测试报告
+================================================================================
+生成时间: 2025-11-24 20:08:23
+样本名称: employee1
+总测试数: 25
+通过: 22
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_OneShiftWorkerInCompany(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 500.00 for one shift worker expected:<500.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase2_OneShiftWorkerInCompany(CR4Test.java:52)
+  2) testCase3_MultipleShiftWorkersWithDifferentPremiums(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 900.00 for three shift workers with premiums 200, 300, 400 expected:<900.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase3_MultipleShiftWorkersWithDifferentPremiums(CR4Test.java:79)
+  3) testCase4_MultipleShiftWorkersWithSomeZeroPremiums(edu.employee.employee1.test.CR4Test)
+  java.lang.AssertionError: Total holiday premiums should be 400.00 for four shift workers with premiums 0, 250, 0, 150 expected:<400.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.employee.employee1.test.CR4Test.testCase4_MultipleShiftWorkersWithSomeZeroPremiums(CR4Test.java:110)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 22
+失败: 3
+成功率: 88.0%
+================================================================================

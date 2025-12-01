@@ -1,0 +1,127 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CR4Test {
+    
+    private Company company;
+    
+    @Before
+    public void setUp() {
+        company = new Company();
+    }
+    
+    @Test
+    public void testCase1_noShiftWorkersInCompany() {
+        // Input: A Company object with an empty list of ShiftWorkers
+        // Create a company with no shift workers (only other employee types)
+        Manager manager = new Manager();
+        manager.setSalary(50000);
+        
+        SalesPeople salesPerson = new SalesPeople();
+        salesPerson.setSalary(30000);
+        salesPerson.setAmountOfSales(10000);
+        salesPerson.setCommissionPercentage(0.1);
+        
+        OffShiftWorker offShiftWorker = new OffShiftWorker();
+        offShiftWorker.setWeeklyWorkingHour(40);
+        offShiftWorker.setHourlyRates(20);
+        
+        List<Employee> employees = new ArrayList<>();
+        employees.add(manager);
+        employees.add(salesPerson);
+        employees.add(offShiftWorker);
+        
+        company.setEmployees(employees);
+        
+        // Expected Output: The total holiday premiums should be 0
+        double result = company.calculateTotalShiftWorkerHolidayPremiums();
+        assertEquals(0.0, result, 0.01);
+    }
+    
+    @Test
+    public void testCase2_oneShiftWorkerInCompany() {
+        // Input: A Company object with a single ShiftWorker having a holidayPremium of 500.00
+        ShiftWorker shiftWorker = new ShiftWorker();
+        shiftWorker.setHolidayPremium(500.00);
+        
+        List<Employee> employees = new ArrayList<>();
+        employees.add(shiftWorker);
+        
+        company.setEmployees(employees);
+        
+        // Expected Output: The total holiday premiums should be 500.00
+        double result = company.calculateTotalShiftWorkerHolidayPremiums();
+        assertEquals(500.00, result, 0.01);
+    }
+    
+    @Test
+    public void testCase3_multipleShiftWorkersWithDifferentPremiums() {
+        // Input: A Company object with three ShiftWorkers having holiday premiums of 200.00, 300.00, and 400.00 respectively
+        ShiftWorker shiftWorker1 = new ShiftWorker();
+        shiftWorker1.setHolidayPremium(200.00);
+        
+        ShiftWorker shiftWorker2 = new ShiftWorker();
+        shiftWorker2.setHolidayPremium(300.00);
+        
+        ShiftWorker shiftWorker3 = new ShiftWorker();
+        shiftWorker3.setHolidayPremium(400.00);
+        
+        List<Employee> employees = new ArrayList<>();
+        employees.add(shiftWorker1);
+        employees.add(shiftWorker2);
+        employees.add(shiftWorker3);
+        
+        company.setEmployees(employees);
+        
+        // Expected Output: The total holiday premiums should be 900.00
+        double result = company.calculateTotalShiftWorkerHolidayPremiums();
+        assertEquals(900.00, result, 0.01);
+    }
+    
+    @Test
+    public void testCase4_multipleShiftWorkersWithSomeZeroPremiums() {
+        // Input: A Company object with four ShiftWorkers having holiday premiums of 0, 250.00, 0, and 150.00 respectively
+        ShiftWorker shiftWorker1 = new ShiftWorker();
+        shiftWorker1.setHolidayPremium(0.0);
+        
+        ShiftWorker shiftWorker2 = new ShiftWorker();
+        shiftWorker2.setHolidayPremium(250.00);
+        
+        ShiftWorker shiftWorker3 = new ShiftWorker();
+        shiftWorker3.setHolidayPremium(0.0);
+        
+        ShiftWorker shiftWorker4 = new ShiftWorker();
+        shiftWorker4.setHolidayPremium(150.00);
+        
+        List<Employee> employees = new ArrayList<>();
+        employees.add(shiftWorker1);
+        employees.add(shiftWorker2);
+        employees.add(shiftWorker3);
+        employees.add(shiftWorker4);
+        
+        company.setEmployees(employees);
+        
+        // Expected Output: The total holiday premiums should be 400.00
+        double result = company.calculateTotalShiftWorkerHolidayPremiums();
+        assertEquals(400.00, result, 0.01);
+    }
+    
+    @Test
+    public void testCase5_singleShiftWorkerWithZeroPremium() {
+        // Input: A Company object with a single ShiftWorker having a holidayPremium of 0
+        ShiftWorker shiftWorker = new ShiftWorker();
+        shiftWorker.setHolidayPremium(0.0);
+        
+        List<Employee> employees = new ArrayList<>();
+        employees.add(shiftWorker);
+        
+        company.setEmployees(employees);
+        
+        // Expected Output: The total holiday premiums should be 0
+        double result = company.calculateTotalShiftWorkerHolidayPremiums();
+        assertEquals(0.0, result, 0.01);
+    }
+}

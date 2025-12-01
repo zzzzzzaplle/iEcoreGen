@@ -1,0 +1,63 @@
+================================================================================
+Departments 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:15:07
+系统名称: Departments
+SystemName: department
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] department1
+  - 样本目录: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department1\compile
+
+[✓ PASS] department2
+  - 样本目录: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department2\compile
+
+[✓ PASS] department3
+  - 样本目录: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department3\compile
+
+[✓ PASS] department4
+  - 样本目录: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department4\compile
+
+[✗ FAIL] department5
+  - 样本目录: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\Company.java:182: 错误: 找不到符号
+        this.employees = new EObjectContainmentWithInverseEList<Employee>(Employee.class, this, DepartmentPackage.COMPANY__EMPLOYEES, DepartmentPackage.EMPLOYEE__COMPANY);
+                                                                                                                                                       ^
+    符号:   变量 EMPLOYEE__COMPANY
+    位置: 类 DepartmentPackage
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\Company.java:222: 错误: 找不到符号
+      for (Employee employee : department.getEmployees())
+                                         ^
+    符号:   方法 getEmployees()
+    位置: 类型为Department的变量 department
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

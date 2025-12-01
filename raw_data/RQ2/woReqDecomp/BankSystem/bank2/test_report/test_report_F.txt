@@ -1,0 +1,74 @@
+================================================================================
+bank2 测试报告
+================================================================================
+生成时间: 2025-11-25 15:13:57
+样本名称: bank2
+总测试数: 25
+通过: 22
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_StandardBalanceAndRate(edu.bank.bank2.test.CR3Test)
+  java.lang.AssertionError: expected:<10001.01> but was:<10000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank2.test.CR3Test.testCase1_StandardBalanceAndRate(CR3Test.java:39)
+  2) testCase4_LargeBalance(edu.bank.bank2.test.CR3Test)
+  java.lang.AssertionError: expected:<1000055.56> but was:<1000000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank2.test.CR3Test.testCase4_LargeBalance(CR3Test.java:108)
+  3) testCase5_HighPrecisionRate(edu.bank.bank2.test.CR3Test)
+  java.lang.AssertionError: expected:<1234.65> but was:<1234.56>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank2.test.CR3Test.testCase5_HighPrecisionRate(CR3Test.java:131)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 22
+失败: 3
+成功率: 88.0%
+================================================================================

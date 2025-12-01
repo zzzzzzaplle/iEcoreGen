@@ -1,0 +1,191 @@
+================================================================================
+LS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 08:41:35
+系统名称: LS
+SystemName: library
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] library1
+  - 样本目录: D:\EclipseWorkspace\LS\woContext\library1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\woContext\library1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:147: 错误: 找不到符号
+      EList<Checkout> checkouts = user.getCheckouts();
+            ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:148: 错误: 找不到符号
+      for (Checkout checkout : checkouts) {
+           ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:183: 错误: 找不到符号
+      EList<Checkout> checkouts = user.getCheckouts();
+            ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:184: 错误: 找不到符号
+      for (Checkout checkout : checkouts) {
+           ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:225: 错误: 找不到符号
+      EList<Checkout> checkouts = user.getCheckouts();
+            ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library1\LibrarySystem.java:226: 错误: 找不到符号
+      for (Checkout checkout : checkouts) {
+           ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] library2
+  - 样本目录: D:\EclipseWorkspace\LS\woContext\library2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\woContext\library2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:149: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:150: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:187: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:188: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:231: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library2\LibrarySystem.java:232: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] library3
+  - 样本目录: D:\EclipseWorkspace\LS\woContext\library3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\woContext\library3\compile
+
+[✗ FAIL] library4
+  - 样本目录: D:\EclipseWorkspace\LS\woContext\library4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\woContext\library4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:151: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:152: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:190: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:191: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:235: 错误: 找不到符号
+      EList<edu.library.Checkout> checkouts = user.getCheckouts();
+                       ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  D:\EclipseWorkspace\LS\woContext\library4\LibrarySystem.java:236: 错误: 找不到符号
+      for (edu.library.Checkout checkout : checkouts) {
+                      ^
+    符号:   类 Checkout
+    位置: 程序包 edu.library
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] library5
+  - 样本目录: D:\EclipseWorkspace\LS\woContext\library5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\woContext\library5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:147: 错误: 不兼容的类型: EList<CheckOut>无法转换为EList<Object>
+      EList<Object> checkouts = user.getCheckouts();
+                                                 ^
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:150: 错误: 找不到符号
+        Book book = ((Checkout) checkout).getBook();
+                      ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:188: 错误: 不兼容的类型: EList<CheckOut>无法转换为EList<Object>
+      EList<Object> checkouts = user.getCheckouts();
+                                                 ^
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:191: 错误: 找不到符号
+        Book book = ((Checkout) checkout).getBook();
+                      ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:237: 错误: 不兼容的类型: EList<CheckOut>无法转换为EList<Object>
+      EList<Object> checkouts = user.getCheckouts();
+                                                 ^
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:240: 错误: 找不到符号
+        Date checkoutStart = ((Checkout) checkout).getStartDate();
+                               ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:241: 错误: 找不到符号
+        Date checkoutEnd = ((Checkout) checkout).getEndDate();
+                             ^
+    符号:   类 Checkout
+    位置: 类 LibrarySystem
+  D:\EclipseWorkspace\LS\woContext\library5\LibrarySystem.java:247: 错误: 找不到符号
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

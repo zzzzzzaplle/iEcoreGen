@@ -1,0 +1,24 @@
+============================================================
+Departments - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:52:35
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\Departments_sample1\src\main\FJC.java:247: 错误: 已在类 Department中定义了方法 setManager(Employee)
+      public boolean setManager(Employee employee) {
+                     ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\qwen\qwen3-coder\Departments_sample1\src\main\FJC.java:85: 错误: 不兼容的类型: void无法转换为boolean
+          return department.setManager(employee);
+                                      ^
+  2 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

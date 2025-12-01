@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="library" nsURI="http://www.example/library" nsPrefix="library">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="An automated library book borrowing system maintains a collection of books. Each book has title, barcode, ISBN, and number of pages. In addition, the system allows users to have either a MEMBER User or a GUEST User. Each user (member/guest) has a name, email, address, and ID. A user can checkout a book on loan which has the start date and end date (format: yyyy-MM-dd).&#xA;&#xA;A user can checkout a book on loan which has the start date and end date.&#xA;Function Requirement:&#xA;+ Count the number of times a specific book has been checked out.&#xA;+ Determine how many unique books a particular user has borrowed during a specified period.&#xA;+ Calculate the average page count of the unique books borrowed by a specific user.&#xA;+ Calculate the total number of unique books checked out by a specific user."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Book">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="barcode" iD="true">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ISBN">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPages">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//UserType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="checkouts" upperBound="-1" eType="//CheckOut" containment="true" eOpposite="//CheckOut/user"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckOut">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="book" lowerBound="1" eType="//Book"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="//User" eOpposite="//User/checkouts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UserType">
+    <eLiterals name="MEMBER"/>
+    <eLiterals name="GUEST" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LibrarySystem">
+    <eOperations name="totalUniqueBooksCheckedOutByUser" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total number of unique books checked out by a specific user (across all time).&#xA;Algorithm:&#xA;  1. Initialize an empty set of books&#xA;  2. For each checkout in the user's checkouts list:&#xA;      2.1 Add checkout.book to the set&#xA;  3. Return the size of the set&#xA;Input:&#xA;  - user: User object for which to count unique books&#xA;Output:&#xA;  - int: Total number of unique books ever borrowed by the user (≥ 0)&#xA;Pre-condition:&#xA;  - user must not be null&#xA;Post-condition:&#xA;  - Returns the correct count of unique books borrowed by the user throughout history"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="user" lowerBound="1" eType="//User"/>
+    </eOperations>
+    <eOperations name="averageNumberOfPagesUniqueBooksByUser" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the average page count of the unique books borrowed by a specific user.&#xA;Algorithm:&#xA;  1. Initialize an empty set of books and totalPages = 0&#xA;  2. For each checkout in the user's checkouts list:&#xA;      2.1 Add checkout.book to the set (duplicates automatically handled by set)&#xA;  3. For each book in the set:&#xA;      3.1 Add book.numberOfPages to totalPages&#xA;  4. If set is not empty, return totalPages / set.size()&#xA;  5. Else return 0.0&#xA;Input:&#xA;  - user: User object for which to calculate average pages&#xA;Output:&#xA;  - double: Average number of pages per unique book borrowed by the user (≥ 0.0)&#xA;Pre-condition:&#xA;  - user must not be null&#xA;  - All books borrowed by the user must have valid numberOfPages > 0&#xA;Post-condition:&#xA;  - Returns the correct average page count, or 0.0 if user has no borrowed books"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="user" lowerBound="1" eType="//User"/>
+    </eOperations>
+    <eOperations name="uniqueBooksBorrowedByUser" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates how many unique books a particular user has borrowed during a specified period.&#xA;Algorithm:&#xA;  1. Initialize an empty set of books&#xA;  2. For each checkout in the user's checkouts list:&#xA;      2.1 If checkout.startDate ≥ start AND checkout.endDate ≤ end:&#xA;          2.1.1 Add checkout.book to the set&#xA;  3. Return the size of the set&#xA;Input:&#xA;  - user: User object for which to calculate unique books&#xA;  - start: EDate representing the start of the period (inclusive, format: yyyy-MM-dd)&#xA;  - end: EDate representing the end of the period (inclusive, format: yyyy-MM-dd)&#xA;Output:&#xA;  - int: Number of unique books borrowed by the user during the specified period (≥ 0)&#xA;Pre-condition:&#xA;  - user must not be null&#xA;  - start date must not be null and must be ≤ end date&#xA;  - end date must not be null&#xA;Post-condition:&#xA;  - Returns the correct count of unique books borrowed within the date range"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="user" lowerBound="1" eType="//User"/>
+      <eParameters name="start">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+      <eParameters name="end">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="countBookCheckOuts" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Counts the total number of times a specific book has been checked out by any user.&#xA;Algorithm:&#xA;  1. Initialize counter = 0&#xA;  2. For each user in the system's users list:&#xA;      2.1 For each checkout in the user's checkouts list:&#xA;          2.1.1 If checkout.book equals the input book, increment counter&#xA;  3. Return counter&#xA;Input: &#xA;  - book: Book object representing the book to count checkouts for&#xA;Output: &#xA;  - int: Total number of checkouts for the specified book (≥ 0)&#xA;Pre-condition: &#xA;  - The book parameter must not be null&#xA;  - The LibrarySystem must be properly initialized with users and their checkouts&#xA;Post-condition: &#xA;  - Returns an accurate count of all checkouts for the given book"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="book" lowerBound="1" eType="//Book"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1" eType="//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="books" upperBound="-1" eType="//Book" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

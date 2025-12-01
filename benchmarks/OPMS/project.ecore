@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="project" nsURI="http://www.example.org/project" nsPrefix="project">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="A company is comprised of two to eight departments. Each department has an ID and email. A department hires employees for certain projects. Employees working on projects can be temporary employees or permanent employees. &#xA;Each employee is identified by a name, email, employee ID, employee number. Projects can be of types - production projects, research projects, education projects, and community projects. All projects have a title, description, budget amount, and deadline. In addition, each education project and community project are associated with one funding group. The funding group can be of types - private group, government group, or mixed group. &#xA;The production projects are characterized by a site code.&#xA;functional requirement：&#xA;+ &quot;Total budget of all projects in a company&quot; : Calculate the sum of the budget amounts of all projects in all departments of a company. &#xA;&#xA;+ &quot;Average budget of all projects in a department&quot; : Calculate the average budget amount of all projects in a given department.&#xA;&#xA;+ &quot;Number of employees working on production projects in a company&quot; : Count the total number of employees working on production projects across all departments in a company. &#xA;&#xA;+ &quot;Funding group type of all community projects in a department&quot; : Retrieve the funding group type of all community projects within a given department."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eOperations name="calculateTotalBudget">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total budget of all projects across all departments in the company.&#xA;Algorithm:&#xA;  1. Initialize total = 0&#xA;  2. For each department in departments:&#xA;      2.1 For each project in department.projects:&#xA;          2.1.1 Add project.budget to total&#xA;  3. Return total&#xA;Input: None&#xA;Output: &#xA;  - Meaning: Sum of all project budgets in the company&#xA;  - Format: double&#xA;  - Range: >= 0&#xA;Pre-condition: departments list must not be null and contain 2-8 departments&#xA;Post-condition: Output is non-negative sum of all project budgets"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="countEmployeesInProductionProjects">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Counts the total number of employees working on production projects across all departments.&#xA;Algorithm:&#xA;  1. Initialize count = 0&#xA;  2. For each department in departments:&#xA;      2.1 For each project in department.projects:&#xA;          2.1.1 If project is instance of ProductionProject:&#xA;              2.1.1.1 Add project.workingEmployees.size() to count&#xA;  3. Return count&#xA;Input: None&#xA;Output:&#xA;  - Meaning: Total number of employees working on production projects&#xA;  - Format: int&#xA;  - Range: >= 0&#xA;Pre-condition: departments list must not be null&#xA;Post-condition: Output is non-negative integer representing employee count"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departments" lowerBound="2" upperBound="8" eType="//Department" containment="true" eOpposite="//Department/company"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
+    <eOperations name="calculateAverageBudget">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the average budget of all projects in the department.&#xA;Algorithm:&#xA;  1. If projects list is empty, return 0&#xA;  2. Initialize total = 0&#xA;  3. For each project in projects:&#xA;      3.1 Add project.budget to total&#xA;  4. Return total / projects.size()&#xA;Input: None&#xA;Output:&#xA;  - Meaning: Average budget amount of department's projects&#xA;  - Format: double&#xA;  - Range: >= 0&#xA;Pre-condition: projects list must not be null&#xA;Post-condition: Output is non-negative average budget value"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="getFundingGroupTypeCommunityProjects" upperBound="-1" eType="//FundingGroupType">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Retrieves the funding group types of all community projects in the department.&#xA;Algorithm:&#xA;  1. Initialize result = empty list of FundingGroupType&#xA;  2. For each project in projects:&#xA;      2.1 If project is instance of CommunityProject:&#xA;          2.1.1 Cast to CommunityProject and get fundingGroup.type&#xA;          2.1.2 Add fundingGroup.type to result&#xA;  3. Return result&#xA;Input: None&#xA;Output:&#xA;  - Meaning: List of funding group types for community projects&#xA;  - Format: List&lt;FundingGroupType>&#xA;  - Range: Contains PRIVATE, GOVERNMENT, or MIXED values&#xA;Pre-condition: projects list must not be null&#xA;Post-condition: Output list contains valid FundingGroupType values"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1" eType="//Employee" containment="true" eOpposite="//Employee/department"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="company" lowerBound="1" eType="//Company" eOpposite="//Company/departments"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1" eType="//Project" containment="true" eOpposite="//Project/department"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//EmployeeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="department" lowerBound="1" eType="//Department" eOpposite="//Department/employees"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="budget">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="department" lowerBound="1" eType="//Department" eOpposite="//Department/projects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workingEmployees" upperBound="-1" eType="//Employee"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductionProject" eSuperTypes="//Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="siteCode">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResearchProject" eSuperTypes="//Project"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EducationProject" eSuperTypes="//Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fundinggroup" lowerBound="1" eType="//FundingGroup" eOpposite="//FundingGroup/fundingGroupedu"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunityProject" eSuperTypes="//Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fundingGroup" lowerBound="1" eType="//FundingGroup" eOpposite="//FundingGroup/fundingGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EmployeeType">
+    <eLiterals name="TEMPORARY"/>
+    <eLiterals name="PERMANENT" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FundingGroupType">
+    <eLiterals name="PRIVATE"/>
+    <eLiterals name="GOVERNMENT" value="1"/>
+    <eLiterals name="MIXED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FundingGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//FundingGroupType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fundingGroupedu" lowerBound="1" upperBound="-1" eType="//EducationProject" eOpposite="//EducationProject/fundinggroup"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fundingGroup" lowerBound="1" upperBound="-1" eType="//CommunityProject" eOpposite="//CommunityProject/fundingGroup"/>
+  </eClassifiers>
+</ecore:EPackage>

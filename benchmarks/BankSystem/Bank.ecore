@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bank" nsURI="http://www.example/bank" nsPrefix="bank">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="System description :A bank system contains data on customers (identified by name and address) and their accounts.&#xA; Each account has a unique id, a balance and there are 2 type of accounts: one for savings which offers an interest rate. &#xA;Each savings account is specified individually when it is opened. &#xA;The other for investments, used to buy stocks.&#xA; Stocks are bought at a certain quantity for a certain price (ticker) and the bank applies commission on stock orders. &#xA;Customers can buy the same stock multiple times. The commission is 10% of the cost of each stock transaction. Customers need to pay commission when buying stocks.&#xA;Funtion requirement：&#xA;+ Manage accounts. Customers can add/remove accounts by providing account id. Each account has a unique account ID. If the account to be deleted has no a balance, or stock transactions, then remove the account. Return true if the operation is successful, false otherwise.&#xA;&#xA;+ Deposit operation. Customers can deposit money into the savings and investments account and update the account balance. Check that the amount must be positive and cannot exceed the maximum single - deposit limit of $1000000. Return true if the operation is successful, false otherwise.&#xA;&#xA;+ Calculate the daily interest of the savings account and update the daily interest to the balance at 23:59:59 on the same day. Daily interest = balance * interest rate / 360. The daily interest keep two decimal places.&#xA;&#xA;+ Buy stocks and update the investment account balance. The system save the transaction records. There is no need to combine multiple purchases of the same stock. Before buying stocks, it is necessary to ensure that the current balance is sufficient to cover the stock cost and the bank's commission. Stock cost = number of stocks * price. Return true if save the transaction records successfully, false otherwise. &#xA;&#xA;+ Calculate the value of the investment account, including the account balance and the total value of stocks. The value of each stock is the number of stocks multiplied by the current stock market price (1.1 times its purchase price). Return 0 if there is no stock transaction in the investment account. The value keep two decimal places."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eOperations name="addSavingAccount" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Creates and adds a new savings account for the customer&#xA;Algorithm:&#xA;  1. Check if account with given ID already exists&#xA;  2. Create new SavingAccount with given ID and interestRate&#xA;  3. Initialize balance to 0.0&#xA;  4. Add account to customer's accounts list&#xA;Input:&#xA;  - id: Unique account identifier (String, must be unique across all accounts)&#xA;  - interestRate: Annual interest rate for the account (double, must be positive)&#xA;Output:&#xA;  - boolean: true if account created successfully, false if account ID already exists&#xA;Pre-condition: Customer object exists, account ID is not null or empty, interestRate > 0&#xA;Post-condition: If successful, customer's accounts list contains new SavingAccount with given ID, interestRate and 0 balance"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="id" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+      <eParameters name="interestRate">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="addInvestmentAccount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Creates and adds a new investment account for the customer&#xA;Algorithm: &#xA;  1. Check if account with given ID already exists&#xA;  2. Create new InvestmentAccount with given ID&#xA;  3. Initialize balance to 0.0&#xA;  4. Add account to customer's accounts list&#xA;Input: &#xA;  - id: Unique account identifier (String, must be unique across all accounts)&#xA;Output: &#xA;  - boolean: true if account created successfully, false if account ID already exists&#xA;Pre-condition: Customer object exists, account ID is not null or empty&#xA;Post-condition: If successful, customer's accounts list contains new InvestmentAccount with given ID and 0 balance"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="id">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="removeInvestmentAccount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Removes an investment account if it meets removal criteria&#xA;Algorithm:&#xA;  1. Find investment account with given ID&#xA;  2. Check if account balance is 0 and no stock transactions exist&#xA;  3. If conditions met, remove account from customer's accounts list&#xA;Input:&#xA;  - id: Account identifier to remove (String)&#xA;Output:&#xA;  - boolean: true if account removed successfully, false if account not found or removal conditions not met&#xA;Pre-condition: Customer object exists, id is not null&#xA;Post-condition: If successful, account is removed from customer's accounts list"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="id">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="removeSavingAccount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Removes a savings account if it meets removal criteria&#xA;Algorithm:&#xA;  1. Find savings account with given ID&#xA;  2. Check if account balance is 0&#xA;  3. If condition met, remove account from customer's accounts list&#xA;Input:&#xA;  - id: Account identifier to remove (String)&#xA;Output:&#xA;  - boolean: true if account removed successfully, false if account not found or balance not zero&#xA;Pre-condition: Customer object exists, id is not null&#xA;Post-condition: If successful, account is removed from customer's accounts list"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="id">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="findAccountById" eType="//Account">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Finds and returns an account by its ID&#xA;Algorithm:&#xA;  1. Iterate through customer's accounts list&#xA;  2. Compare each account's ID with the given ID&#xA;  3. Return the account if found&#xA;Input:&#xA;  - id: Account identifier to search for (String)&#xA;Output:&#xA;  - Account: The account with matching ID, or null if not found&#xA;Pre-condition: Customer object exists, id is not null&#xA;Post-condition: Returns the account reference or null"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="id">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accounts" upperBound="-1" eType="//Account" containment="true" eOpposite="//Account/customer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Account" abstract="true">
+    <eOperations name="deposit">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Deposits money into the account and updates balance&#xA;Algorithm:&#xA;  1. Validate amount is positive and &lt;= $1,000,000&#xA;  2. If valid, add amount to account balance&#xA;Input:&#xA;  - amount: Deposit amount (double, must be > 0 and &lt;= 1,000,000)&#xA;Output:&#xA;  - boolean: true if deposit successful, false if amount invalid&#xA;Pre-condition: Account exists, amount is provided&#xA;Post-condition: If successful, account balance increased by deposit amount"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="amount" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="balance">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="//Customer" eOpposite="//Customer/accounts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SavingAccount" eSuperTypes="//Account">
+    <eOperations name="calculateDailyInterest" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates and applies daily interest to savings account balance&#xA;Algorithm:&#xA;  1. Calculate daily interest: balance * interestRate / 360&#xA;  2. Round result to 2 decimal places&#xA;  3. Add interest to account balance&#xA;Input: None&#xA;Output:&#xA;  - double: The calculated daily interest amount (rounded to 2 decimal places)&#xA;Pre-condition: Account exists, interestRate is set, balance is non-negative&#xA;Post-condition: Account balance increased by calculated daily interest"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interestRate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InvestmentAccount" eSuperTypes="//Account">
+    <eOperations name="buyStock">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Buys stocks and records the transaction&#xA;Algorithm:&#xA;  1. Calculate stock cost: quantity * price&#xA;  2. Calculate commission: stock cost * 0.10&#xA;  3. Calculate total cost: stock cost + commission&#xA;  4. Check if account balance >= total cost&#xA;  5. If sufficient funds:&#xA;       - Create new StockTransaction record&#xA;       - Deduct total cost from account balance&#xA;       - Add transaction to transactions list&#xA;Input:&#xA;  - stockSymbol: Stock ticker symbol (String)&#xA;  - quantity: Number of shares to buy (int, must be > 0)&#xA;  - price: Price per share (double, must be > 0)&#xA;Output:&#xA;  - boolean: true if transaction successful, false if insufficient funds or invalid parameters&#xA;Pre-condition: Account exists, parameters are valid, account balance is sufficient&#xA;Post-condition: If successful, account balance decreased by total cost, transaction recorded"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="stockSymbol" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eParameters>
+      <eParameters name="quantity" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eParameters>
+      <eParameters name="price" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="calculateValue" lowerBound="1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates total value of investment account including stocks and cash&#xA;Algorithm:&#xA;  1. Start with account balance&#xA;  2. For each stock transaction:&#xA;       - Calculate current stock value: quantity * (price * 1.1)&#xA;       - Add to total value&#xA;  3. Round total value to 2 decimal places&#xA;Input: None&#xA;Output:&#xA;  - double: Total account value including balance and stock holdings (rounded to 2 decimal places)&#xA;Pre-condition: Account exists&#xA;Post-condition: Returns calculated value, account state unchanged"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transactions" upperBound="-1" eType="//StockTransaction" containment="true" eOpposite="//StockTransaction/account"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StockTransaction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stock">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commission">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="account" lowerBound="1" eType="//InvestmentAccount" eOpposite="//InvestmentAccount/transactions"/>
+  </eClassifiers>
+</ecore:EPackage>

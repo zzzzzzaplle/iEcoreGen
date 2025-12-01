@@ -1,0 +1,157 @@
+================================================================================
+department5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:18:55
+样本名称: department5
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR1Test.java:6: 错误: 找不到符号
+  import edu.department.Company;
+                       ^
+    符号:   类 Company
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.department.Department;
+                       ^
+    符号:   类 Department
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.department.Office;
+                       ^
+    符号:   类 Office
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.department.DepartmentFactory;
+                       ^
+    符号:   类 DepartmentFactory
+    位置: 程序包 edu.department
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR2Test.java:6: 错误: 找不到符号
+  import edu.department.DepartmentFactory;
+                       ^
+    符号:   类 DepartmentFactory
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR2Test.java:7: 错误: 找不到符号
+  import edu.department.DepartmentPackage;
+                       ^
+    符号:   类 DepartmentPackage
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR2Test.java:8: 错误: 找不到符号
+  import edu.department.Company;
+                       ^
+    符号:   类 Company
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.department.Department;
+                       ^
+    符号:   类 Department
+    位置: 程序包 edu.department
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR3Test.java:6: 错误: 找不到符号
+  import edu.department.DepartmentFactory;
+                       ^
+    符号:   类 DepartmentFactory
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.department.DepartmentPackage;
+                       ^
+    符号:   类 DepartmentPackage
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR3Test.java:8: 错误: 找不到符号
+  import edu.department.Company;
+                       ^
+    符号:   类 Company
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR3Test.java:9: 错误: 找不到符号
+  import edu.department.Department;
+                       ^
+    符号:   类 Department
+    位置: 程序包 edu.department
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR4Test.java:6: 错误: 找不到符号
+  import edu.department.Company;
+                       ^
+    符号:   类 Company
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.department.Department;
+                       ^
+    符号:   类 Department
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR4Test.java:8: 错误: 找不到符号
+  import edu.department.Employee;
+                       ^
+    符号:   类 Employee
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR4Test.java:9: 错误: 找不到符号
+  import edu.department.DepartmentFactory;
+                       ^
+    符号:   类 DepartmentFactory
+    位置: 程序包 edu.department
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR5Test.java:6: 错误: 找不到符号
+  import edu.department.DepartmentFactory;
+                       ^
+    符号:   类 DepartmentFactory
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.department.DepartmentPackage;
+                       ^
+    符号:   类 DepartmentPackage
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.department.Company;
+                       ^
+    符号:   类 Company
+    位置: 程序包 edu.department
+  D:\EclipseWorkspace\Departments\mistral-small-3.2-24b-instruct\department5\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.department.Department;
+                       ^
+    符号:   类 Department
+    位置: 程序包 edu.department
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

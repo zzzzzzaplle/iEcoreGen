@@ -1,0 +1,47 @@
+================================================================================
+BankSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:14:51
+系统名称: BankSystem
+SystemName: bank
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] bank1
+  - 样本目录: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank1\compile
+
+[✓ PASS] bank2
+  - 样本目录: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank2\compile
+
+[✓ PASS] bank3
+  - 样本目录: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank3\compile
+
+[✓ PASS] bank4
+  - 样本目录: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank4\compile
+
+[✓ PASS] bank5
+  - 样本目录: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\mistral-small-3.2-24b-instruct\bank5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

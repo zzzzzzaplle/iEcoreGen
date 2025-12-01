@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cinemas" nsURI="http://www.example/cinemas" nsPrefix="cinemas">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Cinemas are composed of several rooms. Films are shown in theaters. The corresponding screenings take place at a specific time each (time format: 2024-10-05 13:00:00).&#xA;Functional requirement：&#xA;+ Add a room to the cinema. If the room is not already registered, add it and return true. If the room already exists, return false.&#xA;&#xA;+ Check a room’s availability at a given time (yyyy-MM-dd HH:mm:ss). Check if the room is already added to the cinema and assigned for another screening at the given time. Return true if the room is available. Return false if the room is already assigned or the inputs are invalid. &#xA;&#xA;+ Add a film to the cinema. If the film does not already exist, add it and return true. If the film already exists, return false.&#xA;&#xA;+ Remove a film from the cinema system at the specified current time (yyyy-MM-dd HH:mm:ss), and remove all of its future scheduled screenings (the screening time >= the current time). Return true if the film is removed successfully. Return false if it does not exist. &#xA;&#xA;+ Assign a screening to a film and room at a specific screening time (yyyy-MM-dd HH:mm:ss) and current time (yyyy-MM-dd HH:mm:ss). Verify that the current time should be before (&lt;) the screening time. Verify film added to the cinema and room availability. If valid, assign the screening to the room. Return true if the screening is assigned successfully. Otherwise, return false. &#xA;&#xA;+ Cancel a future screening at a given current time. Check if: the screening exists in the cinema, the screening time is after the current time (screening time > current time). Return true if canceled successfully, false otherwise."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Cinema">
+    <eOperations name="assignScreening">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Assigns a screening to a film and room at specific time after validation&#xA;Algorithm:&#xA;  if currentTime >= screening.time then&#xA;      return false&#xA;  if !films.contains(film) then&#xA;      return false&#xA;  if !isRoomAvailable(room, screening.time) then&#xA;      return false&#xA;  screening.film = film&#xA;  screening.room = room&#xA;  screening.cinemas = this&#xA;  screenings.add(screening)&#xA;  return true&#xA;Input: &#xA;  film - Film object (must be already added to cinema)&#xA;  currentTime - EDate object representing current time (format: yyyy-MM-dd HH:mm:ss)&#xA;  screening - Screening object with time field set&#xA;  room - Room object (must be already added to cinema)&#xA;Output: boolean - true if screening assigned successfully, false otherwise&#xA;Pre-condition: all parameters != null, currentTime and screening.time in valid format&#xA;Post-condition: if returns true, screenings contains new screening with all associations set"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="film" lowerBound="1" eType="//Film"/>
+      <eParameters name="currentTime" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+      <eParameters name="screening" lowerBound="1" eType="//Screening"/>
+      <eParameters name="room" lowerBound="1" eType="//Room"/>
+    </eOperations>
+    <eOperations name="cancelScreening">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Cancels a future screening if it exists and screening time is after current time&#xA;Algorithm:&#xA;  if !screenings.contains(screening) then&#xA;      return false&#xA;  if screening.time &lt;= currentTime then&#xA;      return false&#xA;  screenings.remove(screening)&#xA;  return true&#xA;Input:&#xA;  currentTime - EDate object representing current time (format: yyyy-MM-dd HH:mm:ss)&#xA;  screening - Screening object to cancel&#xA;Output: boolean - true if screening canceled successfully, false otherwise&#xA;Pre-condition: currentTime != null, screening != null&#xA;Post-condition: if returns true, screenings no longer contains the screening"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="currentTime" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+      <eParameters name="screening" lowerBound="1" eType="//Screening"/>
+    </eOperations>
+    <eOperations name="addFilm">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Adds a new film to the cinema if it doesn't already exist&#xA;Algorithm:&#xA;  if film.contains(film) then&#xA;      return false&#xA;  else&#xA;      films.add(film)&#xA;      return true&#xA;Input: film - Film object to be added&#xA;Output: boolean - true if film was added successfully, false if film already exists&#xA;Pre-condition: film != null&#xA;Post-condition: if returns true, films.size() increases by 1"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="film" lowerBound="1" eType="//Film"/>
+    </eOperations>
+    <eOperations name="addRoom">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Adds a new room to the cinema if it doesn't already exist&#xA;Algorithm:&#xA;  if rooms.contains(room) then&#xA;      return false&#xA;  else&#xA;      rooms.add(room)&#xA;      room.cinemas = this&#xA;      return true&#xA;Input: room - Room object to be added&#xA;Output: boolean - true if room was added successfully, false if room already exists&#xA;Pre-condition: room != null&#xA;Post-condition: if returns true, rooms.size() increases by 1 and room.cinemas == this"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="room" lowerBound="1" eType="//Room"/>
+    </eOperations>
+    <eOperations name="removeFilm">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Removes a film and all its future screenings from the cinema&#xA;Algorithm:&#xA;  if !films.contains(film) then&#xA;      return false&#xA;  for each screening in screenings where screening.film == film &amp;&amp; screening.time >= currentTime&#xA;      screenings.remove(screening)&#xA;  films.remove(film)&#xA;  return true&#xA;Input:&#xA;  film - Film object to remove&#xA;  currentTime - EDate object representing current time (format: yyyy-MM-dd HH:mm:ss)&#xA;Output: boolean - true if film removed successfully, false if film doesn't exist&#xA;Pre-condition: film != null, currentTime != null&#xA;Post-condition: if returns true, films no longer contains the film and all future screenings of this film are removed"/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="film" lowerBound="1" eType="//Film"/>
+      <eParameters name="currentTime" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rooms" upperBound="-1" eType="//Room" containment="true" eOpposite="//Room/cinemas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="screenings" upperBound="-1" eType="//Screening" containment="true" eOpposite="//Screening/cinemas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="film" upperBound="-1" eType="//Film"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Room">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cinemas" lowerBound="1" eType="//Cinema" eOpposite="//Cinema/rooms"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Screening">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="room" lowerBound="1" eType="//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="film" lowerBound="1" eType="//Film"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cinemas" lowerBound="1" eType="//Cinema" eOpposite="//Cinema/screenings"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Film"/>
+</ecore:EPackage>

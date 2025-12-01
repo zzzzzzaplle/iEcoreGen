@@ -1,0 +1,96 @@
+============================================================
+BankSystem - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-22 00:26:40
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase2_InsufficientFunds(CR4Test)
+  java.lang.AssertionError: expected:<5000.00> but was:<5000>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase2_InsufficientFunds(CR4Test.java:53)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase5_PrecisionCheckWithFractionalShare(CR5Test)
+  java.lang.AssertionError: Balance after first purchase expected:<12.35> but was:<12.3500>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase5_PrecisionCheckWithFractionalShare(CR5Test.java:107)
+  2) testCase4_RepeatedPurchasesSameStock(CR5Test)
+  java.lang.AssertionError: Balance after first purchase expected:<450> but was:<450.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase4_RepeatedPurchasesSameStock(CR5Test.java:77)
+  3) testCase3_CashOnlyNoStocks(CR5Test)
+  java.lang.AssertionError: Total investment value with cash only expected:<1000.00> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase3_CashOnlyNoStocks(CR5Test.java:64)
+  4) testCase1_MultipleStockPositions(CR5Test)
+  java.lang.AssertionError: Balance after first purchase expected:<3900> but was:<3900.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase1_MultipleStockPositions(CR5Test.java:19)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================
