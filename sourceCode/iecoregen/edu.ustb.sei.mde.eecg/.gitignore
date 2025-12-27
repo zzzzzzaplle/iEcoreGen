@@ -1,0 +1,5 @@
+*.java._trace
+*.class
+*.xtendbin
+bin/
+xtend-gen/

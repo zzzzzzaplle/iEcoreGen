@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr4-runtime-4.13.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr-runtime-3.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/classmate-1.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-collections4-4.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-compress-1.24.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.17.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.3.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-text-1.10.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/gson-2.13.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/guava-32.0.1-jre.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-annotations-2.19.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-core-2.19.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-databind-2.19.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-module-jsonSchema-2.19.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsonschema-generator-4.38.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsonschema-module-jackson-4.38.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsonschema-module-swagger-2-4.38.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-api-2.24.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-to-slf4j-2.24.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/micrometer-commons-1.15.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/micrometer-core-1.15.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/micrometer-observation-1.15.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/reactive-streams-1.0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/reactor-core-3.7.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-2.0.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-client-chat-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-commons-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-jsoup-document-reader-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-markdown-document-reader-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-model-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-mongodb-atlas-store-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-ollama-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-openai-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-opensearch-store-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-rag-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-redis-store-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-retry-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-template-st-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-ai-vector-store-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-aop-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-beans-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-context-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-core-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-data-commons-3.5.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-data-keyvalue-3.5.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-retry-2.0.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-web-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring-webflux-6.2.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ST4-4.3.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/swagger-annotations-2.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/utils-2.36.3.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.ustb.sei.ai"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

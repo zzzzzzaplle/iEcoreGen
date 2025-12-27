@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: USTB SEI AI
+Bundle-SymbolicName: edu.ustb.sei.ai
+Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.ustb.sei.ai
+Automatic-Module-Name: edu.ustb.sei.ai
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
