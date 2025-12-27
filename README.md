@@ -13,8 +13,6 @@ We hope that such a combination can allow us to benefit from both MDE and LLM.
 
 # Approach
 
-![Approach Workflow](docs/workflow.jpg)
-
 The input is an ecore model, optionally with a system requirement.
 
 Our tool will read the ecore model and check if there is a requirement. If not, our tool will ask LLMs to synthesize a requirement according to the model.
@@ -76,7 +74,7 @@ Each benchmark provides comprehensive documentation:
 - **Ecore Model**: Domain model definition
 - **DD.md**: Domain description and context
 - **FR.md**: Functional requirements specification
-- **DeM.md**: Design methodology
+- **DeM.md**: Design model
 - **TS.md**: Test specifications
 
 # Experimental Evaluation
