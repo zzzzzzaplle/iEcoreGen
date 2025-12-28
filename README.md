@@ -13,7 +13,7 @@ We hope that such a combination can allow us to benefit from both MDE and LLM.
 
 # Approach
 
-![workflow](image/wordkflow.png)
+![workflow](image/workflow.png)
 
 The input is an ecore model, optionally with a system requirement.
 
@@ -181,5 +181,12 @@ Before using iEcoreGen, ensure you have the following environment configured:
    Run the configured MWE2 workflow to generate your code artifacts.
 
 > **Tip**: You can refer to the example benchmarks in the `benchmarks/` folder to see sample Ecore models and their corresponding specifications.
+
+## Sample
+
+The following screenshot demonstrates the tool in action, showing the MWE2 workflow configuration file being executed in Eclipse IDE. You can see the code generation process running with the "1 MWE2 Workflow" configuration, which processes the Ecore model and generates the corresponding source code files.
+
+![sample](image/run_sample.png)
+
 
 
