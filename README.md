@@ -13,7 +13,7 @@ We hope that such a combination can allow us to benefit from both MDE and LLM.
 
 # Approach
 
-![workflow](image/workflow.png)
+![workflow](image/workflow.jpg)
 
 The input is an ecore model, optionally with a system requirement.
 
