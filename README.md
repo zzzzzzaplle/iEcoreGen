@@ -13,7 +13,12 @@ We hope that such a combination can allow us to benefit from both MDE and LLM.
 
 # Approach
 
+![workflow](image/wordkflow.png)
+
 The input is an ecore model, optionally with a system requirement.
+
+The system requirement can be provided in this way:
+ **Embedded in the Ecore model**: Using an EAnnotation (typically named "EnhancedCodeGen") with a Details Entry containing the functional requirements (equivalent to FR.md content)
 
 Our tool will read the ecore model and check if there is a requirement. If not, our tool will ask LLMs to synthesize a requirement according to the model.
 
@@ -71,11 +76,13 @@ The `benchmarks/` directory contains 20 real-world domain models for evaluation,
 - And more...
 
 Each benchmark provides comprehensive documentation:
-- **Ecore Model**: Domain model definition
+- **Ecore Model**: Domain model definition (may include an EAnnotation with embedded functional requirements in a Details Entry)
 - **DD.md**: Domain description and context
-- **FR.md**: Functional requirements specification
+- **FR.md**: Functional requirements specification (can also be embedded in the Ecore model's EAnnotation)
 - **DeM.md**: Design model
 - **TS.md**: Test specifications
+
+**Note**: The Ecore models can embed functional requirements directly using an EAnnotation (e.g., "EnhancedCodeGen") with a Details Entry. This allows the requirements to be stored within the model itself, making it self-contained and eliminating the need for separate FR.md files.
 
 # Experimental Evaluation
 
@@ -137,10 +144,42 @@ Workflow {
 
 The workflow will read a properties file to load the parameters of LLMs. The properties file looks like below.
 
-```
+```properties
 apikey=<your api key>
 url=https://api.deepseek.com/
-model=deepseek-chat
+model=<your model name>
 ```
+# Quick Start
+
+## Prerequisites
+
+Before using iEcoreGen, ensure you have the following environment configured:
+
+1. **Eclipse IDE** with the following plugins:
+   - Xtext
+   - MWE2 (Modeling Workflow Engine 2)
+   - EMF (Eclipse Modeling Framework)
+
+2. **Required Dependencies**:
+   - `edu.ustb.sei.ai`
+   - `edu.ustb.sei.ai.spring.port`
+   - `edu.ustb.sei.mde.eecg`
+   - `edu.ustb.sei.mde.mwe2`
+
+## Steps to Run
+
+1. **Create an Ecore Model**
+   
+   Create a new `.ecore` file that accurately reflects your system design. This model should define your domain entities, attributes, and relationships.
+
+2. **Configure MWE2 Workflow**
+   
+   Set up your MWE2 workflow file (`.mwe2`) with the appropriate generation parameters and paths.
+
+3. **Execute the Workflow**
+   
+   Run the configured MWE2 workflow to generate your code artifacts.
+
+> **Tip**: You can refer to the example benchmarks in the `benchmarks/` folder to see sample Ecore models and their corresponding specifications.
 
 
