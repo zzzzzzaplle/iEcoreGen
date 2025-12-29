@@ -173,21 +173,7 @@ Before using iEcoreGen, ensure you have the following environment configured:
    
 Create a new `.ecore` file that accurately reflects your system design. This model should define your domain entities, attributes, and relationships.
 
-### 2. Configure LLM API Settings
-
-Before running the workflow, ensure you have a `conf.properties` file in your project root directory with the following configuration:
-
-```properties
-# LLM API Configuration for example
-url=you-url
-apikey=your-api-key-here
-model=deepseek-chat
-timeout=1800
-```
-
-Replace `your-api-key-here` with your actual API key from your chosen LLM provider (e.g., OpenRouter, DeepSeek, or other OpenAI-compatible services).
-
-### 3. Initialize Workflow via GUI
+### 2. Initialize Workflow via GUI
 
 Right-click on your `.ecore` file in the Project Explorer and select **"Init iEcoreGen"** → **"Workflow Initializer"** from the context menu.
 
@@ -203,7 +189,7 @@ In the configuration wizard, fill in the following parameters:
 
 Click **Finish** to generate the MWE2 workflow configuration file automatically.
 
-### 4. Execute the Workflow
+### 3. Execute the Workflow
 
 ![run_gui](image/run_gui.png)
 
@@ -216,15 +202,8 @@ A progress dialog will appear showing the code generation process. Wait for the 
 - Create implementation code using LLM-based code generation
 - Perform automatic code fixing and validation
 
-
-
 **Alternative Method**: You can also manually create and execute the `.mwe2` workflow file if you prefer command-line or programmatic execution.
 
 > **Tip**: You can refer to the example benchmarks in the `benchmarks/` folder to see sample Ecore models and their corresponding specifications.
 
-## Sample
-
-The following screenshot demonstrates the tool in action, showing the MWE2 workflow configuration file being executed in Eclipse IDE. You can see the code generation process running with the "1 MWE2 Workflow" configuration, which processes the Ecore model and generates the corresponding source code files.
-
-![sample](image/run_sample.png)
 
