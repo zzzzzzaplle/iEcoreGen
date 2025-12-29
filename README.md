@@ -165,20 +165,60 @@ Before using iEcoreGen, ensure you have the following environment configured:
    - `edu.ustb.sei.ai.spring.port`
    - `edu.ustb.sei.mde.eecg`
    - `edu.ustb.sei.mde.mwe2`
+   - `edu.ustb.sei.mde.eecg.ui`
 
 ## Steps to Run
 
-1. **Create an Ecore Model**
+### 1. Create an Ecore Model
    
-   Create a new `.ecore` file that accurately reflects your system design. This model should define your domain entities, attributes, and relationships.
+Create a new `.ecore` file that accurately reflects your system design. This model should define your domain entities, attributes, and relationships.
 
-2. **Configure MWE2 Workflow**
-   
-   Set up your MWE2 workflow file (`.mwe2`) with the appropriate generation parameters and paths.
+### 2. Configure LLM API Settings
 
-3. **Execute the Workflow**
-   
-   Run the configured MWE2 workflow to generate your code artifacts.
+Before running the workflow, ensure you have a `conf.properties` file in your project root directory with the following configuration:
+
+```properties
+# LLM API Configuration for example
+url=you-url
+apikey=your-api-key-here
+model=deepseek-chat
+timeout=1800
+```
+
+Replace `your-api-key-here` with your actual API key from your chosen LLM provider (e.g., OpenRouter, DeepSeek, or other OpenAI-compatible services).
+
+### 3. Initialize Workflow via GUI
+
+Right-click on your `.ecore` file in the Project Explorer and select **"Init iEcoreGen"** → **"Workflow Initializer"** from the context menu.
+
+![config_sample](image/mwe_config.png)
+
+In the configuration wizard, fill in the following parameters:
+
+- **Source Folder**: The folder where generated code will be placed (e.g., `src`)
+- **MWE File Name**: Name for the workflow file (e.g., `GenerateModel.mwe2`)
+- **Base Package**: Java package name for generated classes (e.g., `edu.example.model`)
+- **Classpath Folder**: Eclipse plugins directory (auto-detected)
+- **Overwrite**: Check this to overwrite existing files
+
+Click **Finish** to generate the MWE2 workflow configuration file automatically.
+
+### 4. Execute the Workflow
+
+![run_gui](image/run_gui.png)
+
+After initialization, right-click on your `.ecore` file (or the generated `.mwe2` file) and select **"Init iEcoreGen"** → **"Workflow Runner"**.
+
+![run_gui](image/run_window.png)
+
+A progress dialog will appear showing the code generation process. Wait for the task to complete. The tool will:
+- Generate Java model classes from your Ecore model
+- Create implementation code using LLM-based code generation
+- Perform automatic code fixing and validation
+
+
+
+**Alternative Method**: You can also manually create and execute the `.mwe2` workflow file if you prefer command-line or programmatic execution.
 
 > **Tip**: You can refer to the example benchmarks in the `benchmarks/` folder to see sample Ecore models and their corresponding specifications.
 
@@ -187,6 +227,4 @@ Before using iEcoreGen, ensure you have the following environment configured:
 The following screenshot demonstrates the tool in action, showing the MWE2 workflow configuration file being executed in Eclipse IDE. You can see the code generation process running with the "1 MWE2 Workflow" configuration, which processes the Ecore model and generates the corresponding source code files.
 
 ![sample](image/run_sample.png)
-
-
 

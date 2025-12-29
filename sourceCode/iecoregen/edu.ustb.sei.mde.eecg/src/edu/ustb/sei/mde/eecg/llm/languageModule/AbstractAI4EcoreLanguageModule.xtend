@@ -7,8 +7,6 @@ import java.util.Properties
 import java.io.File
 import java.io.FileReader
 import java.nio.charset.Charset
-import io.github.pigmesh.ai.deepseek.core.chat.ChatCompletionModel
-import io.github.pigmesh.ai.deepseek.port.DeepseekPort
 import edu.ustb.sei.ai.LLMPort
 import edu.ustb.sei.ai.spring.port.OpenAIPort
 
@@ -21,8 +19,8 @@ abstract class AbstractAI4EcoreLanguageModule extends LanguageModule {
 	
 	protected val LLMPort llmPort
 	
-	static val default_url = 'https://api.deepseek.com/v1/'
-	static val default_model = ChatCompletionModel.DEEPSEEK_CHAT.getValue()
+	static val default_url = 'https://api.deepseek.com/'
+	static val default_model = 'deepseek-chat'
 	static val default_timeout = '600'
 	
 	def LLMPort createDeepSeekPort() {
@@ -40,12 +38,6 @@ abstract class AbstractAI4EcoreLanguageModule extends LanguageModule {
 		val url = properties.getOrDefault('url', default_url) as String
 		val timeout = Integer.parseInt(properties.getOrDefault('timeout', default_timeout) as String)
 		val apikey = properties.get('apikey') as String
-		
-//		return new DeepseekPort(apikey, 
-//			new LLMPort.Options().setUrl(url).setModel(model).setTimeout(timeout)
-//		)
-		
-		// remember to use 'https://api.deepseek.com/' for deepseek rather than 'https://api.deepseek.com/v1'
 		
 		return new OpenAIPort(apikey,
 			new LLMPort.Options().setUrl(url).setModel(model).setTimeout(timeout)

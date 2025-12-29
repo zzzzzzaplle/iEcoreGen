@@ -106,6 +106,8 @@ public class EcoreGenerator extends AbstractWorkflowComponent2 {
 	
 	private Class<? extends LanguageModule> languageModule = LanguageModule.class;
 	
+	private ClassLoader languageModuleClassLoader = null;
+	
 	
 	public DefaultGeneratorModule getConfiguration() {
 		return configuration;
@@ -376,10 +378,19 @@ public class EcoreGenerator extends AbstractWorkflowComponent2 {
 		this.languageModule = languageModule;
 	}
 	
+	public void setLanguageModuleClassLoader(ClassLoader languageModuleClassLoader) {
+		this.languageModuleClassLoader = languageModuleClassLoader;
+	}
+	
+	public ClassLoader getLanguageModuleClassLoader() {
+		if(languageModuleClassLoader == null) return this.getClass().getClassLoader();
+		else return languageModuleClassLoader;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void setLanguageModule(String languageModuleClass) {
 		try {
-			this.languageModule = (Class<? extends LanguageModule>) this.getClass().getClassLoader().loadClass(languageModuleClass);
+			this.languageModule = (Class<? extends LanguageModule>) getLanguageModuleClassLoader().loadClass(languageModuleClass);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

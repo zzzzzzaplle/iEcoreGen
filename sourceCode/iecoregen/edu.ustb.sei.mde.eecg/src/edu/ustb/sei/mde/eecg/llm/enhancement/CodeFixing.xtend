@@ -62,7 +62,7 @@ class CodeFixing extends ContextCodeEnhancement {
 		
             if(errors.isEmpty === false) {
                 errors.forEach[
-                    LOG.error(it)
+                    LOG.info('Error Found:\n'+it)
                 ]
                 language.fixErrors(errors.filter[it.errorType.compareToIgnoreCase('WARNING')!==0].toList)
             } else {
@@ -181,6 +181,8 @@ class CodeFixing extends ContextCodeEnhancement {
 		2. Do your best to fix the errors locally without introducing new types, fields, and methods.
 		3. You should not remove faulty methods to eliminate compilation errors.
 		4. Do not change parts without errors.
+		5. There are some common EMF types:
+		  + org.eclipse.emf.common.util.BasicEList that inherits EList
 		
 		# Java Class
 		```java

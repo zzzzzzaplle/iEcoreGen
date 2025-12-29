@@ -34,10 +34,12 @@ class EOperationAnnotator extends EcoreModelEnhancement {
 	
 	An operation specification must describe the following sections about the operation:
 	1. Summary: the summary of functionality;
-	2. Algorithm: The algorithm or pesudo code;
-	3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
-	4. Output: output value, including the meaning, the format, and the value ranges if necessary
-	5. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+	2. Algorithm: algorithm or pesudo code;
+	3. Related Features: a list of structural or behavior features within this class that shall be accessed;
+	4. Related Classes: a list of classes and data types defined in **Class Diagram** that shall be accessed;
+	5. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+	6. Output: output value, including the meaning, the format, and the value ranges if necessary;
+	7. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
 	
 	Finish this task by following the guidelines below.
 	1. Take the principle of modularization into account.

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EECG UI Integration
+Bundle-SymbolicName: edu.ustb.sei.mde.eecg.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.ustb.sei.mde.eecg.ui.Activator
+Require-Bundle: org.eclipse.jface,
+ org.eclipse.e4.ui.services,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.23.0",
+ org.eclipse.ui;bundle-version="3.207.300",
+ org.eclipse.ui.views;bundle-version="3.12.700",
+ org.eclipse.ui.ide;bundle-version="3.22.700",
+ org.eclipse.jface.text;bundle-version="3.28.100",
+ com.github.weisj.jsvg;bundle-version="1.7.2",
+ edu.ustb.sei.mde.eecg;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.emf.mwe2.launch;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Automatic-Module-Name: edu.ustb.sei.mde.eecg.ui
+Import-Package: edu.ustb.sei.mde.mwe2,
+ edu.ustb.sei.mde.mwe2.enhancement,
+ jakarta.annotation;version="[2.1.0,3.0.0)",
+ jakarta.inject;version="[2.0.0,3.0.0)",
+ org.osgi.framework;version="[1.10.0,2.0.0)"
+Bundle-ActivationPolicy: lazy

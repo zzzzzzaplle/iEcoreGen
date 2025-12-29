@@ -8,26 +8,53 @@ import org.eclipse.emf.ecore.EOperation
 import org.eclipse.emf.ecore.EStructuralFeature
 import edu.ustb.sei.mde.mwe2.EcoreLanguage
 import edu.ustb.sei.mde.eecg.tools.CodeTools
+import edu.ustb.sei.mde.eecg.llm.EcoreTools
+import edu.ustb.sei.mde.eecg.llm.CodeGenConstants
+import java.util.regex.Pattern
+import org.eclipse.emf.ecore.EEnum
 
 abstract class ContextCodeEnhancement extends CodewareEnhancement {
 	extension CodeTools = CodeTools.instance
+	extension EcoreTools = EcoreTools.instance
+	
+	val related_class_pattern = Pattern.compile('''Related Classes: ([a-zA-Z0-9_,]+)$''')
 	
 	protected def String extractContext(EcoreLanguage language, EClass target) {
 		val refs = target.EAllReferences
 		val ops = target.EAllOperations
+
+		val ePkg = target.EPackage // assume that there is only one package but can be generalized
+		val related_types = target.EAllOperations.map[it.getEAnnotationDetail(CodeGenConstants.GEN_MODEL, CodeGenConstants.GEN_MODEL__DOCUMENTATION)].filterNull.map[
+			val matcher = related_class_pattern.matcher(it)
+			if(matcher.find) {
+				val list = matcher.group(1)
+				list.split(',|;|.').map[it.trim]
+			} else #[]
+		].flatten.map[ePkg.getEClassifier(it)].filterNull
 		
 		val related = (
 			target.EAllSuperTypes 
 			+ refs.filter[it.EReferenceType !== target].map[it.EReferenceType]
-			+ ops.map[it.EType].filter(EClass)
-			+ ops.map[it.EParameters].flatMap[it.map[it.EType].filter(EClass)]
+			+ ops.map[it.EType]
+			+ ops.map[it.EParameters].flatMap[it.map[it.EType]]
+			+ related_types
 		).toSet
 		
 		'''
-		The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
-		«FOR rc : related»
+		«IF related.filter(EClass).isEmpty===false»The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.«ENDIF»
+		«FOR rc : related.filter(EClass)»
 		«language.generateClassDoc(rc)»
 		«ENDFOR»
+		«IF related.filter(EEnum).isEmpty===false»The following enumeration' information may be helpful for you.«ENDIF»
+		«FOR rc : related.filter(EEnum)»
+		«language.generateEnumDoc(rc)»
+		«ENDFOR»
+		'''
+	}
+	
+	protected def String generateEnumDoc(EcoreLanguage language, EEnum eEnum) {
+		'''
+		- Enum `«eEnum.name»` contains the following literals: «FOR l : eEnum.ELiterals SEPARATOR ', '»«l.name»«ENDFOR». Use `«eEnum.name».get("<literal>")` to get the enum literal.
 		'''
 	}
 	

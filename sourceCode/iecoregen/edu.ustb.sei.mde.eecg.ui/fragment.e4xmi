@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QqSikIrOEeW7h_qdP9N9fw" featurename="commands" parentElementId="xpath:/">
+    <elements xsi:type="commands:Command" xmi:id="_UCYfwIrOEeW7h_qdP9N9fw" elementId="edu.ustb.sei.mde.eecg.ui.mweInitializer" commandName="Workflow Initializer">
+      <persistedState key="persistState" value="false"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_9l3WUM6REfCSVZXVw3f0bg" elementId="edu.ustb.sei.mde.eecg.ui.mwerunner" commandName="Workflow Runner" commandIconURI=""/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fW12kIrOEeW7h_qdP9N9fw" featurename="handlers" parentElementId="xpath:/">
+    <elements xsi:type="commands:Handler" xmi:id="_k2L0IIrOEeW7h_qdP9N9fw" elementId="edu.ustb.sei.mde.eecg.ui.mweInitializer.handler" contributionURI="bundleclass://edu.ustb.sei.mde.eecg.ui/edu.ustb.sei.mde.eecg.ui.handlers.IEcoreGenInitializer" command="_UCYfwIrOEeW7h_qdP9N9fw">
+      <persistedState key="persistState" value="false"/>
+    </elements>
+    <elements xsi:type="commands:Handler" xmi:id="_lBNfUM6SEfCSVZXVw3f0bg" elementId="edu.ustb.sei.mde.eecg.ui.mweRunner.handler" contributionURI="bundleclass://edu.ustb.sei.mde.eecg.ui/edu.ustb.sei.mde.eecg.ui.handlers.IEcoreGenRunner" command="_9l3WUM6REfCSVZXVw3f0bg"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pVgfIIrOEeW7h_qdP9N9fw" featurename="menuContributions" parentElementId="xpath:/">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_BducUIrPEeW7h_qdP9N9fw" elementId="edu.ustb.sei.mde.eecg.ui.popup" positionInParent="after=additions" parentId="popup">
+      <persistedState key="persistState" value="false"/>
+      <children xsi:type="menu:Menu" xmi:id="_Dtii0IrPEeW7h_qdP9N9fw" elementId="edu.ustb.sei.mde.eecg.ui.handlers" label="Init iEcoreGen" iconURI="platform:/plugin/edu.ustb.sei.mde.eecg.ui/icons/Sample.png">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Dtii0YrPEeW7h_qdP9N9fw" elementId="edu.ustb.sei.mde.eecg.ui.mweInitializer.item" label="" iconURI="platform:/plugin/edu.ustb.sei.mde.eecg.ui/icons/Sample.png" command="_UCYfwIrOEeW7h_qdP9N9fw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tt16EM6SEfCSVZXVw3f0bg" elementId="edu.ustb.sei.mde.eecg.ui.mweRunner.item" iconURI="platform:/plugin/edu.ustb.sei.mde.eecg.ui/icons/run_exc.png" command="_9l3WUM6REfCSVZXVw3f0bg"/>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

@@ -3,13 +3,25 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Enhanced Ecore Code Gen
 Bundle-SymbolicName: edu.ustb.sei.mde.eecg
 Bundle-Version: 1.0.0.qualifier
-Export-Package: edu.ustb.sei.mde.eecg.llm,
- edu.ustb.sei.mde.eecg.llm.enhancement,
- edu.ustb.sei.mde.eecg.llm.languageModule,
- edu.ustb.sei.mde.eecg.tools
+Export-Package: edu.ustb.sei.mde.eecg.facade;uses:="org.apache.commons.cli,org.eclipse.emf.ecore.resource",
+ edu.ustb.sei.mde.eecg.llm;uses:="org.eclipse.emf.ecore",
+ edu.ustb.sei.mde.eecg.llm.enhancement;
+  uses:="edu.ustb.sei.ai,
+   edu.ustb.sei.mde.eecg.tools,
+   edu.ustb.sei.mde.mwe2,
+   edu.ustb.sei.mde.mwe2.enhancement,
+   org.eclipse.emf.ecore,
+   org.eclipse.jdt.core.dom.rewrite",
+ edu.ustb.sei.mde.eecg.llm.languageModule;uses:="com.google.inject,edu.ustb.sei.ai,edu.ustb.sei.mde.mwe2",
+ edu.ustb.sei.mde.eecg.tools;
+  uses:="edu.ustb.sei.mde.mwe2.enhancement,
+   org.eclipse.emf.ecore,
+   org.eclipse.jdt.core.dom,
+   org.eclipse.jdt.core.dom.rewrite",
+ org.apache.commons.cli
 Require-Bundle: edu.ustb.sei.mde.mwe2;bundle-version="1.0.0";visibility:=reexport,
- org.eclipse.emf.ecore;bundle-version="2.36.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.37.0",
+ org.eclipse.emf.ecore;bundle-version="2.36.0";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.37.0";visibility:=reexport,
  com.google.guava;visibility:=reexport,
  org.eclipse.xtext.xbase.lib;visibility:=reexport,
  org.eclipse.xtend.lib;visibility:=reexport,
@@ -21,6 +33,13 @@ Require-Bundle: edu.ustb.sei.mde.mwe2;bundle-version="1.0.0";visibility:=reexpor
  org.eclipse.jdt.core;bundle-version="3.38.0";visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="3.31.100";visibility:=reexport,
  org.eclipse.xtext;bundle-version="2.35.0";visibility:=reexport,
- edu.ustb.sei.ai;bundle-version="1.0.0"
+ edu.ustb.sei.ai;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.emf.mwe2.launch;bundle-version="2.23.0";visibility:=reexport,
+ org.eclipse.xtext.xtext.generator;bundle-version="2.40.0";visibility:=reexport,
+ edu.ustb.sei.ai.spring.port;bundle-version="1.0.0";visibility:=reexport
 Automatic-Module-Name: edu.ustb.sei.mde.eecg
+Bundle-ClassPath: lib/commons-cli-1.6.0.jar,
+ lib/commons-cli-1.6.0-javadoc.jar,
+ lib/commons-cli-1.6.0-sources.jar,
+ .
 Bundle-RequiredExecutionEnvironment: JavaSE-21

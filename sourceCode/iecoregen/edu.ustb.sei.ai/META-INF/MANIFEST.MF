@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Export-Package: edu.ustb.sei.ai
 Automatic-Module-Name: edu.ustb.sei.ai
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Require-Bundle: com.google.guava,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+Require-Bundle: com.google.guava;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib;visibility:=reexport,
+ org.eclipse.xtend.lib;visibility:=reexport,
+ org.eclipse.xtend.lib.macro;visibility:=reexport
