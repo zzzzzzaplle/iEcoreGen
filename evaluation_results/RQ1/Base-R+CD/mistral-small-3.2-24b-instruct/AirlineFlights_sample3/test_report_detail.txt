@@ -1,0 +1,123 @@
+============================================================
+AirlineFlights - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 15:31:00
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase2_DuplicatePassengerInSameRequest(CR2Test)
+  java.lang.AssertionError: Flight should have no reservations expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase2_DuplicatePassengerInSameRequest(CR2Test.java:89)
+  2) testCase3_PassengerAlreadyBookedEarlier(CR2Test)
+  java.lang.AssertionError: Booking should fail due to existing passenger reservation
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase3_PassengerAlreadyBookedEarlier(CR2Test.java:139)
+  3) testCase4_FlightClosedBlocksBooking(CR2Test)
+  java.lang.AssertionError: Booking should fail due to closed flight
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR2Test.testCase4_FlightClosedBlocksBooking(CR2Test.java:176)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\AirlineFlights_sample3\src\test\CR3Test.java:22: 错误: 无法将类 City中的构造器 City应用到给定类型;
+          City cityAA = new City();
+                        ^
+    需要: String
+    找到:    没有参数
+    原因: 实际参数列表和形式参数列表长度不同
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\AirlineFlights_sample3\src\test\CR3Test.java:26: 错误: 无法将类 City中的构造器 City应用到给定类型;
+          City cityAB = new City();
+                        ^
+    需要: String
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_FlightClosedReturnsZero(CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:76)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_FlightClosedPreventsModification(CR6Test)
+  java.lang.AssertionError: Stopover should not be added to closed flight
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase4_FlightClosedPreventsModification(CR6Test.java:186)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 5/6
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

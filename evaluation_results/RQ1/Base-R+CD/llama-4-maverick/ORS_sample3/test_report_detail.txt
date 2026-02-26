@@ -1,0 +1,83 @@
+============================================================
+ORS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-27 19:46:06
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test)
+  java.lang.AssertionError: Booking should be eligible with non-overlapping trips
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test.java:232)
+  2) testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test)
+  java.lang.AssertionError: Booking should be eligible
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:155)
+  3) testCase3_BookingDeniedDueToTimeCutoffExactly2HoursBefore(CR1Test)
+  java.lang.AssertionError: Booking should be eligible even at exactly 2 hours before departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase3_BookingDeniedDueToTimeCutoffExactly2HoursBefore(CR1Test.java:207)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:64: 错误: 不能使用 @Override 注释静态方法
+              @Override
+              ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:67: 错误: 无法从静态上下文中引用非静态 变量 bookings
+                      return bookings;
+                             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:107: 错误: 不能使用 @Override 注释静态方法
+              @Override
+              ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:110: 错误: 无法从静态上下文中引用非静态 变量 bookings
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 4/5
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

@@ -1,0 +1,184 @@
+================================================================================
+flights3 测试报告
+================================================================================
+生成时间: 2025-11-25 14:42:48
+样本名称: flights3
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.flights.FlightsFactory;
+                    ^
+    符号:   类 FlightsFactory
+    位置: 程序包 edu.flights
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.flights.Airline;
+                    ^
+    符号:   类 Airline
+    位置: 程序包 edu.flights
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.flights.Airport;
+                    ^
+    符号:   类 Airport
+    位置: 程序包 edu.flights
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.flights.Flight;
+                    ^
+    符号:   类 Flight
+    位置: 程序包 edu.flights
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR2Test.java:17: 错误: 找不到符号
+      private FlightsFactory factory;
+              ^
+    符号:   类 FlightsFactory
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR2Test.java:7: 错误: 程序包edu.flights不存在
+  import edu.flights.*;
+  ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR2Test.java:22: 错误: 找不到符号
+          factory = FlightsFactory.eINSTANCE;
+                    ^
+    符号:   变量 FlightsFactory
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR2Test.java:29: 错误: 找不到符号
+          Airline airline = factory.createAirline();
+          ^
+    符号:   类 Airline
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR2Test.java:31: 错误: 找不到符号
+          Airport departureAirport = factory.createAirport();
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR3Test.java:13: 错误: 找不到符号
+      private FlightsFactory factory;
+              ^
+    符号:   类 FlightsFactory
+    位置: 类 CR3Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR3Test.java:8: 错误: 程序包edu.flights不存在
+  import edu.flights.*;
+  ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR3Test.java:18: 错误: 找不到符号
+          factory = FlightsFactory.eINSTANCE;
+                    ^
+    符号:   变量 FlightsFactory
+    位置: 类 CR3Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR3Test.java:25: 错误: 找不到符号
+          Airline airline = factory.createAirline();
+          ^
+    符号:   类 Airline
+    位置: 类 CR3Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR3Test.java:27: 错误: 找不到符号
+          Airport departureAirport = factory.createAirport();
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR4Test.java:13: 错误: 找不到符号
+      private FlightsFactory factory;
+              ^
+    符号:   类 FlightsFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR4Test.java:7: 错误: 程序包edu.flights不存在
+  import edu.flights.*;
+  ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR4Test.java:18: 错误: 找不到符号
+          factory = FlightsFactory.eINSTANCE;
+                    ^
+    符号:   变量 FlightsFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR4Test.java:25: 错误: 找不到符号
+          Airline airline = factory.createAirline();
+          ^
+    符号:   类 Airline
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR4Test.java:27: 错误: 找不到符号
+          Airport departureAirport = factory.createAirport();
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR5Test.java:13: 错误: 找不到符号
+      private Airline airline;
+              ^
+    符号:   类 Airline
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR5Test.java:14: 错误: 找不到符号
+      private FlightsFactory factory;
+              ^
+    符号:   类 FlightsFactory
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR5Test.java:188: 错误: 找不到符号
+      private boolean containsReservation(EList<Reservation> reservations, String reservationId) {
+                                                ^
+    符号:   类 Reservation
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR5Test.java:7: 错误: 程序包edu.flights不存在
+  import edu.flights.*;
+  ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR5Test.java:18: 错误: 找不到符号
+          factory = FlightsFactory.eINSTANCE;
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR6Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR6Test.java:13: 错误: 找不到符号
+      private FlightsFactory factory;
+              ^
+    符号:   类 FlightsFactory
+    位置: 类 CR6Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR6Test.java:7: 错误: 程序包edu.flights不存在
+  import edu.flights.*;
+  ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR6Test.java:18: 错误: 找不到符号
+          factory = FlightsFactory.eINSTANCE;
+                    ^
+    符号:   变量 FlightsFactory
+    位置: 类 CR6Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR6Test.java:25: 错误: 找不到符号
+          Airline airline = factory.createAirline();
+          ^
+    符号:   类 Airline
+    位置: 类 CR6Test
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\test\CR6Test.java:27: 错误: 找不到符号
+          Airport ap28 = factory.createAirport();
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

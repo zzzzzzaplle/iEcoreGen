@@ -1,0 +1,107 @@
+================================================================================
+pets4 测试报告
+================================================================================
+生成时间: 2025-11-27 13:05:58
+样本名称: pets4
+总测试数: 25
+通过: 16
+失败: 9
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase3_AddSamePetTwiceToSameHouse(edu.pets.pets4.test.CR2Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEList cannot be cast to class org.eclipse.emf.ecore.util.InternalEList (org.eclipse.emf.common.util.BasicEList and org.eclipse.emf.ecore.util.InternalEList are in unnamed module of loader 'app')
+  	at edu.pets.House.eInverseAdd(House.java:338)
+  	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eInverseAdd(BasicEObjectImpl.java:1448)
+  	at edu.pets.Pet.setHouse(Pet.java:156)
+  	at edu.pets.House.addPet(House.java:177)
+  	at edu.pets.pets4.test.CR2Test.testCase3_AddSamePetTwiceToSameHouse(CR2Test.java:72)
+  2) testCase1_AddNewPetToEmptyHouse(edu.pets.pets4.test.CR2Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEList cannot be cast to class org.eclipse.emf.ecore.util.InternalEList (org.eclipse.emf.common.util.BasicEList and org.eclipse.emf.ecore.util.InternalEList are in unnamed module of loader 'app')
+  	at edu.pets.House.eInverseAdd(House.java:338)
+  	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eInverseAdd(BasicEObjectImpl.java:1448)
+  	at edu.pets.Pet.setHouse(Pet.java:156)
+  	at edu.pets.House.addPet(House.java:177)
+  	at edu.pets.pets4.test.CR2Test.testCase1_AddNewPetToEmptyHouse(CR2Test.java:32)
+  3) testCase4_AddMultipleUniquePets(edu.pets.pets4.test.CR2Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEList cannot be cast to class org.eclipse.emf.ecore.util.InternalEList (org.eclipse.emf.common.util.BasicEList and org.eclipse.emf.ecore.util.InternalEList are in unnamed module of loader 'app')
+  	at edu.pets.House.eInverseAdd(House.java:338)
+  	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eInverseAdd(BasicEObjectImpl.java:1448)
+  	at edu.pets.Pet.setHouse(Pet.java:156)
+  	at edu.pets.House.addPet(House.java:177)
+  	at edu.pets.pets4.test.CR2Test.testCase4_AddMultipleUniquePets(CR2Test.java:96)
+  4) testCase2_AddPetAlreadyInTheHouse(edu.pets.pets4.test.CR2Test)
+  java.lang.ClassCastException: class org.eclipse.emf.common.util.BasicEList cannot be cast to class org.eclipse.emf.ecore.util.InternalEList (org.eclipse.emf.common.util.BasicEList and org.eclipse.emf.ecore.util.InternalEList are in unnamed module of loader 'app')
+  	at edu.pets.House.eInverseAdd(House.java:338)
+  	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eInverseAdd(BasicEObjectImpl.java:1448)
+  	at edu.pets.Pet.setHouse(Pet.java:156)
+  	at edu.pets.House.addPet(House.java:177)
+  	at edu.pets.pets4.test.CR2Test.testCase2_AddPetAlreadyInTheHouse(CR2Test.java:51)
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase2_CountAfterAdditions(edu.pets.pets4.test.CR5Test)
+  java.lang.IllegalArgumentException: Type must not be null
+  	at edu.pets.House.getPetCount(House.java:306)
+  	at edu.pets.pets4.test.CR5Test.testCase2_CountAfterAdditions(CR5Test.java:63)
+  2) testCase5_CountBoundary10PlusPets(edu.pets.pets4.test.CR5Test)
+  java.lang.IllegalArgumentException: Type must not be null
+  	at edu.pets.House.getPetCount(House.java:306)
+  	at edu.pets.pets4.test.CR5Test.testCase5_CountBoundary10PlusPets(CR5Test.java:116)
+  3) testCase3_CountAfterRemoval(edu.pets.pets4.test.CR5Test)
+  java.lang.IllegalArgumentException: Type must not be null
+  	at edu.pets.House.getPetCount(House.java:306)
+  	at edu.pets.pets4.test.CR5Test.testCase3_CountAfterRemoval(CR5Test.java:86)
+  4) testCase4_CountEmptyHouse(edu.pets.pets4.test.CR5Test)
+  java.lang.IllegalArgumentException: Type must not be null
+  	at edu.pets.House.getPetCount(House.java:306)
+  	at edu.pets.pets4.test.CR5Test.testCase4_CountEmptyHouse(CR5Test.java:98)
+  5) testCase1_CountPetsInPopulatedHouse(edu.pets.pets4.test.CR5Test)
+  java.lang.IllegalArgumentException: Type must not be null
+  	at edu.pets.House.getPetCount(House.java:306)
+  	at edu.pets.pets4.test.CR5Test.testCase1_CountPetsInPopulatedHouse(CR5Test.java:43)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 16
+失败: 9
+成功率: 64.0%
+================================================================================

@@ -1,0 +1,91 @@
+================================================================================
+ipo4 测试报告
+================================================================================
+生成时间: 2025-11-24 20:48:05
+样本名称: ipo4
+总测试数: 26
+通过: 23
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 6
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_DuplicateApprovedApplication(edu.ipo.ipo4.test.CR1Test)
+  java.lang.AssertionError: Second application should not be created for same company with approved application
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.ipo.ipo4.test.CR1Test.testCase3_DuplicateApprovedApplication(CR1Test.java:158)
+  
+  FAILURES!!!
+  Tests run: 6,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_ApprovePendingRequest(edu.ipo.ipo4.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "edu.ipo.Company.getName()" because "<parameter1>" is null
+  	at edu.ipo.Email.createEmailContent(Email.java:180)
+  	at edu.ipo.Application.sendEmailsToCustomerAndCompany(Application.java:566)
+  	at edu.ipo.Application.approve(Application.java:465)
+  	at edu.ipo.ipo4.test.CR2Test.testCase1_ApprovePendingRequest(CR2Test.java:146)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase2_CancelApprovedRequest(edu.ipo.ipo4.test.CR5Test)
+  java.lang.NullPointerException: Cannot invoke "edu.ipo.Company.getName()" because "<parameter1>" is null
+  	at edu.ipo.Email.createEmailContent(Email.java:180)
+  	at edu.ipo.Application.sendEmailsToCustomerAndCompany(Application.java:566)
+  	at edu.ipo.Application.approve(Application.java:465)
+  	at edu.ipo.ipo4.test.CR5Test.testCase2_CancelApprovedRequest(CR5Test.java:120)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 26
+通过: 23
+失败: 3
+成功率: 88.5%
+================================================================================

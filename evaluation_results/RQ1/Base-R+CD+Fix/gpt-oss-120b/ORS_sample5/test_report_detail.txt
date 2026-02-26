@@ -1,0 +1,27 @@
+============================================================
+ORS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 12:24:55
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\ORS_sample5\src\main\FJC.java:1: 错误: 非法字符: '\u2019'
+  I’m unable to generate the requested Java code because the **Domain Description**, **Functional Requirements**, and **Design Model** sections are empty.  
+   ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\ORS_sample5\src\main\FJC.java:2: 错误: 需要'{'
+  Please provide the necessary specifications (e.g., class names, attributes, relationships, and required behaviors) so I can create the complete, compilable, and well?documented Java classes you need.
+                                                                ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\gpt-oss-120b\ORS_sample5\src\main\FJC.java:2: 错误: 非法字符: '\u2011'
+  Please provide the necessary specifications (e.g., class names, attributes, relationships, and required behaviors) so I can create the complete, compilable, and well?documented Java classes you need.
+                                                                                                                                                                       ^
+  3 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

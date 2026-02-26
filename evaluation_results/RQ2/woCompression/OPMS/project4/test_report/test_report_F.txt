@@ -1,0 +1,98 @@
+================================================================================
+project4 测试报告
+================================================================================
+生成时间: 2025-11-24 22:22:40
+样本名称: project4
+总测试数: 20
+通过: 14
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_CountEmployeesInSingleDepartmentWithProductionProjects(edu.project.project4.test.CR3Test)
+  java.lang.AssertionError: expected:<5> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project4.test.CR3Test.testCase1_CountEmployeesInSingleDepartmentWithProductionProjects(CR3Test.java:82)
+  2) testCase4_CountEmployeesWithMixedProjectTypes(edu.project.project4.test.CR3Test)
+  java.lang.AssertionError: expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project4.test.CR3Test.testCase4_CountEmployeesWithMixedProjectTypes(CR3Test.java:222)
+  3) testCase2_CountEmployeesAcrossMultipleDepartments(edu.project.project4.test.CR3Test)
+  java.lang.AssertionError: expected:<7> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project4.test.CR3Test.testCase2_CountEmployeesAcrossMultipleDepartments(CR3Test.java:135)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_RetrieveFundingGroupTypeForMultipleCommunityProjects(edu.project.project4.test.CR4Test)
+  java.lang.AssertionError: Should have exactly 2 funding group types expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.project.project4.test.CR4Test.testCase2_RetrieveFundingGroupTypeForMultipleCommunityProjects(CR4Test.java:90)
+  2) testCase4_RetrieveFundingGroupTypeWithMultipleDepartments(edu.project.project4.test.CR4Test)
+  java.lang.AssertionError: D004 should have exactly 1 funding group type expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.project.project4.test.CR4Test.testCase4_RetrieveFundingGroupTypeWithMultipleDepartments(CR4Test.java:151)
+  3) testCase1_RetrieveFundingGroupTypeForSingleCommunityProject(edu.project.project4.test.CR4Test)
+  java.lang.AssertionError: Should have exactly 1 funding group type expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.project.project4.test.CR4Test.testCase1_RetrieveFundingGroupTypeForSingleCommunityProject(CR4Test.java:51)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 14
+失败: 6
+成功率: 70.0%
+================================================================================

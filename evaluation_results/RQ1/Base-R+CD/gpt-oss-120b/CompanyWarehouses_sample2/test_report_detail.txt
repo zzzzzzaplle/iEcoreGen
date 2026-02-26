@@ -1,0 +1,37 @@
+============================================================
+CompanyWarehouses - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 15:33:39
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:79: 错误: 需要 class、interface、enum 或 record
+  package com.example.warehouse;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:152: 错误: 需要 class、interface、enum 或 record
+  package com.example.warehouse;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:209: 错误: 需要 class、interface、enum 或 record
+  package com.example.warehouse;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:211: 错误: 需要 class、interface、enum 或 record
+  import java.util.ArrayList;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:212: 错误: 需要 class、interface、enum 或 record
+  import java.util.HashSet;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:213: 错误: 需要 class、interface、enum 或 record
+  import java.util.List;
+  ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\CompanyWarehouses_sample2\src\main\FJC.java:214: 错误: 需要 class、interface、enum 或 record
+  import java.util.Set;
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

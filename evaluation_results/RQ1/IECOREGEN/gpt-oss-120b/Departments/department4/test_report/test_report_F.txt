@@ -1,0 +1,114 @@
+================================================================================
+department4 测试报告
+================================================================================
+生成时间: 2025-11-27 13:01:13
+样本名称: department4
+总测试数: 25
+通过: 16
+失败: 9
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase3_ReassignToDepartmentWithExistingManager(edu.department.department4.test.CR2Test)
+  java.lang.AssertionError: First assignment should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department4.test.CR2Test.testCase3_ReassignToDepartmentWithExistingManager(CR2Test.java:85)
+  2) testCase1_AssignValidEmployeeToManagerlessDepartment(edu.department.department4.test.CR2Test)
+  java.lang.AssertionError: Employee should be successfully assigned as manager
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department4.test.CR2Test.testCase1_AssignValidEmployeeToManagerlessDepartment(CR2Test.java:40)
+  3) testCase4_AssignEmployeeFromDifferentDepartment(edu.department.department4.test.CR2Test)
+  java.lang.AssertionError: Employee from different department should be assignable as manager
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department4.test.CR2Test.testCase4_AssignEmployeeFromDifferentDepartment(CR2Test.java:119)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_DeleteLastRemainingDepartment(edu.department.department4.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.employees" is null
+  	at edu.department.Company.deleteDepartment(Company.java:299)
+  	at edu.department.department4.test.CR3Test.testCase4_DeleteLastRemainingDepartment(CR3Test.java:129)
+  2) testCase3_DeleteDepartmentWithOnlyOffices(edu.department.department4.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.employees" is null
+  	at edu.department.Company.deleteDepartment(Company.java:299)
+  	at edu.department.department4.test.CR3Test.testCase3_DeleteDepartmentWithOnlyOffices(CR3Test.java:111)
+  3) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department4.test.CR3Test)
+  java.lang.AssertionError: Headquarter should be null expected null, but was:<edu.department.department4.test.CR3Test$1@4cf4d528 (title: L1, description: null, budget: 0.0, deadline: null)>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.department.department4.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:77)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_CheckDepartmentWithAssignedManager(edu.department.department4.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.employees" is null
+  	at edu.department.Company.addEmployee(Company.java:222)
+  	at edu.department.department4.test.CR4Test.testCase1_CheckDepartmentWithAssignedManager(CR4Test.java:33)
+  2) testCase3_CheckAfterManagerRemoval(edu.department.department4.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.employees" is null
+  	at edu.department.Company.addEmployee(Company.java:222)
+  	at edu.department.department4.test.CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:65)
+  3) testCase5_CheckRecentlyAssignedManager(edu.department.department4.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.employees" is null
+  	at edu.department.Company.addEmployee(Company.java:222)
+  	at edu.department.department4.test.CR4Test.testCase5_CheckRecentlyAssignedManager(CR4Test.java:104)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 16
+失败: 9
+成功率: 64.0%
+================================================================================

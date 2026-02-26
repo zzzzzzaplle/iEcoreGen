@@ -1,0 +1,20 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-23 23:17:54
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\openai\gpt-oss-120b\RCGS_sample3\src\main\FJC.java:284: 错误: 找不到符号
+    public List<OverdoNotice> getNotices() {
+                ^
+  符号:   类 OverdoNotice
+  位置: 类 Store
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\openai\gpt-oss-120b\RCGS_sample3\src\main\FJC.java:288: 错误: 找不到符号
+    public void setNotices(List<OverdoNotice> notices) {
+                                ^
+  符号:   类 OverdoNotice
+  位置: 类 Store
+2 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

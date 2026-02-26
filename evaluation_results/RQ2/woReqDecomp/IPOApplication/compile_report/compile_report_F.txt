@@ -1,0 +1,177 @@
+================================================================================
+IPOApplication 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:12:27
+系统名称: IPOApplication
+SystemName: ipo
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] ipo1
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\Application.java:443: 错误: 找不到符号
+      if (getStatus() == ApplicationStatus.APPROVED || getStatus() == ApplicationStatus.REJECTED) {
+                                          ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\Application.java:447: 错误: 找不到符号
+      setStatus(ApplicationStatus.APPROVED);
+                                 ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\Application.java:460: 错误: 找不到符号
+      if (getStatus() == ApplicationStatus.APPROVED || getStatus() == ApplicationStatus.REJECTED) {
+                                          ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\Application.java:481: 错误: 找不到符号
+      setStatus(ApplicationStatus.CANCELLED);
+                                 ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo1\Customer.java:408: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo2
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2\Application.java:440: 错误: 找不到符号
+        setStatus(ApplicationStatus.APPROVED); // Fixed: Using enum value with proper capitalization
+                                   ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2\Application.java:472: 错误: 找不到符号
+        setStatus(ApplicationStatus.CANCELLED); // Fixed: Using enum value with proper capitalization
+                                   ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2\Customer.java:369: 错误: 找不到符号
+        if (app.getCompany().getName().equals(company.getName()) && app.getStatus() == ApplicationStatus.APPROVED)
+                                                                                                        ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo2\Customer.java:425: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED)
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo3
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3\Application.java:447: 错误: 找不到符号
+      setStatus(ApplicationStatus.APPROVED); // Fixed: Assuming APPROVED is an enum value in ApplicationStatus
+                                 ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3\Application.java:481: 错误: 找不到符号
+      setStatus(ApplicationStatus.CANCELLED); // Fixed: Assuming CANCELLED is an enum value in ApplicationStatus
+                                 ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3\Customer.java:366: 错误: 找不到符号
+        if (app.getCompany().getName().equals(company.getName()) && app.getStatus() == ApplicationStatus.APPROVED) {
+                                                                                                        ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo3\Customer.java:414: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo4
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4\Application.java:443: 错误: 找不到符号
+      setStatus(ApplicationStatus.APPROVED); // Fixed by using the correct enum value
+                                 ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4\Application.java:477: 错误: 找不到符号
+      setStatus(ApplicationStatus.CANCELLED); // Fixed by using the correct enum value
+                                 ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4\Customer.java:401: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo4\Customer.java:419: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo5
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo5\Application.java:440: 错误: 找不到符号
+        setStatus(ApplicationStatus.APPROVED); // Fixed: Assuming APPROVED is an enum value in ApplicationStatus
+                                   ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo5\Application.java:472: 错误: 找不到符号
+        setStatus(ApplicationStatus.CANCELLED); // Fixed: Assuming CANCELLED is an enum value in ApplicationStatus
+                                   ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woReqDecomp\ipo5\Customer.java:408: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

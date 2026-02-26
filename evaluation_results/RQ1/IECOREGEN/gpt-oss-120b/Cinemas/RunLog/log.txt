@@ -1,0 +1,1981 @@
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Cinemas are composed of several rooms. Films are shown in theaters. The corresponding screenings take place at a specific time each (time format: 2024-10-05 13:00:00).
+Functional requirement：
++ Add a room to the cinema. If the room is not already registered, add it and return true. If the room already exists, return false.
+
++ Check a room’s availability at a given time (yyyy-MM-dd HH:mm:ss). Check if the room is already added to the cinema and assigned for another screening at the given time. Return true if the room is available. Return false if the room is already assigned or the inputs are invalid. 
+
++ Add a film to the cinema. If the film does not already exist, add it and return true. If the film already exists, return false.
+
++ Remove a film from the cinema system at the specified current time (yyyy-MM-dd HH:mm:ss), and remove all of its future scheduled screenings (the screening time >= the current time). Return true if the film is removed successfully. Return false if it does not exist. 
+
++ Assign a screening to a film and room at a specific screening time (yyyy-MM-dd HH:mm:ss) and current time (yyyy-MM-dd HH:mm:ss). Verify that the current time should be before (<) the screening time. Verify film added to the cinema and room availability. If valid, assign the screening to the room. Return true if the screening is assigned successfully. Otherwise, return false. 
+
++ Cancel a future screening at a given current time. Check if: the screening exists in the cinema, the screening time is after the current time (screening time > current time). Return true if canceled successfully, false otherwise.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title cinemas Model
+
+class Cinema {
+    film : List<Film>
+    rooms : List<Room>
+    screenings : List<Screening>
+    addFilm(film : Film) : boolean
+    addRoom(room : Room) : boolean
+    assignScreening(film : Film, currentTime : EDate, screening : Screening, room : Room) : boolean
+    cancelScreening(currentTime : EDate, screening : Screening) : boolean
+    removeFilm(film : Film, currentTime : EDate) : boolean
+}
+class Film {
+}
+class Room {
+    cinemas : Cinema
+}
+class Screening {
+    time : EDate
+    cinemas : Cinema
+    film : Film
+    room : Room
+}
+
+Cinema --> "*" Film : film
+Cinema *-- "*" Room : rooms  'opposite: cinemas
+Cinema *-- "*" Screening : screenings  'opposite: cinemas
+Room --> Cinema : cinemas  'opposite: rooms
+Screening --> Cinema : cinemas  'opposite: screenings
+Screening --> Film : film
+Screening --> Room : room
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+246033 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@3e563293 (name: addFilm) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Registers a new film in the cinema if it does not already exist.
+Algorithm:
+  1. Validate that the input `film` is not null.
+  2. Scan the `film` list for an existing film with the same identity.
+  3. If found, return false.
+  4. Otherwise:
+       a. Append `film` to the `film` collection.
+       b. Return true.
+Input:
+  - film : Film
+      * The Film object to be added.
+Output:
+  - boolean
+      * true  – the film was added successfully.
+      * false – the film already exists or the input is null.
+Pre-condition:
+  - `film` is a non‑null instance of `Film`.
+Post-condition:
+  - If returned true, `film` becomes an element of `Cinema.film`.
+  - If returned false, `Cinema.film` remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@5b53c3c5 (name: assignScreening) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Assigns a screening of a film to a specific room at a given screening time,
+  provided that the current time precedes the screening time, the film exists,
+  and the room is available at that time.
+Algorithm:
+  1. Validate non‑null inputs: `film`, `room`, `screening`, `currentTime`.
+  2. Verify that `currentTime` < `screening.time`.
+  3. Verify that `film` exists in `this.film`.
+  4. Verify that `room` exists in `this.rooms`.
+  5. Check room availability:
+       a. For each existing screening `s` in `this.screenings`:
+             if s.room == room && s.time == screening.time → room not available.
+  6. Verify that the `screening` is not already present in `this.screenings`
+     (same film, room, and time).
+  7. If all checks pass:
+       a. Set `screening.film = film`.
+       b. Set `screening.room = room`.
+       c. Set `screening.cinemas = this`.
+       d. Add `screening` to `this.screenings`.
+       e. Return true.
+  8. Otherwise, return false.
+Input:
+  - film        : Film       // film to be screened; must already be registered.
+  - currentTime : EDate      // current timestamp; must be earlier than screening.time.
+  - screening   : Screening // contains the intended screening time (screening.time).
+  - room        : Room      // room where the screening will take place; must be registered.
+Output:
+  - boolean
+      * true  – screening successfully assigned.
+      * false – any validation fails (time order, missing film/room, room occupied, duplicate screening, or null inputs).
+Pre-condition:
+  - `film ∈ Cinema.film`
+  - `room ∈ Cinema.rooms`
+  - `screening.time` is a valid future EDate.
+Post-condition:
+  - If true, `screening` is a member of `Cinema.screenings` with its `film`, `room`, and `cinemas` fields correctly set.
+  - If false, `Cinema.screenings` remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@3ec98000 (name: addRoom) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Adds a new room to the cinema if it is not already registered.
+Algorithm:
+  1. Validate that the input `room` is not null.
+  2. Search the `rooms` list for an existing room that has the same identity
+     (e.g., same room ID or object reference).
+  3. If a matching room is found, return false.
+  4. Otherwise:
+       a. Append `room` to the `rooms` collection.
+       b. Set `room.cinemas = this` to maintain the bidirectional association.
+       c. Return true.
+Input:
+  - room : Room
+      * The Room object to be added.
+      * Must be a properly instantiated object; its internal attributes (e.g., room ID) must be set.
+Output:
+  - boolean
+      * true  – the room was not present and has been added.
+      * false – the room already exists in the cinema or the input is null.
+Pre-condition:
+  - `room` is a non‑null instance of `Room`.
+Post-condition:
+  - If returned true, `room` is now an element of `Cinema.rooms` and `room.cinemas` equals this `Cinema`.
+  - If returned false, `Cinema.rooms` remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@17e66aed (name: cancelScreening) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Cancels a future screening if it exists and its scheduled time is after the provided current time.
+Algorithm:
+  1. Validate non‑null inputs: `screening`, `currentTime`.
+  2. Locate `screening` in `this.screenings` (by reference equality or matching film/room/time).
+  3. If not found, return false.
+  4. Verify that `screening.time` > `currentTime`.
+  5. If the time check fails, return false.
+  6. Remove `screening` from `this.screenings`.
+  7. Return true.
+Input:
+  - currentTime : EDate      // the moment of cancellation request.
+  - screening   : Screening // the screening to be cancelled.
+Output:
+  - boolean
+      * true  – screening existed and was removed.
+      * false – screening does not exist or its time is not in the future relative to `currentTime`.
+Pre-condition:
+  - `screening` may or may not be present in `Cinema.screenings`.
+Post-condition:
+  - If true, `screening` is no longer present in `Cinema.screenings`.
+  - If false, `Cinema.screenings` remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@65dd2191 (name: removeFilm) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Removes a film from the cinema and deletes all its scheduled screenings that occur
+  at or after the specified current time.
+Algorithm:
+  1. Validate non‑null inputs: `film`, `currentTime`.
+  2. Search for `film` in `this.film`.
+  3. If not found, return false.
+  4. Remove `film` from `this.film`.
+  5. Iterate over a copy of `this.screenings`:
+       for each `s` in the copy:
+           if s.film == film && s.time >= currentTime:
+               remove `s` from `this.screenings`.
+  6. Return true.
+Input:
+  - film        : Film   // film to be removed; must exist in the cinema.
+  - currentTime : EDate  // the reference time; screenings with time >= this are removed.
+Output:
+  - boolean
+      * true  – film existed and was removed together with its future screenings.
+      * false – film does not exist in the cinema.
+Pre-condition:
+  - `film` may be present in `Cinema.film`.
+Post-condition:
+  - If true:
+       * `film` is no longer in `Cinema.film`.
+       * All screenings where `screening.film == film` and `screening.time >= currentTime`
+         have been removed from `Cinema.screenings`.
+  - If false, both `Cinema.film` and `Cinema.screenings` remain unchanged.}
+246035 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+246054 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../Cinemas/src-gen/edu/cinemas
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.cinemas;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Cinema</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.cinemas.Cinema#getRooms <em>Rooms</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getScreenings <em>Screenings</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getFilm <em>Film</em>}</li>
+ * </ul>
+ *
+ * @see edu.cinemas.CinemasPackage#getCinema()
+ * @model kind="class"
+ * @generated
+ */
+public class Cinema extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Room> rooms;
+
+  protected EList<Screening> screenings;
+
+  protected EList<Film> film;
+
+  protected Cinema()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Room> getRooms()
+  { ... /* omitted */ }
+
+  public EList<Screening> getScreenings()
+  { ... /* omitted */ }
+
+  public EList<Film> getFilm()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Assigns a screening of a film to a specific room at a given screening time,
+   *   provided that the current time precedes the screening time, the film exists,
+   *   and the room is available at that time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `film`, `room`, `screening`, `currentTime`.
+   *   2. Verify that `currentTime` < `screening.time`.
+   *   3. Verify that `film` exists in `this.film`.
+   *   4. Verify that `room` exists in `this.rooms`.
+   *   5. Check room availability:
+   *        a. For each existing screening `s` in `this.screenings`:
+   *              if s.room == room && s.time == screening.time → room not available.
+   *   6. Verify that the `screening` is not already present in `this.screenings`
+   *      (same film, room, and time).
+   *   7. If all checks pass:
+   *        a. Set `screening.film = film`.
+   *        b. Set `screening.room = room`.
+   *        c. Set `screening.cinemas = this`.
+   *        d. Add `screening` to `this.screenings`.
+   *        e. Return true.
+   *   8. Otherwise, return false.
+   * Input:
+   *   - film        : Film       // film to be screened; must already be registered.
+   *   - currentTime : EDate      // current timestamp; must be earlier than screening.time.
+   *   - screening   : Screening // contains the intended screening time (screening.time).
+   *   - room        : Room      // room where the screening will take place; must be registered.
+   * Output:
+   *   - boolean
+   *       * true  – screening successfully assigned.
+   *       * false – any validation fails (time order, missing film/room, room occupied, duplicate screening, or null inputs).
+   * Pre-condition:
+   *   - `film ∈ Cinema.film`
+   *   - `room ∈ Cinema.rooms`
+   *   - `screening.time` is a valid future EDate.
+   * Post-condition:
+   *   - If true, `screening` is a member of `Cinema.screenings` with its `film`, `room`, and `cinemas` fields correctly set.
+   *   - If false, `Cinema.screenings` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true" screeningRequired="true" roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean assignScreening(final Film film, final Date currentTime, final Screening screening, final Room room)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Cancels a future screening if it exists and its scheduled time is after the provided current time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `screening`, `currentTime`.
+   *   2. Locate `screening` in `this.screenings` (by reference equality or matching film/room/time).
+   *   3. If not found, return false.
+   *   4. Verify that `screening.time` > `currentTime`.
+   *   5. If the time check fails, return false.
+   *   6. Remove `screening` from `this.screenings`.
+   *   7. Return true.
+   * Input:
+   *   - currentTime : EDate      // the moment of cancellation request.
+   *   - screening   : Screening // the screening to be cancelled.
+   * Output:
+   *   - boolean
+   *       * true  – screening existed and was removed.
+   *       * false – screening does not exist or its time is not in the future relative to `currentTime`.
+   * Pre-condition:
+   *   - `screening` may or may not be present in `Cinema.screenings`.
+   * Post-condition:
+   *   - If true, `screening` is no longer present in `Cinema.screenings`.
+   *   - If false, `Cinema.screenings` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model currentTimeRequired="true" screeningRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean cancelScreening(final Date currentTime, final Screening screening)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Registers a new film in the cinema if it does not already exist.
+   * Algorithm:
+   *   1. Validate that the input `film` is not null.
+   *   2. Scan the `film` list for an existing film with the same identity.
+   *   3. If found, return false.
+   *   4. Otherwise:
+   *        a. Append `film` to the `film` collection.
+   *        b. Return true.
+   * Input:
+   *   - film : Film
+   *       * The Film object to be added.
+   * Output:
+   *   - boolean
+   *       * true  – the film was added successfully.
+   *       * false – the film already exists or the input is null.
+   * Pre-condition:
+   *   - `film` is a non‑null instance of `Film`.
+   * Post-condition:
+   *   - If returned true, `film` becomes an element of `Cinema.film`.
+   *   - If returned false, `Cinema.film` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean addFilm(final Film film)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Adds a new room to the cinema if it is not already registered.
+   * Algorithm:
+   *   1. Validate that the input `room` is not null.
+   *   2. Search the `rooms` list for an existing room that has the same identity
+   *      (e.g., same room ID or object reference).
+   *   3. If a matching room is found, return false.
+   *   4. Otherwise:
+   *        a. Append `room` to the `rooms` collection.
+   *        b. Set `room.cinemas = this` to maintain the bidirectional association.
+   *        c. Return true.
+   * Input:
+   *   - room : Room
+   *       * The Room object to be added.
+   *       * Must be a properly instantiated object; its internal attributes (e.g., room ID) must be set.
+   * Output:
+   *   - boolean
+   *       * true  – the room was not present and has been added.
+   *       * false – the room already exists in the cinema or the input is null.
+   * Pre-condition:
+   *   - `room` is a non‑null instance of `Room`.
+   * Post-condition:
+   *   - If returned true, `room` is now an element of `Cinema.rooms` and `room.cinemas` equals this `Cinema`.
+   *   - If returned false, `Cinema.rooms` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean addRoom(final Room room)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Removes a film from the cinema and deletes all its scheduled screenings that occur
+   *   at or after the specified current time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `film`, `currentTime`.
+   *   2. Search for `film` in `this.film`.
+   *   3. If not found, return false.
+   *   4. Remove `film` from `this.film`.
+   *   5. Iterate over a copy of `this.screenings`:
+   *        for each `s` in the copy:
+   *            if s.film == film && s.time >= currentTime:
+   *                remove `s` from `this.screenings`.
+   *   6. Return true.
+   * Input:
+   *   - film        : Film   // film to be removed; must exist in the cinema.
+   *   - currentTime : EDate  // the reference time; screenings with time >= this are removed.
+   * Output:
+   *   - boolean
+   *       * true  – film existed and was removed together with its future screenings.
+   *       * false – film does not exist in the cinema.
+   * Pre-condition:
+   *   - `film` may be present in `Cinema.film`.
+   * Post-condition:
+   *   - If true:
+   *        * `film` is no longer in `Cinema.film`.
+   *        * All screenings where `screening.film == film` and `screening.time >= currentTime`
+   *          have been removed from `Cinema.screenings`.
+   *   - If false, both `Cinema.film` and `Cinema.screenings` remain unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean removeFilm(final Film film, final Date currentTime)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Cinema
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Room` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createRoom()`
+  + Getter methods: public Cinema getCinemas()
+  + Setter methods: public void setCinemas(Cinema newCinemas)
+- Class `Screening` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createScreening()`
+  + Getter methods: public Date getTime(), public Room getRoom(), public Film getFilm(), public Cinema getCinemas()
+  + Setter methods: public void setTime(Date newTime), public void setRoom(Room newRoom), public void setFilm(Film newFilm), public void setCinemas(Cinema newCinemas)
+- Class `Film` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createFilm()`
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.cinemas;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Cinema</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.cinemas.Cinema#getRooms <em>Rooms</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getScreenings <em>Screenings</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getFilm <em>Film</em>}</li>
+ * </ul>
+ *
+ * @see edu.cinemas.CinemasPackage#getCinema()
+ * @model kind="class"
+ * @generated
+ */
+public class Cinema extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Room> rooms;
+
+  protected EList<Screening> screenings;
+
+  protected EList<Film> film;
+
+  protected Cinema()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Room> getRooms()
+  { ... /* omitted */ }
+
+  public EList<Screening> getScreenings()
+  { ... /* omitted */ }
+
+  public EList<Film> getFilm()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Assigns a screening of a film to a specific room at a given screening time,
+   *   provided that the current time precedes the screening time, the film exists,
+   *   and the room is available at that time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `film`, `room`, `screening`, `currentTime`.
+   *   2. Verify that `currentTime` < `screening.time`.
+   *   3. Verify that `film` exists in `this.film`.
+   *   4. Verify that `room` exists in `this.rooms`.
+   *   5. Check room availability:
+   *        a. For each existing screening `s` in `this.screenings`:
+   *              if s.room == room && s.time == screening.time → room not available.
+   *   6. Verify that the `screening` is not already present in `this.screenings`
+   *      (same film, room, and time).
+   *   7. If all checks pass:
+   *        a. Set `screening.film = film`.
+   *        b. Set `screening.room = room`.
+   *        c. Set `screening.cinemas = this`.
+   *        d. Add `screening` to `this.screenings`.
+   *        e. Return true.
+   *   8. Otherwise, return false.
+   * Input:
+   *   - film        : Film       // film to be screened; must already be registered.
+   *   - currentTime : EDate      // current timestamp; must be earlier than screening.time.
+   *   - screening   : Screening // contains the intended screening time (screening.time).
+   *   - room        : Room      // room where the screening will take place; must be registered.
+   * Output:
+   *   - boolean
+   *       * true  – screening successfully assigned.
+   *       * false – any validation fails (time order, missing film/room, room occupied, duplicate screening, or null inputs).
+   * Pre-condition:
+   *   - `film ∈ Cinema.film`
+   *   - `room ∈ Cinema.rooms`
+   *   - `screening.time` is a valid future EDate.
+   * Post-condition:
+   *   - If true, `screening` is a member of `Cinema.screenings` with its `film`, `room`, and `cinemas` fields correctly set.
+   *   - If false, `Cinema.screenings` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true" screeningRequired="true" roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean assignScreening(final Film film, final Date currentTime, final Screening screening, final Room room)
+  {
+    // Validate non‑null inputs
+    if (film == null || currentTime == null || screening == null || room == null) {
+      return false;
+    }
+
+    // Verify that currentTime precedes screening.time
+    Date screeningTime = screening.getTime();
+    if (screeningTime == null || !currentTime.before(screeningTime)) {
+      return false;
+    }
+
+    // Verify film exists in this.film
+    if (!getFilm().contains(film)) {
+      return false;
+    }
+
+    // Verify room exists in this.rooms
+    if (!getRooms().contains(room)) {
+      return false;
+    }
+
+    // Check room availability for the given time
+    for (Screening s : getScreenings()) {
+      if (s.getRoom() == room && s.getTime() != null && s.getTime().equals(screeningTime)) {
+        return false; // room already occupied at that time
+      }
+    }
+
+    // Verify that the exact screening is not already present
+    for (Screening s : getScreenings()) {
+      if (s.getFilm() == film && s.getRoom() == room && s.getTime() != null && s.getTime().equals(screeningTime)) {
+        return false; // duplicate screening
+      }
+    }
+
+    // All checks passed – assign the screening
+    screening.setFilm(film);
+    screening.setRoom(room);
+    screening.setCinemas(this);
+    getScreenings().add(screening);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Cancels a future screening if it exists and its scheduled time is after the provided current time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `screening`, `currentTime`.
+   *   2. Locate `screening` in `this.screenings` (by reference equality or matching film/room/time).
+   *   3. If not found, return false.
+   *   4. Verify that `screening.time` > `currentTime`.
+   *   5. If the time check fails, return false.
+   *   6. Remove `screening` from `this.screenings`.
+   *   7. Return true.
+   * Input:
+   *   - currentTime : EDate      // the moment of cancellation request.
+   *   - screening   : Screening // the screening to be cancelled.
+   * Output:
+   *   - boolean
+   *       * true  – screening existed and was removed.
+   *       * false – screening does not exist or its time is not in the future relative to `currentTime`.
+   * Pre-condition:
+   *   - `screening` may or may not be present in `Cinema.screenings`.
+   * Post-condition:
+   *   - If true, `screening` is no longer present in `Cinema.screenings`.
+   *   - If false, `Cinema.screenings` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model currentTimeRequired="true" screeningRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelScreening(final Date currentTime, final Screening screening)
+  {
+    // Validate non‑null inputs
+    if (currentTime == null || screening == null) {
+      return false;
+    }
+
+    // Search for the screening in the list (reference or matching attributes)
+    for (Screening s : getScreenings()) {
+      boolean matches = (s == screening)
+          || (s.getFilm() == screening.getFilm()
+              && s.getRoom() == screening.getRoom()
+              && s.getTime() != null
+              && s.getTime().equals(screening.getTime()));
+      if (matches) {
+        // Verify that the screening is scheduled for the future
+        Date stime = s.getTime();
+        if (stime == null || !stime.after(currentTime)) {
+          return false;
+        }
+        // Remove and return success
+        getScreenings().remove(s);
+        return true;
+      }
+    }
+    // Screening not found
+    return false;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Registers a new film in the cinema if it does not already exist.
+   * Algorithm:
+   *   1. Validate that the input `film` is not null.
+   *   2. Scan the `film` list for an existing film with the same identity.
+   *   3. If found, return false.
+   *   4. Otherwise:
+   *        a. Append `film` to the `film` collection.
+   *        b. Return true.
+   * Input:
+   *   - film : Film
+   *       * The Film object to be added.
+   * Output:
+   *   - boolean
+   *       * true  – the film was added successfully.
+   *       * false – the film already exists or the input is null.
+   * Pre-condition:
+   *   - `film` is a non‑null instance of `Film`.
+   * Post-condition:
+   *   - If returned true, `film` becomes an element of `Cinema.film`.
+   *   - If returned false, `Cinema.film` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addFilm(final Film film)
+  {
+    if (film == null) {
+      return false;
+    }
+    if (getFilm().contains(film)) {
+      return false;
+    }
+    getFilm().add(film);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Adds a new room to the cinema if it is not already registered.
+   * Algorithm:
+   *   1. Validate that the input `room` is not null.
+   *   2. Search the `rooms` list for an existing room that has the same identity
+   *      (e.g., same room ID or object reference).
+   *   3. If a matching room is found, return false.
+   *   4. Otherwise:
+   *        a. Append `room` to the `rooms` collection.
+   *        b. Set `room.cinemas = this` to maintain the bidirectional association.
+   *        c. Return true.
+   * Input:
+   *   - room : Room
+   *       * The Room object to be added.
+   *       * Must be a properly instantiated object; its internal attributes (e.g., room ID) must be set.
+   * Output:
+   *   - boolean
+   *       * true  – the room was not present and has been added.
+   *       * false – the room already exists in the cinema or the input is null.
+   * Pre-condition:
+   *   - `room` is a non‑null instance of `Room`.
+   * Post-condition:
+   *   - If returned true, `room` is now an element of `Cinema.rooms` and `room.cinemas` equals this `Cinema`.
+   *   - If returned false, `Cinema.rooms` remains unchanged.
+   * <!-- end-model-doc -->
+   * @model roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addRoom(final Room room)
+  {
+    if (room == null) {
+      return false;
+    }
+    if (getRooms().contains(room)) {
+      return false;
+    }
+    getRooms().add(room);
+    room.setCinemas(this);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Removes a film from the cinema and deletes all its scheduled screenings that occur
+   *   at or after the specified current time.
+   * Algorithm:
+   *   1. Validate non‑null inputs: `film`, `currentTime`.
+   *   2. Search for `film` in `this.film`.
+   *   3. If not found, return false.
+   *   4. Remove `film` from `this.film`.
+   *   5. Iterate over a copy of `this.screenings`:
+   *        for each `s` in the copy:
+   *            if s.film == film && s.time >= currentTime:
+   *                remove `s` from `this.screenings`.
+   *   6. Return true.
+   * Input:
+   *   - film        : Film   // film to be removed; must exist in the cinema.
+   *   - currentTime : EDate  // the reference time; screenings with time >= this are removed.
+   * Output:
+   *   - boolean
+   *       * true  – film existed and was removed together with its future screenings.
+   *       * false – film does not exist in the cinema.
+   * Pre-condition:
+   *   - `film` may be present in `Cinema.film`.
+   * Post-condition:
+   *   - If true:
+   *        * `film` is no longer in `Cinema.film`.
+   *        * All screenings where `screening.film == film` and `screening.time >= currentTime`
+   *          have been removed from `Cinema.screenings`.
+   *   - If false, both `Cinema.film` and `Cinema.screenings` remain unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean removeFilm(final Film film, final Date currentTime)
+  {
+    if (film == null || currentTime == null) {
+      return false;
+    }
+    if (!getFilm().contains(film)) {
+      return false;
+    }
+
+    // Remove film from collection
+    getFilm().remove(film);
+
+    // Create a copy of the screenings list to avoid concurrent modification
+    BasicEList<Screening> copy = new BasicEList<>(getScreenings());
+
+    for (Screening s : copy) {
+      if (s.getFilm() == film) {
+        Date stime = s.getTime();
+        if (stime != null && !stime.before(currentTime)) { // stime >= currentTime
+          getScreenings().remove(s);
+        }
+      }
+    }
+    return true;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Cinema
+277060 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../Cinemas/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../Cinemas/src-gen/edu/cinemas/
+277162 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+277162 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+277163 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+277163 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+277164 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample4.mwe2 启动完成
+正在拷贝 src-gen/edu/cinemas 到 gpt-oss-120b/cinemas4...
+拷贝完成！
+
+======================================
+正在启动 sample5.mwe2...
+======================================
+277310 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+277379 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project Cinemas at 'file:/D:/EclipseWorkspace/Cinemas/'
+277381 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+277387 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@39303a6
+277387 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+277389 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+277390 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Cinemas are composed of several rooms. Films are shown in theaters. The corresponding screenings take place at a specific time each (time format: 2024-10-05 13:00:00).
+Functional requirement：
++ Add a room to the cinema. If the room is not already registered, add it and return true. If the room already exists, return false.
+
++ Check a room’s availability at a given time (yyyy-MM-dd HH:mm:ss). Check if the room is already added to the cinema and assigned for another screening at the given time. Return true if the room is available. Return false if the room is already assigned or the inputs are invalid. 
+
++ Add a film to the cinema. If the film does not already exist, add it and return true. If the film already exists, return false.
+
++ Remove a film from the cinema system at the specified current time (yyyy-MM-dd HH:mm:ss), and remove all of its future scheduled screenings (the screening time >= the current time). Return true if the film is removed successfully. Return false if it does not exist. 
+
++ Assign a screening to a film and room at a specific screening time (yyyy-MM-dd HH:mm:ss) and current time (yyyy-MM-dd HH:mm:ss). Verify that the current time should be before (<) the screening time. Verify film added to the cinema and room availability. If valid, assign the screening to the room. Return true if the screening is assigned successfully. Otherwise, return false. 
+
++ Cancel a future screening at a given current time. Check if: the screening exists in the cinema, the screening time is after the current time (screening time > current time). Return true if canceled successfully, false otherwise.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title cinemas Model
+
+class Cinema {
+    film : List<Film>
+    rooms : List<Room>
+    screenings : List<Screening>
+    addFilm(film : Film) : boolean
+    addRoom(room : Room) : boolean
+    assignScreening(film : Film, currentTime : EDate, screening : Screening, room : Room) : boolean
+    cancelScreening(currentTime : EDate, screening : Screening) : boolean
+    removeFilm(film : Film, currentTime : EDate) : boolean
+}
+class Film {
+}
+class Room {
+    cinemas : Cinema
+}
+class Screening {
+    time : EDate
+    cinemas : Cinema
+    film : Film
+    room : Room
+}
+
+Cinema --> "*" Film : film
+Cinema *-- "*" Room : rooms  'opposite: cinemas
+Cinema *-- "*" Screening : screenings  'opposite: cinemas
+Room --> Cinema : cinemas  'opposite: rooms
+Screening --> Cinema : cinemas  'opposite: screenings
+Screening --> Film : film
+Screening --> Room : room
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+285465 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@37aec9b (name: cancelScreening) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Cancels a future screening given the current time, provided the screening exists and its time is after the current time.
+Algorithm:
+  1. Validate that `screening` and `currentTime` are not null.
+  2. Locate `screening` in the cinema's `screenings` list (by reference or by unique identifier).
+  3. If not found, return false.
+  4. Verify that `screening.time` > `currentTime`.
+     - If not, return false.
+  5. Remove `screening` from the `screenings` list.
+  6. Return true.
+Input:
+  - currentTime : EDate
+      * Meaning : The moment at which the cancellation is requested.
+      * Format : "yyyy-MM-dd HH:mm:ss".
+  - screening : Screening
+      * Meaning : The screening to be cancelled.
+Output:
+  - boolean
+      * Meaning : true if cancellation succeeded, false otherwise.
+Pre‑condition:
+  - Cinema is initialized; its screenings list is non‑null.
+Post‑condition:
+  - If true, the specified screening is no longer present in the cinema's screenings list.
+  - If false, the cinema's screenings remain unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@3db145f7 (name: addRoom) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Registers a new Room in the cinema if it is not already present.
+Algorithm:
+  1. Validate that `room` is not null.
+  2. Verify that `room.cinemas` either is null or points to this cinema.
+  3. Search the cinema's `rooms` list for a room with the same identifier
+     (e.g., room number or name).
+  4. If a matching room exists, return false.
+  5. Set `room.cinemas` to this cinema.
+  6. Append `room` to the `rooms` list.
+  7. Return true.
+Input:
+  - room : Room
+      * Meaning : The room object to be added.
+      * Format  : An instance of class Room with required attributes (e.g., roomId, capacity).
+      * Value range : Non‑null; identifier must be unique within the cinema.
+Output:
+  - boolean
+      * Meaning : true if the room was added, false if it already existed.
+Pre‑condition:
+  - `cinema` instance is properly initialized (its rooms list is not null).
+Post‑condition:
+  - If true, `room` appears in the cinema's rooms list and its `cinemas` reference points to this cinema.
+  - If false, the rooms list is unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@25bd68ea (name: removeFilm) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Removes a Film from the cinema and deletes all its future screenings (screening.time >= currentTime).
+Algorithm:
+  1. Validate that `film` and `currentTime` are not null.
+  2. Locate `film` in the cinema's `film` list using equality comparison.
+  3. If not found, return false.
+  4. Iterate over the `screenings` list and collect screenings where:
+       a) screening.film == film, and
+       b) screening.time >= currentTime.
+  5. Remove the collected screenings from the `screenings` list.
+  6. Remove `film` from the `film` list.
+  7. Return true.
+Input:
+  - film : Film
+      * Meaning : The film to be removed.
+      * Format  : An instance of Film that exists in the cinema's catalog.
+  - currentTime : EDate
+      * Meaning : The moment at which removal is requested.
+      * Format  : Date‑time string "yyyy-MM-dd HH:mm:ss".
+Output:
+  - boolean
+      * Meaning : true if removal succeeded, false if the film does not exist.
+Pre‑condition:
+  - `cinema` is initialized; its film and screening lists are not null.
+Post‑condition:
+  - If true, the specified film no longer appears in the cinema's film list,
+    and no screening for that film with time >= currentTime remains in the screenings list.
+  - If false, the cinema state is unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@42fc744 (name: addFilm) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Adds a new Film to the cinema's catalog if it does not already exist.
+Algorithm:
+  1. Validate that `film` is not null.
+  2. Search the cinema's `film` list for an existing film with the same identifier
+     (e.g., title + year; assume Film overrides equals/hashCode).
+  3. If a matching film is found, return false.
+  4. Otherwise, append `film` to the `film` list.
+  5. Return true.
+Input:
+  - film : Film
+      * Meaning : The film object to be added.
+      * Format  : An instance of class Film with required attributes (e.g., title, duration).
+      * Value range : Non‑null; identifier must be unique within the cinema.
+Output:
+  - boolean
+      * Meaning : true if the film was added, false if it already existed.
+Pre‑condition:
+  - `cinema` instance is properly initialized (its film list is not null).
+Post‑condition:
+  - If returned true, `film` is now present in the cinema's film list.
+  - If returned false, the film list remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@7915111a (name: assignScreening) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary:
+  Assigns a new Screening of a given film to a specified room at a future time,
+  provided the film exists, the room is available, and the current time precedes the screening time.
+Algorithm:
+  1. Validate that `film`, `room`, `screening`, `currentTime` are not null.
+  2. Verify that `currentTime` < `screening.time`.
+     - If not, return false.
+  3. Confirm that `film` exists in the cinema's `film` list.
+     - If not, return false.
+  4. Confirm that `room` exists in the cinema's `rooms` list.
+     - If not, return false.
+  5. Check room availability:
+       a) Iterate over existing screenings.
+       b) If any screening has `room` == given room and
+          `screening.time` == given screening.time, the room is occupied.
+       c) If occupied, return false.
+  6. Set `screening.film` = `film`, `screening.room` = `room`, `screening.time` = given time,
+     and `screening.cinemas` = this cinema.
+  7. Add `screening` to the cinema's `screenings` list.
+  8. Return true.
+Input:
+  - film : Film
+      * Meaning : Film to be shown.
+  - currentTime : EDate
+      * Meaning : Time of the request, must be before screening.time.
+      * Format : "yyyy-MM-dd HH:mm:ss".
+  - screening : Screening
+      * Meaning : Screening object containing the desired `time`.
+      * Required fields : `time` (EDate); other fields will be set by this method.
+  - room : Room
+      * Meaning : Room where the screening will take place.
+Output:
+  - boolean
+      * Meaning : true if the screening was successfully scheduled, false otherwise.
+Pre‑condition:
+  - The cinema instance is initialized; its film, rooms, and screenings lists are non‑null.
+Post‑condition:
+  - If true, a new Screening linking the given film, room, and time is stored in the cinema's screenings list.
+  - If false, no changes are made to the cinema's state.}
+285467 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+285485 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../Cinemas/src-gen/edu/cinemas
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.cinemas;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Cinema</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.cinemas.Cinema#getRooms <em>Rooms</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getScreenings <em>Screenings</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getFilm <em>Film</em>}</li>
+ * </ul>
+ *
+ * @see edu.cinemas.CinemasPackage#getCinema()
+ * @model kind="class"
+ * @generated
+ */
+public class Cinema extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Room> rooms;
+
+  protected EList<Screening> screenings;
+
+  protected EList<Film> film;
+
+  protected Cinema()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Room> getRooms()
+  { ... /* omitted */ }
+
+  public EList<Screening> getScreenings()
+  { ... /* omitted */ }
+
+  public EList<Film> getFilm()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Assigns a new Screening of a given film to a specified room at a future time,
+   *   provided the film exists, the room is available, and the current time precedes the screening time.
+   * Algorithm:
+   *   1. Validate that `film`, `room`, `screening`, `currentTime` are not null.
+   *   2. Verify that `currentTime` < `screening.time`.
+   *      - If not, return false.
+   *   3. Confirm that `film` exists in the cinema's `film` list.
+   *      - If not, return false.
+   *   4. Confirm that `room` exists in the cinema's `rooms` list.
+   *      - If not, return false.
+   *   5. Check room availability:
+   *        a) Iterate over existing screenings.
+   *        b) If any screening has `room` == given room and
+   *           `screening.time` == given screening.time, the room is occupied.
+   *        c) If occupied, return false.
+   *   6. Set `screening.film` = `film`, `screening.room` = `room`, `screening.time` = given time,
+   *      and `screening.cinemas` = this cinema.
+   *   7. Add `screening` to the cinema's `screenings` list.
+   *   8. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : Film to be shown.
+   *   - currentTime : EDate
+   *       * Meaning : Time of the request, must be before screening.time.
+   *       * Format : "yyyy-MM-dd HH:mm:ss".
+   *   - screening : Screening
+   *       * Meaning : Screening object containing the desired `time`.
+   *       * Required fields : `time` (EDate); other fields will be set by this method.
+   *   - room : Room
+   *       * Meaning : Room where the screening will take place.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the screening was successfully scheduled, false otherwise.
+   * Pre‑condition:
+   *   - The cinema instance is initialized; its film, rooms, and screenings lists are non‑null.
+   * Post‑condition:
+   *   - If true, a new Screening linking the given film, room, and time is stored in the cinema's screenings list.
+   *   - If false, no changes are made to the cinema's state.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true" screeningRequired="true" roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean assignScreening(final Film film, final Date currentTime, final Screening screening, final Room room)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Cancels a future screening given the current time, provided the screening exists and its time is after the current time.
+   * Algorithm:
+   *   1. Validate that `screening` and `currentTime` are not null.
+   *   2. Locate `screening` in the cinema's `screenings` list (by reference or by unique identifier).
+   *   3. If not found, return false.
+   *   4. Verify that `screening.time` > `currentTime`.
+   *      - If not, return false.
+   *   5. Remove `screening` from the `screenings` list.
+   *   6. Return true.
+   * Input:
+   *   - currentTime : EDate
+   *       * Meaning : The moment at which the cancellation is requested.
+   *       * Format : "yyyy-MM-dd HH:mm:ss".
+   *   - screening : Screening
+   *       * Meaning : The screening to be cancelled.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if cancellation succeeded, false otherwise.
+   * Pre‑condition:
+   *   - Cinema is initialized; its screenings list is non‑null.
+   * Post‑condition:
+   *   - If true, the specified screening is no longer present in the cinema's screenings list.
+   *   - If false, the cinema's screenings remain unchanged.
+   * <!-- end-model-doc -->
+   * @model currentTimeRequired="true" screeningRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean cancelScreening(final Date currentTime, final Screening screening)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Adds a new Film to the cinema's catalog if it does not already exist.
+   * Algorithm:
+   *   1. Validate that `film` is not null.
+   *   2. Search the cinema's `film` list for an existing film with the same identifier
+   *      (e.g., title + year; assume Film overrides equals/hashCode).
+   *   3. If a matching film is found, return false.
+   *   4. Otherwise, append `film` to the `film` list.
+   *   5. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : The film object to be added.
+   *       * Format  : An instance of class Film with required attributes (e.g., title, duration).
+   *       * Value range : Non‑null; identifier must be unique within the cinema.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the film was added, false if it already existed.
+   * Pre‑condition:
+   *   - `cinema` instance is properly initialized (its film list is not null).
+   * Post‑condition:
+   *   - If returned true, `film` is now present in the cinema's film list.
+   *   - If returned false, the film list remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean addFilm(final Film film)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Registers a new Room in the cinema if it is not already present.
+   * Algorithm:
+   *   1. Validate that `room` is not null.
+   *   2. Verify that `room.cinemas` either is null or points to this cinema.
+   *   3. Search the cinema's `rooms` list for a room with the same identifier
+   *      (e.g., room number or name).
+   *   4. If a matching room exists, return false.
+   *   5. Set `room.cinemas` to this cinema.
+   *   6. Append `room` to the `rooms` list.
+   *   7. Return true.
+   * Input:
+   *   - room : Room
+   *       * Meaning : The room object to be added.
+   *       * Format  : An instance of class Room with required attributes (e.g., roomId, capacity).
+   *       * Value range : Non‑null; identifier must be unique within the cinema.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the room was added, false if it already existed.
+   * Pre‑condition:
+   *   - `cinema` instance is properly initialized (its rooms list is not null).
+   * Post‑condition:
+   *   - If true, `room` appears in the cinema's rooms list and its `cinemas` reference points to this cinema.
+   *   - If false, the rooms list is unchanged.
+   * <!-- end-model-doc -->
+   * @model roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean addRoom(final Room room)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Removes a Film from the cinema and deletes all its future screenings (screening.time >= currentTime).
+   * Algorithm:
+   *   1. Validate that `film` and `currentTime` are not null.
+   *   2. Locate `film` in the cinema's `film` list using equality comparison.
+   *   3. If not found, return false.
+   *   4. Iterate over the `screenings` list and collect screenings where:
+   *        a) screening.film == film, and
+   *        b) screening.time >= currentTime.
+   *   5. Remove the collected screenings from the `screenings` list.
+   *   6. Remove `film` from the `film` list.
+   *   7. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : The film to be removed.
+   *       * Format  : An instance of Film that exists in the cinema's catalog.
+   *   - currentTime : EDate
+   *       * Meaning : The moment at which removal is requested.
+   *       * Format  : Date‑time string "yyyy-MM-dd HH:mm:ss".
+   * Output:
+   *   - boolean
+   *       * Meaning : true if removal succeeded, false if the film does not exist.
+   * Pre‑condition:
+   *   - `cinema` is initialized; its film and screening lists are not null.
+   * Post‑condition:
+   *   - If true, the specified film no longer appears in the cinema's film list,
+   *     and no screening for that film with time >= currentTime remains in the screenings list.
+   *   - If false, the cinema state is unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean removeFilm(final Film film, final Date currentTime)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Cinema
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Room` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createRoom()`
+  + Getter methods: public Cinema getCinemas()
+  + Setter methods: public void setCinemas(Cinema newCinemas)
+- Class `Screening` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createScreening()`
+  + Getter methods: public Date getTime(), public Room getRoom(), public Film getFilm(), public Cinema getCinemas()
+  + Setter methods: public void setTime(Date newTime), public void setRoom(Room newRoom), public void setFilm(Film newFilm), public void setCinemas(Cinema newCinemas)
+- Class `Film` contains the following methods.
+  + Instance creation: Use `CinemasFactory.eINSTANCE.createFilm()`
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.cinemas;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Cinema</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.cinemas.Cinema#getRooms <em>Rooms</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getScreenings <em>Screenings</em>}</li>
+ *   <li>{@link edu.cinemas.Cinema#getFilm <em>Film</em>}</li>
+ * </ul>
+ *
+ * @see edu.cinemas.CinemasPackage#getCinema()
+ * @model kind="class"
+ * @generated
+ */
+public class Cinema extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Room> rooms;
+
+  protected EList<Screening> screenings;
+
+  protected EList<Film> film;
+
+  protected Cinema()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Room> getRooms()
+  { ... /* omitted */ }
+
+  public EList<Screening> getScreenings()
+  { ... /* omitted */ }
+
+  public EList<Film> getFilm()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Assigns a new Screening of a given film to a specified room at a future time,
+   *   provided the film exists, the room is available, and the current time precedes the screening time.
+   * Algorithm:
+   *   1. Validate that `film`, `room`, `screening`, `currentTime` are not null.
+   *   2. Verify that `currentTime` < `screening.time`.
+   *      - If not, return false.
+   *   3. Confirm that `film` exists in the cinema's `film` list.
+   *      - If not, return false.
+   *   4. Confirm that `room` exists in the cinema's `rooms` list.
+   *      - If not, return false.
+   *   5. Check room availability:
+   *        a) Iterate over existing screenings.
+   *        b) If any screening has `room` == given room and
+   *           `screening.time` == given screening.time, the room is occupied.
+   *        c) If occupied, return false.
+   *   6. Set `screening.film` = `film`, `screening.room` = `room`, `screening.time` = given time,
+   *      and `screening.cinemas` = this cinema.
+   *   7. Add `screening` to the cinema's `screenings` list.
+   *   8. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : Film to be shown.
+   *   - currentTime : EDate
+   *       * Meaning : Time of the request, must be before screening.time.
+   *       * Format : "yyyy-MM-dd HH:mm:ss".
+   *   - screening : Screening
+   *       * Meaning : Screening object containing the desired `time`.
+   *       * Required fields : `time` (EDate); other fields will be set by this method.
+   *   - room : Room
+   *       * Meaning : Room where the screening will take place.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the screening was successfully scheduled, false otherwise.
+   * Pre‑condition:
+   *   - The cinema instance is initialized; its film, rooms, and screenings lists are non‑null.
+   * Post‑condition:
+   *   - If true, a new Screening linking the given film, room, and time is stored in the cinema's screenings list.
+   *   - If false, no changes are made to the cinema's state.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true" screeningRequired="true" roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean assignScreening(final Film film, final Date currentTime, final Screening screening, final Room room)
+  {
+    // 1. Validate non‑null parameters
+    if (film == null || currentTime == null || screening == null || room == null) {
+      return false;
+    }
+    // screening must have a time set
+    Date screeningTime = screening.getTime();
+    if (screeningTime == null) {
+      return false;
+    }
+    // 2. Verify current time precedes screening time
+    if (!currentTime.before(screeningTime)) {
+      return false;
+    }
+    // 3. Confirm film exists in cinema's film list
+    if (!getFilm().contains(film)) {
+      return false;
+    }
+    // 4. Confirm room exists in cinema's rooms list
+    if (!getRooms().contains(room)) {
+      return false;
+    }
+    // 5. Check room availability at the requested time
+    for (Screening s : getScreenings()) {
+      if (room.equals(s.getRoom()) && screeningTime.equals(s.getTime())) {
+        return false; // room already occupied at that time
+      }
+    }
+    // 6. Set relationships
+    screening.setFilm(film);
+    screening.setRoom(room);
+    screening.setTime(screeningTime); // already set, but kept for clarity
+    screening.setCinemas(this);
+    // 7. Add screening to cinema's list
+    getScreenings().add(screening);
+    // 8. Success
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Cancels a future screening given the current time, provided the screening exists and its time is after the current time.
+   * Algorithm:
+   *   1. Validate that `screening` and `currentTime` are not null.
+   *   2. Locate `screening` in the cinema's `screenings` list (by reference or by unique identifier).
+   *   3. If not found, return false.
+   *   4. Verify that `screening.time` > `currentTime`.
+   *      - If not, return false.
+   *   5. Remove `screening` from the `screenings` list.
+   *   6. Return true.
+   * Input:
+   *   - currentTime : EDate
+   *       * Meaning : The moment at which the cancellation is requested.
+   *       * Format : "yyyy-MM-dd HH:mm:ss".
+   *   - screening : Screening
+   *       * Meaning : The screening to be cancelled.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if cancellation succeeded, false otherwise.
+   * Pre‑condition:
+   *   - Cinema is initialized; its screenings list is non‑null.
+   * Post‑condition:
+   *   - If true, the specified screening is no longer present in the cinema's screenings list.
+   *   - If false, the cinema's screenings remain unchanged.
+   * <!-- end-model-doc -->
+   * @model currentTimeRequired="true" screeningRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelScreening(final Date currentTime, final Screening screening)
+  {
+    // 1. Validate parameters
+    if (currentTime == null || screening == null) {
+      return false;
+    }
+    // 2. Check that screening is present in the list
+    if (!getScreenings().contains(screening)) {
+      return false;
+    }
+    // 3. Verify that the screening is scheduled for a future time
+    Date screeningTime = screening.getTime();
+    if (screeningTime == null || !screeningTime.after(currentTime)) {
+      return false;
+    }
+    // 4. Remove the screening
+    getScreenings().remove(screening);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Adds a new Film to the cinema's catalog if it does not already exist.
+   * Algorithm:
+   *   1. Validate that `film` is not null.
+   *   2. Search the cinema's `film` list for an existing film with the same identifier
+   *      (e.g., title + year; assume Film overrides equals/hashCode).
+   *   3. If a matching film is found, return false.
+   *   4. Otherwise, append `film` to the `film` list.
+   *   5. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : The film object to be added.
+   *       * Format  : An instance of class Film with required attributes (e.g., title, duration).
+   *       * Value range : Non‑null; identifier must be unique within the cinema.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the film was added, false if it already existed.
+   * Pre‑condition:
+   *   - `cinema` instance is properly initialized (its film list is not null).
+   * Post‑condition:
+   *   - If returned true, `film` is now present in the cinema's film list.
+   *   - If returned false, the film list remains unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addFilm(final Film film)
+  {
+    // 1. Validate input
+    if (film == null) {
+      return false;
+    }
+    // 2. Check for existing film
+    if (getFilm().contains(film)) {
+      return false;
+    }
+    // 3. Add film to the catalog
+    getFilm().add(film);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Registers a new Room in the cinema if it is not already present.
+   * Algorithm:
+   *   1. Validate that `room` is not null.
+   *   2. Verify that `room.cinemas` either is null or points to this cinema.
+   *   3. Search the cinema's `rooms` list for a room with the same identifier
+   *      (e.g., room number or name).
+   *   4. If a matching room exists, return false.
+   *   5. Set `room.cinemas` to this cinema.
+   *   6. Append `room` to the `rooms` list.
+   *   7. Return true.
+   * Input:
+   *   - room : Room
+   *       * Meaning : The room object to be added.
+   *       * Format  : An instance of class Room with required attributes (e.g., roomId, capacity).
+   *       * Value range : Non‑null; identifier must be unique within the cinema.
+   * Output:
+   *   - boolean
+   *       * Meaning : true if the room was added, false if it already existed.
+   * Pre‑condition:
+   *   - `cinema` instance is properly initialized (its rooms list is not null).
+   * Post‑condition:
+   *   - If true, `room` appears in the cinema's rooms list and its `cinemas` reference points to this cinema.
+   *   - If false, the rooms list is unchanged.
+   * <!-- end-model-doc -->
+   * @model roomRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean addRoom(final Room room)
+  {
+    // 1. Validate input
+    if (room == null) {
+      return false;
+    }
+    // 2. Verify cinema reference
+    Cinema existingCinema = room.getCinemas();
+    if (existingCinema != null && existingCinema != this) {
+      return false;
+    }
+    // 3. Check for duplicate room
+    if (getRooms().contains(room)) {
+      return false;
+    }
+    // 4. Establish bidirectional link
+    room.setCinemas(this);
+    // 5. Add to list
+    getRooms().add(room);
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary:
+   *   Removes a Film from the cinema and deletes all its future screenings (screening.time >= currentTime).
+   * Algorithm:
+   *   1. Validate that `film` and `currentTime` are not null.
+   *   2. Locate `film` in the cinema's `film` list using equality comparison.
+   *   3. If not found, return false.
+   *   4. Iterate over the `screenings` list and collect screenings where:
+   *        a) screening.film == film, and
+   *        b) screening.time >= currentTime.
+   *   5. Remove the collected screenings from the `screenings` list.
+   *   6. Remove `film` from the `film` list.
+   *   7. Return true.
+   * Input:
+   *   - film : Film
+   *       * Meaning : The film to be removed.
+   *       * Format  : An instance of Film that exists in the cinema's catalog.
+   *   - currentTime : EDate
+   *       * Meaning : The moment at which removal is requested.
+   *       * Format  : Date‑time string "yyyy-MM-dd HH:mm:ss".
+   * Output:
+   *   - boolean
+   *       * Meaning : true if removal succeeded, false if the film does not exist.
+   * Pre‑condition:
+   *   - `cinema` is initialized; its film and screening lists are not null.
+   * Post‑condition:
+   *   - If true, the specified film no longer appears in the cinema's film list,
+   *     and no screening for that film with time >= currentTime remains in the screenings list.
+   *   - If false, the cinema state is unchanged.
+   * <!-- end-model-doc -->
+   * @model filmRequired="true" currentTimeRequired="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean removeFilm(final Film film, final Date currentTime)
+  {
+    // 1. Validate inputs
+    if (film == null || currentTime == null) {
+      return false;
+    }
+    // 2. Verify film exists
+    if (!getFilm().contains(film)) {
+      return false;
+    }
+    // 3. Collect future screenings to remove
+    BasicEList<Screening> toRemove = new BasicEList<>();
+    for (Screening s : getScreenings()) {
+      if (film.equals(s.getFilm())) {
+        Date screeningTime = s.getTime();
+        if (screeningTime != null && !screeningTime.before(currentTime)) {
+          toRemove.add(s);
+        }
+      }
+    }
+    // 4. Remove collected screenings
+    getScreenings().removeAll(toRemove);
+    // 5. Remove the film from catalog
+    getFilm().remove(film);
+    return true;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Cinema
+300014 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../Cinemas/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../Cinemas/src-gen/edu/cinemas/
+300110 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+300110 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\Cinemas\src-gen\edu\cinemas\Cinema.java (at line 22)
+	import java.util.Iterator;
+	       ^^^^^^^^^^^^^^^^^^
+The import java.util.Iterator is never used
+----------
+1 problem (1 warning)
+
+300110 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+300110 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+300111 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/cinemas 到 gpt-oss-120b/cinemas5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

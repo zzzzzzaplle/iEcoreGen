@@ -1,0 +1,13 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-25 09:48:21
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\FileManager_sample2\src\main\FJC.java:72: 错误: 不兼容的类型: 从double转换到float可能会有损失
+                    .orElse(0.0f);
+                           ^
+1 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

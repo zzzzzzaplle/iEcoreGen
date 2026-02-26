@@ -1,0 +1,85 @@
+================================================================================
+carrental1 测试报告
+================================================================================
+生成时间: 2025-11-25 15:18:42
+样本名称: carrental1
+总测试数: 21
+通过: 19
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 1
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) initializationError(org.junit.runner.JUnitCommandLineParseResult)
+  java.lang.IllegalArgumentException: Could not find class [edu.carrental.carrental1.test.CR3Test]
+  	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:100)
+  	at org.junit.runner.JUnitCommandLineParseResult.parseArgs(JUnitCommandLineParseResult.java:50)
+  	at org.junit.runner.JUnitCommandLineParseResult.parse(JUnitCommandLineParseResult.java:44)
+  	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:72)
+  	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+  Caused by: java.lang.ClassNotFoundException: edu.carrental.carrental1.test.CR3Test
+  	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+  	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+  	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+  	at java.base/java.lang.Class.forName0(Native Method)
+  	at java.base/java.lang.Class.forName(Class.java:534)
+  	at java.base/java.lang.Class.forName(Class.java:513)
+  	at org.junit.internal.Classes.getClass(Classes.java:42)
+  	at org.junit.internal.Classes.getClass(Classes.java:27)
+  	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:98)
+  	... 4 more
+  
+  FAILURES!!!
+  Tests run: 1,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CountRentalsWithNoRecords(edu.carrental.carrental1.test.CR5Test)
+  org.eclipse.emf.common.util.BasicEList$BasicIndexOutOfBoundsException: index=0, size=0
+  	at org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:345)
+  	at edu.carrental.carrental1.test.CR5Test.testCase3_CountRentalsWithNoRecords(CR5Test.java:178)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 21
+通过: 19
+失败: 2
+成功率: 90.5%
+================================================================================

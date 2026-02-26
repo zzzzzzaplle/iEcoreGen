@@ -1,0 +1,2289 @@
+  protected static final double SURFACE_EDEFAULT = 0.0;
+
+  protected double surface = SURFACE_EDEFAULT;
+
+  protected EList<ProductOccupation> occupations;
+
+  protected Warehouse()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getCity()
+  { ... /* omitted */ }
+
+  public void setCity(String newCity)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public double getSurface()
+  { ... /* omitted */ }
+
+  public void setSurface(double newSurface)
+  { ... /* omitted */ }
+
+  public EList<ProductOccupation> getOccupations()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCompany(Company newCompany, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all toxic product names present in this warehouse.
+   * Algorithm:
+   *   1. Initialize toxicProducts as an empty list of Strings
+   *   2. For each productOccupation in this warehouse's occupations:
+   *       2.1. If productOccupation.product.isToxic() is true:
+   *           2.1.1. Add productOccupation.product.name to toxicProducts
+   *   3. Return toxicProducts
+   * Input: None
+   * Output: 
+   *   - List<String>: a list of toxic product names found in the warehouse. Returns empty list if no toxic products found.
+   * Pre-condition: The warehouse and its occupations list should be properly initialized.
+   * Post-condition: The warehouse's state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<String> retrieveToxicProductNames()
+  {
+    EList<String> toxicProducts = new org.eclipse.emf.common.util.BasicEList<String>();
+    if (occupations != null) {
+      for (ProductOccupation productOccupation : occupations) {
+        if (productOccupation != null && productOccupation.getProduct() != null && productOccupation.getProduct().isToxic()) {
+          toxicProducts.add(productOccupation.getProduct().getName());
+        }
+      }
+    }
+    return toxicProducts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+   * Algorithm:
+   *   1. Initialize uniqueSuppliers as an empty set of Suppliers
+   *   2. For each productOccupation in this warehouse's occupations:
+   *       2.1. Add productOccupation.product.supplier to uniqueSuppliers
+   *   3. Convert uniqueSuppliers set to a list and return
+   * Input: None
+   * Output: 
+   *   - List<Supplier>: a list of unique suppliers found in the warehouse. Returns empty list if no products found.
+   * Pre-condition: The warehouse and its occupations list should be properly initialized.
+   * Post-condition: The warehouse's state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Supplier> retrieveUniqueSuppliers()
+  {
+    Set<Supplier> uniqueSuppliers = new HashSet<Supplier>();
+    if (occupations != null) {
+      for (ProductOccupation productOccupation : occupations) {
+        if (productOccupation != null && productOccupation.getProduct() != null && productOccupation.getProduct().getSupplier() != null) {
+          uniqueSuppliers.add(productOccupation.getProduct().getSupplier());
+        }
+      }
+    }
+    return new org.eclipse.emf.common.util.BasicEList<Supplier>(uniqueSuppliers);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Checks if this warehouse contains a specific product by name.
+   * Algorithm:
+   *   1. For each productOccupation in this warehouse's occupations:
+   *       1.1. If productOccupation.product.name equals productName:
+   *           1.1.1. Return true
+   *   2. Return false
+   * Input: 
+   *   - productName: String, the name of the product to search for. Should be non-null.
+   * Output: 
+   *   - boolean: true if the product is found in this warehouse, false otherwise.
+   * Pre-condition: The warehouse and its occupations list should be properly initialized.
+   * Post-condition: The warehouse's state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean containsProduct(final String productName)
+  {
+    if (productName == null) {
+      return false;
+    }
+    if (occupations != null) {
+      for (ProductOccupation productOccupation : occupations) {
+        if (productOccupation != null && productOccupation.getProduct() != null && productName.equals(productOccupation.getProduct().getName())) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Warehouse
+514514 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../CompanyWarehouses/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../CompanyWarehouses/src-gen/edu/company/
+514661 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+514661 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\CompanyWarehouses\src-gen\edu\company\Company.java (at line 160)
+	boolean found = false;
+	        ^^^^^
+The value of the local variable found is not used
+----------
+1 problem (1 warning)
+
+514661 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+514661 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+514662 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample3.mwe2 启动完成
+正在拷贝 src-gen/edu/company 到 deepseek-v3.2-exp/company3...
+拷贝完成！
+
+======================================
+正在启动 sample4.mwe2...
+======================================
+515036 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+515105 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project CompanyWarehouses at 'file:/D:/EclipseWorkspace/CompanyWarehouses/'
+515107 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+515114 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@3a917e07
+515114 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+515116 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+515117 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+A company has several warehouses located in different cities. In each of the warehouses is stored merchandise, the different products it needs for its activity. Two different warehouses can have the same products. For each product we also want to know its supplier (name, address), its name, whether it is toxic or not and what volume (m^3) it occupies. For each warehouse we want to know its surface (m²) and its address.
+Funtion requirement：
++ Retrieve a list of all toxic product names present in a specific warehouse. Return an empty list if no toxic products are found or if the warehouse does not exist.  
+
++ Retrieve the list of all distinct suppliers whose products are stored in a specific warehouse. Return an empty list if the warehouse contains no products or does not exist. 
+
++ Count the total volume of products supplied by a specific supplier name within a specific company. Return 0 if no products are found. 
+
++ Verify that a warehouse contains a specific product by product name. Return false if the warehouse or product does not exist; return true if the product is in the warehouse. 
+
++ Verify that the company contains a specific product by product name and return its locations. Return a list of warehouse cities and addresses if found; return an empty list if the product is not found. 
+Important: When filling in method bodies for Ecore/EMF, getters for boolean attributes must be called using the is<AttributeName>() or isIs<AttributeName>() format. Never use the get<AttributeName>() format for booleans.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title company Model
+
+class Company {
+    warehouses : List<Warehouse>
+    countTotalVolumeBySupplier(supplierName : String) : double
+    findProductLocations(productName : String) : List<EMap>
+}
+class Product {
+    name : String
+    toxic : boolean
+    occupations : List<ProductOccupation>
+    supplier : Supplier
+}
+class ProductOccupation {
+    volume : double
+    product : Product
+}
+class Supplier {
+    address : String
+    name : String
+    products : List<Product>
+}
+class Warehouse {
+    address : String
+    city : String
+    surface : double
+    company : Company
+    occupations : List<ProductOccupation>
+    containsProduct(productName : String) : boolean
+    retrieveToxicProductNames() : List<String>
+    retrieveUniqueSuppliers() : List<Supplier>
+}
+
+Company *-- "*" Warehouse : warehouses  'opposite: company
+Product --> "*" ProductOccupation : occupations  'opposite: product
+Product --> Supplier : supplier  'opposite: products
+ProductOccupation --> Product : product  'opposite: occupations
+Supplier --> "*" Product : products  'opposite: supplier
+Warehouse --> Company : company  'opposite: warehouses
+Warehouse *-- "*" ProductOccupation : occupations
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+544004 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@651bec9a (name: retrieveToxicProductNames) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Retrieves names of all toxic products stored in this warehouse.
+Algorithm:
+  toxicProducts = new ArrayList<String>()
+  FOR EACH productOccupation IN occupations:
+    IF productOccupation.product.isToxic() THEN
+      toxicProducts.add(productOccupation.product.name)
+    END IF
+  END FOR
+  RETURN toxicProducts
+Input: None
+Output: 
+  - List<String>: List of toxic product names. Returns empty list if no toxic products found.
+Pre-condition: Warehouse must be properly initialized with occupations list.
+Post-condition: Warehouse state remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@65145fb7 (name: containsProduct) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Checks if this warehouse contains a specific product.
+Algorithm:
+  FOR EACH productOccupation IN occupations:
+    IF productOccupation.product.name.equals(productName) THEN
+      RETURN true
+    END IF
+  END FOR
+  RETURN false
+Input: 
+  - productName: String, the name of the product to search for. Case-sensitive.
+Output: 
+  - boolean: true if the product exists in this warehouse, false otherwise.
+Pre-condition: Warehouse must be properly initialized with occupations list.
+Post-condition: Warehouse state remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@76d4e1af (name: retrieveUniqueSuppliers) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+Algorithm:
+  suppliers = new HashSet<Supplier>()
+  FOR EACH productOccupation IN occupations:
+    suppliers.add(productOccupation.product.supplier)
+  END FOR
+  RETURN new ArrayList<Supplier>(suppliers)
+Input: None
+Output: 
+  - List<Supplier>: List of unique suppliers. Returns empty list if warehouse contains no products.
+Pre-condition: Warehouse must be properly initialized with occupations list.
+Post-condition: Warehouse state remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@27f6854b (name: countTotalVolumeBySupplier) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+Algorithm:
+  totalVolume = 0
+  FOR EACH warehouse IN warehouses:
+    FOR EACH productOccupation IN warehouse.occupations:
+      IF productOccupation.product.supplier.name.equals(supplierName) THEN
+        totalVolume += productOccupation.volume
+      END IF
+    END FOR
+  END FOR
+  RETURN totalVolume
+Input: 
+  - supplierName: String, the name of the supplier to filter by. Case-sensitive.
+Output: 
+  - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no products found.
+Pre-condition: None
+Post-condition: The company state remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@72499396 (name: findProductLocations) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Finds all warehouse locations where a specific product is stored.
+Algorithm:
+  locations = new ArrayList<EMap>()
+  FOR EACH warehouse IN warehouses:
+    FOR EACH productOccupation IN warehouse.occupations:
+      IF productOccupation.product.name.equals(productName) THEN
+        map = new EMap()
+        map.put("city", warehouse.city)
+        map.put("address", warehouse.address)
+        locations.add(map)
+        BREAK inner loop
+      END IF
+    END FOR
+  END FOR
+  RETURN locations
+Input: 
+  - productName: String, the name of the product to search for. Case-sensitive.
+Output: 
+  - List<EMap>: List of maps containing "city" and "address" keys for each warehouse containing the product. Returns empty list if product not found.
+Pre-condition: None
+Post-condition: The company state remains unchanged.}
+544006 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+544027 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../CompanyWarehouses/src-gen/edu/company
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Company</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Company#getWarehouses <em>Warehouses</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getCompany()
+ * @model kind="class"
+ * @generated
+ */
+public class Company extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Warehouse> warehouses;
+
+  protected Company()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Warehouse> getWarehouses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+   * Algorithm:
+   *   totalVolume = 0
+   *   FOR EACH warehouse IN warehouses:
+   *     FOR EACH productOccupation IN warehouse.occupations:
+   *       IF productOccupation.product.supplier.name.equals(supplierName) THEN
+   *         totalVolume += productOccupation.volume
+   *       END IF
+   *     END FOR
+   *   END FOR
+   *   RETURN totalVolume
+   * Input: 
+   *   - supplierName: String, the name of the supplier to filter by. Case-sensitive.
+   * Output: 
+   *   - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no products found.
+   * Pre-condition: None
+   * Post-condition: The company state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double countTotalVolumeBySupplier(final String supplierName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Finds all warehouse locations where a specific product is stored.
+   * Algorithm:
+   *   locations = new ArrayList<EMap>()
+   *   FOR EACH warehouse IN warehouses:
+   *     FOR EACH productOccupation IN warehouse.occupations:
+   *       IF productOccupation.product.name.equals(productName) THEN
+   *         map = new EMap()
+   *         map.put("city", warehouse.city)
+   *         map.put("address", warehouse.address)
+   *         locations.add(map)
+   *         BREAK inner loop
+   *       END IF
+   *     END FOR
+   *   END FOR
+   *   RETURN locations
+   * Input: 
+   *   - productName: String, the name of the product to search for. Case-sensitive.
+   * Output: 
+   *   - List<EMap>: List of maps containing "city" and "address" keys for each warehouse containing the product. Returns empty list if product not found.
+   * Pre-condition: None
+   * Post-condition: The company state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Map<String, String>> findProductLocations(final String productName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Company
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Warehouse` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createWarehouse()`
+  + Public methods: public EList<String> retrieveToxicProductNames(), public EList<Supplier> retrieveUniqueSuppliers(), public boolean containsProduct(final String productName)
+  + Getter methods: public String getCity(), public String getAddress(), public double getSurface(), public EList<ProductOccupation> getOccupations(), public Company getCompany()
+  + Setter methods: public void setCity(String newCity), public void setAddress(String newAddress), public void setSurface(double newSurface), public void setCompany(Company newCompany)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Company</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Company#getWarehouses <em>Warehouses</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getCompany()
+ * @model kind="class"
+ * @generated
+ */
+public class Company extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Warehouse> warehouses;
+
+  protected Company()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Warehouse> getWarehouses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+   * Algorithm:
+   *   totalVolume = 0
+   *   FOR EACH warehouse IN warehouses:
+   *     FOR EACH productOccupation IN warehouse.occupations:
+   *       IF productOccupation.product.supplier.name.equals(supplierName) THEN
+   *         totalVolume += productOccupation.volume
+   *       END IF
+   *     END FOR
+   *   END FOR
+   *   RETURN totalVolume
+   * Input: 
+   *   - supplierName: String, the name of the supplier to filter by. Case-sensitive.
+   * Output: 
+   *   - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no products found.
+   * Pre-condition: None
+   * Post-condition: The company state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double countTotalVolumeBySupplier(final String supplierName)
+  {
+    double totalVolume = 0.0;
+    
+    for (Warehouse warehouse : getWarehouses()) {
+      for (ProductOccupation productOccupation : warehouse.getOccupations()) {
+        Product product = productOccupation.getProduct();
+        if (product != null) {
+          Supplier supplier = product.getSupplier();
+          if (supplier != null && supplierName.equals(supplier.getName())) {
+            totalVolume += productOccupation.getVolume();
+          }
+        }
+      }
+    }
+    
+    return totalVolume;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Finds all warehouse locations where a specific product is stored.
+   * Algorithm:
+   *   locations = new ArrayList<EMap>()
+   *   FOR EACH warehouse IN warehouses:
+   *     FOR EACH productOccupation IN warehouse.occupations:
+   *       IF productOccupation.product.name.equals(productName) THEN
+   *         map = new EMap()
+   *         map.put("city", warehouse.city)
+   *         map.put("address", warehouse.address)
+   *         locations.add(map)
+   *         BREAK inner loop
+   *       END IF
+   *     END FOR
+   *   END FOR
+   *   RETURN locations
+   * Input: 
+   *   - productName: String, the name of the product to search for. Case-sensitive.
+   * Output: 
+   *   - List<EMap>: List of maps containing "city" and "address" keys for each warehouse containing the product. Returns empty list if product not found.
+   * Pre-condition: None
+   * Post-condition: The company state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Map<String, String>> findProductLocations(final String productName)
+  {
+    EList<Map<String, String>> locations = new org.eclipse.emf.common.util.BasicEList<>();
+    
+    for (Warehouse warehouse : getWarehouses()) {
+      boolean productFound = false;
+      
+      for (ProductOccupation productOccupation : warehouse.getOccupations()) {
+        Product product = productOccupation.getProduct();
+        if (product != null && productName.equals(product.getName())) {
+          Map<String, String> locationMap = new java.util.HashMap<>();
+          locationMap.put("city", warehouse.getCity());
+          locationMap.put("address", warehouse.getAddress());
+          locations.add(locationMap);
+          productFound = true;
+          break;
+        }
+      }
+    }
+    
+    return locations;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Company
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Warehouse</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Warehouse#getCity <em>City</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getSurface <em>Surface</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getOccupations <em>Occupations</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getCompany <em>Company</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getWarehouse()
+ * @model kind="class"
+ * @generated
+ */
+public class Warehouse extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String CITY_EDEFAULT = null;
+
+  protected String city = CITY_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final double SURFACE_EDEFAULT = 0.0;
+
+  protected double surface = SURFACE_EDEFAULT;
+
+  protected EList<ProductOccupation> occupations;
+
+  protected Warehouse()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getCity()
+  { ... /* omitted */ }
+
+  public void setCity(String newCity)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public double getSurface()
+  { ... /* omitted */ }
+
+  public void setSurface(double newSurface)
+  { ... /* omitted */ }
+
+  public EList<ProductOccupation> getOccupations()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCompany(Company newCompany, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves names of all toxic products stored in this warehouse.
+   * Algorithm:
+   *   toxicProducts = new ArrayList<String>()
+   *   FOR EACH productOccupation IN occupations:
+   *     IF productOccupation.product.isToxic() THEN
+   *       toxicProducts.add(productOccupation.product.name)
+   *     END IF
+   *   END FOR
+   *   RETURN toxicProducts
+   * Input: None
+   * Output: 
+   *   - List<String>: List of toxic product names. Returns empty list if no toxic products found.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<String> retrieveToxicProductNames()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+   * Algorithm:
+   *   suppliers = new HashSet<Supplier>()
+   *   FOR EACH productOccupation IN occupations:
+   *     suppliers.add(productOccupation.product.supplier)
+   *   END FOR
+   *   RETURN new ArrayList<Supplier>(suppliers)
+   * Input: None
+   * Output: 
+   *   - List<Supplier>: List of unique suppliers. Returns empty list if warehouse contains no products.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Supplier> retrieveUniqueSuppliers()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Checks if this warehouse contains a specific product.
+   * Algorithm:
+   *   FOR EACH productOccupation IN occupations:
+   *     IF productOccupation.product.name.equals(productName) THEN
+   *       RETURN true
+   *     END IF
+   *   END FOR
+   *   RETURN false
+   * Input: 
+   *   - productName: String, the name of the product to search for. Case-sensitive.
+   * Output: 
+   *   - boolean: true if the product exists in this warehouse, false otherwise.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean containsProduct(final String productName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Warehouse
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `ProductOccupation` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createProductOccupation()`
+  + Getter methods: public double getVolume(), public Product getProduct()
+  + Setter methods: public void setVolume(double newVolume), public void setProduct(Product newProduct)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createCompany()`
+  + Public methods: public double countTotalVolumeBySupplier(final String supplierName), public EList<Map<String, String>> findProductLocations(final String productName)
+  + Getter methods: public EList<Warehouse> getWarehouses()
+  + Setter methods: 
+- Class `Supplier` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createSupplier()`
+  + Getter methods: public String getName(), public String getAddress(), public EList<Product> getProducts()
+  + Setter methods: public void setName(String newName), public void setAddress(String newAddress)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Warehouse</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Warehouse#getCity <em>City</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getSurface <em>Surface</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getOccupations <em>Occupations</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getCompany <em>Company</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getWarehouse()
+ * @model kind="class"
+ * @generated
+ */
+public class Warehouse extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String CITY_EDEFAULT = null;
+
+  protected String city = CITY_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final double SURFACE_EDEFAULT = 0.0;
+
+  protected double surface = SURFACE_EDEFAULT;
+
+  protected EList<ProductOccupation> occupations;
+
+  protected Warehouse()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getCity()
+  { ... /* omitted */ }
+
+  public void setCity(String newCity)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public double getSurface()
+  { ... /* omitted */ }
+
+  public void setSurface(double newSurface)
+  { ... /* omitted */ }
+
+  public EList<ProductOccupation> getOccupations()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCompany(Company newCompany, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves names of all toxic products stored in this warehouse.
+   * Algorithm:
+   *   toxicProducts = new ArrayList<String>()
+   *   FOR EACH productOccupation IN occupations:
+   *     IF productOccupation.product.isToxic() THEN
+   *       toxicProducts.add(productOccupation.product.name)
+   *     END IF
+   *   END FOR
+   *   RETURN toxicProducts
+   * Input: None
+   * Output: 
+   *   - List<String>: List of toxic product names. Returns empty list if no toxic products found.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<String> retrieveToxicProductNames()
+  {
+    BasicEList<String> toxicProducts = new BasicEList<String>();
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        if (occupation.getProduct() != null && occupation.getProduct().isToxic()) {
+          toxicProducts.add(occupation.getProduct().getName());
+        }
+      }
+    }
+    return toxicProducts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+   * Algorithm:
+   *   suppliers = new HashSet<Supplier>()
+   *   FOR EACH productOccupation IN occupations:
+   *     suppliers.add(productOccupation.product.supplier)
+   *   END FOR
+   *   RETURN new ArrayList<Supplier>(suppliers)
+   * Input: None
+   * Output: 
+   *   - List<Supplier>: List of unique suppliers. Returns empty list if warehouse contains no products.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Supplier> retrieveUniqueSuppliers()
+  {
+    Set<Supplier> supplierSet = new HashSet<Supplier>();
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        if (occupation.getProduct() != null && occupation.getProduct().getSupplier() != null) {
+          supplierSet.add(occupation.getProduct().getSupplier());
+        }
+      }
+    }
+    return new BasicEList<Supplier>(supplierSet);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Checks if this warehouse contains a specific product.
+   * Algorithm:
+   *   FOR EACH productOccupation IN occupations:
+   *     IF productOccupation.product.name.equals(productName) THEN
+   *       RETURN true
+   *     END IF
+   *   END FOR
+   *   RETURN false
+   * Input: 
+   *   - productName: String, the name of the product to search for. Case-sensitive.
+   * Output: 
+   *   - boolean: true if the product exists in this warehouse, false otherwise.
+   * Pre-condition: Warehouse must be properly initialized with occupations list.
+   * Post-condition: Warehouse state remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean containsProduct(final String productName)
+  {
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        if (occupation.getProduct() != null && 
+            productName != null && 
+            productName.equals(occupation.getProduct().getName())) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Warehouse
+671293 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../CompanyWarehouses/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../CompanyWarehouses/src-gen/edu/company/
+671417 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+671417 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\CompanyWarehouses\src-gen\edu\company\Company.java (at line 170)
+	boolean productFound = false;
+	        ^^^^^^^^^^^^
+The value of the local variable productFound is not used
+----------
+1 problem (1 warning)
+
+671417 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+671417 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+671418 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample4.mwe2 启动完成
+正在拷贝 src-gen/edu/company 到 deepseek-v3.2-exp/company4...
+拷贝完成！
+
+======================================
+正在启动 sample5.mwe2...
+======================================
+671640 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+671711 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project CompanyWarehouses at 'file:/D:/EclipseWorkspace/CompanyWarehouses/'
+671714 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+671722 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@36573ec5
+671722 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+671724 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+671725 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+A company has several warehouses located in different cities. In each of the warehouses is stored merchandise, the different products it needs for its activity. Two different warehouses can have the same products. For each product we also want to know its supplier (name, address), its name, whether it is toxic or not and what volume (m^3) it occupies. For each warehouse we want to know its surface (m²) and its address.
+Funtion requirement：
++ Retrieve a list of all toxic product names present in a specific warehouse. Return an empty list if no toxic products are found or if the warehouse does not exist.  
+
++ Retrieve the list of all distinct suppliers whose products are stored in a specific warehouse. Return an empty list if the warehouse contains no products or does not exist. 
+
++ Count the total volume of products supplied by a specific supplier name within a specific company. Return 0 if no products are found. 
+
++ Verify that a warehouse contains a specific product by product name. Return false if the warehouse or product does not exist; return true if the product is in the warehouse. 
+
++ Verify that the company contains a specific product by product name and return its locations. Return a list of warehouse cities and addresses if found; return an empty list if the product is not found. 
+Important: When filling in method bodies for Ecore/EMF, getters for boolean attributes must be called using the is<AttributeName>() or isIs<AttributeName>() format. Never use the get<AttributeName>() format for booleans.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title company Model
+
+class Company {
+    warehouses : List<Warehouse>
+    countTotalVolumeBySupplier(supplierName : String) : double
+    findProductLocations(productName : String) : List<EMap>
+}
+class Product {
+    name : String
+    toxic : boolean
+    occupations : List<ProductOccupation>
+    supplier : Supplier
+}
+class ProductOccupation {
+    volume : double
+    product : Product
+}
+class Supplier {
+    address : String
+    name : String
+    products : List<Product>
+}
+class Warehouse {
+    address : String
+    city : String
+    surface : double
+    company : Company
+    occupations : List<ProductOccupation>
+    containsProduct(productName : String) : boolean
+    retrieveToxicProductNames() : List<String>
+    retrieveUniqueSuppliers() : List<Supplier>
+}
+
+Company *-- "*" Warehouse : warehouses  'opposite: company
+Product --> "*" ProductOccupation : occupations  'opposite: product
+Product --> Supplier : supplier  'opposite: products
+ProductOccupation --> Product : product  'opposite: occupations
+Supplier --> "*" Product : products  'opposite: supplier
+Warehouse --> Company : company  'opposite: warehouses
+Warehouse *-- "*" ProductOccupation : occupations
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+703594 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@4c475547 (name: containsProduct) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Checks if a specific product exists in this warehouse.
+Algorithm:
+  1. For each productOccupation in the warehouse's occupations:
+      1.1. If the product's name matches the input productName (case-sensitive):
+          1.1.1. Return true
+  2. Return false
+Input:
+  - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+Output:
+  - boolean: true if the product is found in this warehouse, false otherwise (including if warehouse doesn't exist in context).
+Pre-condition: The warehouse object must be properly initialized.
+Post-condition: The warehouse remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@10faebc9 (name: countTotalVolumeBySupplier) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+Algorithm:
+  1. Initialize totalVolume = 0.0
+  2. For each warehouse in the company's warehouses:
+      2.1. For each productOccupation in the warehouse's occupations:
+          2.1.1. If the product's supplier name matches the input supplierName:
+              2.1.1.1. Add the productOccupation's volume to totalVolume
+  3. Return totalVolume
+Input:
+  - supplierName: String, the name of the supplier to search for. Case-sensitive matching is assumed unless otherwise specified.
+Output:
+  - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no matching products are found.
+Pre-condition: None
+Post-condition: The company and its warehouses remain unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@3927de0e (name: findProductLocations) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Finds all warehouse locations (city and address) that contain a specific product.
+Algorithm:
+  1. Initialize an empty list of EMap (expected to contain city and address key-value pairs)
+  2. For each warehouse in the company's warehouses:
+      2.1. For each productOccupation in the warehouse's occupations:
+          2.1.1. If the product's name matches the input productName (case-sensitive):
+              2.1.1.1. Create a new EMap with keys "city" and "address"
+              2.1.1.2. Put warehouse.city and warehouse.address into the EMap
+              2.1.1.3. Add the EMap to the results list
+              2.1.1.4. Break inner loop (avoid duplicate entries for same warehouse)
+  3. Return the results list
+Input:
+  - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+Output:
+  - List<EMap>: A list of maps where each map contains "city" and "address" keys with corresponding values. Returns empty list if product is not found.
+Pre-condition: None
+Post-condition: The company and its warehouses remain unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@71b9b035 (name: retrieveUniqueSuppliers) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+Algorithm:
+  1. Initialize an empty set of Suppliers
+  2. For each productOccupation in the warehouse's occupations:
+      2.1. Add the product's supplier to the set (automatically handles uniqueness)
+  3. Convert the set to a list and return
+Input: None
+Output:
+  - List<Supplier>: distinct suppliers with products in this warehouse. Returns empty list if no products found.
+Pre-condition: The warehouse object must be properly initialized.
+Post-condition: The warehouse remains unchanged., org.eclipse.emf.ecore.impl.EOperationImpl@36dab184 (name: retrieveToxicProductNames) (ordered: true, unique: true, lowerBound: 0, upperBound: -1)=Summary: Retrieves names of all toxic products in this warehouse.
+Algorithm:
+  1. Initialize an empty list of Strings
+  2. For each productOccupation in the warehouse's occupations:
+      2.1. If the product's toxic attribute is true (using isToxic() or isIsToxic() getter):
+          2.1.1. Add the product's name to the list
+  3. Return the list
+Input: None
+Output:
+  - List<String>: names of toxic products in the warehouse. Returns empty list if no toxic products found.
+Pre-condition: The warehouse object must be properly initialized.
+Post-condition: The warehouse remains unchanged.}
+703596 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+703617 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../CompanyWarehouses/src-gen/edu/company
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Company</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Company#getWarehouses <em>Warehouses</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getCompany()
+ * @model kind="class"
+ * @generated
+ */
+public class Company extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Warehouse> warehouses;
+
+  protected Company()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Warehouse> getWarehouses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+   * Algorithm:
+   *   1. Initialize totalVolume = 0.0
+   *   2. For each warehouse in the company's warehouses:
+   *       2.1. For each productOccupation in the warehouse's occupations:
+   *           2.1.1. If the product's supplier name matches the input supplierName:
+   *               2.1.1.1. Add the productOccupation's volume to totalVolume
+   *   3. Return totalVolume
+   * Input:
+   *   - supplierName: String, the name of the supplier to search for. Case-sensitive matching is assumed unless otherwise specified.
+   * Output:
+   *   - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no matching products are found.
+   * Pre-condition: None
+   * Post-condition: The company and its warehouses remain unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double countTotalVolumeBySupplier(final String supplierName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Finds all warehouse locations (city and address) that contain a specific product.
+   * Algorithm:
+   *   1. Initialize an empty list of EMap (expected to contain city and address key-value pairs)
+   *   2. For each warehouse in the company's warehouses:
+   *       2.1. For each productOccupation in the warehouse's occupations:
+   *           2.1.1. If the product's name matches the input productName (case-sensitive):
+   *               2.1.1.1. Create a new EMap with keys "city" and "address"
+   *               2.1.1.2. Put warehouse.city and warehouse.address into the EMap
+   *               2.1.1.3. Add the EMap to the results list
+   *               2.1.1.4. Break inner loop (avoid duplicate entries for same warehouse)
+   *   3. Return the results list
+   * Input:
+   *   - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+   * Output:
+   *   - List<EMap>: A list of maps where each map contains "city" and "address" keys with corresponding values. Returns empty list if product is not found.
+   * Pre-condition: None
+   * Post-condition: The company and its warehouses remain unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Map<String, String>> findProductLocations(final String productName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Company
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Warehouse` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createWarehouse()`
+  + Public methods: public EList<String> retrieveToxicProductNames(), public EList<Supplier> retrieveUniqueSuppliers(), public boolean containsProduct(final String productName)
+  + Getter methods: public String getCity(), public String getAddress(), public double getSurface(), public EList<ProductOccupation> getOccupations(), public Company getCompany()
+  + Setter methods: public void setCity(String newCity), public void setAddress(String newAddress), public void setSurface(double newSurface), public void setCompany(Company newCompany)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Company</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Company#getWarehouses <em>Warehouses</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getCompany()
+ * @model kind="class"
+ * @generated
+ */
+public class Company extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Warehouse> warehouses;
+
+  protected Company()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Warehouse> getWarehouses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total volume of all products supplied by a specific supplier across all warehouses in the company.
+   * Algorithm:
+   *   1. Initialize totalVolume = 0.0
+   *   2. For each warehouse in the company's warehouses:
+   *       2.1. For each productOccupation in the warehouse's occupations:
+   *           2.1.1. If the product's supplier name matches the input supplierName:
+   *               2.1.1.1. Add the productOccupation's volume to totalVolume
+   *   3. Return totalVolume
+   * Input:
+   *   - supplierName: String, the name of the supplier to search for. Case-sensitive matching is assumed unless otherwise specified.
+   * Output:
+   *   - double: the total volume (m³) of products from the specified supplier. Returns 0.0 if no matching products are found.
+   * Pre-condition: None
+   * Post-condition: The company and its warehouses remain unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double countTotalVolumeBySupplier(final String supplierName)
+  {
+    double totalVolume = 0.0;
+    
+    for (Warehouse warehouse : getWarehouses()) {
+      for (ProductOccupation productOccupation : warehouse.getOccupations()) {
+        Product product = productOccupation.getProduct();
+        if (product != null) {
+          Supplier supplier = product.getSupplier();
+          if (supplier != null && supplierName.equals(supplier.getName())) {
+            totalVolume += productOccupation.getVolume();
+          }
+        }
+      }
+    }
+    
+    return totalVolume;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Finds all warehouse locations (city and address) that contain a specific product.
+   * Algorithm:
+   *   1. Initialize an empty list of EMap (expected to contain city and address key-value pairs)
+   *   2. For each warehouse in the company's warehouses:
+   *       2.1. For each productOccupation in the warehouse's occupations:
+   *           2.1.1. If the product's name matches the input productName (case-sensitive):
+   *               2.1.1.1. Create a new EMap with keys "city" and "address"
+   *               2.1.1.2. Put warehouse.city and warehouse.address into the EMap
+   *               2.1.1.3. Add the EMap to the results list
+   *               2.1.1.4. Break inner loop (avoid duplicate entries for same warehouse)
+   *   3. Return the results list
+   * Input:
+   *   - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+   * Output:
+   *   - List<EMap>: A list of maps where each map contains "city" and "address" keys with corresponding values. Returns empty list if product is not found.
+   * Pre-condition: None
+   * Post-condition: The company and its warehouses remain unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Map<String, String>> findProductLocations(final String productName)
+  {
+    EList<Map<String, String>> result = new BasicEList<>();
+    
+    for (Warehouse warehouse : getWarehouses()) {
+      boolean productFound = false;
+      
+      for (ProductOccupation productOccupation : warehouse.getOccupations()) {
+        Product product = productOccupation.getProduct();
+        if (product != null && productName.equals(product.getName())) {
+          Map<String, String> locationMap = new HashMap<>();
+          locationMap.put("city", warehouse.getCity());
+          locationMap.put("address", warehouse.getAddress());
+          result.add(locationMap);
+          productFound = true;
+          break;
+        }
+      }
+    }
+    
+    return result;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // Company
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Warehouse</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Warehouse#getCity <em>City</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getSurface <em>Surface</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getOccupations <em>Occupations</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getCompany <em>Company</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getWarehouse()
+ * @model kind="class"
+ * @generated
+ */
+public class Warehouse extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String CITY_EDEFAULT = null;
+
+  protected String city = CITY_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final double SURFACE_EDEFAULT = 0.0;
+
+  protected double surface = SURFACE_EDEFAULT;
+
+  protected EList<ProductOccupation> occupations;
+
+  protected Warehouse()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getCity()
+  { ... /* omitted */ }
+
+  public void setCity(String newCity)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public double getSurface()
+  { ... /* omitted */ }
+
+  public void setSurface(double newSurface)
+  { ... /* omitted */ }
+
+  public EList<ProductOccupation> getOccupations()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCompany(Company newCompany, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves names of all toxic products in this warehouse.
+   * Algorithm:
+   *   1. Initialize an empty list of Strings
+   *   2. For each productOccupation in the warehouse's occupations:
+   *       2.1. If the product's toxic attribute is true (using isToxic() or isIsToxic() getter):
+   *           2.1.1. Add the product's name to the list
+   *   3. Return the list
+   * Input: None
+   * Output:
+   *   - List<String>: names of toxic products in the warehouse. Returns empty list if no toxic products found.
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<String> retrieveToxicProductNames()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+   * Algorithm:
+   *   1. Initialize an empty set of Suppliers
+   *   2. For each productOccupation in the warehouse's occupations:
+   *       2.1. Add the product's supplier to the set (automatically handles uniqueness)
+   *   3. Convert the set to a list and return
+   * Input: None
+   * Output:
+   *   - List<Supplier>: distinct suppliers with products in this warehouse. Returns empty list if no products found.
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public EList<Supplier> retrieveUniqueSuppliers()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Checks if a specific product exists in this warehouse.
+   * Algorithm:
+   *   1. For each productOccupation in the warehouse's occupations:
+   *       1.1. If the product's name matches the input productName (case-sensitive):
+   *           1.1.1. Return true
+   *   2. Return false
+   * Input:
+   *   - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+   * Output:
+   *   - boolean: true if the product is found in this warehouse, false otherwise (including if warehouse doesn't exist in context).
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean containsProduct(final String productName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Warehouse
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `ProductOccupation` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createProductOccupation()`
+  + Getter methods: public double getVolume(), public Product getProduct()
+  + Setter methods: public void setVolume(double newVolume), public void setProduct(Product newProduct)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createCompany()`
+  + Public methods: public double countTotalVolumeBySupplier(final String supplierName), public EList<Map<String, String>> findProductLocations(final String productName)
+  + Getter methods: public EList<Warehouse> getWarehouses()
+  + Setter methods: 
+- Class `Supplier` contains the following methods.
+  + Instance creation: Use `CompanyFactory.eINSTANCE.createSupplier()`
+  + Getter methods: public String getName(), public String getAddress(), public EList<Product> getProducts()
+  + Setter methods: public void setName(String newName), public void setAddress(String newAddress)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.company;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Warehouse</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.company.Warehouse#getCity <em>City</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getAddress <em>Address</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getSurface <em>Surface</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getOccupations <em>Occupations</em>}</li>
+ *   <li>{@link edu.company.Warehouse#getCompany <em>Company</em>}</li>
+ * </ul>
+ *
+ * @see edu.company.CompanyPackage#getWarehouse()
+ * @model kind="class"
+ * @generated
+ */
+public class Warehouse extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String CITY_EDEFAULT = null;
+
+  protected String city = CITY_EDEFAULT;
+
+  protected static final String ADDRESS_EDEFAULT = null;
+
+  protected String address = ADDRESS_EDEFAULT;
+
+  protected static final double SURFACE_EDEFAULT = 0.0;
+
+  protected double surface = SURFACE_EDEFAULT;
+
+  protected EList<ProductOccupation> occupations;
+
+  protected Warehouse()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getCity()
+  { ... /* omitted */ }
+
+  public void setCity(String newCity)
+  { ... /* omitted */ }
+
+  public String getAddress()
+  { ... /* omitted */ }
+
+  public void setAddress(String newAddress)
+  { ... /* omitted */ }
+
+  public double getSurface()
+  { ... /* omitted */ }
+
+  public void setSurface(double newSurface)
+  { ... /* omitted */ }
+
+  public EList<ProductOccupation> getOccupations()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCompany(Company newCompany, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves names of all toxic products in this warehouse.
+   * Algorithm:
+   *   1. Initialize an empty list of Strings
+   *   2. For each productOccupation in the warehouse's occupations:
+   *       2.1. If the product's toxic attribute is true (using isToxic() or isIsToxic() getter):
+   *           2.1.1. Add the product's name to the list
+   *   3. Return the list
+   * Input: None
+   * Output:
+   *   - List<String>: names of toxic products in the warehouse. Returns empty list if no toxic products found.
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<String> retrieveToxicProductNames()
+  {
+    EList<String> toxicProductNames = new BasicEList<String>();
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        Product product = occupation.getProduct();
+        if (product != null && product.isToxic()) {
+          toxicProductNames.add(product.getName());
+        }
+      }
+    }
+    return toxicProductNames;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Retrieves all distinct suppliers whose products are stored in this warehouse.
+   * Algorithm:
+   *   1. Initialize an empty set of Suppliers
+   *   2. For each productOccupation in the warehouse's occupations:
+   *       2.1. Add the product's supplier to the set (automatically handles uniqueness)
+   *   3. Convert the set to a list and return
+   * Input: None
+   * Output:
+   *   - List<Supplier>: distinct suppliers with products in this warehouse. Returns empty list if no products found.
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public EList<Supplier> retrieveUniqueSuppliers()
+  {
+    Set<Supplier> supplierSet = new HashSet<Supplier>();
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        Product product = occupation.getProduct();
+        if (product != null) {
+          Supplier supplier = product.getSupplier();
+          if (supplier != null) {
+            supplierSet.add(supplier);
+          }
+        }
+      }
+    }
+    return new BasicEList<Supplier>(supplierSet);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Checks if a specific product exists in this warehouse.
+   * Algorithm:
+   *   1. For each productOccupation in the warehouse's occupations:
+   *       1.1. If the product's name matches the input productName (case-sensitive):
+   *           1.1.1. Return true
+   *   2. Return false
+   * Input:
+   *   - productName: String, the name of the product to search for. Case-sensitive matching is assumed.
+   * Output:
+   *   - boolean: true if the product is found in this warehouse, false otherwise (including if warehouse doesn't exist in context).
+   * Pre-condition: The warehouse object must be properly initialized.
+   * Post-condition: The warehouse remains unchanged.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean containsProduct(final String productName)
+  {
+    if (occupations != null) {
+      for (ProductOccupation occupation : occupations) {
+        Product product = occupation.getProduct();
+        if (product != null && productName != null && productName.equals(product.getName())) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Warehouse
+806970 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../CompanyWarehouses/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../CompanyWarehouses/src-gen/edu/company/
+807098 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+807098 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\CompanyWarehouses\src-gen\edu\company\Company.java (at line 165)
+	boolean productFound = false;
+	        ^^^^^^^^^^^^
+The value of the local variable productFound is not used
+----------
+1 problem (1 warning)
+
+807098 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+807098 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+807099 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/company 到 deepseek-v3.2-exp/company5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

@@ -1,0 +1,103 @@
+============================================================
+RCGS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 23:57:47
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_SingleRentalCalculation(CR2Test)
+  java.lang.AssertionError: expected:<800.0> but was:<350.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase1_SingleRentalCalculation(CR2Test.java:89)
+  2) testCase3_MultipleRentalsWithSameDailyPrice(CR2Test)
+  java.lang.AssertionError: expected:<720.0> but was:<480.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase3_MultipleRentalsWithSameDailyPrice(CR2Test.java:155)
+  3) testCase4_MixedPricesCalculation(CR2Test)
+  java.lang.AssertionError: expected:<1150.0> but was:<660.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase4_MixedPricesCalculation(CR2Test.java:230)
+  4) testCase5_OneDayRentalCalculation(CR2Test)
+  java.lang.AssertionError: expected:<400.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase5_OneDayRentalCalculation(CR2Test.java:284)
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_CountRentalsIncludingReturnedCars(CR5Test)
+  java.lang.AssertionError: expected:<4> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR5Test.testCase4_CountRentalsIncludingReturnedCars(CR5Test.java:296)
+  2) testCase5_CountRentalsForCustomerWithOverdueCars(CR5Test)
+  java.lang.AssertionError: expected:<3> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR5Test.testCase5_CountRentalsForCustomerWithOverdueCars(CR5Test.java:367)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

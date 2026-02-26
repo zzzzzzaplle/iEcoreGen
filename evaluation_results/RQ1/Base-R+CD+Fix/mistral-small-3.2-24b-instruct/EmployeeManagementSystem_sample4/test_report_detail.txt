@@ -1,0 +1,80 @@
+============================================================
+EmployeeManagementSystem - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-24 15:19:41
+
+【FJC 编译】
+状态: 成功
+修复次数: 1 次
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase5_MultipleManagersWithNestedSubordinates(CR5Test)
+  java.lang.AssertionError: The number of subordinates for Manager A is 5. expected:<5> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase5_MultipleManagersWithNestedSubordinates(CR5Test.java:271)
+  2) testCase4_ManagerWithSingleSubordinate(CR5Test)
+  java.lang.AssertionError: The number of subordinates for the manager is 1. expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase4_ManagerWithSingleSubordinate(CR5Test.java:200)
+  3) testCase1_SingleManagerWithMultipleSubordinates(CR5Test)
+  java.lang.AssertionError: The number of direct subordinates for Manager M1 is 3. expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase1_SingleManagerWithMultipleSubordinates(CR5Test.java:63)
+  4) testCase3_MultipleManagersWithDifferentNumberOfSubordinates(CR5Test)
+  java.lang.AssertionError: The number of subordinates for Manager A is 3. expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase3_MultipleManagersWithDifferentNumberOfSubordinates(CR5Test.java:169)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

@@ -1,0 +1,77 @@
+================================================================================
+employee4 测试报告
+================================================================================
+生成时间: 2025-11-24 20:08:37
+样本名称: employee4
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(edu.employee.employee4.test.CR1Test)
+  java.lang.AssertionError: expected:<800.0> but was:<1000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee4.test.CR1Test.testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(CR1Test.java:42)
+  2) testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(edu.employee.employee4.test.CR1Test)
+  java.lang.AssertionError: expected:<3200.0> but was:<1000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee4.test.CR1Test.testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test.java:60)
+  3) testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(edu.employee.employee4.test.CR1Test)
+  java.lang.AssertionError: expected:<8595.0> but was:<3000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee4.test.CR1Test.testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test.java:106)
+  4) testCase3_CalculateTotalSalaryForCompanyWithSingleManager(edu.employee.employee4.test.CR1Test)
+  java.lang.AssertionError: expected:<5000.0> but was:<1000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee4.test.CR1Test.testCase3_CalculateTotalSalaryForCompanyWithSingleManager(CR1Test.java:76)
+  5) testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(edu.employee.employee4.test.CR1Test)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

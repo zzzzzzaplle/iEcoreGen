@@ -1,0 +1,124 @@
+================================================================================
+rideshare5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:02:12
+样本名称: rideshare5
+总测试数: 25
+通过: 17
+失败: 8
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase5_BookingDeniedWhenCustomerHasOverlappingBooking(edu.rideshare.rideshare5.test.CR1Test)
+  java.lang.AssertionError: Booking should be denied due to overlapping trips
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at edu.rideshare.rideshare5.test.CR1Test.testCase5_BookingDeniedWhenCustomerHasOverlappingBooking(CR1Test.java:258)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_DiscountDeniedForLateBooking(edu.rideshare.rideshare5.test.CR2Test)
+  java.lang.AssertionError: expected:<200.0> but was:<180.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare5.test.CR2Test.testCase2_DiscountDeniedForLateBooking(CR2Test.java:67)
+  2) testCase3_Exact24HourBoundaryForDiscount(edu.rideshare.rideshare5.test.CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<90.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare5.test.CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:91)
+  3) testCase1_20PercentDiscountAppliedForEarlyBooking(edu.rideshare.rideshare5.test.CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<90.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.rideshare.rideshare5.test.CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:43)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(edu.rideshare.rideshare5.test.CR4Test)
+  java.lang.AssertionError: Points calculation with multiple bookings should return 25 expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare5.test.CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:81)
+  2) testCase4_MultipleSeatsEdgeCase(edu.rideshare.rideshare5.test.CR4Test)
+  java.lang.AssertionError: Multiple seats edge case should return 10 points expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare5.test.CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:181)
+  3) testCase3_PartialMonthInclusion(edu.rideshare.rideshare5.test.CR4Test)
+  java.lang.AssertionError: Partial month inclusion should return points only for December bookings expected:<15> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare5.test.CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:152)
+  4) testCase5_LargeSeatQuantity(edu.rideshare.rideshare5.test.CR4Test)
+  java.lang.AssertionError: C8 should have 500 points for large seat quantity expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.rideshare.rideshare5.test.CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:243)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 17
+失败: 8
+成功率: 68.0%
+================================================================================

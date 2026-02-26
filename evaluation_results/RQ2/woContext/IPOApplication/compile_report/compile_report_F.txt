@@ -1,0 +1,227 @@
+================================================================================
+IPOApplication 系统编译报告
+================================================================================
+生成时间: 2025-11-25 08:41:39
+系统名称: IPOApplication
+SystemName: ipo
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] ipo1
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woContext\ipo1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woContext\ipo1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:463: 错误: 找不到符号
+      if (customer == null || !customer.isEligibleForIPO()) { // Fixed method name
+                                       ^
+    符号:   方法 isEligibleForIPO()
+    位置: 类型为Customer的变量 customer
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:552: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email customerEmail = Email.createEmailContent("IPO Approval Notification", "Your IPO application has been approved."); // Fixed method signature
+                                   ^
+    需要: Company,int,Customer,double
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:553: 错误: 找不到符号
+        customer.getEmail().send(customerEmail); // Fixed send method
+                           ^
+    符号:   方法 send(Email)
+    位置: 类 String
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:558: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email companyEmail = Email.createEmailContent("IPO Approval Notification", "The IPO application has been approved."); // Fixed method signature
+                                  ^
+    需要: Company,int,Customer,double
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:559: 错误: 找不到符号
+        company.getEmail().send(companyEmail); // Fixed send method
+                          ^
+    符号:   方法 send(Email)
+    位置: 类 String
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo1\Application.java:594: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email rejectionEmail = Email.createEmailContent("IPO Rejection Notification", "Your IPO application has been rejected."); // Fixed method signature
+                                    ^
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo2
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woContext\ipo2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woContext\ipo2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:559: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email customerEmail = Email.createEmailContent("Application Approval", "Your IPO application has been approved.");
+                                   ^
+    需要: Company,int,Customer,double
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:560: 错误: 找不到符号
+        customer.sendEmail(customerEmail); // Fixed: Using the correct method
+                ^
+    符号:   方法 sendEmail(Email)
+    位置: 类型为Customer的变量 customer
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:566: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email companyEmail = Email.createEmailContent("Application Approval", "An IPO application has been approved.");
+                                  ^
+    需要: Company,int,Customer,double
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:567: 错误: 找不到符号
+        company.sendEmail(companyEmail); // Fixed: Using the correct method
+               ^
+    符号:   方法 sendEmail(Email)
+    位置: 类型为Company的变量 company
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:598: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email rejectionEmail = Email.createEmailContent("Application Rejection", "Your IPO application has been rejected.");
+                                    ^
+    需要: Company,int,Customer,double
+    找到:    String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo2\Application.java:599: 错误: 找不到符号
+        customer.sendEmail(rejectionEmail); // Fixed: Using the correct method
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo3
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woContext\ipo3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woContext\ipo3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:460: 错误: 找不到符号
+      if (getCustomer() == null || !getCustomer().isEligibleForIPO()) {
+                                                 ^
+    符号:   方法 isEligibleForIPO()
+    位置: 类 Customer
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:529: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email customerEmail = Email.createEmailContent("IPO Application Approved", "Your IPO application has been approved.", null, 0, null, 0.0);
+                                   ^
+    需要: Company,int,Customer,double
+    找到:    String,String,<空值>,int,<空值>,double
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:530: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email companyEmail = Email.createEmailContent("IPO Application Approved", "The IPO application from " + getCustomer().getName() + " has been approved.", getCompany(), 0, getCustomer(), 0.0);
+                                  ^
+    需要: Company,int,Customer,double
+    找到:    String,String,Company,int,Customer,double
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:532: 错误: 找不到符号
+        customerEmail.send();
+                     ^
+    符号:   方法 send()
+    位置: 类型为Email的变量 customerEmail
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:533: 错误: 找不到符号
+        companyEmail.send();
+                    ^
+    符号:   方法 send()
+    位置: 类型为Email的变量 companyEmail
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\Application.java:563: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+        Email rejectionEmail = Email.createEmailContent("IPO Application Rejected", "Your IPO application has been rejected.", null, 0, getCustomer(), 0.0);
+                                    ^
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo4
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woContext\ipo4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woContext\ipo4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:456: 错误: 找不到符号
+      if (this.getStatus() != ApplicationStatus.PENDING || this.getCustomer() == null || !this.getCustomer().isEligible())
+                                                                                                            ^
+    符号:   方法 isEligible()
+    位置: 类 Customer
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:540: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+      Email customerEmail = Email.createEmailContent("IPO Application Approved", "Your IPO application for " + this.getShare() + " shares at $" + this.getAmountOfMoney() + " per share has been approved.", this.getCustomer().getEmail());
+                                 ^
+    需要: Company,int,Customer,double
+    找到:    String,String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:540: 错误: 不兼容的类型: String无法转换为Company
+      Email customerEmail = Email.createEmailContent("IPO Application Approved", "Your IPO application for " + this.getShare() + " shares at $" + this.getAmountOfMoney() + " per share has been approved.", this.getCustomer().getEmail());
+                                                     ^
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:541: 错误: 无法将类 Email中的方法 createEmailContent应用到给定类型;
+      Email companyEmail = Email.createEmailContent("New IPO Application Approved", "A new IPO application for " + this.getShare() + " shares at $" + this.getAmountOfMoney() + " per share has been approved.", this.getCompany().getEmail());
+                                ^
+    需要: Company,int,Customer,double
+    找到:    String,String,String
+    原因: 实际参数列表和形式参数列表长度不同
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:541: 错误: 不兼容的类型: String无法转换为Company
+      Email companyEmail = Email.createEmailContent("New IPO Application Approved", "A new IPO application for " + this.getShare() + " shares at $" + this.getAmountOfMoney() + " per share has been approved.", this.getCompany().getEmail());
+                                                    ^
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:546: 错误: 找不到符号
+      customerEmail.send();
+                   ^
+    符号:   方法 send()
+    位置: 类型为Email的变量 customerEmail
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo4\Application.java:547: 错误: 找不到符号
+      companyEmail.send();
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] ipo5
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woContext\ipo5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woContext\ipo5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:514: 错误: 找不到符号
+      setStatus(ApplicationStatus.CANCELLED);
+                                 ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:546: 错误: 找不到符号
+      Email customerEmail = createEmailContent(getCustomer(), "Approval Notification");
+                            ^
+    符号:   方法 createEmailContent(Customer,String)
+    位置: 类 Application
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:547: 错误: 找不到符号
+      Email companyEmail = createEmailContent(getCompany(), "Approval Notification");
+                           ^
+    符号:   方法 createEmailContent(Company,String)
+    位置: 类 Application
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:549: 错误: 找不到符号
+      sendEmail(customerEmail);
+      ^
+    符号:   方法 sendEmail(Email)
+    位置: 类 Application
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:550: 错误: 找不到符号
+      sendEmail(companyEmail);
+      ^
+    符号:   方法 sendEmail(Email)
+    位置: 类 Application
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo5\Application.java:579: 错误: 找不到符号
+      Email rejectionEmail = createEmailContent(getCustomer(), "Rejection Notice");
+                             ^
+    符号:   方法 createEmailContent(Customer,String)
+    位置: 类 Application
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

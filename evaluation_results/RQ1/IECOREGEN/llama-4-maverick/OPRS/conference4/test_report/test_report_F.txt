@@ -1,0 +1,103 @@
+================================================================================
+conference4 测试报告
+================================================================================
+生成时间: 2025-11-27 13:16:26
+样本名称: conference4
+总测试数: 25
+通过: 15
+失败: 10
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedGradesWith3Reviews(edu.conference.conference4.test.CR2Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Paper.isAllReviewsPositive(Paper.java:265)
+  	at edu.conference.conference4.test.CR2Test.testCase4_MixedGradesWith3Reviews(CR2Test.java:156)
+  2) testCase2_SplitDecision2_1(edu.conference.conference4.test.CR2Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Paper.isAllReviewsPositive(Paper.java:265)
+  	at edu.conference.conference4.test.CR2Test.testCase2_SplitDecision2_1(CR2Test.java:83)
+  3) testCase3_AllRejectWith4Reviews(edu.conference.conference4.test.CR2Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Paper.isAllReviewsPositive(Paper.java:265)
+  	at edu.conference.conference4.test.CR2Test.testCase3_AllRejectWith4Reviews(CR2Test.java:111)
+  4) testCase5_EdgeCaseExactly50PercentAcceptance(edu.conference.conference4.test.CR2Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Paper.isAllReviewsPositive(Paper.java:265)
+  	at edu.conference.conference4.test.CR2Test.testCase5_EdgeCaseExactly50PercentAcceptance(CR2Test.java:196)
+  5) testCase1_UnanimousAcceptFrom3Reviews(edu.conference.conference4.test.CR2Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Paper.isAllReviewsPositive(Paper.java:265)
+  	at edu.conference.conference4.test.CR2Test.testCase1_UnanimousAcceptFrom3Reviews(CR2Test.java:47)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedDecisionsWithOneAcceptance(edu.conference.conference4.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference4.test.CR4Test.testCase4_MixedDecisionsWithOneAcceptance(CR4Test.java:120)
+  2) testCase5_SinglePaperAuthor(edu.conference.conference4.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference4.test.CR4Test.testCase5_SinglePaperAuthor(CR4Test.java:150)
+  3) testCase2_FiftyPercentAcceptanceRate(edu.conference.conference4.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference4.test.CR4Test.testCase2_FiftyPercentAcceptanceRate(CR4Test.java:64)
+  4) testCase1_PerfectAcceptanceRate(edu.conference.conference4.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference4.test.CR4Test.testCase1_PerfectAcceptanceRate(CR4Test.java:34)
+  5) testCase3_NoAcceptedPapers(edu.conference.conference4.test.CR4Test)
+  java.lang.UnsupportedOperationException
+  	at edu.conference.Author.submitPaper(Author.java:93)
+  	at edu.conference.conference4.test.CR4Test.testCase3_NoAcceptedPapers(CR4Test.java:90)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 15
+失败: 10
+成功率: 60.0%
+================================================================================

@@ -1,0 +1,96 @@
+================================================================================
+Departments 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:41:19
+系统名称: Departments
+SystemName: department
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] department1
+  - 样本目录: D:\EclipseWorkspace\Departments\woFixing\department1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woFixing\department1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woFixing\department1\Company.java:289: 错误: 找不到符号
+      return department.assignManager(employee);
+                       ^
+    符号:   方法 assignManager(Employee)
+    位置: 类型为Department的变量 department
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] department2
+  - 样本目录: D:\EclipseWorkspace\Departments\woFixing\department2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woFixing\department2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woFixing\department2\Company.java:329: 错误: 找不到符号
+      return department.assignManager(employee);
+                       ^
+    符号:   方法 assignManager(Employee)
+    位置: 类型为Department的变量 department
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] department3
+  - 样本目录: D:\EclipseWorkspace\Departments\woFixing\department3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woFixing\department3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woFixing\department3\Company.java:315: 错误: 找不到符号
+      return department.assignManager(employee);
+                       ^
+    符号:   方法 assignManager(Employee)
+    位置: 类型为Department的变量 department
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] department4
+  - 样本目录: D:\EclipseWorkspace\Departments\woFixing\department4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woFixing\department4\compile
+
+[✗ FAIL] department5
+  - 样本目录: D:\EclipseWorkspace\Departments\woFixing\department5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woFixing\department5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woFixing\department5\Company.java:298: 错误: 找不到符号
+      return department.assignManager(employee);
+                       ^
+    符号:   方法 assignManager(Employee)
+    位置: 类型为Department的变量 department
+  D:\EclipseWorkspace\Departments\woFixing\department5\Department.java:457: 错误: 找不到符号
+        EList<Employee> employeesToRemove = new BasicEList<>(office.getWorkingEmployees());
+                                                ^
+    符号:   类 BasicEList
+    位置: 类 Department
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

@@ -1,0 +1,93 @@
+================================================================================
+department2 测试报告
+================================================================================
+生成时间: 2025-11-24 19:54:46
+样本名称: department2
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase5_DeleteDepartmentWithManagerButNoOffices(edu.department.department2.test.CR3Test)
+  java.lang.AssertionError: Employee E201 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department2.test.CR3Test.testCase5_DeleteDepartmentWithManagerButNoOffices(CR3Test.java:168)
+  2) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department2.test.CR3Test)
+  java.lang.AssertionError: Employee E101 should be removed from company
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at edu.department.department2.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:73)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_CompanyWithBothManagedAndUnmanagedDepartments(edu.department.department2.test.CR5Test)
+  java.lang.AssertionError: Should have 2 departments without manager expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.department.department2.test.CR5Test.testCase1_CompanyWithBothManagedAndUnmanagedDepartments(CR5Test.java:54)
+  2) testCase4_SingleUnmanagedDepartment(edu.department.department2.test.CR5Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.listDepartmentsWithoutManager(Company.java:263)
+  	at edu.department.department2.test.CR5Test.testCase4_SingleUnmanagedDepartment(CR5Test.java:120)
+  3) testCase5_AfterManagerRemoval(edu.department.department2.test.CR5Test)
+  java.util.ConcurrentModificationException
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:751)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:705)
+  	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:685)
+  	at edu.department.Company.listDepartmentsWithoutManager(Company.java:263)
+  	at edu.department.department2.test.CR5Test.testCase5_AfterManagerRemoval(CR5Test.java:145)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

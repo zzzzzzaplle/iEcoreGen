@@ -1,0 +1,2356 @@
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+Customer
++ Retail customers should be eligible for applying IPO.
++ Customers who will make IPO Applications must share their name, surname, email address, and telephone number information with the related company. 
+
+Software System
++ When a customer applies IPO, he is required to upload legal allowance documentation. 
++ When the customer completes the application process successfully, the bank should send two information emails, one for the customer and another for the company. 
++ If the customer has many failed attempts, the bank should restrict the customer from the application process. If they would like to apply anyway, they should call the "call center" and request IPO application access.
+
+Rules
++ Even though the customer completed the process successfully, the purchase is still being determined. Related companies always have a right to reject customers' applications. If a company rejects the customer, our system should inform the customer.
++ Email content should include below information:
+ - Customer's name, surname, email address, telephone number
+ - Applied company named
+ - Number of shares that have been purchased
+ - The amount of money that has been paid
+
+Functional requirement:
++ "Create an IPO application". A retail customer begins an IPO application by supplying the target company, the number of shares (>0), the amount of money, and uploading the document(non-null). The system first checks that the customer is still eligible to apply for IPOs and has no approved application for the same company; only then is an application record created. It returns true on success; otherwise, false.
+
++ "Approve or reject an application". If the application is rejected, the bank immediately emails the customer a rejection notice. The bank approves a specific application after verifying that the customer current can apply for IPO. If the application is approved, the bank sends two information emails: one to the customer and one to the company. The operation returns true if on success; otherwise, false.
+
++ "Retrieve a customer's application-count summary". The customer can report how many IPO applications has filed in total, including approval and rejected applications. Applications that have not yet been reviewed by the bank are not included. It returns 0 if the customer has no recorded applications.
+
++ "Query total approval IPO applications amount for a customer". A customer may request an aggregate view of the customer's approved IPO purchases. Returns the sum of all approved application amounts.
+
++ "Cancel an pending application". Providing the specific company name, a customer can cancel an application that is neither approved nor rejected by the bank. The operation returns true if the cancellation succeeds, otherwise, false.
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title ipo Model
+
+class Application {
+    amountOfMoney : double
+    share : int
+    status : ApplicationStatus
+    allowance : Document
+    company : Company
+    customer : Customer
+    emails : List<Email>
+    approve() : boolean
+    cancel() : boolean
+    reject() : boolean
+    sendEmailsToCustomerAndCompany() : void
+    sendRejectionEmail() : void
+}
+class Company {
+    email : String
+    name : String
+}
+class Customer {
+    canApplyForIPO : boolean
+    email : String
+    name : String
+    surname : String
+    telephone : String
+    applications : List<Application>
+    cancelApplication(companyName : String) : boolean
+    createApplication(company : Company, shares : int, amount : double, doc : Document) : boolean
+    getApplicationCount() : int
+    getApprovedTotalAmount() : double
+}
+class Document {
+}
+class Email {
+    content : String
+    receiver : String
+    createEmailContent(company : Company, shares : int, customer : Customer, amount : double) : String
+}
+enum ApplicationStatus {
+    PENDING
+    APPROVAL
+    REJECTED
+}
+
+Application --> Document : allowance
+Application --> Company : company
+Application --> Customer : customer  'opposite: applications
+Application *-- "*" Email : emails
+Customer *-- "*" Application : applications  'opposite: customer
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+1837075 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@1526cb86 (name: reject) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Rejects the application and sends rejection email to customer
+Algorithm:
+  1. Check if application status is PENDING
+  2. If check passes:
+       - Set application status to REJECTED
+       - Call sendRejectionEmail()
+  3. Return true if successful, false otherwise
+Input: None
+Output:
+  - boolean: true if application was rejected successfully, false otherwise
+Pre-condition:
+  - Application status must be PENDING
+Post-condition:
+  - If successful: status changes to REJECTED and rejection email is sent
+  - If failed: status remains unchanged, org.eclipse.emf.ecore.impl.EOperationImpl@11aa92d9 (name: createApplication) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Creates a new IPO application for the customer with the specified company, shares, amount, and document
+Algorithm:
+  1. Check if customer is eligible to apply (canApplyForIPO is true)
+  2. Check if customer doesn't have any approved application for the same company
+  3. If both checks pass, create new Application with:
+       - company: specified company
+       - shares: specified shares (must be > 0)
+       - amount: specified amount (must be > 0)
+       - allowance: specified document (non-null)
+       - status: PENDING
+       - customer: this customer
+  4. Add the new application to customer's applications list
+  5. Return true if successful, false otherwise
+Input:
+  - company: Company object representing the target company
+  - shares: integer representing number of shares to purchase (must be > 0)
+  - amount: double representing the amount of money to pay (must be > 0)
+  - doc: Document object representing legal allowance documentation (must be non-null)
+Output: 
+  - boolean: true if application was created successfully, false otherwise
+Pre-condition:
+  - customer.canApplyForIPO must be true
+  - customer must not have any approved application for the same company
+  - shares > 0
+  - amount > 0
+  - doc != null
+Post-condition:
+  - If successful: new Application with PENDING status is added to customer's applications
+  - If failed: customer's applications list remains unchanged, org.eclipse.emf.ecore.impl.EOperationImpl@add929e (name: approve) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Approves the application and sends confirmation emails to customer and company
+Algorithm:
+  1. Check if application status is PENDING
+  2. Check if customer.canApplyForIPO is true
+  3. If both checks pass:
+       - Set application status to APPROVAL
+       - Call sendEmailsToCustomerAndCompany()
+  4. Return true if successful, false otherwise
+Input: None
+Output:
+  - boolean: true if application was approved successfully, false otherwise
+Pre-condition:
+  - Application status must be PENDING
+  - Customer must be eligible to apply (canApplyForIPO = true)
+Post-condition:
+  - If successful: status changes to APPROVAL and emails are sent
+  - If failed: status remains unchanged, org.eclipse.emf.ecore.impl.EOperationImpl@700cb93f (name: cancel) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Cancels a pending application
+Algorithm:
+  1. Check if application status is PENDING
+  2. If check passes, set status to canceled (remove from system or mark as canceled)
+  3. Return true if successful, false otherwise
+Input: None
+Output:
+  - boolean: true if application was canceled successfully, false otherwise
+Pre-condition:
+  - Application status must be PENDING
+Post-condition:
+  - If successful: application is removed or marked as canceled
+  - If failed: status remains unchanged, org.eclipse.emf.ecore.impl.EOperationImpl@50b6bf32 (name: getApplicationCount) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Returns the total number of reviewed applications (approved or rejected)
+Algorithm:
+  1. Filter customer's applications where status is either APPROVAL or REJECTED
+  2. Count the filtered applications
+  3. Return the count
+Input: None
+Output:
+  - integer: count of approved or rejected applications, 0 if none
+Pre-condition: None
+Post-condition: None, org.eclipse.emf.ecore.impl.EOperationImpl@2147c47f (name: cancelApplication) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Cancels a pending application for the specified company
+Algorithm:
+  1. Find application in customer's applications where:
+       - application.company.name equals specified companyName
+       - application.status is PENDING
+  2. If found, call application.cancel()
+  3. Return true if cancellation successful, false otherwise
+Input:
+  - companyName: String representing the name of the company whose application should be canceled
+Output:
+  - boolean: true if application was found and canceled successfully, false otherwise
+Pre-condition:
+  - companyName must not be null or empty
+  - Application with matching company name and PENDING status must exist
+Post-condition:
+  - If successful: application status changes to canceled/removed
+  - If failed: applications list remains unchanged, org.eclipse.emf.ecore.impl.EOperationImpl@7e00e10b (name: sendRejectionEmail) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Sends rejection email to the customer
+Algorithm:
+  1. Create rejection email content (custom format for rejection)
+  2. Create Email object with rejection content and customer's email address
+  3. Add email to application's emails list
+  4. Trigger email sending mechanism
+Input: None
+Output: None
+Pre-condition:
+  - Application must have valid customer reference
+  - Customer must have valid email address
+Post-condition:
+  - New rejection Email object is created and added to application's emails list, org.eclipse.emf.ecore.impl.EOperationImpl@4f24edf9 (name: getApprovedTotalAmount) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Returns the sum of all approved application amounts
+Algorithm:
+  1. Filter customer's applications where status is APPROVAL
+  2. Sum the amountOfMoney field of all approved applications
+  3. Return the total sum
+Input: None
+Output:
+  - double: sum of all approved application amounts, 0.0 if no approved applications
+Pre-condition: None
+Post-condition: None, org.eclipse.emf.ecore.impl.EOperationImpl@18afc9e2 (name: sendEmailsToCustomerAndCompany) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Sends confirmation emails to both customer and the company
+Algorithm:
+  1. Create email for customer using Email.createEmailContent()
+  2. Create email for company using Email.createEmailContent()
+  3. Set receiver for customer email to customer.email
+  4. Set receiver for company email to company.email
+  5. Add both emails to application's emails list
+  6. Trigger email sending mechanism (implementation dependent)
+Input: None
+Output: None
+Pre-condition:
+  - Application must have valid customer and company references
+  - Customer and company must have valid email addresses
+Post-condition:
+  - Two new Email objects are created and added to application's emails list, org.eclipse.emf.ecore.impl.EOperationImpl@5dd97fb6 (name: createEmailContent) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Creates email content with application details for customer and company
+Algorithm:
+  1. Format email content to include:
+       - Customer name and surname
+       - Customer email address
+       - Customer telephone number
+       - Applied company name
+       - Number of shares purchased
+       - Amount of money paid
+  2. Return formatted string
+Input:
+  - company: Company object containing company details
+  - shares: integer representing number of shares
+  - customer: Customer object containing customer details
+  - amount: double representing amount paid
+Output:
+  - String: formatted email content containing all required information
+Pre-condition:
+  - All input parameters must be non-null
+  - shares > 0
+  - amount > 0
+Post-condition: None}
+1837078 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+1837110 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../IPOApplication/src-gen/edu/ipo
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getReceiver()
+  { ... /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { ... /* omitted */ }
+
+  public String getContent()
+  { ... /* omitted */ }
+
+  public void setContent(String newContent)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Creates email content with application details for customer and company
+   * Algorithm:
+   *   1. Format email content to include:
+   *        - Customer name and surname
+   *        - Customer email address
+   *        - Customer telephone number
+   *        - Applied company name
+   *        - Number of shares purchased
+   *        - Amount of money paid
+   *   2. Return formatted string
+   * Input:
+   *   - company: Company object containing company details
+   *   - shares: integer representing number of shares
+   *   - customer: Customer object containing customer details
+   *   - amount: double representing amount paid
+   * Output:
+   *   - String: formatted email content containing all required information
+   * Pre-condition:
+   *   - All input parameters must be non-null
+   *   - shares > 0
+   *   - amount > 0
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Email
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Email</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Email#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link edu.ipo.Email#getContent <em>Content</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getEmail()
+ * @model kind="class"
+ * @generated
+ */
+public class Email extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String RECEIVER_EDEFAULT = null;
+
+  protected String receiver = RECEIVER_EDEFAULT;
+
+  protected static final String CONTENT_EDEFAULT = null;
+
+  protected String content = CONTENT_EDEFAULT;
+
+  protected Email()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getReceiver()
+  { ... /* omitted */ }
+
+  public void setReceiver(String newReceiver)
+  { ... /* omitted */ }
+
+  public String getContent()
+  { ... /* omitted */ }
+
+  public void setContent(String newContent)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Creates email content with application details for customer and company
+   * Algorithm:
+   *   1. Format email content to include:
+   *        - Customer name and surname
+   *        - Customer email address
+   *        - Customer telephone number
+   *        - Applied company name
+   *        - Number of shares purchased
+   *        - Amount of money paid
+   *   2. Return formatted string
+   * Input:
+   *   - company: Company object containing company details
+   *   - shares: integer representing number of shares
+   *   - customer: Customer object containing customer details
+   *   - amount: double representing amount paid
+   * Output:
+   *   - String: formatted email content containing all required information
+   * Pre-condition:
+   *   - All input parameters must be non-null
+   *   - shares > 0
+   *   - amount > 0
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  {
+    // Pre-condition checks
+    if (company == null || customer == null) {
+      throw new IllegalArgumentException("Company and Customer must not be null");
+    }
+    if (shares <= 0) {
+      throw new IllegalArgumentException("Shares must be greater than 0");
+    }
+    if (amount <= 0) {
+      throw new IllegalArgumentException("Amount must be greater than 0");
+    }
+
+    // Format email content with all required information
+    StringBuilder contentBuilder = new StringBuilder();
+    contentBuilder.append("IPO Application Details:\n");
+    contentBuilder.append("Customer Name: ").append(customer.getName()).append(" ").append(customer.getSurname()).append("\n");
+    contentBuilder.append("Customer Email: ").append(customer.getEmail()).append("\n");
+    contentBuilder.append("Customer Telephone: ").append(customer.getTelephone()).append("\n");
+    contentBuilder.append("Applied Company: ").append(company.getName()).append("\n");
+    contentBuilder.append("Number of Shares: ").append(shares).append("\n");
+    contentBuilder.append("Amount Paid: ").append(amount).append("\n");
+    
+    return contentBuilder.toString();
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Email
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Creates a new IPO application for the customer with the specified company, shares, amount, and document
+   * Algorithm:
+   *   1. Check if customer is eligible to apply (canApplyForIPO is true)
+   *   2. Check if customer doesn't have any approved application for the same company
+   *   3. If both checks pass, create new Application with:
+   *        - company: specified company
+   *        - shares: specified shares (must be > 0)
+   *        - amount: specified amount (must be > 0)
+   *        - allowance: specified document (non-null)
+   *        - status: PENDING
+   *        - customer: this customer
+   *   4. Add the new application to customer's applications list
+   *   5. Return true if successful, false otherwise
+   * Input:
+   *   - company: Company object representing the target company
+   *   - shares: integer representing number of shares to purchase (must be > 0)
+   *   - amount: double representing the amount of money to pay (must be > 0)
+   *   - doc: Document object representing legal allowance documentation (must be non-null)
+   * Output: 
+   *   - boolean: true if application was created successfully, false otherwise
+   * Pre-condition:
+   *   - customer.canApplyForIPO must be true
+   *   - customer must not have any approved application for the same company
+   *   - shares > 0
+   *   - amount > 0
+   *   - doc != null
+   * Post-condition:
+   *   - If successful: new Application with PENDING status is added to customer's applications
+   *   - If failed: customer's applications list remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Returns the total number of reviewed applications (approved or rejected)
+   * Algorithm:
+   *   1. Filter customer's applications where status is either APPROVAL or REJECTED
+   *   2. Count the filtered applications
+   *   3. Return the count
+   * Input: None
+   * Output:
+   *   - integer: count of approved or rejected applications, 0 if none
+   * Pre-condition: None
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int getApplicationCount()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Returns the sum of all approved application amounts
+   * Algorithm:
+   *   1. Filter customer's applications where status is APPROVAL
+   *   2. Sum the amountOfMoney field of all approved applications
+   *   3. Return the total sum
+   * Input: None
+   * Output:
+   *   - double: sum of all approved application amounts, 0.0 if no approved applications
+   * Pre-condition: None
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double getApprovedTotalAmount()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application for the specified company
+   * Algorithm:
+   *   1. Find application in customer's applications where:
+   *        - application.company.name equals specified companyName
+   *        - application.status is PENDING
+   *   2. If found, call application.cancel()
+   *   3. Return true if cancellation successful, false otherwise
+   * Input:
+   *   - companyName: String representing the name of the company whose application should be canceled
+   * Output:
+   *   - boolean: true if application was found and canceled successfully, false otherwise
+   * Pre-condition:
+   *   - companyName must not be null or empty
+   *   - Application with matching company name and PENDING status must exist
+   * Post-condition:
+   *   - If successful: application status changes to canceled/removed
+   *   - If failed: applications list remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Customer
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Application` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createApplication()`
+  + Public methods: public boolean approve(), public boolean reject(), public boolean cancel(), public void sendEmailsToCustomerAndCompany(), public void sendRejectionEmail()
+  + Getter methods: public int getShare(), public double getAmountOfMoney(), public ApplicationStatus getStatus(), public Customer getCustomer(), public EList<Email> getEmails(), public Company getCompany(), public Document getAllowance()
+  + Setter methods: public void setShare(int newShare), public void setAmountOfMoney(double newAmountOfMoney), public void setStatus(ApplicationStatus newStatus), public void setCustomer(Customer newCustomer), public void setCompany(Company newCompany), public void setAllowance(Document newAllowance)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Customer#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getEmail <em>Email</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getTelephone <em>Telephone</em>}</li>
+ *   <li>{@link edu.ipo.Customer#isCanApplyForIPO <em>Can Apply For IPO</em>}</li>
+ *   <li>{@link edu.ipo.Customer#getApplications <em>Applications</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getCustomer()
+ * @model kind="class"
+ * @generated
+ */
+public class Customer extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String EMAIL_EDEFAULT = null;
+
+  protected String email = EMAIL_EDEFAULT;
+
+  protected static final String TELEPHONE_EDEFAULT = null;
+
+  protected String telephone = TELEPHONE_EDEFAULT;
+
+  protected static final boolean CAN_APPLY_FOR_IPO_EDEFAULT = false;
+
+  protected boolean canApplyForIPO = CAN_APPLY_FOR_IPO_EDEFAULT;
+
+  protected EList<Application> applications;
+
+  protected Customer()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getEmail()
+  { ... /* omitted */ }
+
+  public void setEmail(String newEmail)
+  { ... /* omitted */ }
+
+  public String getTelephone()
+  { ... /* omitted */ }
+
+  public void setTelephone(String newTelephone)
+  { ... /* omitted */ }
+
+  public boolean isCanApplyForIPO()
+  { ... /* omitted */ }
+
+  public void setCanApplyForIPO(boolean newCanApplyForIPO)
+  { ... /* omitted */ }
+
+  public EList<Application> getApplications()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Creates a new IPO application for the customer with the specified company, shares, amount, and document
+   * Algorithm:
+   *   1. Check if customer is eligible to apply (canApplyForIPO is true)
+   *   2. Check if customer doesn't have any approved application for the same company
+   *   3. If both checks pass, create new Application with:
+   *        - company: specified company
+   *        - shares: specified shares (must be > 0)
+   *        - amount: specified amount (must be > 0)
+   *        - allowance: specified document (non-null)
+   *        - status: PENDING
+   *        - customer: this customer
+   *   4. Add the new application to customer's applications list
+   *   5. Return true if successful, false otherwise
+   * Input:
+   *   - company: Company object representing the target company
+   *   - shares: integer representing number of shares to purchase (must be > 0)
+   *   - amount: double representing the amount of money to pay (must be > 0)
+   *   - doc: Document object representing legal allowance documentation (must be non-null)
+   * Output: 
+   *   - boolean: true if application was created successfully, false otherwise
+   * Pre-condition:
+   *   - customer.canApplyForIPO must be true
+   *   - customer must not have any approved application for the same company
+   *   - shares > 0
+   *   - amount > 0
+   *   - doc != null
+   * Post-condition:
+   *   - If successful: new Application with PENDING status is added to customer's applications
+   *   - If failed: customer's applications list remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean createApplication(final Company company, final int shares, final double amount, final Document doc)
+  {
+    // Check pre-conditions
+    if (!isCanApplyForIPO() || company == null || shares <= 0 || amount <= 0.0 || doc == null) {
+      return false;
+    }
+    
+    // Check if customer has any approved application for the same company
+    for (Application app : getApplications()) {
+      if (app.getCompany() != null && app.getCompany().equals(company) && 
+          app.getStatus() == ApplicationStatus.APPROVAL) {
+        return false;
+      }
+    }
+    
+    // Create new application
+    Application newApplication = IpoFactory.eINSTANCE.createApplication();
+    newApplication.setCompany(company);
+    newApplication.setShare(shares);
+    newApplication.setAmountOfMoney(amount);
+    newApplication.setAllowance(doc);
+    newApplication.setStatus(ApplicationStatus.PENDING);
+    newApplication.setCustomer(this);
+    
+    // Add to applications list
+    getApplications().add(newApplication);
+    
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Returns the total number of reviewed applications (approved or rejected)
+   * Algorithm:
+   *   1. Filter customer's applications where status is either APPROVAL or REJECTED
+   *   2. Count the filtered applications
+   *   3. Return the count
+   * Input: None
+   * Output:
+   *   - integer: count of approved or rejected applications, 0 if none
+   * Pre-condition: None
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int getApplicationCount()
+  {
+    int count = 0;
+    for (Application app : getApplications()) {
+      if (app.getStatus() == ApplicationStatus.APPROVAL || app.getStatus() == ApplicationStatus.REJECTED) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Returns the sum of all approved application amounts
+   * Algorithm:
+   *   1. Filter customer's applications where status is APPROVAL
+   *   2. Sum the amountOfMoney field of all approved applications
+   *   3. Return the total sum
+   * Input: None
+   * Output:
+   *   - double: sum of all approved application amounts, 0.0 if no approved applications
+   * Pre-condition: None
+   * Post-condition: None
+   * <!-- end-model-doc -->
+   * @model kind="operation"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double getApprovedTotalAmount()
+  {
+    double total = 0.0;
+    for (Application app : getApplications()) {
+      if (app.getStatus() == ApplicationStatus.APPROVAL) {
+        total += app.getAmountOfMoney();
+      }
+    }
+    return total;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application for the specified company
+   * Algorithm:
+   *   1. Find application in customer's applications where:
+   *        - application.company.name equals specified companyName
+   *        - application.status is PENDING
+   *   2. If found, call application.cancel()
+   *   3. Return true if cancellation successful, false otherwise
+   * Input:
+   *   - companyName: String representing the name of the company whose application should be canceled
+   * Output:
+   *   - boolean: true if application was found and canceled successfully, false otherwise
+   * Pre-condition:
+   *   - companyName must not be null or empty
+   *   - Application with matching company name and PENDING status must exist
+   * Post-condition:
+   *   - If successful: application status changes to canceled/removed
+   *   - If failed: applications list remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancelApplication(final String companyName)
+  {
+    if (companyName == null || companyName.isEmpty()) {
+      return false;
+    }
+    
+    for (Application app : getApplications()) {
+      if (app.getCompany() != null && companyName.equals(app.getCompany().getName()) && 
+          app.getStatus() == ApplicationStatus.PENDING) {
+        return app.cancel();
+      }
+    }
+    return false;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Customer
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Application</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Application#getShare <em>Share</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAmountOfMoney <em>Amount Of Money</em>}</li>
+ *   <li>{@link edu.ipo.Application#getStatus <em>Status</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.ipo.Application#getEmails <em>Emails</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCompany <em>Company</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAllowance <em>Allowance</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getApplication()
+ * @model kind="class"
+ * @generated
+ */
+public class Application extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final int SHARE_EDEFAULT = 0;
+
+  protected int share = SHARE_EDEFAULT;
+
+  protected static final double AMOUNT_OF_MONEY_EDEFAULT = 0.0;
+
+  protected double amountOfMoney = AMOUNT_OF_MONEY_EDEFAULT;
+
+  protected static final ApplicationStatus STATUS_EDEFAULT = ApplicationStatus.PENDING;
+
+  protected ApplicationStatus status = STATUS_EDEFAULT;
+
+  protected EList<Email> emails;
+
+  protected Company company;
+
+  protected Document allowance;
+
+  protected Application()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public int getShare()
+  { ... /* omitted */ }
+
+  public void setShare(int newShare)
+  { ... /* omitted */ }
+
+  public double getAmountOfMoney()
+  { ... /* omitted */ }
+
+  public void setAmountOfMoney(double newAmountOfMoney)
+  { ... /* omitted */ }
+
+  public ApplicationStatus getStatus()
+  { ... /* omitted */ }
+
+  public void setStatus(ApplicationStatus newStatus)
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  public EList<Email> getEmails()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public Company basicGetCompany()
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  public Document getAllowance()
+  { ... /* omitted */ }
+
+  public Document basicGetAllowance()
+  { ... /* omitted */ }
+
+  public void setAllowance(Document newAllowance)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Approves the application and sends confirmation emails to customer and company
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. Check if customer.canApplyForIPO is true
+   *   3. If both checks pass:
+   *        - Set application status to APPROVAL
+   *        - Call sendEmailsToCustomerAndCompany()
+   *   4. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was approved successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   *   - Customer must be eligible to apply (canApplyForIPO = true)
+   * Post-condition:
+   *   - If successful: status changes to APPROVAL and emails are sent
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean approve()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Rejects the application and sends rejection email to customer
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes:
+   *        - Set application status to REJECTED
+   *        - Call sendRejectionEmail()
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was rejected successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: status changes to REJECTED and rejection email is sent
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean reject()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes, set status to canceled (remove from system or mark as canceled)
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was canceled successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: application is removed or marked as canceled
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public boolean cancel()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Sends confirmation emails to both customer and the company
+   * Algorithm:
+   *   1. Create email for customer using Email.createEmailContent()
+   *   2. Create email for company using Email.createEmailContent()
+   *   3. Set receiver for customer email to customer.email
+   *   4. Set receiver for company email to company.email
+   *   5. Add both emails to application's emails list
+   *   6. Trigger email sending mechanism (implementation dependent)
+   * Input: None
+   * Output: None
+   * Pre-condition:
+   *   - Application must have valid customer and company references
+   *   - Customer and company must have valid email addresses
+   * Post-condition:
+   *   - Two new Email objects are created and added to application's emails list
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void sendEmailsToCustomerAndCompany()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Sends rejection email to the customer
+   * Algorithm:
+   *   1. Create rejection email content (custom format for rejection)
+   *   2. Create Email object with rejection content and customer's email address
+   *   3. Add email to application's emails list
+   *   4. Trigger email sending mechanism
+   * Input: None
+   * Output: None
+   * Pre-condition:
+   *   - Application must have valid customer reference
+   *   - Customer must have valid email address
+   * Post-condition:
+   *   - New rejection Email object is created and added to application's emails list
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void sendRejectionEmail()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Application
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+- Class `Email` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createEmail()`
+  + Public methods: public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  + Getter methods: public String getReceiver(), public String getContent()
+  + Setter methods: public void setReceiver(String newReceiver), public void setContent(String newContent)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Application</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Application#getShare <em>Share</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAmountOfMoney <em>Amount Of Money</em>}</li>
+ *   <li>{@link edu.ipo.Application#getStatus <em>Status</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.ipo.Application#getEmails <em>Emails</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCompany <em>Company</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAllowance <em>Allowance</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getApplication()
+ * @model kind="class"
+ * @generated
+ */
+public class Application extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final int SHARE_EDEFAULT = 0;
+
+  protected int share = SHARE_EDEFAULT;
+
+  protected static final double AMOUNT_OF_MONEY_EDEFAULT = 0.0;
+
+  protected double amountOfMoney = AMOUNT_OF_MONEY_EDEFAULT;
+
+  protected static final ApplicationStatus STATUS_EDEFAULT = ApplicationStatus.PENDING;
+
+  protected ApplicationStatus status = STATUS_EDEFAULT;
+
+  protected EList<Email> emails;
+
+  protected Company company;
+
+  protected Document allowance;
+
+  protected Application()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public int getShare()
+  { ... /* omitted */ }
+
+  public void setShare(int newShare)
+  { ... /* omitted */ }
+
+  public double getAmountOfMoney()
+  { ... /* omitted */ }
+
+  public void setAmountOfMoney(double newAmountOfMoney)
+  { ... /* omitted */ }
+
+  public ApplicationStatus getStatus()
+  { ... /* omitted */ }
+
+  public void setStatus(ApplicationStatus newStatus)
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  public EList<Email> getEmails()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public Company basicGetCompany()
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  public Document getAllowance()
+  { ... /* omitted */ }
+
+  public Document basicGetAllowance()
+  { ... /* omitted */ }
+
+  public void setAllowance(Document newAllowance)
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Approves the application and sends confirmation emails to customer and company
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. Check if customer.canApplyForIPO is true
+   *   3. If both checks pass:
+   *        - Set application status to APPROVAL
+   *        - Call sendEmailsToCustomerAndCompany()
+   *   4. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was approved successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   *   - Customer must be eligible to apply (canApplyForIPO = true)
+   * Post-condition:
+   *   - If successful: status changes to APPROVAL and emails are sent
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean approve()
+  {
+    if (getStatus() == ApplicationStatus.PENDING && getCustomer() != null && getCustomer().isCanApplyForIPO()) {
+      setStatus(ApplicationStatus.APPROVAL);
+      sendEmailsToCustomerAndCompany();
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Rejects the application and sends rejection email to customer
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes:
+   *        - Set application status to REJECTED
+   *        - Call sendRejectionEmail()
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was rejected successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: status changes to REJECTED and rejection email is sent
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean reject()
+  {
+    if (getStatus() == ApplicationStatus.PENDING) {
+      setStatus(ApplicationStatus.REJECTED);
+      sendRejectionEmail();
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes, set status to canceled (remove from system or mark as canceled)
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was canceled successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: application is removed or marked as canceled
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancel()
+  {
+    if (getStatus() == ApplicationStatus.PENDING) {
+      setStatus(ApplicationStatus.CANCELED);
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Sends confirmation emails to both customer and the company
+   * Algorithm:
+   *   1. Create email for customer using Email.createEmailContent()
+   *   2. Create email for company using Email.createEmailContent()
+   *   3. Set receiver for customer email to customer.email
+   *   4. Set receiver for company email to company.email
+   *   5. Add both emails to application's emails list
+   *   6. Trigger email sending mechanism (implementation dependent)
+   * Input: None
+   * Output: None
+   * Pre-condition:
+   *   - Application must have valid customer and company references
+   *   - Customer and company must have valid email addresses
+   * Post-condition:
+   *   - Two new Email objects are created and added to application's emails list
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void sendEmailsToCustomerAndCompany()
+  {
+    if (getCustomer() != null && getCompany() != null && getCustomer().getEmail() != null && getCompany().getEmail() != null) {
+      Email customerEmail = IpoFactory.eINSTANCE.createEmail();
+      String customerContent = customerEmail.createEmailContent(getCompany(), getShare(), getCustomer(), getAmountOfMoney());
+      customerEmail.setReceiver(getCustomer().getEmail());
+      customerEmail.setContent(customerContent);
+      
+      Email companyEmail = IpoFactory.eINSTANCE.createEmail();
+      String companyContent = companyEmail.createEmailContent(getCompany(), getShare(), getCustomer(), getAmountOfMoney());
+      companyEmail.setReceiver(getCompany().getEmail());
+      companyEmail.setContent(companyContent);
+      
+      getEmails().add(customerEmail);
+      getEmails().add(companyEmail);
+      
+      // Email sending mechanism would be implemented here
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Sends rejection email to the customer
+   * Algorithm:
+   *   1. Create rejection email content (custom format for rejection)
+   *   2. Create Email object with rejection content and customer's email address
+   *   3. Add email to application's emails list
+   *   4. Trigger email sending mechanism
+   * Input: None
+   * Output: None
+   * Pre-condition:
+   *   - Application must have valid customer reference
+   *   - Customer must have valid email address
+   * Post-condition:
+   *   - New rejection Email object is created and added to application's emails list
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void sendRejectionEmail()
+  {
+    if (getCustomer() != null && getCustomer().getEmail() != null) {
+      Email rejectionEmail = IpoFactory.eINSTANCE.createEmail();
+      
+      // Create custom rejection content
+      String rejectionContent = "Dear " + getCustomer().getName() + " " + getCustomer().getSurname() + 
+                                ",\n\nWe regret to inform you that your IPO application for " + 
+                                getCompany().getName() + " has been rejected.\n\n" +
+                                "Application Details:\n" +
+                                "Shares: " + getShare() + "\n" +
+                                "Amount: " + getAmountOfMoney() + "\n\n" +
+                                "Sincerely,\nIPO Team";
+      
+      rejectionEmail.setReceiver(getCustomer().getEmail());
+      rejectionEmail.setContent(rejectionContent);
+      
+      getEmails().add(rejectionEmail);
+      
+      // Email sending mechanism would be implemented here
+    }
+  }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Application
+2102616 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../IPOApplication/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../IPOApplication/src-gen/edu/ipo/
+2102744 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+2102744 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. ERROR in D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java (at line 523)
+	setStatus(ApplicationStatus.CANCELED);
+	                            ^^^^^^^^
+CANCELED cannot be resolved or is not a field
+----------
+1 problem (1 error)
+
+2102744 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - File: D:\EclipseWorkspace\IPOApplication\src-gen\edu\ipo\Application.java
+Line: 523
+Type: ERROR
+Message: CANCELED cannot be resolved or is not a field
+Code line: 	setStatus(ApplicationStatus.CANCELED);
+Caret Pos: 	                            ^^^^^^^^
+
+# Task
+You will be given a **Java Class** that is originally generated by EMF code generator with `suppressInterfaces=true` and later is completed by LLMs. Your task is to fix the **Compilation Errors** by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. Read the error messages carefully.
+2. Do your best to fix the errors locally without introducing new types, fields, and methods.
+3. You should not remove faulty methods to eliminate compilation errors.
+4. Do not change parts without errors.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Application</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Application#getShare <em>Share</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAmountOfMoney <em>Amount Of Money</em>}</li>
+ *   <li>{@link edu.ipo.Application#getStatus <em>Status</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.ipo.Application#getEmails <em>Emails</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCompany <em>Company</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAllowance <em>Allowance</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getApplication()
+ * @model kind="class"
+ * @generated
+ */
+public class Application extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final int SHARE_EDEFAULT = 0;
+
+  protected int share = SHARE_EDEFAULT;
+
+  protected static final double AMOUNT_OF_MONEY_EDEFAULT = 0.0;
+
+  protected double amountOfMoney = AMOUNT_OF_MONEY_EDEFAULT;
+
+  protected static final ApplicationStatus STATUS_EDEFAULT = ApplicationStatus.PENDING;
+
+  protected ApplicationStatus status = STATUS_EDEFAULT;
+
+  protected EList<Email> emails;
+
+  protected Company company;
+
+  protected Document allowance;
+
+  protected Application()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public int getShare()
+  { ... /* omitted */ }
+
+  public void setShare(int newShare)
+  { ... /* omitted */ }
+
+  public double getAmountOfMoney()
+  { ... /* omitted */ }
+
+  public void setAmountOfMoney(double newAmountOfMoney)
+  { ... /* omitted */ }
+
+  public ApplicationStatus getStatus()
+  { ... /* omitted */ }
+
+  public void setStatus(ApplicationStatus newStatus)
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  public EList<Email> getEmails()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public Company basicGetCompany()
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  public Document getAllowance()
+  { ... /* omitted */ }
+
+  public Document basicGetAllowance()
+  { ... /* omitted */ }
+
+  public void setAllowance(Document newAllowance)
+  { ... /* omitted */ }
+
+  public boolean approve()
+  { ... /* omitted */ }
+
+  public boolean reject()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes, set status to canceled (remove from system or mark as canceled)
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was canceled successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: application is removed or marked as canceled
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancel()
+  {
+    if (getStatus() == ApplicationStatus.PENDING) {
+      setStatus(ApplicationStatus.CANCELED);
+      return true;
+    }
+    return false;
+  }
+
+  public void sendEmailsToCustomerAndCompany()
+  { ... /* omitted */ }
+
+  public void sendRejectionEmail()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Application
+```
+
+# Compilation Errors
+```
+- ERROR: CANCELED cannot be resolved or is not a field
+	setStatus(ApplicationStatus.CANCELED);
+	                            ^^^^^^^^
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Customer` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCustomer()`
+  + Public methods: public boolean createApplication(final Company company, final int shares, final double amount, final Document doc), public int getApplicationCount(), public double getApprovedTotalAmount(), public boolean cancelApplication(final String companyName)
+  + Getter methods: public String getName(), public String getSurname(), public String getEmail(), public String getTelephone(), public boolean isCanApplyForIPO(), public EList<Application> getApplications()
+  + Setter methods: public void setName(String newName), public void setSurname(String newSurname), public void setEmail(String newEmail), public void setTelephone(String newTelephone), public void setCanApplyForIPO(boolean newCanApplyForIPO)
+- Class `Email` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createEmail()`
+  + Public methods: public String createEmailContent(final Company company, final int shares, final Customer customer, final double amount)
+  + Getter methods: public String getReceiver(), public String getContent()
+  + Setter methods: public void setReceiver(String newReceiver), public void setContent(String newContent)
+- Class `Company` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createCompany()`
+  + Getter methods: public String getName(), public String getEmail()
+  + Setter methods: public void setName(String newName), public void setEmail(String newEmail)
+- Class `Document` contains the following methods.
+  + Instance creation: Use `IpoFactory.eINSTANCE.createDocument()`
+
+# Output Format
+Just put the Java class you fixed into a single block as follows.
+
+```result
+(fixed Java class)
+```
+
+fixed code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.ipo;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Application</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.ipo.Application#getShare <em>Share</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAmountOfMoney <em>Amount Of Money</em>}</li>
+ *   <li>{@link edu.ipo.Application#getStatus <em>Status</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link edu.ipo.Application#getEmails <em>Emails</em>}</li>
+ *   <li>{@link edu.ipo.Application#getCompany <em>Company</em>}</li>
+ *   <li>{@link edu.ipo.Application#getAllowance <em>Allowance</em>}</li>
+ * </ul>
+ *
+ * @see edu.ipo.IpoPackage#getApplication()
+ * @model kind="class"
+ * @generated
+ */
+public class Application extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final int SHARE_EDEFAULT = 0;
+
+  protected int share = SHARE_EDEFAULT;
+
+  protected static final double AMOUNT_OF_MONEY_EDEFAULT = 0.0;
+
+  protected double amountOfMoney = AMOUNT_OF_MONEY_EDEFAULT;
+
+  protected static final ApplicationStatus STATUS_EDEFAULT = ApplicationStatus.PENDING;
+
+  protected ApplicationStatus status = STATUS_EDEFAULT;
+
+  protected EList<Email> emails;
+
+  protected Company company;
+
+  protected Document allowance;
+
+  protected Application()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public int getShare()
+  { ... /* omitted */ }
+
+  public void setShare(int newShare)
+  { ... /* omitted */ }
+
+  public double getAmountOfMoney()
+  { ... /* omitted */ }
+
+  public void setAmountOfMoney(double newAmountOfMoney)
+  { ... /* omitted */ }
+
+  public ApplicationStatus getStatus()
+  { ... /* omitted */ }
+
+  public void setStatus(ApplicationStatus newStatus)
+  { ... /* omitted */ }
+
+  public Customer getCustomer()
+  { ... /* omitted */ }
+
+  public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  public void setCustomer(Customer newCustomer)
+  { ... /* omitted */ }
+
+  public EList<Email> getEmails()
+  { ... /* omitted */ }
+
+  public Company getCompany()
+  { ... /* omitted */ }
+
+  public Company basicGetCompany()
+  { ... /* omitted */ }
+
+  public void setCompany(Company newCompany)
+  { ... /* omitted */ }
+
+  public Document getAllowance()
+  { ... /* omitted */ }
+
+  public Document basicGetAllowance()
+  { ... /* omitted */ }
+
+  public void setAllowance(Document newAllowance)
+  { ... /* omitted */ }
+
+  public boolean approve()
+  { ... /* omitted */ }
+
+  public boolean reject()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Cancels a pending application
+   * Algorithm:
+   *   1. Check if application status is PENDING
+   *   2. If check passes, set status to canceled (remove from system or mark as canceled)
+   *   3. Return true if successful, false otherwise
+   * Input: None
+   * Output:
+   *   - boolean: true if application was canceled successfully, false otherwise
+   * Pre-condition:
+   *   - Application status must be PENDING
+   * Post-condition:
+   *   - If successful: application is removed or marked as canceled
+   *   - If failed: status remains unchanged
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public boolean cancel()
+  {
+    if (getStatus() == ApplicationStatus.PENDING) {
+      setStatus(ApplicationStatus.REJECTED);
+      return true;
+    }
+    return false;
+  }
+
+  public void sendEmailsToCustomerAndCompany()
+  { ... /* omitted */ }
+
+  public void sendRejectionEmail()
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Application
+2184707 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../IPOApplication/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../IPOApplication/src-gen/edu/ipo/
+2184805 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+2184805 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+2184805 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+2184805 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+2184806 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/ipo 到 deepseek-v3.2-exp/ipo5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fleet" nsURI="http://www.example.org/fleet" nsPrefix="fleet">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="Online Food Delivery System (OFDS) is used by many companies for delivering food at the doorstep. Each company has a name. In addition, companies hire employees for food delivery. The type of an employee can be a part-time employees or a full-time employees. Each employee has a name. The system also allows the company to manage multiple vehicles. Each vehicle has a registration number. Also, the type of a vehicle can be an owned vehicle or a rented vehicle. An employee may be asigned to a vehicle as a driver for food delivery.&#xA;Functional requirement：&#xA;+ Count the number of full - time employees in a company.&#xA;&#xA;+ Find the registration numbers of all vehicles driven by part - time employees in a company. Return empty list if no vehicles.&#xA;&#xA;+ Count the number of rented vehicles in a company.&#xA;&#xA;+ Find the names of all employees who are currently driving a vehicle in a company. Return empty list if no employee driving a vehicle."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicle" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registrationNumber">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentDriver" eType="//Employee" eOpposite="//Employee/drivenVehicle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EmployeeType">
+    <eLiterals name="PART_TIME"/>
+    <eLiterals name="FULL_TIME" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="//EmployeeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drivenVehicle" eType="//Vehicle" eOpposite="//Vehicle/currentDriver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eOperations name="getFullTimeEmployeeCount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: This operation counts the number of full-time employees in a company.&#xA;Algorithm: Iterate through the list of employees in the company and count the ones with type FULL_TIME.&#xA;Related Features: employees&#xA;Related Classes: Employee, EmployeeType&#xA;Input: None&#xA;Output: The number of full-time employees in the company, format: int, value range: [0, +∞)&#xA;Pre-condition: The company object is initialized and has a list of employees.&#xA;Post-condition: The count of full-time employees is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getRentedVehicleCount">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: This operation counts the number of rented vehicles in a company.&#xA;Algorithm: Iterate through the list of vehicles in the company and count the ones that are instances of RentedVehicle.&#xA;Related Features: vehicles&#xA;Related Classes: Vehicle, RentedVehicle&#xA;Input: None&#xA;Output: The number of rented vehicles in the company, format: int, value range: [0, +∞)&#xA;Pre-condition: The company object is initialized and has a list of vehicles.&#xA;Post-condition: The count of rented vehicles is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getPartTimeDriverVehicleRegistrationNumbers" upperBound="-1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: This operation finds the registration numbers of all vehicles driven by part-time employees in a company.&#xA;Algorithm: Iterate through the list of employees in the company, filter those who are part-time and have a driven vehicle, then extract the registration numbers of their driven vehicles.&#xA;Related Features: employees, vehicles&#xA;Related Classes: Employee, Vehicle, EmployeeType&#xA;Input: None&#xA;Output: A list of registration numbers of vehicles driven by part-time employees, format: List&lt;String>, value range: List of strings representing registration numbers.&#xA;Pre-condition: The company object is initialized and has a list of employees and vehicles.&#xA;Post-condition: A list of registration numbers is returned. If no part-time employees are driving vehicles, an empty list is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getCurrentDriversNames" upperBound="-1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: This operation finds the names of all employees who are currently driving a vehicle in a company.&#xA;Algorithm: Iterate through the list of vehicles in the company, filter those that have a current driver, then extract the names of these drivers.&#xA;Related Features: vehicles&#xA;Related Classes: Vehicle, Employee&#xA;Input: None&#xA;Output: A list of names of employees currently driving a vehicle, format: List&lt;String>, value range: List of strings representing employee names.&#xA;Pre-condition: The company object is initialized and has a list of vehicles.&#xA;Post-condition: A list of employee names is returned. If no employees are driving vehicles, an empty list is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1" eType="//Employee" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicles" upperBound="-1" eType="//Vehicle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedVehicle" eSuperTypes="//Vehicle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RentedVehicle" eSuperTypes="//Vehicle"/>
+</ecore:EPackage>

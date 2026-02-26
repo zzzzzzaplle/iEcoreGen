@@ -1,0 +1,84 @@
+============================================================
+CompanyWarehouses - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 19:43:43
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR2Test.java:15: 错误: 找不到符号
+          company.setName("C1");
+                 ^
+    符号:   方法 setName(String)
+    位置: 类型为Company的变量 company
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR2Test.java:32: 错误: 找不到符号
+          warehouse.addProduct(product1);
+                   ^
+    符号:   方法 addProduct(Product)
+    位置: 类型为Warehouse的变量 warehouse
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR4Test.java:11: 错误: 找不到符号
+          company.setName("C1");
+                 ^
+    符号:   方法 setName(String)
+    位置: 类型为Company的变量 company
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR4Test.java:24: 错误: 找不到符号
+          warehouse.addProduct(product);
+                   ^
+    符号:   方法 addProduct(Product)
+    位置: 类型为Warehouse的变量 warehouse
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR5Test.java:14: 错误: 找不到符号
+          company.setName("C1");
+                 ^
+    符号:   方法 setName(String)
+    位置: 类型为Company的变量 company
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\CompanyWarehouses_sample3\src\test\CR5Test.java:31: 错误: 找不到符号
+          warehouse1.addProduct(product1);
+                    ^
+    符号:   方法 addProduct(Product)
+    位置: 类型为Warehouse的变量 warehouse1
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 2/5
+- 测试通过: 2/2
+- 测试失败: 0/2
+============================================================

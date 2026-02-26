@@ -1,0 +1,169 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:42:01
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\woFixing\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woFixing\rideshare1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Customer.java:235: 错误: 找不到符号
+        throw new BookingException("Booking not eligible or overlaps with existing booking");
+                  ^
+    符号:   类 BookingException
+    位置: 类 Customer
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Trip.java:575: 错误: 不兼容的类型: String无法转换为Award
+          && customer.getMembershipPackage().hasAward("DISCOUNTS")) {
+                                                      ^
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Trip.java:609: 错误: 不兼容的类型: String无法转换为Award
+      if (tripMonth.equals(currentMonth) && customer.getMembershipPackage().hasAward("POINTS")) {
+                                                                                     ^
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Driver.java:140: 错误: 找不到符号
+      Date newDepartureDate = newTrip.getDepartureDate();
+                              ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Driver.java:141: 错误: 找不到符号
+      String newDepartureTime = newTrip.getDepartureTime();
+                                ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare1\Driver.java:142: 错误: 找不到符号
+      String newArrivalTime = newTrip.getArrivalTime();
+                              ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+  6 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\woFixing\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woFixing\rideshare2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woFixing\rideshare2\Driver.java:139: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                           ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare2\Driver.java:139: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                                                       ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\woFixing\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woFixing\rideshare3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woFixing\rideshare3\Driver.java:143: 错误: 找不到符号
+            newTrip.getDepartureTime(), 
+            ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare3\Driver.java:144: 错误: 找不到符号
+            newTrip.getArrivalTime());
+            ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare3\Driver.java:147: 错误: 找不到符号
+        boolean stopOverlap = checkStopOverlap(existingTrip, newTrip);
+                                                             ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\woFixing\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woFixing\rideshare4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woFixing\rideshare4\Driver.java:141: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                           ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare4\Driver.java:141: 错误: 找不到符号
+        if (existingTrip.isTimeConflicting(newTrip.getDepartureTime(), newTrip.getArrivalTime())) {
+                                                                       ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\woFixing\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woFixing\rideshare5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Customer.java:197: 错误: 找不到符号
+          if (award.isApplicableForMonth(currentMonth)) {
+                   ^
+    符号:   方法 isApplicableForMonth(String)
+    位置: 类型为Award的变量 award
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Customer.java:198: 错误: 找不到符号
+            totalPoints += award.getBonusPoints();
+                                ^
+    符号:   方法 getBonusPoints()
+    位置: 类型为Award的变量 award
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Trip.java:574: 错误: 找不到符号
+        double discountRate = membershipPackage.getDiscountRate(); // This method would need to be defined in MembershipPackage
+                                               ^
+    符号:   方法 getDiscountRate()
+    位置: 类型为MembershipPackage的变量 membershipPackage
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Trip.java:607: 错误: 找不到符号
+        int bonusMultiplier = membershipPackage.getBonusMultiplier(); // This method would need to be defined in MembershipPackage
+                                               ^
+    符号:   方法 getBonusMultiplier()
+    位置: 类型为MembershipPackage的变量 membershipPackage
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Driver.java:146: 错误: 找不到符号
+      if (newTrip == null) {
+          ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  D:\EclipseWorkspace\ORS\woFixing\rideshare5\Driver.java:155: 错误: 找不到符号
+      String newDepartureTime = newTrip.getDepartureTime();
+                                ^
+    符号:   变量 newTrip
+    位置: 类 Driver
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

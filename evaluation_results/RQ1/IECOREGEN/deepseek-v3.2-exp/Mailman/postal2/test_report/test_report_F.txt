@@ -1,0 +1,105 @@
+================================================================================
+postal2 测试报告
+================================================================================
+生成时间: 2025-11-24 00:17:53
+样本名称: postal2
+总测试数: 15
+通过: 14
+失败: 1
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_ListOnlyAssignedMailForMailman(edu.postal.postal2.test.CR2Test)
+  java.lang.AssertionError: Should contain 3 mail items expected:<3> but was:<4>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.postal.postal2.test.CR2Test.testCase4_ListOnlyAssignedMailForMailman(CR2Test.java:123)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR4Test.java:71: 错误: 找不到符号
+          EList<RegisteredMail> bobsMail = area.listRegisteredMail(bob);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR4Test.java:80: 错误: 找不到符号
+          EList<RegisteredMail> charliesMail = area.listRegisteredMail(charlie);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR4Test.java:130: 错误: 找不到符号
+          EList<RegisteredMail> zacksMail = area.listRegisteredMail(zack);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR4Test.java:210: 错误: 找不到符号
+          EList<RegisteredMail> luigisMail = area.listRegisteredMail(luigi);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR5Test.java:55: 错误: 找不到符号
+          EList<RegisteredMail> result = mainStreet.listRegisteredMailWithInhabitant(zoe);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR5Test.java:74: 错误: 找不到符号
+          EList<RegisteredMail> result = marketSquare.listRegisteredMailWithInhabitant(mia);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR5Test.java:86: 错误: 找不到符号
+          EList<RegisteredMail> result = area.listRegisteredMailWithInhabitant(noah);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal2\test\CR5Test.java:120: 错误: 找不到符号
+          EList<RegisteredMail> result = oldTown.listRegisteredMailWithInhabitant(ella);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR5Test
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 15
+通过: 14
+失败: 1
+成功率: 93.3%
+================================================================================

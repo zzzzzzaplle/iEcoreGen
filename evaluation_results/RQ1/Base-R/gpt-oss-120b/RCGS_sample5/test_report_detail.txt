@@ -1,0 +1,34 @@
+============================================================
+RCGS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 14:23:07
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample5\src\main\FJC.java:430: 错误: 非法的类型开始
+          return sum / cars.size();
+          ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample5\src\main\FJC.java:430: 错误: 需要<标识符>
+          return sum / cars.size();
+                    ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample5\src\main\FJC.java:430: 错误: 需要<标识符>
+          return sum / cars.size();
+                                ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample5\src\main\FJC.java:439: 错误: 未命名类 是预览功能，默认情况下禁用。
+      public Map<Customer, Integer> getRentalCountPerCustomer() {
+             ^
+    （请使用 --enable-preview 以启用 未命名类）
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\RCGS_sample5\src\main\FJC.java:447: 错误: 需要 class、interface、enum 或 record
+  }
+  ^
+  5 个错误
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

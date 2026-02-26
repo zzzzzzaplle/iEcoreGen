@@ -1,0 +1,100 @@
+============================================================
+EmployeeManagementSystem - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-24 15:23:21
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test)
+  java.lang.AssertionError: expected:<3200.0> but was:<3002.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test.java:46)
+  2) testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test)
+  java.lang.AssertionError: expected:<8595.0> but was:<8372.25>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR1Test.testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test.java:89)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_MultipleSalespersonsWithMixedSales(CR3Test)
+  java.lang.AssertionError: expected:<1120.0> but was:<11.2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase5_MultipleSalespersonsWithMixedSales(CR3Test.java:116)
+  2) testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test)
+  java.lang.AssertionError: expected:<900.0> but was:<9.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test.java:69)
+  3) testCase1_SingleSalespersonWithNonZeroSales(CR3Test)
+  java.lang.AssertionError: expected:<100.0> but was:<1.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR3Test.testCase1_SingleSalespersonWithNonZeroSales(CR3Test.java:34)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

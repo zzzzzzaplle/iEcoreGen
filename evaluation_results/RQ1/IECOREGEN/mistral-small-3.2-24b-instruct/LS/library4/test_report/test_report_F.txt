@@ -1,0 +1,67 @@
+================================================================================
+library4 测试报告
+================================================================================
+生成时间: 2025-11-27 13:20:37
+样本名称: library4
+总测试数: 20
+通过: 17
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase4_CalculateTotalCheckoutsForMultipleUsersWithMixedTypes1(edu.library.library4.test.CR4Test)
+  java.lang.AssertionError: User M004 should have 4 unique books expected:<4> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library4.test.CR4Test.testCase4_CalculateTotalCheckoutsForMultipleUsersWithMixedTypes1(CR4Test.java:227)
+  2) testCase5_CalculateTotalCheckoutsForMultipleUsersWithMixedTypes2(edu.library.library4.test.CR4Test)
+  java.lang.AssertionError: Guest user G002 should have 2 unique books expected:<2> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library4.test.CR4Test.testCase5_CalculateTotalCheckoutsForMultipleUsersWithMixedTypes2(CR4Test.java:290)
+  3) testCase1_CalculateTotalCheckoutsForMemberUser(edu.library.library4.test.CR4Test)
+  java.lang.AssertionError: User M001 should have 3 unique books expected:<3> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.library.library4.test.CR4Test.testCase1_CalculateTotalCheckoutsForMemberUser(CR4Test.java:107)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 17
+失败: 3
+成功率: 85.0%
+================================================================================

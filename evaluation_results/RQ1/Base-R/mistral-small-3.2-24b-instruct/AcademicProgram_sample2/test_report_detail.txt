@@ -1,0 +1,113 @@
+============================================================
+AcademicProgram - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:04:04
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase4_multipleCoursesVaryingStudentsPerCourse(CR2Test)
+  java.lang.AssertionError: Four courses with 5, 10, 15, 20 students should return 50 expected:<50> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase4_multipleCoursesVaryingStudentsPerCourse(CR2Test.java:133)
+  2) testCase3_multipleCoursesSingleStudentPerCourse(CR2Test)
+  java.lang.AssertionError: Three courses with one student each should return 3 expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase3_multipleCoursesSingleStudentPerCourse(CR2Test.java:90)
+  3) testCase2_singleCourseMultipleStudents(CR2Test)
+  java.lang.AssertionError: Single course with 25 students should return 25 expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase2_singleCourseMultipleStudents(CR2Test.java:68)
+  4) testCase1_singleCourseSingleStudent(CR2Test)
+  java.lang.AssertionError: Single course with one student should return 1 expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase1_singleCourseSingleStudent(CR2Test.java:46)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase2_averageGradeCalculationForSingleStudentCourse(CR3Test)
+  java.lang.AssertionError: Average grade should equal the single student's grade expected:<88.5> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase2_averageGradeCalculationForSingleStudentCourse(CR3Test.java:90)
+  2) testCase5_averageGradeCalculationWithMixOfValidAndZeroGrades(CR3Test)
+  java.lang.AssertionError: Average grade should correctly handle mix of valid and zero grades expected:<56.666666666666664> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase5_averageGradeCalculationWithMixOfValidAndZeroGrades(CR3Test.java:162)
+  3) testCase1_averageGradeCalculationForStudentsInSpecificCourse(CR3Test)
+  java.lang.AssertionError: Average grade should be correctly calculated for multiple students with different grades expected:<85.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase1_averageGradeCalculationForStudentsInSpecificCourse(CR3Test.java:67)
+  4) testCase4_averageGradeCalculationWithAllSameGrades(CR3Test)
+  java.lang.AssertionError: Average grade should equal the common grade value when all students have same grade expected:<95.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase4_averageGradeCalculationWithAllSameGrades(CR3Test.java:135)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

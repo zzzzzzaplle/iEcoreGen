@@ -1,0 +1,393 @@
+package com.turgutlu.football;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * Represents a football team belonging to Turgutlu.
+ * It keeps track of all players, the starting eleven, the spare (reserve) team
+ * and the announcements (goals scored or saved) generated during matches.
+ */
+ class FootballTeam {
+
+    /** Players that form the starting eleven (maximum 11). */
+    private List<Player> firstEleven;
+
+    /** Players that are on the reserve / spare team. */
+    private List<Player> spareTeam;
+
+    /** All players belonging to the team (includes first eleven and spare). */
+    private List<Player> players;
+
+    /** All announcements generated for this team. */
+    private List<Announcement> announcements;
+
+    /** Default (no‑argument) constructor. Initializes internal collections. */
+    public FootballTeam() {
+        this.firstEleven = new ArrayList<>();
+        this.spareTeam = new ArrayList<>();
+        this.players = new ArrayList<>();
+        this.announcements = new ArrayList<>();
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*                          Getters & Setters                           */
+    /* --------------------------------------------------------------------- */
+
+    public List<Player> getFirstEleven() {
+        return firstEleven;
+    }
+
+    public void setFirstEleven(List<Player> firstEleven) {
+        this.firstEleven = firstEleven;
+    }
+
+    public List<Player> getSpareTeam() {
+        return spareTeam;
+    }
+
+    public void setSpareTeam(List<Player> spareTeam) {
+        this.spareTeam = spareTeam;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public List<Announcement> getAnnouncements() {
+        return announcements;
+    }
+
+    public void setAnnouncements(List<Announcement> announcements) {
+        this.announcements = announcements;
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*                     Functional Requirement Methods                    */
+    /* --------------------------------------------------------------------- */
+
+    /**
+     * Calculates the total number of goal‑scoring announcements that belong to
+     * the starting eleven. Only players whose position is {@link Position#FORWARD}
+     * can generate a SCORE announcement; other positions are ignored.
+     *
+     * @return the count of SCORE announcements issued by forward players
+     *         that are part of the first eleven.
+     */
+    public int calculateTotalGoalScoringAnnouncementsForFirstEleven() {
+        if (firstEleven == null || announcements == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (Announcement ann : announcements) {
+            if (ann == null) {
+                continue;
+            }
+            if (ann.getType() == AnnouncementType.SCORE) {
+                Player p = ann.getPlayer();
+                if (p != null && p.getPosition() == Position.FORWARD && firstEleven.contains(p)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Finds the midfielder with the highest jersey number among all players of
+     * the team.
+     *
+     * @return the {@link Player} object representing the midfielder that has the
+     *         highest number, or {@code null} if the team has no midfielders.
+     */
+    public Player findMidfielderWithHighestNumber() {
+        if (players == null) {
+            return null;
+        }
+
+        Player highest = null;
+        for (Player p : players) {
+            if (p != null && p.getPosition() == Position.MIDFIELD) {
+                if (highest == null || p.getNumber() > highest.getNumber()) {
+                    highest = p;
+                }
+            }
+        }
+        return highest;
+    }
+
+    /**
+     * Calculates the average age of the players that belong to the spare (reserve)
+     * team.
+     *
+     * @return the average age as a {@code double}. Returns {@code 0.0} if the
+     *         spare team contains no players.
+     */
+    public double calculateAverageAgeOfSpareTeam() {
+        if (spareTeam == null || spareTeam.isEmpty()) {
+            return 0.0;
+        }
+
+        int totalAge = 0;
+        int count = 0;
+        for (Player p : spareTeam) {
+            if (p != null) {
+                totalAge += p.getAge();
+                count++;
+            }
+        }
+        return count == 0 ? 0.0 : (double) totalAge / count;
+    }
+
+    /**
+     * Counts how many goal‑saving announcements have been made by goalkeepers
+     * belonging to the team.
+     *
+     * @return the number of SAVE announcements generated by players whose
+     *         position is {@link Position#GOALKEEPER}. Returns {@code 0}
+     *         if none exist.
+     */
+    public int calculateGoalSavingAnnouncementsByGoalkeeper() {
+        if (announcements == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (Announcement ann : announcements) {
+            if (ann == null) {
+                continue;
+            }
+            if (ann.getType() == AnnouncementType.SAVE) {
+                Player p = ann.getPlayer();
+                if (p != null && p.getPosition() == Position.GOALKEEPER) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Calculates the total number of announcements (any type) made by all
+     * forward players of the team.
+     *
+     * @return the total count of announcements whose associated player has
+     *         position {@link Position#FORWARD}. Returns {@code 0} if there are
+     *         no forwards or no announcements.
+     */
+    public int calculateTotalAnnouncementsForForwardPlayers() {
+        if (announcements == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (Announcement ann : announcements) {
+            if (ann == null) {
+                continue;
+            }
+            Player p = ann.getPlayer();
+            if (p != null && p.getPosition() == Position.FORWARD) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/*                               Enumerations                                */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Positions that a player can occupy on the field.
+ */
+enum Position {
+    FORWARD,
+    MIDFIELD,
+    DEFENSE,
+    GOALKEEPER
+}
+
+/**
+ * Types of announcements that can be generated during a match.
+ */
+enum AnnouncementType {
+    SCORE,   // a goal has been scored
+    SAVE     // a goalkeeper saved a goal
+}
+
+/* ------------------------------------------------------------------------- */
+/*                                 Player                                    */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Represents a football player.
+ */
+class Player {
+
+    private String name;
+    private int age;
+    private int number;
+    private Position position;
+
+    /** No‑argument constructor. */
+    public Player() {
+        // default values (null/0) are acceptable; setters can be used later
+    }
+
+    /* Getters & Setters */
+
+    /**
+     * Returns the player's name.
+     *
+     * @return the name of the player.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the player's name.
+     *
+     * @param name the name to assign.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Returns the player's age.
+     *
+     * @return age in years.
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Sets the player's age.
+     *
+     * @param age the age to assign.
+     */
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    /**
+     * Returns the jersey number of the player.
+     *
+     * @return the number.
+     */
+    public int getNumber() {
+        return number;
+    }
+
+    /**
+     * Sets the jersey number of the player.
+     *
+     * @param number the number to assign.
+     */
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    /**
+     * Returns the player's position on the field.
+     *
+     * @return the {@link Position}.
+     */
+    public Position getPosition() {
+        return position;
+    }
+
+    /**
+     * Sets the player's position.
+     *
+     * @param position the {@link Position} to assign.
+     */
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/*                               Announcement                                 */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Represents an announcement generated during a match (a goal scored or saved).
+ */
+class Announcement {
+
+    private Date time;
+    private AnnouncementType type;
+    private Player player;
+
+    /** No‑argument constructor. */
+    public Announcement() {
+        // time, type and player can be set later via setters
+    }
+
+    /* Getters & Setters */
+
+    /**
+     * Returns the time when the announcement occurred.
+     *
+     * @return the {@link Date} of the announcement.
+     */
+    public Date getTime() {
+        return time;
+    }
+
+    /**
+     * Sets the time of the announcement.
+     *
+     * @param time the {@link Date} to assign.
+     */
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    /**
+     * Returns the type of the announcement (SCORE or SAVE).
+     *
+     * @return the {@link AnnouncementType}.
+     */
+    public AnnouncementType getType() {
+        return type;
+    }
+
+    /**
+     * Sets the type of the announcement.
+     *
+     * @param type the {@link AnnouncementType} to assign.
+     */
+    public void setType(AnnouncementType type) {
+        this.type = type;
+    }
+
+    /**
+     * Returns the player associated with this announcement.
+     *
+     * @return the {@link Player} who caused the announcement.
+     */
+    public Player getPlayer() {
+        return player;
+    }
+
+    /**
+     * Sets the player associated with this announcement.
+     *
+     * @param player the {@link Player} to associate.
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+}

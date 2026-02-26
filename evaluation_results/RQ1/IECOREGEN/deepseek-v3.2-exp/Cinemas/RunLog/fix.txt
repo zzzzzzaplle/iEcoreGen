@@ -1,0 +1,7 @@
+错误1：类型解析错误
+错误信息: BasicEList cannot be resolved to a type
+
+修复的错误1：
+问题: 在removeFilm方法中使用了BasicEList类名
+根本原因: BasicEList类需要完整的包名org.eclipse.emf.common.util.BasicEList才能被正确解析
+修复方案: 导包

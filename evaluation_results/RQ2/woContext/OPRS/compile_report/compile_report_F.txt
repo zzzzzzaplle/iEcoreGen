@@ -1,0 +1,63 @@
+================================================================================
+OPRS 系统编译报告
+================================================================================
+生成时间: 2025-11-27 16:47:23
+系统名称: OPRS
+SystemName: conference
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] conference1
+  - 样本目录: D:\EclipseWorkspace\OPRS\woContext\conference1
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woContext\conference1\compile
+
+[✗ FAIL] conference2
+  - 样本目录: D:\EclipseWorkspace\OPRS\woContext\conference2
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woContext\conference2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPRS\woContext\conference2\Author.java:142: 错误: 找不到符号
+        if (paper.getFinalDecision() == Decision.ACCEPT) {
+                 ^
+    符号:   方法 getFinalDecision()
+    位置: 类型为Paper的变量 paper
+  D:\EclipseWorkspace\OPRS\woContext\conference2\Author.java:142: 错误: 找不到符号
+        if (paper.getFinalDecision() == Decision.ACCEPT) {
+                                        ^
+    符号:   变量 Decision
+    位置: 类 Author
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] conference3
+  - 样本目录: D:\EclipseWorkspace\OPRS\woContext\conference3
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woContext\conference3\compile
+
+[✓ PASS] conference4
+  - 样本目录: D:\EclipseWorkspace\OPRS\woContext\conference4
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woContext\conference4\compile
+
+[✓ PASS] conference5
+  - 样本目录: D:\EclipseWorkspace\OPRS\woContext\conference5
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\OPRS\woContext\conference5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

@@ -1,0 +1,172 @@
+================================================================================
+AirlineFlights 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:41:03
+系统名称: AirlineFlights
+SystemName: flights
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] flights1
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woFixing\flights1
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woFixing\flights1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights1\Flight.java:583: 错误: 找不到符号
+      EList<Reservation> confirmedReservations = new BasicEList<Reservation>();
+                                                     ^
+    符号:   类 BasicEList
+    位置: 类 Flight
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights2
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woFixing\flights2
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Airline.java:283: 错误: 找不到符号
+      EList<Flight> result = new BasicEList<>();
+                                 ^
+    符号:   类 BasicEList
+    位置: 类 Airline
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Airline.java:300: 错误: 找不到符号
+               origin.equalsIgnoreCase(departureAirport.getCity());
+                                                       ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 departureAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Airline.java:304: 错误: 找不到符号
+               dest.equalsIgnoreCase(arrivalAirport.getCity());
+                                                   ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 arrivalAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Customer.java:188: 错误: 找不到符号
+          if (reservationID.equals(reservation.getReservationID())) {
+                                              ^
+    符号:   方法 getReservationID()
+    位置: 类型为Reservation的变量 reservation
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Customer.java:246: 错误: 找不到符号
+          if (reservationID.equals(reservation.getReservationID())) {
+                                              ^
+    符号:   方法 getReservationID()
+    位置: 类型为Reservation的变量 reservation
+  注: D:\EclipseWorkspace\AirlineFlights\woFixing\flights2\Airline.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights3
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woFixing\flights3
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\Airline.java:349: 错误: 找不到符号
+            !origin.equalsIgnoreCase(departureAirport.getCity())) {
+                                                     ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 departureAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\Airline.java:356: 错误: 找不到符号
+            !dest.equalsIgnoreCase(arrivalAirport.getCity())) {
+                                                 ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 arrivalAirport
+  注: D:\EclipseWorkspace\AirlineFlights\woFixing\flights3\Airline.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights4
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woFixing\flights4
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\Airline.java:272: 错误: 不兼容的类型: String无法转换为ReservationStatus
+          reservation.setStatus("CANCELED");
+                                ^
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\Customer.java:144: 错误: 找不到符号
+          if (passengerName.equals(reservation.getPassengerName())) {
+                                              ^
+    符号:   方法 getPassengerName()
+    位置: 类型为Reservation的变量 reservation
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\Customer.java:205: 错误: 找不到符号
+          if (reservationID.equals(reservation.getReservationID())) {
+                                              ^
+    符号:   方法 getReservationID()
+    位置: 类型为Reservation的变量 reservation
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\Customer.java:278: 错误: 找不到符号
+          if (reservationID.equals(reservation.getReservationID())) {
+                                              ^
+    符号:   方法 getReservationID()
+    位置: 类型为Reservation的变量 reservation
+  注: D:\EclipseWorkspace\AirlineFlights\woFixing\flights4\Airline.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  注: 某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights5
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woFixing\flights5
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Airline.java:262: 错误: 找不到符号
+      EList<Flight> result = new BasicEList<>();
+                                 ^
+    符号:   类 BasicEList
+    位置: 类 Airline
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Airline.java:273: 错误: 找不到符号
+        if (departureAirport != null && departureAirport.getCity() != null && 
+                                                        ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 departureAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Airline.java:274: 错误: 找不到符号
+            !departureAirport.getCity().equals(origin)) {
+                             ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 departureAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Airline.java:279: 错误: 找不到符号
+        if (arrivalAirport != null && arrivalAirport.getCity() != null && 
+                                                    ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 arrivalAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Airline.java:280: 错误: 找不到符号
+            !arrivalAirport.getCity().equals(dest)) {
+                           ^
+    符号:   方法 getCity()
+    位置: 类型为Airport的变量 arrivalAirport
+  D:\EclipseWorkspace\AirlineFlights\woFixing\flights5\Flight.java:505: 错误: 找不到符号
+      Airport stopoverAirport = stop.getAirport();
+                                    ^
+    符号:   方法 getAirport()
+    位置: 类型为Stopover的变量 stop
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

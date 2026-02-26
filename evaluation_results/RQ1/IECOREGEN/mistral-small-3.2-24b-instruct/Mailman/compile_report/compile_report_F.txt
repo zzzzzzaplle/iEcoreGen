@@ -1,0 +1,56 @@
+================================================================================
+Mailman 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:15:40
+系统名称: Mailman
+SystemName: postal
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] postal1
+  - 样本目录: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal1\compile
+
+[✓ PASS] postal2
+  - 样本目录: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal2\compile
+
+[✗ FAIL] postal3
+  - 样本目录: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal3\GeographicalArea.java:539: 错误: 需要';'
+    available at
+                ^
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] postal4
+  - 样本目录: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal4\compile
+
+[✓ PASS] postal5
+  - 样本目录: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\Mailman\mistral-small-3.2-24b-instruct\postal5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

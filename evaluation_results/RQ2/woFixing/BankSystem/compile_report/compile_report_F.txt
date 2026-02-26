@@ -1,0 +1,79 @@
+================================================================================
+BankSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:41:07
+系统名称: BankSystem
+SystemName: bank
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] bank1
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woFixing\bank1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woFixing\bank1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woFixing\bank1\Customer.java:314: 错误: 找不到符号
+          (investmentAccount.getStockTransactions() != null && !investmentAccount.getStockTransactions().isEmpty())) {
+                            ^
+    符号:   方法 getStockTransactions()
+    位置: 类型为InvestmentAccount的变量 investmentAccount
+  D:\EclipseWorkspace\BankSystem\woFixing\bank1\Customer.java:314: 错误: 找不到符号
+          (investmentAccount.getStockTransactions() != null && !investmentAccount.getStockTransactions().isEmpty())) {
+                                                                                 ^
+    符号:   方法 getStockTransactions()
+    位置: 类型为InvestmentAccount的变量 investmentAccount
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] bank2
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woFixing\bank2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woFixing\bank2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woFixing\bank2\Customer.java:292: 错误: 找不到符号
+        if (investmentAccount.getBalance() == 0.0 && (investmentAccount.getStockTransactions() == null || investmentAccount.getStockTransactions().isEmpty())) {
+                                                                       ^
+    符号:   方法 getStockTransactions()
+    位置: 类型为InvestmentAccount的变量 investmentAccount
+  D:\EclipseWorkspace\BankSystem\woFixing\bank2\Customer.java:292: 错误: 找不到符号
+        if (investmentAccount.getBalance() == 0.0 && (investmentAccount.getStockTransactions() == null || investmentAccount.getStockTransactions().isEmpty())) {
+                                                                                                                           ^
+    符号:   方法 getStockTransactions()
+    位置: 类型为InvestmentAccount的变量 investmentAccount
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] bank3
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woFixing\bank3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woFixing\bank3\compile
+
+[✓ PASS] bank4
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woFixing\bank4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woFixing\bank4\compile
+
+[✓ PASS] bank5
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woFixing\bank5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woFixing\bank5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

@@ -1,0 +1,80 @@
+============================================================
+VideoRental - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-23 21:19:20
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR1Test.java:57: 错误: 程序包ChronoUnit不存在
+          long overdueDays = ChronoUnit.DAYS.between(
+                                       ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR1Test.java:104: 错误: 程序包ChronoUnit不存在
+          long overdueDays = ChronoUnit.DAYS.between(
+                                       ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR1Test.java:131: 错误: 程序包ChronoUnit不存在
+          long overdueDays = ChronoUnit.DAYS.between(
+                                       ^
+  3 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR3Test.java:208: 错误: 找不到符号
+          overdueTape.setDueDate("2024-12-31"); // Overdue by 1 day on 2025-01-01
+                     ^
+    符号:   方法 setDueDate(String)
+    位置: 类型为VideoTape的变量 overdueTape
+  1 个错误
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR4Test.java:9: 错误: 找不到符号
+      private DateTimeFormatter formatter;
+              ^
+    符号:   类 DateTimeFormatter
+    位置: 类 CR4Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\VideoRental_sample3\src\test\CR4Test.java:14: 错误: 找不到符号
+          formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                      ^
+    符号:   变量 DateTimeFormatter
+    位置: 类 CR4Test
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 2/5
+- 测试通过: 2/2
+- 测试失败: 0/2
+============================================================

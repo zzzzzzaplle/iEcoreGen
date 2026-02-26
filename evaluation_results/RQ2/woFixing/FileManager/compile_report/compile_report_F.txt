@@ -1,0 +1,69 @@
+================================================================================
+FileManager 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:41:28
+系统名称: FileManager
+SystemName: fs
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] fs1
+  - 样本目录: D:\EclipseWorkspace\FileManager\woFixing\fs1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woFixing\fs1\compile
+
+[✗ FAIL] fs2
+  - 样本目录: D:\EclipseWorkspace\FileManager\woFixing\fs2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woFixing\fs2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FileManager\woFixing\fs2\FileSystem.java:282: 错误: 找不到符号
+      return new BasicEList<>(authors);
+                 ^
+    符号:   类 BasicEList
+    位置: 类 FileSystem
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] fs3
+  - 样本目录: D:\EclipseWorkspace\FileManager\woFixing\fs3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woFixing\fs3\compile
+
+[✗ FAIL] fs4
+  - 样本目录: D:\EclipseWorkspace\FileManager\woFixing\fs4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woFixing\fs4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FileManager\woFixing\fs4\FileSystem.java:272: 错误: 找不到符号
+      EList<String> authors = new BasicEList<>();
+                                  ^
+    符号:   类 BasicEList
+    位置: 类 FileSystem
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] fs5
+  - 样本目录: D:\EclipseWorkspace\FileManager\woFixing\fs5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woFixing\fs5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

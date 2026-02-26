@@ -1,0 +1,107 @@
+================================================================================
+BankSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-24 23:39:22
+系统名称: BankSystem
+SystemName: bank
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] bank1
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woContext\bank1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woContext\bank1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\InvestmentAccount.java:136: 错误: 找不到符号
+        transaction.setSymbol(stockSymbol);
+                   ^
+    符号:   方法 setSymbol(String)
+    位置: 类型为StockTransaction的变量 transaction
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] bank2
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woContext\bank2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woContext\bank2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank2\InvestmentAccount.java:139: 错误: 找不到符号
+      transaction.setSymbol(stockSymbol);
+                 ^
+    符号:   方法 setSymbol(String)
+    位置: 类型为StockTransaction的变量 transaction
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] bank3
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woContext\bank3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woContext\bank3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank3\Customer.java:22: 错误: 找不到符号
+  import org.eclipse.emf.ecore.util.InternalEObject;
+                                   ^
+    符号:   类 InternalEObject
+    位置: 程序包 org.eclipse.emf.ecore.util
+  D:\EclipseWorkspace\BankSystem\woContext\bank3\InvestmentAccount.java:132: 错误: 找不到符号
+      transaction.setSymbol(stockSymbol);
+                 ^
+    符号:   方法 setSymbol(String)
+    位置: 类型为StockTransaction的变量 transaction
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] bank4
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woContext\bank4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woContext\bank4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank4\InvestmentAccount.java:138: 错误: 找不到符号
+      transaction.setSymbol(stockSymbol);
+                 ^
+    符号:   方法 setSymbol(String)
+    位置: 类型为StockTransaction的变量 transaction
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] bank5
+  - 样本目录: D:\EclipseWorkspace\BankSystem\woContext\bank5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\BankSystem\woContext\bank5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank5\InvestmentAccount.java:138: 错误: 找不到符号
+      transaction.setSymbol(stockSymbol);
+                 ^
+    符号:   方法 setSymbol(String)
+    位置: 类型为StockTransaction的变量 transaction
+  1 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

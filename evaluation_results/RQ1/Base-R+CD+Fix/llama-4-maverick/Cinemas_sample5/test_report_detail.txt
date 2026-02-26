@@ -1,0 +1,95 @@
+============================================================
+Cinemas - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-29 17:52:12
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_AddDuplicateRoomMultipleCinemas(CR1Test)
+  java.lang.AssertionError: Adding room2 to cinema1 should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_AddDuplicateRoomMultipleCinemas(CR1Test.java:115)
+  2) testCase3_AddMultipleRooms(CR1Test)
+  java.lang.AssertionError: Second room addition should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase3_AddMultipleRooms(CR1Test.java:67)
+  3) testCase4_AddMultipleUniqueRooms(CR1Test)
+  java.lang.AssertionError: Second room addition should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase4_AddMultipleUniqueRooms(CR1Test.java:92)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_AddMultipleUniqueFilms(CR3Test)
+  java.lang.AssertionError: Adding second unique film should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase4_AddMultipleUniqueFilms(CR3Test.java:69)
+  2) testCase3_AddMultipleUniqueFilms(CR3Test)
+  java.lang.AssertionError: Adding second unique film should return true
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase3_AddMultipleUniqueFilms(CR3Test.java:54)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 6/6 通过
+
+[✓ PASS] CR6Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 4/6
+- 测试失败: 2/6
+============================================================

@@ -1,0 +1,65 @@
+================================================================================
+postal5 测试报告
+================================================================================
+生成时间: 2025-11-24 20:40:41
+样本名称: postal5
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_ListMailForNonExistentMailman(edu.postal.postal5.test.CR2Test)
+  java.lang.AssertionError: Result should not be null
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at edu.postal.postal5.test.CR2Test.testCase3_ListMailForNonExistentMailman(CR2Test.java:96)
+  2) testCase2_ListMailForMailmanWithNoMail(edu.postal.postal5.test.CR2Test)
+  java.lang.AssertionError: Result should not be null
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertNotNull(Assert.java:713)
+  	at edu.postal.postal5.test.CR2Test.testCase2_ListMailForMailmanWithNoMail(CR2Test.java:80)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

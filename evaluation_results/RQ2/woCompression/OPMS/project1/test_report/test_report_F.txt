@@ -1,0 +1,63 @@
+================================================================================
+project1 测试报告
+================================================================================
+生成时间: 2025-11-24 22:22:29
+样本名称: project1
+总测试数: 20
+通过: 18
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_CountEmployeesWithNoProductionProjects(edu.project.project1.test.CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project1.test.CR3Test.testCase3_CountEmployeesWithNoProductionProjects(CR3Test.java:170)
+  2) testCase4_CountEmployeesWithMixedProjectTypes(edu.project.project1.test.CR3Test)
+  java.lang.AssertionError: expected:<2> but was:<6>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project1.test.CR3Test.testCase4_CountEmployeesWithMixedProjectTypes(CR3Test.java:218)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 18
+失败: 2
+成功率: 90.0%
+================================================================================

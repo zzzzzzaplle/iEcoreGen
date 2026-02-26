@@ -1,0 +1,2399 @@
+public class Instructor extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String TITLE_EDEFAULT = null;
+
+  protected String title = TITLE_EDEFAULT;
+
+  protected static final String SPECIALTY_EDEFAULT = null;
+
+  protected String specialty = SPECIALTY_EDEFAULT;
+
+  protected EList<Course> courses;
+
+  protected Instructor()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getTitle()
+  { ... /* omitted */ }
+
+  public void setTitle(String newTitle)
+  { ... /* omitted */ }
+
+  public String getSpecialty()
+  { ... /* omitted */ }
+
+  public void setSpecialty(String newSpecialty)
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculate the total number of students enrolled in all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total students count to 0.
+   * 2. Iterate through all courses in the instructor's courses list.
+   * 3. For each course, add the number of enrollments to the total.
+   * 4. Return the total students count.
+   * Input: None.
+   * Output:
+   *  - int: The total number of students enrolled in the instructor's courses.
+   *    Format: Integer.
+   *    Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns a non-negative integer.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateTotalEnrolledStudents()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculate the remaining quota for all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total remaining quota to 0.
+   * 2. Iterate through all courses in the instructor's courses list.
+   * 3. For each course, subtract the number of enrollments from the quota and add the result to the total.
+   * 4. Return the total remaining quota.
+   * Input: None.
+   * Output:
+   *  - int: The total remaining quota across all courses.
+   *    Format: Integer.
+   *    Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns a non-negative integer.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateRemainingQuota()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Instructor
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Course` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createCourse()`
+  + Public methods: public void increaseQuotaBy(final int amount), public void decreaseQuotaBy(final int amount), public void changeWeeklyHours(final int newHours), public void changeCourseDays(final EList<String> newDays)
+  + Getter methods: public String getName(), public String getCode(), public Date getStartTime(), public Date getEndTime(), public int getQuota(), public int getWeeklyHours(), public EList<String> getCourseDays(), public Classroom getClassroom(), public EList<Enrollment> getEnrollments()
+  + Setter methods: public void setName(String newName), public void setCode(String newCode), public void setStartTime(Date newStartTime), public void setEndTime(Date newEndTime), public void setQuota(int newQuota), public void setWeeklyHours(int newWeeklyHours), public void setClassroom(Classroom newClassroom)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/** generated by Enhanced EcoreGen */
+package edu.academic;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Instructor</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.Instructor#getName <em>Name</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getTitle <em>Title</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSpecialty <em>Specialty</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getCourses <em>Courses</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getInstructor()
+ * @model kind="class"
+ * @generated
+ */
+public class Instructor extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String TITLE_EDEFAULT = null;
+
+  protected String title = TITLE_EDEFAULT;
+
+  protected static final String SPECIALTY_EDEFAULT = null;
+
+  protected String specialty = SPECIALTY_EDEFAULT;
+
+  protected EList<Course> courses;
+
+  protected Instructor()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getTitle()
+  { ... /* omitted */ }
+
+  public void setTitle(String newTitle)
+  { ... /* omitted */ }
+
+  public String getSpecialty()
+  { ... /* omitted */ }
+
+  public void setSpecialty(String newSpecialty)
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculate the total number of students enrolled in all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total students count to 0.
+   * 2. Iterate through all courses in the instructor's courses list.
+   * 3. For each course, add the number of enrollments to the total.
+   * 4. Return the total students count.
+   * Input: None.
+   * Output:
+   *  - int: The total number of students enrolled in the instructor's courses.
+   *    Format: Integer.
+   *    Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns a non-negative integer.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateTotalEnrolledStudents()
+  {
+    int totalStudents = 0;
+    for (Course course : getCourses()) {
+      totalStudents += course.getEnrollments().size();
+    }
+    return totalStudents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculate the remaining quota for all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total remaining quota to 0.
+   * 2. Iterate through all courses in the instructor's courses list.
+   * 3. For each course, subtract the number of enrollments from the quota and add the result to the total.
+   * 4. Return the total remaining quota.
+   * Input: None.
+   * Output:
+   *  - int: The total remaining quota across all courses.
+   *    Format: Integer.
+   *    Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns a non-negative integer.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateRemainingQuota()
+  {
+    int totalRemainingQuota = 0;
+    for (Course course : getCourses()) {
+      totalRemainingQuota += (course.getQuota() - course.getEnrollments().size());
+    }
+    return totalRemainingQuota;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Instructor
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Student</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see edu.academic.AcademicPackage#getStudent()
+ * @model kind="class"
+ * @generated
+ */
+public class Student extends MinimalEObjectImpl.Container implements EObject
+{
+  protected Student()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Enroll in a course.
+   * Algorithm:
+   * 1. Check if the course has remaining quota.
+   * 2. If there is remaining quota, create a new enrollment for the student and the course.
+   * 3. Decrease the course's quota by 1.
+   * Input:
+   *  - course: Course - The course to enroll in.
+   *    Format: Course object.
+   *    Value Range: Must be a valid course.
+   * Output: None.
+   * Pre-condition: The course must have a quota greater than 0.
+   * Post-condition: The student is enrolled in the specified course, and the course's quota is decreased by 1.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void enrollInCourse(final Course course)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Drop a course from the student's enrollment.
+   * Algorithm:
+   * 1. Remove the enrollment for the specified course from the student's enrollments.
+   * Input:
+   *  - course: Course - The course to drop.
+   *    Format: Course object.
+   *    Value Range: Must be a valid course.
+   * Output: None.
+   * Pre-condition: The student must be enrolled in the specified course.
+   * Post-condition: The student is no longer enrolled in the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void dropCourse(final Course course)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+} // Student
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Course` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createCourse()`
+  + Public methods: public void increaseQuotaBy(final int amount), public void decreaseQuotaBy(final int amount), public void changeWeeklyHours(final int newHours), public void changeCourseDays(final EList<String> newDays)
+  + Getter methods: public String getName(), public String getCode(), public Date getStartTime(), public Date getEndTime(), public int getQuota(), public int getWeeklyHours(), public EList<String> getCourseDays(), public Classroom getClassroom(), public EList<Enrollment> getEnrollments()
+  + Setter methods: public void setName(String newName), public void setCode(String newCode), public void setStartTime(Date newStartTime), public void setEndTime(Date newEndTime), public void setQuota(int newQuota), public void setWeeklyHours(int newWeeklyHours), public void setClassroom(Classroom newClassroom)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/** generated by Enhanced EcoreGen */
+package edu.academic;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/** A representation of the model object '<em><b>Student</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * @see edu.academic.AcademicPackage#getStudent()
+ * @model kind="class"
+ * @generated NOT
+ */
+public class Student extends MinimalEObjectImpl.Container implements EObject
+{
+  protected Student()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  /** <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Enroll in a course.
+   * Algorithm:
+   * 1. Check if the course has remaining quota.
+   * 2. If there is remaining quota, create a new enrollment for the student and the course.
+   * 3. Decrease the course's quota by 1.
+   * Input:
+   *  - course: Course - The course to enroll in.
+   *    Format: Course object.
+   *    Value Range: Must be a valid course.
+   * Output: None.
+   * Pre-condition: The course must have a quota greater than 0.
+   * Post-condition: The student is enrolled in the specified course, and the course's quota is decreased by 1.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void enrollInCourse(final Course course)
+  {
+    if (course.getQuota() > 0) {
+      // Create a new enrollment (assuming there's an AcademicFactory method for this)
+      Enrollment enrollment = AcademicFactory.eINSTANCE.createEnrollment();
+      // Set the enrollment's student and course (assuming these are setters)
+      enrollment.setStudent(this);
+      enrollment.setCourse(course);
+      // Add the enrollment to the course's enrollments
+      course.getEnrollments().add(enrollment);
+      // Decrease the course's quota
+      course.decreaseQuotaBy(1);
+    }
+  }
+
+  /** <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Drop a course from the student's enrollment.
+   * Algorithm:
+   * 1. Remove the enrollment for the specified course from the student's enrollments.
+   * Input:
+   *  - course: Course - The course to drop.
+   *    Format: Course object.
+   *    Value Range: Must be a valid course.
+   * Output: None.
+   * Pre-condition: The student must be enrolled in the specified course.
+   * Post-condition: The student is no longer enrolled in the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void dropCourse(final Course course)
+  {
+    // Find and remove the enrollment for the specified course
+    for (Enrollment enrollment : course.getEnrollments()) {
+      if (enrollment.getStudent() == this) {
+        course.getEnrollments().remove(enrollment);
+        // Increase the course's quota back by 1
+        course.increaseQuotaBy(1);
+        break;
+      }
+    }
+  }
+
+} // Student
+513144 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../AcademicProgram/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../AcademicProgram/src-gen/edu/academic/
+513300 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+513300 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+513300 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+513301 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+513303 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample4.mwe2 启动完成
+正在拷贝 src-gen/edu/academic 到 mistral-small-3.2-24b-instruct/academic4...
+拷贝完成！
+
+======================================
+正在启动 sample5.mwe2...
+======================================
+513561 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Initializing Xtext generator
+513653 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project AcademicProgram at 'file:/D:/EclipseWorkspace/AcademicProgram/'
+513655 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+513662 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating edu.ustb.sei.mde.mwe2.EcoreLanguage@519e7396
+513663 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing Ecore model
+513665 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Annotating EOperations
+513666 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - # Task
+You will be given a **Requirement** and a **Class Diagram** in PlantUML. Your task is to annotate every operation in the class diagram with a specfication.
+
+An operation specification must describe the following sections about the operation:
+1. Summary: the summary of functionality;
+2. Algorithm: The algorithm or pesudo code;
+3. Input: the input parameters, including the meaning, the format, and the value ranges if necessary;
+4. Output: output value, including the meaning, the format, and the value ranges if necessary
+4. Pre-condition and Post-condition: the pre-/post-conditions if necessary.
+
+Finish this task by following the guidelines below.
+1. Take the principle of modularization into account.
+2. For each operation, determine its functional boundary based on the given requirement. Ensure high cohesion and low coupling.
+3. If there is any unspecified details, such as undefined constants, rates, and ratios, then you must infer them.
+4. Make sure that all requirements can be covered.
+
+# Requirement
+```text
+There is a need for an application that will create an Academic Program to be used in the Software Engineering Department. There are many courses in the Academic Program. A course has the course's name, the course's code, the start time, the end time, the days of the courses, the classroom, and the instructors. Classrooms have classroom id, capacity, floor, and block information. The instructor has a name, surname, title, and specialty. Instructors lecture and mentor the students depending on their specialties. In addition, instructors can increase and decrease the course quota limit and change weekly course hours and course days. Also, they can add or drop courses from their list depending on attendance. Students enroll in the courses, drop the courses, receive transcripts, request documents, and conduct surveys.
+functional requirement：
++ "Total classroom capacity in an academic program": Calculate the total capacity of all classrooms used in an Academic Program.
+
++ "Number of students in an instructor's courses": Determine the total number of students enrolled in all courses of a specific Instructor. 
+
++ "Average student grade in a course of an academic program": Calculate the average grade for the students enrolled in a specific course within an Academic Program.
+
++ "Courses on a specific day in an academic program": Find the total number of courses in an Academic Program that are taught on a given day. Return the number of courses on the specified day.
+
++ "Remaining quota in an instructor's courses": Calculate the remaining quota for all courses of a specific Instructor. 
+```
+
+# Class Diagram
+```plantuml
+@startuml
+
+title academic Model
+
+abstract class AcademicProgram {
+    courses : List<Course>
+    calculateAverageGrade(courseCode : String) : double
+    countCoursesOnSpecialDay(day : String) : int
+    sumClassroomCapacity() : int
+}
+class Classroom {
+    block : String
+    capacity : int
+    floor : String
+    id : String
+}
+class Course {
+    code : String
+    courseDays : List<String>
+    endTime : EDate
+    name : String
+    quota : int
+    startTime : EDate
+    weeklyHours : int
+    classroom : Classroom
+    enrollments : List<Enrollment>
+    changeCourseDays(newDays : List<String>) : void
+    changeWeeklyHours(newHours : int) : void
+    decreaseQuotaBy(amount : int) : void
+    increaseQuotaBy(amount : int) : void
+}
+class Enrollment {
+    grade : double
+    Course : Course
+    student : Student
+}
+class Instructor {
+    name : String
+    specialty : String
+    surname : String
+    title : String
+    courses : List<Course>
+    calculateRemainingQuota() : int
+    calculateTotalEnrolledStudents() : int
+}
+class Student {
+    dropCourse(course : Course) : void
+    enrollInCourse(course : Course) : void
+}
+
+AcademicProgram *-- "*" Course : courses
+Course --> Classroom : classroom
+Course *-- "*" Enrollment : enrollments  'opposite: Course
+Enrollment --> Course : Course  'opposite: enrollments
+Enrollment --> Student : student
+Instructor --> "*" Course : courses
+@enduml
+```
+
+# Output Format
+Put all your results in a single block as illustrated below:
+
+```result
+
+class_1::operation_1
+/*
+ * your description for operation_1
+ */
+
+class_1::operation_2
+/*
+ * your description for this operation_2
+ */
+
+...
+```
+
+530598 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - {org.eclipse.emf.ecore.impl.EOperationImpl@64709573 (name: countCoursesOnSpecialDay) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Counts the number of courses in the academic program that are scheduled on a specific day.
+Algorithm:
+1. Initialize a counter to 0.
+2. For each course in the academic program's courses list:
+    - Check if the specified day is in the course's courseDays list.
+    - If yes, increment the counter.
+3. Return the counter value.
+Input:
+  - day (String): The day of the week to count courses for.
+    - Format: String representing a day (e.g., "Monday", "Tuesday").
+    - Value Range: Must be a valid day of the week.
+Output:
+  - int: The number of courses scheduled on the specified day.
+    - Format: Integer.
+    - Value Range: 0 or greater.
+Pre-condition: The day parameter must be a valid day of the week.
+Post-condition: The method returns the count of courses on the specified day., org.eclipse.emf.ecore.impl.EOperationImpl@5dce3e (name: decreaseQuotaBy) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Decreases the course's quota by a specified amount.
+Algorithm:
+1. Subtract the amount from the course's quota.
+2. Ensure the quota does not go below 0.
+Input:
+  - amount (int): The amount to decrease the quota by.
+    - Format: Integer.
+    - Value Range: Must be a positive integer.
+Output: None.
+Pre-condition: The amount must be a positive integer, and the course's quota must be greater than or equal to the amount.
+Post-condition: The course's quota is decreased by the specified amount, but not below 0., org.eclipse.emf.ecore.impl.EOperationImpl@669603c5 (name: calculateRemainingQuota) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the remaining quota across all courses taught by the instructor.
+Algorithm:
+1. Initialize a total remaining quota variable to 0.
+2. For each course in the instructor's courses list:
+    - Add the course's quota to the total remaining quota.
+3. Return the total remaining quota.
+Input: None.
+Output:
+  - int: The total remaining quota across all courses.
+    - Format: Integer.
+    - Value Range: 0 or greater.
+Pre-condition: The instructor must have at least one course.
+Post-condition: The method returns the sum of all course quotas., org.eclipse.emf.ecore.impl.EOperationImpl@4ed5c276 (name: enrollInCourse) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Enrolls the student in the specified course.
+Algorithm:
+1. Check if the course's quota is greater than 0.
+2. If yes, create a new enrollment for the student in the course.
+3. Decrease the course's quota by 1.
+Input:
+  - course (Course): The course to enroll in.
+    - Format: Course object.
+    - Value Range: Must be a valid course in the academic program.
+Output: None.
+Pre-condition: The course must have a quota greater than 0.
+Post-condition: The student is enrolled in the specified course, and the course's quota is decreased by 1., org.eclipse.emf.ecore.impl.EOperationImpl@48409124 (name: calculateAverageGrade) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the average grade of all students enrolled in a specific course within the academic program.
+Algorithm:
+1. Find the course with the given courseCode in the academic program's courses list.
+2. For each enrollment in the course's enrollments list, sum the grades.
+3. Divide the total sum by the number of enrollments to get the average.
+4. Return the average grade.
+Input:
+  - courseCode (String): The code of the course to calculate the average grade for.
+    - Format: Alphanumeric string.
+    - Value Range: Must match an existing course code in the academic program.
+Output:
+  - double: The average grade of the course.
+    - Format: Double precision floating point.
+    - Value Range: 0.0 to 4.0 (assuming a 4.0 grading scale).
+Pre-condition: The academic program must have at least one course with the given courseCode.
+Post-condition: The method returns the average grade of the specified course., org.eclipse.emf.ecore.impl.EOperationImpl@bdb4bfe (name: sumClassroomCapacity) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total capacity of all classrooms used in the academic program.
+Algorithm:
+1. Initialize a total capacity variable to 0.
+2. For each course in the academic program's courses list:
+    - Add the classroom's capacity to the total capacity.
+3. Return the total capacity.
+Input: None.
+Output:
+  - int: The total capacity of all classrooms in the academic program.
+    - Format: Integer.
+    - Value Range: 0 or greater.
+Pre-condition: The academic program must have at least one course with a classroom.
+Post-condition: The method returns the sum of all classroom capacities., org.eclipse.emf.ecore.impl.EOperationImpl@2ce37955 (name: changeCourseDays) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Updates the days of the week when the course is scheduled.
+Algorithm:
+1. Replace the course's courseDays list with the newDays list.
+Input:
+  - newDays (List<String>): The new list of days for the course.
+    - Format: List of strings representing days of the week.
+    - Value Range: Must contain valid days of the week.
+Output: None.
+Pre-condition: The newDays list must not be null or empty.
+Post-condition: The course's courseDays list is updated to the newDays list., org.eclipse.emf.ecore.impl.EOperationImpl@5188e170 (name: increaseQuotaBy) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Increases the course's quota by a specified amount.
+Algorithm:
+1. Add the amount to the course's quota.
+Input:
+  - amount (int): The amount to increase the quota by.
+    - Format: Integer.
+    - Value Range: Must be a positive integer.
+Output: None.
+Pre-condition: The amount must be a positive integer.
+Post-condition: The course's quota is increased by the specified amount., org.eclipse.emf.ecore.impl.EOperationImpl@60e6045c (name: changeWeeklyHours) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Updates the weekly hours for the course.
+Algorithm:
+1. Set the course's weeklyHours to the newHours value.
+Input:
+  - newHours (int): The new weekly hours for the course.
+    - Format: Integer.
+    - Value Range: Must be a positive integer.
+Output: None.
+Pre-condition: The newHours must be a positive integer.
+Post-condition: The course's weeklyHours is updated to the newHours value., org.eclipse.emf.ecore.impl.EOperationImpl@36823faf (name: calculateTotalEnrolledStudents) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Calculates the total number of students enrolled in all courses taught by the instructor.
+Algorithm:
+1. Initialize a total students variable to 0.
+2. For each course in the instructor's courses list:
+    - Add the number of enrollments in the course to the total students.
+3. Return the total students.
+Input: None.
+Output:
+  - int: The total number of students enrolled in all courses.
+    - Format: Integer.
+    - Value Range: 0 or greater.
+Pre-condition: The instructor must have at least one course.
+Post-condition: The method returns the sum of all enrollments across all courses., org.eclipse.emf.ecore.impl.EOperationImpl@58c02b7f (name: dropCourse) (ordered: true, unique: true, lowerBound: 0, upperBound: 1)=Summary: Drops the student from the specified course.
+Algorithm:
+1. Find the enrollment for the student in the course's enrollments list.
+2. Remove the enrollment from the course's enrollments list.
+Input:
+  - course (Course): The course to drop from.
+    - Format: Course object.
+    - Value Range: Must be a valid course in the academic program.
+Output: None.
+Pre-condition: The student must be enrolled in the specified course.
+Post-condition: The student is no longer enrolled in the specified course.}
+530601 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Generating EMF model code
+530633 [main] INFO  .sei.mde.mwe2.EMFGeneratorFragment2  - Enhancing generated code at ../AcademicProgram/src-gen/edu/academic
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Program</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.AcademicProgram#getCourses <em>Courses</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getAcademicProgram()
+ * @model kind="class" abstract="true"
+ * @generated
+ */
+public abstract class AcademicProgram extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Course> courses;
+
+  protected AcademicProgram()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total capacity of all classrooms used in the academic program.
+   * Algorithm:
+   * 1. Initialize a total capacity variable to 0.
+   * 2. For each course in the academic program's courses list:
+   *     - Add the classroom's capacity to the total capacity.
+   * 3. Return the total capacity.
+   * Input: None.
+   * Output:
+   *   - int: The total capacity of all classrooms in the academic program.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The academic program must have at least one course with a classroom.
+   * Post-condition: The method returns the sum of all classroom capacities.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int sumClassroomCapacity()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the average grade of all students enrolled in a specific course within the academic program.
+   * Algorithm:
+   * 1. Find the course with the given courseCode in the academic program's courses list.
+   * 2. For each enrollment in the course's enrollments list, sum the grades.
+   * 3. Divide the total sum by the number of enrollments to get the average.
+   * 4. Return the average grade.
+   * Input:
+   *   - courseCode (String): The code of the course to calculate the average grade for.
+   *     - Format: Alphanumeric string.
+   *     - Value Range: Must match an existing course code in the academic program.
+   * Output:
+   *   - double: The average grade of the course.
+   *     - Format: Double precision floating point.
+   *     - Value Range: 0.0 to 4.0 (assuming a 4.0 grading scale).
+   * Pre-condition: The academic program must have at least one course with the given courseCode.
+   * Post-condition: The method returns the average grade of the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public double calculateAverageGrade(final String courseCode)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts the number of courses in the academic program that are scheduled on a specific day.
+   * Algorithm:
+   * 1. Initialize a counter to 0.
+   * 2. For each course in the academic program's courses list:
+   *     - Check if the specified day is in the course's courseDays list.
+   *     - If yes, increment the counter.
+   * 3. Return the counter value.
+   * Input:
+   *   - day (String): The day of the week to count courses for.
+   *     - Format: String representing a day (e.g., "Monday", "Tuesday").
+   *     - Value Range: Must be a valid day of the week.
+   * Output:
+   *   - int: The number of courses scheduled on the specified day.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The day parameter must be a valid day of the week.
+   * Post-condition: The method returns the count of courses on the specified day.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int countCoursesOnSpecialDay(final String day)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // AcademicProgram
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Course` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createCourse()`
+  + Public methods: public void increaseQuotaBy(final int amount), public void decreaseQuotaBy(final int amount), public void changeWeeklyHours(final int newHours), public void changeCourseDays(final EList<String> newDays)
+  + Getter methods: public String getName(), public String getCode(), public Date getStartTime(), public Date getEndTime(), public int getQuota(), public int getWeeklyHours(), public EList<String> getCourseDays(), public Classroom getClassroom(), public EList<Enrollment> getEnrollments()
+  + Setter methods: public void setName(String newName), public void setCode(String newCode), public void setStartTime(Date newStartTime), public void setEndTime(Date newEndTime), public void setQuota(int newQuota), public void setWeeklyHours(int newWeeklyHours), public void setClassroom(Classroom newClassroom)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/** generated by Enhanced EcoreGen */
+package edu.academic;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Program</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.AcademicProgram#getCourses <em>Courses</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getAcademicProgram()
+ * @model kind="class" abstract="true"
+ * @generated
+ */
+public abstract class AcademicProgram extends MinimalEObjectImpl.Container implements EObject
+{
+  protected EList<Course> courses;
+
+  protected AcademicProgram()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total capacity of all classrooms used in the academic program.
+   * Algorithm:
+   * 1. Initialize a total capacity variable to 0.
+   * 2. For each course in the academic program's courses list:
+   *     - Add the classroom's capacity to the total capacity.
+   * 3. Return the total capacity.
+   * Input: None.
+   * Output:
+   *   - int: The total capacity of all classrooms in the academic program.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The academic program must have at least one course with a classroom.
+   * Post-condition: The method returns the sum of all classroom capacities.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int sumClassroomCapacity()
+  {
+    int totalCapacity = 0;
+    for (Course course : getCourses()) {
+      Classroom classroom = course.getClassroom();
+      if (classroom != null) {
+        totalCapacity += classroom.getCapacity();
+      }
+    }
+    return totalCapacity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the average grade of all students enrolled in a specific course within the academic program.
+   * Algorithm:
+   * 1. Find the course with the given courseCode in the academic program's courses list.
+   * 2. For each enrollment in the course's enrollments list, sum the grades.
+   * 3. Divide the total sum by the number of enrollments to get the average.
+   * 4. Return the average grade.
+   * Input:
+   *   - courseCode (String): The code of the course to calculate the average grade for.
+   *     - Format: Alphanumeric string.
+   *     - Value Range: Must match an existing course code in the academic program.
+   * Output:
+   *   - double: The average grade of the course.
+   *     - Format: Double precision floating point.
+   *     - Value Range: 0.0 to 4.0 (assuming a 4.0 grading scale).
+   * Pre-condition: The academic program must have at least one course with the given courseCode.
+   * Post-condition: The method returns the average grade of the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public double calculateAverageGrade(final String courseCode)
+  {
+    Course targetCourse = null;
+    for (Course course : getCourses()) {
+      if (courseCode.equals(course.getCode())) {
+        targetCourse = course;
+        break;
+      }
+    }
+
+    if (targetCourse == null || targetCourse.getEnrollments().isEmpty()) {
+      return 0.0;
+    }
+
+    double totalGrade = 0.0;
+    for (Enrollment enrollment : targetCourse.getEnrollments()) {
+      totalGrade += enrollment.getGrade();
+    }
+
+    return totalGrade / targetCourse.getEnrollments().size();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Counts the number of courses in the academic program that are scheduled on a specific day.
+   * Algorithm:
+   * 1. Initialize a counter to 0.
+   * 2. For each course in the academic program's courses list:
+   *     - Check if the specified day is in the course's courseDays list.
+   *     - If yes, increment the counter.
+   * 3. Return the counter value.
+   * Input:
+   *   - day (String): The day of the week to count courses for.
+   *     - Format: String representing a day (e.g., "Monday", "Tuesday").
+   *     - Value Range: Must be a valid day of the week.
+   * Output:
+   *   - int: The number of courses scheduled on the specified day.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The day parameter must be a valid day of the week.
+   * Post-condition: The method returns the count of courses on the specified day.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int countCoursesOnSpecialDay(final String day)
+  {
+    int counter = 0;
+    for (Course course : getCourses()) {
+      if (course.getCourseDays().contains(day)) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+} // AcademicProgram
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Course</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.Course#getName <em>Name</em>}</li>
+ *   <li>{@link edu.academic.Course#getCode <em>Code</em>}</li>
+ *   <li>{@link edu.academic.Course#getStartTime <em>Start Time</em>}</li>
+ *   <li>{@link edu.academic.Course#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link edu.academic.Course#getQuota <em>Quota</em>}</li>
+ *   <li>{@link edu.academic.Course#getWeeklyHours <em>Weekly Hours</em>}</li>
+ *   <li>{@link edu.academic.Course#getCourseDays <em>Course Days</em>}</li>
+ *   <li>{@link edu.academic.Course#getClassroom <em>Classroom</em>}</li>
+ *   <li>{@link edu.academic.Course#getEnrollments <em>Enrollments</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getCourse()
+ * @model kind="class"
+ * @generated
+ */
+public class Course extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String CODE_EDEFAULT = null;
+
+  protected String code = CODE_EDEFAULT;
+
+  protected static final Date START_TIME_EDEFAULT = null;
+
+  protected Date startTime = START_TIME_EDEFAULT;
+
+  protected static final Date END_TIME_EDEFAULT = null;
+
+  protected Date endTime = END_TIME_EDEFAULT;
+
+  protected static final int QUOTA_EDEFAULT = 0;
+
+  protected int quota = QUOTA_EDEFAULT;
+
+  protected static final int WEEKLY_HOURS_EDEFAULT = 0;
+
+  protected int weeklyHours = WEEKLY_HOURS_EDEFAULT;
+
+  protected EList<String> courseDays;
+
+  protected Classroom classroom;
+
+  protected EList<Enrollment> enrollments;
+
+  protected Course()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getCode()
+  { ... /* omitted */ }
+
+  public void setCode(String newCode)
+  { ... /* omitted */ }
+
+  public Date getStartTime()
+  { ... /* omitted */ }
+
+  public void setStartTime(Date newStartTime)
+  { ... /* omitted */ }
+
+  public Date getEndTime()
+  { ... /* omitted */ }
+
+  public void setEndTime(Date newEndTime)
+  { ... /* omitted */ }
+
+  public int getQuota()
+  { ... /* omitted */ }
+
+  public void setQuota(int newQuota)
+  { ... /* omitted */ }
+
+  public int getWeeklyHours()
+  { ... /* omitted */ }
+
+  public void setWeeklyHours(int newWeeklyHours)
+  { ... /* omitted */ }
+
+  public EList<String> getCourseDays()
+  { ... /* omitted */ }
+
+  public Classroom getClassroom()
+  { ... /* omitted */ }
+
+  public Classroom basicGetClassroom()
+  { ... /* omitted */ }
+
+  public void setClassroom(Classroom newClassroom)
+  { ... /* omitted */ }
+
+  public EList<Enrollment> getEnrollments()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Increases the course's quota by a specified amount.
+   * Algorithm:
+   * 1. Add the amount to the course's quota.
+   * Input:
+   *   - amount (int): The amount to increase the quota by.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The amount must be a positive integer.
+   * Post-condition: The course's quota is increased by the specified amount.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void increaseQuotaBy(final int amount)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Decreases the course's quota by a specified amount.
+   * Algorithm:
+   * 1. Subtract the amount from the course's quota.
+   * 2. Ensure the quota does not go below 0.
+   * Input:
+   *   - amount (int): The amount to decrease the quota by.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The amount must be a positive integer, and the course's quota must be greater than or equal to the amount.
+   * Post-condition: The course's quota is decreased by the specified amount, but not below 0.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void decreaseQuotaBy(final int amount)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Updates the weekly hours for the course.
+   * Algorithm:
+   * 1. Set the course's weeklyHours to the newHours value.
+   * Input:
+   *   - newHours (int): The new weekly hours for the course.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The newHours must be a positive integer.
+   * Post-condition: The course's weeklyHours is updated to the newHours value.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void changeWeeklyHours(final int newHours)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Updates the days of the week when the course is scheduled.
+   * Algorithm:
+   * 1. Replace the course's courseDays list with the newDays list.
+   * Input:
+   *   - newDays (List<String>): The new list of days for the course.
+   *     - Format: List of strings representing days of the week.
+   *     - Value Range: Must contain valid days of the week.
+   * Output: None.
+   * Pre-condition: The newDays list must not be null or empty.
+   * Post-condition: The course's courseDays list is updated to the newDays list.
+   * <!-- end-model-doc -->
+   * @model newDaysMany="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void changeCourseDays(final EList<String> newDays)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Course
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Classroom` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createClassroom()`
+  + Getter methods: public String getId(), public String getFloor(), public String getBlock(), public int getCapacity()
+  + Setter methods: public void setId(String newId), public void setFloor(String newFloor), public void setBlock(String newBlock), public void setCapacity(int newCapacity)
+- Class `Enrollment` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createEnrollment()`
+  + Getter methods: public double getGrade(), public Student getStudent(), public Course getCourse()
+  + Setter methods: public void setGrade(double newGrade), public void setStudent(Student newStudent), public void setCourse(Course newCourse)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/** generated by Enhanced EcoreGen */
+package edu.academic;
+
+import java.util.Collection;
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Course</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.Course#getName <em>Name</em>}</li>
+ *   <li>{@link edu.academic.Course#getCode <em>Code</em>}</li>
+ *   <li>{@link edu.academic.Course#getStartTime <em>Start Time</em>}</li>
+ *   <li>{@link edu.academic.Course#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link edu.academic.Course#getQuota <em>Quota</em>}</li>
+ *   <li>{@link edu.academic.Course#getWeeklyHours <em>Weekly Hours</em>}</li>
+ *   <li>{@link edu.academic.Course#getCourseDays <em>Course Days</em>}</li>
+ *   <li>{@link edu.academic.Course#getClassroom <em>Classroom</em>}</li>
+ *   <li>{@link edu.academic.Course#getEnrollments <em>Enrollments</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getCourse()
+ * @model kind="class"
+ * @generated
+ */
+public class Course extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String CODE_EDEFAULT = null;
+
+  protected String code = CODE_EDEFAULT;
+
+  protected static final Date START_TIME_EDEFAULT = null;
+
+  protected Date startTime = START_TIME_EDEFAULT;
+
+  protected static final Date END_TIME_EDEFAULT = null;
+
+  protected Date endTime = END_TIME_EDEFAULT;
+
+  protected static final int QUOTA_EDEFAULT = 0;
+
+  protected int quota = QUOTA_EDEFAULT;
+
+  protected static final int WEEKLY_HOURS_EDEFAULT = 0;
+
+  protected int weeklyHours = WEEKLY_HOURS_EDEFAULT;
+
+  protected EList<String> courseDays;
+
+  protected Classroom classroom;
+
+  protected EList<Enrollment> enrollments;
+
+  protected Course()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getCode()
+  { ... /* omitted */ }
+
+  public void setCode(String newCode)
+  { ... /* omitted */ }
+
+  public Date getStartTime()
+  { ... /* omitted */ }
+
+  public void setStartTime(Date newStartTime)
+  { ... /* omitted */ }
+
+  public Date getEndTime()
+  { ... /* omitted */ }
+
+  public void setEndTime(Date newEndTime)
+  { ... /* omitted */ }
+
+  public int getQuota()
+  { ... /* omitted */ }
+
+  public void setQuota(int newQuota)
+  { ... /* omitted */ }
+
+  public int getWeeklyHours()
+  { ... /* omitted */ }
+
+  public void setWeeklyHours(int newWeeklyHours)
+  { ... /* omitted */ }
+
+  public EList<String> getCourseDays()
+  { ... /* omitted */ }
+
+  public Classroom getClassroom()
+  { ... /* omitted */ }
+
+  public Classroom basicGetClassroom()
+  { ... /* omitted */ }
+
+  public void setClassroom(Classroom newClassroom)
+  { ... /* omitted */ }
+
+  public EList<Enrollment> getEnrollments()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Increases the course's quota by a specified amount.
+   * Algorithm:
+   * 1. Add the amount to the course's quota.
+   * Input:
+   *   - amount (int): The amount to increase the quota by.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The amount must be a positive integer.
+   * Post-condition: The course's quota is increased by the specified amount.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void increaseQuotaBy(final int amount)
+  {
+    this.quota += amount;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Decreases the course's quota by a specified amount.
+   * Algorithm:
+   * 1. Subtract the amount from the course's quota.
+   * 2. Ensure the quota does not go below 0.
+   * Input:
+   *   - amount (int): The amount to decrease the quota by.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The amount must be a positive integer, and the course's quota must be greater than or equal to the amount.
+   * Post-condition: The course's quota is decreased by the specified amount, but not below 0.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void decreaseQuotaBy(final int amount)
+  {
+    this.quota = Math.max(0, this.quota - amount);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Updates the weekly hours for the course.
+   * Algorithm:
+   * 1. Set the course's weeklyHours to the newHours value.
+   * Input:
+   *   - newHours (int): The new weekly hours for the course.
+   *     - Format: Integer.
+   *     - Value Range: Must be a positive integer.
+   * Output: None.
+   * Pre-condition: The newHours must be a positive integer.
+   * Post-condition: The course's weeklyHours is updated to the newHours value.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void changeWeeklyHours(final int newHours)
+  {
+    this.weeklyHours = newHours;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Updates the days of the week when the course is scheduled.
+   * Algorithm:
+   * 1. Replace the course's courseDays list with the newDays list.
+   * Input:
+   *   - newDays (List<String>): The new list of days for the course.
+   *     - Format: List of strings representing days of the week.
+   *     - Value Range: Must contain valid days of the week.
+   * Output: None.
+   * Pre-condition: The newDays list must not be null or empty.
+   * Post-condition: The course's courseDays list is updated to the newDays list.
+   * <!-- end-model-doc -->
+   * @model newDaysMany="true"
+   *        annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void changeCourseDays(final EList<String> newDays)
+  {
+    if (courseDays != null)
+    {
+      courseDays.clear();
+    }
+    else
+    {
+      courseDays = new EDataTypeUniqueEList<String>(String.class, this, AcademicPackage.COURSE__COURSE_DAYS);
+    }
+    courseDays.addAll(newDays);
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  { ... /* omitted */ }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Course
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Instructor</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.Instructor#getName <em>Name</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getTitle <em>Title</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSpecialty <em>Specialty</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getCourses <em>Courses</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getInstructor()
+ * @model kind="class"
+ * @generated
+ */
+public class Instructor extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String TITLE_EDEFAULT = null;
+
+  protected String title = TITLE_EDEFAULT;
+
+  protected static final String SPECIALTY_EDEFAULT = null;
+
+  protected String specialty = SPECIALTY_EDEFAULT;
+
+  protected EList<Course> courses;
+
+  protected Instructor()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getTitle()
+  { ... /* omitted */ }
+
+  public void setTitle(String newTitle)
+  { ... /* omitted */ }
+
+  public String getSpecialty()
+  { ... /* omitted */ }
+
+  public void setSpecialty(String newSpecialty)
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total number of students enrolled in all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total students variable to 0.
+   * 2. For each course in the instructor's courses list:
+   *     - Add the number of enrollments in the course to the total students.
+   * 3. Return the total students.
+   * Input: None.
+   * Output:
+   *   - int: The total number of students enrolled in all courses.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns the sum of all enrollments across all courses.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateTotalEnrolledStudents()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the remaining quota across all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total remaining quota variable to 0.
+   * 2. For each course in the instructor's courses list:
+   *     - Add the course's quota to the total remaining quota.
+   * 3. Return the total remaining quota.
+   * Input: None.
+   * Output:
+   *   - int: The total remaining quota across all courses.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns the sum of all course quotas.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public int calculateRemainingQuota()
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Instructor
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Course` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createCourse()`
+  + Public methods: public void increaseQuotaBy(final int amount), public void decreaseQuotaBy(final int amount), public void changeWeeklyHours(final int newHours), public void changeCourseDays(final EList<String> newDays)
+  + Getter methods: public String getName(), public String getCode(), public Date getStartTime(), public Date getEndTime(), public int getQuota(), public int getWeeklyHours(), public EList<String> getCourseDays(), public Classroom getClassroom(), public EList<Enrollment> getEnrollments()
+  + Setter methods: public void setName(String newName), public void setCode(String newCode), public void setStartTime(Date newStartTime), public void setEndTime(Date newEndTime), public void setQuota(int newQuota), public void setWeeklyHours(int newWeeklyHours), public void setClassroom(Classroom newClassroom)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/***
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+/***
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Instructor</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link edu.academic.Instructor#getName <em>Name</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSurname <em>Surname</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getTitle <em>Title</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getSpecialty <em>Specialty</em>}</li>
+ *   <li>{@link edu.academic.Instructor#getCourses <em>Courses</em>}</li>
+ * </ul>
+ *
+ * @see edu.academic.AcademicPackage#getInstructor()
+ * @model kind="class"
+ * @generated
+ */
+public class Instructor extends MinimalEObjectImpl.Container implements EObject
+{
+  protected static final String NAME_EDEFAULT = null;
+
+  protected String name = NAME_EDEFAULT;
+
+  protected static final String SURNAME_EDEFAULT = null;
+
+  protected String surname = SURNAME_EDEFAULT;
+
+  protected static final String TITLE_EDEFAULT = null;
+
+  protected String title = TITLE_EDEFAULT;
+
+  protected static final String SPECIALTY_EDEFAULT = null;
+
+  protected String specialty = SPECIALTY_EDEFAULT;
+
+  protected EList<Course> courses;
+
+  protected Instructor()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  public String getName()
+  { ... /* omitted */ }
+
+  public void setName(String newName)
+  { ... /* omitted */ }
+
+  public String getSurname()
+  { ... /* omitted */ }
+
+  public void setSurname(String newSurname)
+  { ... /* omitted */ }
+
+  public String getTitle()
+  { ... /* omitted */ }
+
+  public void setTitle(String newTitle)
+  { ... /* omitted */ }
+
+  public String getSpecialty()
+  { ... /* omitted */ }
+
+  public void setSpecialty(String newSpecialty)
+  { ... /* omitted */ }
+
+  public EList<Course> getCourses()
+  { ... /* omitted */ }
+
+  /***
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the total number of students enrolled in all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total students variable to 0.
+   * 2. For each course in the instructor's courses list:
+   *     - Add the number of enrollments in the course to the total students.
+   * 3. Return the total students.
+   * Input: None.
+   * Output:
+   *   - int: The total number of students enrolled in all courses.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns the sum of all enrollments across all courses.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateTotalEnrolledStudents()
+  {
+    int totalStudents = 0;
+    for (Course course : getCourses()) {
+      totalStudents += course.getEnrollments().size();
+    }
+    return totalStudents;
+  }
+
+  /***
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Calculates the remaining quota across all courses taught by the instructor.
+   * Algorithm:
+   * 1. Initialize a total remaining quota variable to 0.
+   * 2. For each course in the instructor's courses list:
+   *     - Add the course's quota to the total remaining quota.
+   * 3. Return the total remaining quota.
+   * Input: None.
+   * Output:
+   *   - int: The total remaining quota across all courses.
+   *     - Format: Integer.
+   *     - Value Range: 0 or greater.
+   * Pre-condition: The instructor must have at least one course.
+   * Post-condition: The method returns the sum of all course quotas.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public int calculateRemainingQuota()
+  {
+    int totalQuota = 0;
+    for (Course course : getCourses()) {
+      totalQuota += course.getQuota();
+    }
+    return totalQuota;
+  }
+
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  { ... /* omitted */ }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  { ... /* omitted */ }
+
+  @Override
+  public void eUnset(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public boolean eIsSet(int featureID)
+  { ... /* omitted */ }
+
+  @Override
+  public String toString()
+  { ... /* omitted */ }
+
+} // Instructor
+# Task
+You will be given a **Java Class** generated from an Ecore model by EMF code generator with `suppressInterfaces=true`. Your task is to implement the Java methods unimplemented by taking additional **Context** information into account.
+
+Complete this task by following the guidelines below.
+1. A method is unimplemented if its body contains `// TODO: Please complete this Java method based on the docstring`.
+2. For every unimplemented method, 
+  2.1 You must read the docstring of this method. The fragment between `<!-- begin-model-doc -->` and `<!-- end-model-doc -->` contains the method specification;
+  2.2 Generate your code strictly according to the algorithm; Be aware of the EMF code style and APIs; Note that the getter of a boolean attribute `bv` looks like `isBv()`, e.g., `isIsTrue()` for `isTrue`;
+  2.3 You should not change the method signature;
+  2.4 After generation, replace the current body with the one you generate;
+  2.5 Keep and update the docstring by changing `@generated` to `@generated NOT`.
+3. Check the import list. Add missing imports if needed. Collection types provided by EMF is listed below
+  - BasicEList: `org.eclipse.emf.common.util.BasicEList`;
+4. Do not change other part.
+5. Be aware of the method signatures, particularly, the input and output types, provided in the **Context**.
+
+# Java Class
+```java
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Student</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see edu.academic.AcademicPackage#getStudent()
+ * @model kind="class"
+ * @generated
+ */
+public class Student extends MinimalEObjectImpl.Container implements EObject
+{
+  protected Student()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Enrolls the student in the specified course.
+   * Algorithm:
+   * 1. Check if the course's quota is greater than 0.
+   * 2. If yes, create a new enrollment for the student in the course.
+   * 3. Decrease the course's quota by 1.
+   * Input:
+   *   - course (Course): The course to enroll in.
+   *     - Format: Course object.
+   *     - Value Range: Must be a valid course in the academic program.
+   * Output: None.
+   * Pre-condition: The course must have a quota greater than 0.
+   * Post-condition: The student is enrolled in the specified course, and the course's quota is decreased by 1.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void enrollInCourse(final Course course)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Drops the student from the specified course.
+   * Algorithm:
+   * 1. Find the enrollment for the student in the course's enrollments list.
+   * 2. Remove the enrollment from the course's enrollments list.
+   * Input:
+   *   - course (Course): The course to drop from.
+   *     - Format: Course object.
+   *     - Value Range: Must be a valid course in the academic program.
+   * Output: None.
+   * Pre-condition: The student must be enrolled in the specified course.
+   * Post-condition: The student is no longer enrolled in the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated
+   */
+  public void dropCourse(final Course course)
+  {
+    // TODO: Please generate a body of this unimplemented method based on the docstring
+    // TODO: Replace the current body with the generated body 
+    // TODO: Ensure that you mark it @generated NOT after code completion
+    throw new UnsupportedOperationException();
+    
+  }
+
+} // Student
+```
+
+# Context
+The following classes' information may be helpful for you. **DO NOT** call methods that are not listed.
+- Class `Course` contains the following methods.
+  + Instance creation: Use `AcademicFactory.eINSTANCE.createCourse()`
+  + Public methods: public void increaseQuotaBy(final int amount), public void decreaseQuotaBy(final int amount), public void changeWeeklyHours(final int newHours), public void changeCourseDays(final EList<String> newDays)
+  + Getter methods: public String getName(), public String getCode(), public Date getStartTime(), public Date getEndTime(), public int getQuota(), public int getWeeklyHours(), public EList<String> getCourseDays(), public Classroom getClassroom(), public EList<Enrollment> getEnrollments()
+  + Setter methods: public void setName(String newName), public void setCode(String newCode), public void setStartTime(Date newStartTime), public void setEndTime(Date newEndTime), public void setQuota(int newQuota), public void setWeeklyHours(int newWeeklyHours), public void setClassroom(Classroom newClassroom)
+
+# Output Format
+Put the new Java class code into a single block as follows.
+
+```java
+(completed Java class)
+```
+
+generated code:
+/**
+ * generated by Enhanced EcoreGen
+ */
+package edu.academic;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Student</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see edu.academic.AcademicPackage#getStudent()
+ * @model kind="class"
+ * @generated
+ */
+public class Student extends MinimalEObjectImpl.Container implements EObject
+{
+  protected Student()
+  { ... /* omitted */ }
+
+  @Override
+  protected EClass eStaticClass()
+  { ... /* omitted */ }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Enrolls the student in the specified course.
+   * Algorithm:
+   * 1. Check if the course's quota is greater than 0.
+   * 2. If yes, create a new enrollment for the student in the course.
+   * 3. Decrease the course's quota by 1.
+   * Input:
+   *   - course (Course): The course to enroll in.
+   *     - Format: Course object.
+   *     - Value Range: Must be a valid course in the academic program.
+   * Output: None.
+   * Pre-condition: The course must have a quota greater than 0.
+   * Post-condition: The student is enrolled in the specified course, and the course's quota is decreased by 1.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void enrollInCourse(final Course course)
+  {
+    if (course.getQuota() > 0) {
+      // Create a new enrollment (assuming there's an enrollment method in Student)
+      // Note: The actual enrollment creation would depend on the model structure
+      // This is a placeholder for the actual implementation
+      course.getEnrollments().add(AcademicFactory.eINSTANCE.createEnrollment());
+      course.decreaseQuotaBy(1);
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * <!-- begin-model-doc -->
+   * Summary: Drops the student from the specified course.
+   * Algorithm:
+   * 1. Find the enrollment for the student in the course's enrollments list.
+   * 2. Remove the enrollment from the course's enrollments list.
+   * Input:
+   *   - course (Course): The course to drop from.
+   *     - Format: Course object.
+   *     - Value Range: Must be a valid course in the academic program.
+   * Output: None.
+   * Pre-condition: The student must be enrolled in the specified course.
+   * Post-condition: The student is no longer enrolled in the specified course.
+   * <!-- end-model-doc -->
+   * @model annotation="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen generated='true'"
+   * @generated NOT
+   */
+  public void dropCourse(final Course course)
+  {
+    // Find and remove the enrollment (assuming there's a way to identify the student's enrollment)
+    // This is a placeholder for the actual implementation
+    course.getEnrollments().removeIf(enrollment -> {
+      // Add condition to check if this enrollment belongs to this student
+      return true; // Placeholder - actual condition would depend on model structure
+    });
+  }
+
+} // Student
+644837 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - BatchCompiler -11 -d ../AcademicProgram/src-gen/../llm-bin -classpath "C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar;C:/Users/20936/.p2/pool/plugins/org.eclipse.emf.common_2.43.0.v20250629-1403.jar" ../AcademicProgram/src-gen/edu/academic/
+645346 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - 
+645346 [main] ERROR du.ustb.sei.mde.mwe2.EcoreGenerator  - ----------
+1. WARNING in D:\EclipseWorkspace\AcademicProgram\src-gen\edu\academic\AcademicProgram.java (at line 20)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+----------
+2. WARNING in D:\EclipseWorkspace\AcademicProgram\src-gen\edu\academic\Instructor.java (at line 19)
+	import org.eclipse.emf.common.util.BasicEList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.BasicEList is never used
+----------
+2 problems (2 warnings)
+
+645346 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - There is more compilation error
+645346 [main] INFO  du.ustb.sei.mde.mwe2.EcoreGenerator  - Generating common infrastructure
+645348 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.
+sample5.mwe2 启动完成
+正在拷贝 src-gen/edu/academic 到 mistral-small-3.2-24b-instruct/academic5...
+拷贝完成！
+
+======================================
+所有任务完成！
+======================================

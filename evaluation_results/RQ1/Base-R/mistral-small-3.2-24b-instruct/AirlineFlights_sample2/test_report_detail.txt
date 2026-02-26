@@ -1,0 +1,156 @@
+============================================================
+AirlineFlights - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-23 01:32:13
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(CR1Test)
+  java.lang.AssertionError: Flight with correct schedule and route should publish successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:37)
+  2) testCase5_SecondPublishAttempt(CR1Test)
+  java.lang.AssertionError: First publish attempt should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:110)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_TwoNewPassengersSucceed(CR2Test)
+  java.lang.AssertionError: Booking should succeed for two new passengers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase1_TwoNewPassengersSucceed(CR2Test.java:91)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_cancelConfirmedReservation(CR3Test)
+  java.lang.AssertionError: Reservation should be canceled successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase2_cancelConfirmedReservation(CR3Test.java:168)
+  2) testCase1_confirmPendingReservation(CR3Test)
+  java.lang.AssertionError: Reservation should be confirmed successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase1_confirmPendingReservation(CR3Test.java:152)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase5_attemptToCloseAfterDeparture(CR4Test)
+  java.lang.AssertionError: Should return false when trying to close after departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase5_attemptToCloseAfterDeparture(CR4Test.java:147)
+  2) testCase4_closeOnDepartureDayAfterDepartureTime(CR4Test)
+  java.lang.AssertionError: Should return false when trying to close after departure time
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase4_closeOnDepartureDayAfterDepartureTime(CR4Test.java:121)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\AirlineFlights_sample2\src\test\CR5Test.java:156: 错误: 找不到符号
+          flightF501.setBookings(List.of(bookingF501));
+                    ^
+    符号:   方法 setBookings(List<Booking>)
+    位置: 类型为Flight的变量 flightF501
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\mistralai\mistral-small-3.2-24b-instruct\AirlineFlights_sample2\src\test\CR5Test.java:171: 错误: 找不到符号
+          flightF502.setBookings(List.of(bookingF502));
+                    ^
+    符号:   方法 setBookings(List<Booking>)
+    位置: 类型为Flight的变量 flightF502
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_FlightClosedPreventsModification(CR6Test)
+  java.lang.AssertionError: Stopover should fail when flight is closed for booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase4_FlightClosedPreventsModification(CR6Test.java:106)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 5/6
+- 测试通过: 0/5
+- 测试失败: 5/5
+============================================================

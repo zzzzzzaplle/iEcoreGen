@@ -1,0 +1,90 @@
+================================================================================
+carrental5 测试报告
+================================================================================
+生成时间: 2025-11-27 16:22:40
+样本名称: carrental5
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase1_SingleRentalCalculation(edu.carrental.carrental5.test.CR2Test)
+  java.lang.AssertionError: expected:<800.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.carrental.carrental5.test.CR2Test.testCase1_SingleRentalCalculation(CR2Test.java:93)
+  2) testCase3_MultipleRentalsWithSameDailyPrice(edu.carrental.carrental5.test.CR2Test)
+  java.lang.AssertionError: expected:<720.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.carrental.carrental5.test.CR2Test.testCase3_MultipleRentalsWithSameDailyPrice(CR2Test.java:161)
+  3) testCase4_MixedPricesCalculation(edu.carrental.carrental5.test.CR2Test)
+  java.lang.AssertionError: expected:<1150.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.carrental.carrental5.test.CR2Test.testCase4_MixedPricesCalculation(CR2Test.java:231)
+  4) testCase5_OneDayRentalCalculation(edu.carrental.carrental5.test.CR2Test)
+  java.lang.AssertionError: expected:<400.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.carrental.carrental5.test.CR2Test.testCase5_OneDayRentalCalculation(CR2Test.java:284)
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase2_CountRentalsForMultipleCustomers(edu.carrental.carrental5.test.CR5Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.carrental.carrental5.test.CR5Test.testCase2_CountRentalsForMultipleCustomers(CR5Test.java:159)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

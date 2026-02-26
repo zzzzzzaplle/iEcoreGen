@@ -1,0 +1,148 @@
+================================================================================
+carrental4 测试报告
+================================================================================
+生成时间: 2025-11-25 14:48:03
+样本名称: carrental4
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.carrental.CarrentalPackage;
+                      ^
+    符号:   类 CarrentalPackage
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.carrental.Store;
+                      ^
+    符号:   类 Store
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.carrental.Rental;
+                      ^
+    符号:   类 Rental
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR1Test.java:11: 错误: 找不到符号
+  import edu.carrental.Customer;
+                      ^
+    符号:   类 Customer
+    位置: 程序包 edu.carrental
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.carrental.Customer;
+                      ^
+    符号:   类 Customer
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR2Test.java:10: 错误: 找不到符号
+  import edu.carrental.Rental;
+                      ^
+    符号:   类 Rental
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR2Test.java:11: 错误: 找不到符号
+  import edu.carrental.Store;
+                      ^
+    符号:   类 Store
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR2Test.java:19: 错误: 找不到符号
+      private Store store;
+              ^
+    符号:   类 Store
+    位置: 类 CR2Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.carrental.CarrentalPackage;
+                      ^
+    符号:   类 CarrentalPackage
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR3Test.java:11: 错误: 找不到符号
+  import edu.carrental.Store;
+                      ^
+    符号:   类 Store
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR3Test.java:12: 错误: 找不到符号
+  import edu.carrental.Customer;
+                      ^
+    符号:   类 Customer
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR3Test.java:13: 错误: 找不到符号
+  import edu.carrental.Rental;
+                      ^
+    符号:   类 Rental
+    位置: 程序包 edu.carrental
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.carrental.Store;
+                      ^
+    符号:   类 Store
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR4Test.java:13: 错误: 找不到符号
+      private Store store;
+              ^
+    符号:   类 Store
+    位置: 类 CR4Test
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.carrental.CarrentalPackage;
+                      ^
+    符号:   类 CarrentalPackage
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR5Test.java:10: 错误: 找不到符号
+  import edu.carrental.Store;
+                      ^
+    符号:   类 Store
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR5Test.java:12: 错误: 找不到符号
+  import edu.carrental.Customer;
+                      ^
+    符号:   类 Customer
+    位置: 程序包 edu.carrental
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\test\CR5Test.java:13: 错误: 找不到符号
+  import edu.carrental.Rental;
+                      ^
+    符号:   类 Rental
+    位置: 程序包 edu.carrental
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

@@ -1,0 +1,102 @@
+================================================================================
+fs3 测试报告
+================================================================================
+生成时间: 2025-11-28 15:26:42
+样本名称: fs3
+总测试数: 25
+通过: 16
+失败: 9
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase2_NoDocumentsForAnEditor(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase2_NoDocumentsForAnEditor(CR2Test.java:72)
+  2) testCase1_SingleEditorWithMultipleDocuments(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase1_SingleEditorWithMultipleDocuments(CR2Test.java:58)
+  3) testCase5_LargeNumberOfDocumentsForOneEditor(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase5_LargeNumberOfDocumentsForOneEditor(CR2Test.java:190)
+  4) testCase4_MultipleEditorsWithDocumentDistribution(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase4_MultipleEditorsWithDocumentDistribution(CR2Test.java:166)
+  5) testCase3_EditorWithDocumentsOfVaryingSizes(edu.fs.fs3.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs3.test.CR2Test.testCase3_EditorWithDocumentsOfVaryingSizes(CR2Test.java:111)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CountDocumentsWithAllEditorsUsed(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs3.test.CR4Test.testCase5_CountDocumentsWithAllEditorsUsed(CR4Test.java:200)
+  2) testCase2_CountDocumentsWithSingleEditorType(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 2 documents expected:<2> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs3.test.CR4Test.testCase2_CountDocumentsWithSingleEditorType(CR4Test.java:94)
+  3) testCase3_CountDocumentsAfterRemoval(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs3.test.CR4Test.testCase3_CountDocumentsAfterRemoval(CR4Test.java:140)
+  4) testCase1_CountDocumentsWithMixedEditorTypes(edu.fs.fs3.test.CR4Test)
+  java.lang.AssertionError: TextEditor should have 1 document expected:<1> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.fs.fs3.test.CR4Test.testCase1_CountDocumentsWithMixedEditorTypes(CR4Test.java:64)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 16
+失败: 9
+成功率: 64.0%
+================================================================================

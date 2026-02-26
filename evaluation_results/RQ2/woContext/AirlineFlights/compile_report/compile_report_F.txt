@@ -1,0 +1,202 @@
+================================================================================
+AirlineFlights 系统编译报告
+================================================================================
+生成时间: 2025-11-24 23:56:00
+系统名称: AirlineFlights
+SystemName: flights
+样本总数: 5
+编译成功: 0
+编译失败: 5
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] flights1
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woContext\flights1
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woContext\flights1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:172: 错误: 找不到符号
+      if (f.getDeparture() == null || f.getArrival() == null || 
+           ^
+    符号:   方法 getDeparture()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:172: 错误: 找不到符号
+      if (f.getDeparture() == null || f.getArrival() == null || 
+                                       ^
+    符号:   方法 getArrival()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:173: 错误: 找不到符号
+          f.getDeparture().equals(f.getArrival())) {
+           ^
+    符号:   方法 getDeparture()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:173: 错误: 找不到符号
+          f.getDeparture().equals(f.getArrival())) {
+                                   ^
+    符号:   方法 getArrival()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:292: 错误: 找不到符号
+        if (flight.getDeparture() != null && 
+                  ^
+    符号:   方法 getDeparture()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights1\Airline.java:293: 错误: 找不到符号
+            origin.equals(flight.getDeparture().getCity())) {
+                                ^
+    符号:   方法 getDeparture()
+    位置: 类型为Flight的变量 flight
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights2
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woContext\flights2
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woContext\flights2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Airline.java:176: 错误: 找不到符号
+      Airport departureAirport = f.getFrom();
+                                  ^
+    符号:   方法 getFrom()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Airline.java:177: 错误: 找不到符号
+      Airport arrivalAirport = f.getTo();
+                                ^
+    符号:   方法 getTo()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Airline.java:291: 错误: 找不到符号
+        Airport depAirport = flight.getFrom();
+                                   ^
+    符号:   方法 getFrom()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Airline.java:292: 错误: 找不到符号
+        Airport arrAirport = flight.getTo();
+                                   ^
+    符号:   方法 getTo()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Flight.java:503: 错误: 找不到符号
+      Airport stopoverAirport = stop.getAirport();
+                                    ^
+    符号:   方法 getAirport()
+    位置: 类型为Stopover的变量 stop
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights2\Flight.java:504: 错误: 找不到符号
+      if (stopoverAirport == null || stopoverAirport.getServes() == null || stopoverAirport.getServes().isEmpty()) {
+                                                    ^
+    符号:   方法 getServes()
+    位置: 类型为Airport的变量 stopoverAirport
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights3
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woContext\flights3
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woContext\flights3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Airline.java:205: 错误: 找不到符号
+      if (f.getDepartureAirport() != null && f.getArrivalAirport() != null &&
+                                              ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Airline.java:206: 错误: 找不到符号
+          f.getDepartureAirport().equals(f.getArrivalAirport())) {
+                                          ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Airline.java:330: 错误: 找不到符号
+            origin.equalsIgnoreCase(flight.getDepartureAirport().getCity())) {
+                                                                ^
+    符号:   方法 getCity()
+    位置: 类 Airport
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Airline.java:333: 错误: 找不到符号
+          if (flight.getArrivalAirport() != null && 
+                    ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Airline.java:334: 错误: 找不到符号
+              dest.equalsIgnoreCase(flight.getArrivalAirport().getCity())) {
+                                          ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights3\Customer.java:152: 错误: 找不到符号
+        Reservation reservation = createReservation(f, passengerName, now);
+                                  ^
+    符号:   方法 createReservation(Flight,String,Date)
+    位置: 类 Customer
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights4
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woContext\flights4
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woContext\flights4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights4\Airline.java:179: 错误: 找不到符号
+          f.getDepartureAirport().equals(f.getArrivalAirport())) {
+                                          ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights4\Airline.java:264: 错误: 找不到符号
+        if (flight.getDepartureAirport().getCity().equals(origin) && 
+                                        ^
+    符号:   方法 getCity()
+    位置: 类 Airport
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights4\Airline.java:265: 错误: 找不到符号
+            flight.getArrivalAirport().getCity().equals(dest) && 
+                  ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights4\Airline.java:349: 错误: 找不到符号
+        if (flight.getFlightId().equals(flightId)) {
+                  ^
+    符号:   方法 getFlightId()
+    位置: 类型为Flight的变量 flight
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights4\Flight.java:504: 错误: 找不到符号
+      if (getStopovers().contains(stop) || stop.getAirport() == null) {
+                                               ^
+    符号:   方法 getAirport()
+    位置: 类型为Stopover的变量 stop
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] flights5
+  - 样本目录: D:\EclipseWorkspace\AirlineFlights\woContext\flights5
+  - Java文件数: 14
+  - 编译输出: D:\EclipseWorkspace\AirlineFlights\woContext\flights5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights5\Airline.java:189: 错误: 找不到符号
+      Airport arrivalAirport = f.getArrivalAirport();
+                                ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 f
+  D:\EclipseWorkspace\AirlineFlights\woContext\flights5\Airline.java:329: 错误: 找不到符号
+        Airport arrivalAirport = flight.getArrivalAirport();
+                                       ^
+    符号:   方法 getArrivalAirport()
+    位置: 类型为Flight的变量 flight
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 0 (0.0%)
+失败: 5 (100.0%)
+================================================================================

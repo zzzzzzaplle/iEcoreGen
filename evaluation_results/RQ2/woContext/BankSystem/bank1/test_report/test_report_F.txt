@@ -1,0 +1,166 @@
+================================================================================
+bank1 测试报告
+================================================================================
+生成时间: 2025-11-24 23:39:25
+样本名称: bank1
+总测试数: 5
+通过: 2
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.bank.InvestmentAccount;
+                 ^
+    符号:   类 InvestmentAccount
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.bank.StockTransaction;
+                 ^
+    符号:   类 StockTransaction
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR1Test.java:121: 错误: 找不到符号
+          InvestmentAccount invAccount2 = (InvestmentAccount) customer.findAccountById("INV002");
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR1Test.java:121: 错误: 找不到符号
+          InvestmentAccount invAccount2 = (InvestmentAccount) customer.findAccountById("INV002");
+                                           ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR1Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.bank.InvestmentAccount;
+                 ^
+    符号:   类 InvestmentAccount
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR2Test.java:75: 错误: 找不到符号
+          InvestmentAccount invAccount = (InvestmentAccount) customerAlie.findAccountById("INV001");
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR2Test.java:75: 错误: 找不到符号
+          InvestmentAccount invAccount = (InvestmentAccount) customerAlie.findAccountById("INV001");
+                                          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR2Test.java:92: 错误: 找不到符号
+          InvestmentAccount invAccount = (InvestmentAccount) customerAlie.findAccountById("INV002");
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR2Test
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase1_StandardBalanceAndRate(edu.bank.bank1.test.CR3Test)
+  java.lang.AssertionError: expected:<10001.01> but was:<10000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank1.test.CR3Test.testCase1_StandardBalanceAndRate(CR3Test.java:39)
+  2) testCase4_LargeBalance(edu.bank.bank1.test.CR3Test)
+  java.lang.AssertionError: expected:<1000055.56> but was:<1000000.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank1.test.CR3Test.testCase4_LargeBalance(CR3Test.java:108)
+  3) testCase5_HighPrecisionRate(edu.bank.bank1.test.CR3Test)
+  java.lang.AssertionError: expected:<1234.65> but was:<1234.56>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.bank.bank1.test.CR3Test.testCase5_HighPrecisionRate(CR3Test.java:131)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR4Test.java:8: 错误: 找不到符号
+  import edu.bank.InvestmentAccount;
+                 ^
+    符号:   类 InvestmentAccount
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR4Test.java:9: 错误: 找不到符号
+  import edu.bank.StockTransaction;
+                 ^
+    符号:   类 StockTransaction
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR4Test.java:27: 错误: 找不到符号
+          InvestmentAccount account = factory.createInvestmentAccount();
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR4Test.java:44: 错误: 找不到符号
+          StockTransaction transaction = account.getTransactions().get(0);
+          ^
+    符号:   类 StockTransaction
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.bank.InvestmentAccount;
+                 ^
+    符号:   类 InvestmentAccount
+    位置: 程序包 edu.bank
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR5Test.java:27: 错误: 找不到符号
+          InvestmentAccount account = factory.createInvestmentAccount();
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR5Test.java:60: 错误: 找不到符号
+          InvestmentAccount account = factory.createInvestmentAccount();
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR5Test
+  D:\EclipseWorkspace\BankSystem\woContext\bank1\test\CR5Test.java:81: 错误: 找不到符号
+          InvestmentAccount account = factory.createInvestmentAccount();
+          ^
+    符号:   类 InvestmentAccount
+    位置: 类 CR5Test
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 5
+通过: 2
+失败: 3
+成功率: 40.0%
+================================================================================

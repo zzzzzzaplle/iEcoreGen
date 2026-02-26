@@ -1,0 +1,105 @@
+============================================================
+ORS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-23 20:40:31
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR1Test.java:29: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(tripT123);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR1Test.java:42: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(tripT456);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR1Test.java:61: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(tripT456);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR1Test.java:89: 错误: trips 在 ORS 中是 private 访问控制
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR2Test.java:24: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(trip);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR2Test.java:33: 错误: users 在 ORS 中是 private 访问控制
+          ors.users.add(customer);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR2Test.java:52: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(trip);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR2Test.java:61: 错误: users 在 ORS 中是 private 访问控制
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR3Test.java:61: 错误: 需要';'
+          tripE1.setStops(java.util.Arrays.asList(createStop("Boston"))));
+                                                                        ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR3Test.java:65: 错误: 需要';'
+          tripE2.setStops(java.util.Arrays.asList(createStop("boston"))));
+                                                                        ^
+  2 个错误
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:28: 错误: users 在 ORS 中是 private 访问控制
+          ors.users.add(customerC5);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:42: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(trip1);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:56: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(trip2);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR4Test.java:74: 错误: users 在 ORS 中是 private 访问控制
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR5Test.java:27: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(existingTrip);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR5Test.java:49: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(existingTrip);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR5Test.java:71: 错误: trips 在 ORS 中是 private 访问控制
+          ors.trips.add(existingTrip);
+             ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\meta-llama\llama-4-maverick\ORS_sample3\src\test\CR5Test.java:93: 错误: trips 在 ORS 中是 private 访问控制
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 0/5
+============================================================

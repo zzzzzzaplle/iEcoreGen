@@ -1,0 +1,118 @@
+============================================================
+AcademicProgram - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:04:08
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_TwoIdenticalClassrooms(CR1Test)
+  java.lang.AssertionError: Total capacity should be 100 for two classrooms with capacity 50 each expected:<100> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase3_TwoIdenticalClassrooms(CR1Test.java:84)
+  2) testCase1_SingleClassroomInAcademicProgram(CR1Test)
+  java.lang.AssertionError: Total capacity should be 30 for single classroom expected:<30> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase1_SingleClassroomInAcademicProgram(CR1Test.java:31)
+  3) testCase5_LargeNumberOfClassrooms(CR1Test)
+  java.lang.AssertionError: Total capacity should be 130 for five classrooms with capacities 15, 20, 25, 30, 40 expected:<130> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase5_LargeNumberOfClassrooms(CR1Test.java:115)
+  4) testCase2_MultipleClassroomsWithDifferentCapacities(CR1Test)
+  java.lang.AssertionError: Total capacity should be 100 for three classrooms with capacities 25, 40, 35 expected:<100> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR1Test.testCase2_MultipleClassroomsWithDifferentCapacities(CR1Test.java:61)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR2Test.java:26: 错误: 找不到符号
+          course1.setCourseCode("CS101");
+                 ^
+    符号:   方法 setCourseCode(String)
+    位置: 类型为Course的变量 course1
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR2Test.java:47: 错误: 找不到符号
+          course1.setCourseCode("CS101");
+                 ^
+    符号:   方法 setCourseCode(String)
+    位置: 类型为Course的变量 course1
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR3Test.java:23: 错误: 找不到符号
+          course.setCourseCode("CS101");
+                ^
+    符号:   方法 setCourseCode(String)
+    位置: 类型为Course的变量 course
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR3Test.java:27: 错误: 找不到符号
+          student1.setGrade(85.0);
+                  ^
+    符号:   方法 setGrade(double)
+    位置: 类型为Student的变量 student1
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR5Test.java:17: 错误: 找不到符号
+          course.setCourseCode("CS101");
+                ^
+    符号:   方法 setCourseCode(String)
+    位置: 类型为Course的变量 course
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\mistral-small-3.2-24b-instruct\AcademicProgram_sample5\src\test\CR5Test.java:18: 错误: 找不到符号
+          course.setQuotaLimit(20);
+                ^
+    符号:   方法 setQuotaLimit(int)
+    位置: 类型为Course的变量 course
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 2/5
+- 测试通过: 1/2
+- 测试失败: 1/2
+============================================================

@@ -1,0 +1,53 @@
+============================================================
+LS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 08:41:33
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\llama-4-maverick\LS_sample2\src\test\CR1Test.java:37: 错误: 不兼容的类型: Date无法转换为LocalDate
+          checkout1.setStartDate(dateFormat.parse("2023-01-01 00:00:00"));
+                                                 ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\llama-4-maverick\LS_sample2\src\test\CR1Test.java:38: 错误: 不兼容的类型: Date无法转换为LocalDate
+          checkout1.setEndDate(dateFormat.parse("2023-01-15 23:59:59"));
+                                               ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\llama-4-maverick\LS_sample2\src\test\CR1Test.java:42: 错误: 不兼容的类型: Date无法转换为LocalDate
+          checkout2.setStartDate(dateFormat.parse("2023-02-01 00:00:00"));
+                                                 ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\llama-4-maverick\LS_sample2\src\test\CR1Test.java:43: 错误: 不兼容的类型: Date无法转换为LocalDate
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 3/4
+- 测试通过: 3/3
+- 测试失败: 0/3
+============================================================

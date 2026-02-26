@@ -1,0 +1,12 @@
+edu\fleet\util\FleetAdapterFactory$1.class
+edu\fleet\OwnedVehicle.class
+edu\fleet\Vehicle.class
+edu\fleet\Employee.class
+edu\fleet\FleetPackage$Literals.class
+edu\fleet\RentedVehicle.class
+edu\fleet\util\FleetAdapterFactory.class
+edu\fleet\util\FleetSwitch.class
+edu\fleet\Company.class
+edu\fleet\FleetFactory.class
+edu\fleet\EmployeeType.class
+edu\fleet\FleetPackage.class

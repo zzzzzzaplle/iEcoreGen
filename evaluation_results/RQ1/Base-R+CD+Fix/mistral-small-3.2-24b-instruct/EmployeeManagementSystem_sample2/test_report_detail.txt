@@ -1,0 +1,95 @@
+============================================================
+EmployeeManagementSystem - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-24 15:14:04
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test)
+  java.lang.AssertionError: Total salary should be 3200.00 for single sales person expected:<3200.0> but was:<3002.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR1Test.testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test.java:51)
+  2) testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test)
+  java.lang.AssertionError: Total salary should be 8595.00 for mixed employee types expected:<8595.0> but was:<8372.25>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR1Test.testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test.java:94)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_MultipleSalespersonsWithMixedSales(CR3Test)
+  java.lang.AssertionError: Total commission should be 1120.00 for mixed salespeople expected:<1120.0> but was:<11.2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase5_MultipleSalespersonsWithMixedSales(CR3Test.java:191)
+  2) testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test)
+  java.lang.AssertionError: Total commission should be 900.00 for combined salespeople expected:<900.0> but was:<9.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test.java:104)
+  3) testCase1_SingleSalespersonWithNonZeroSales(CR3Test)
+  java.lang.AssertionError: Total commission should be 100.00 for 1000 sales with 10% commission expected:<100.0> but was:<1.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at CR3Test.testCase1_SingleSalespersonWithNonZeroSales(CR3Test.java:45)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

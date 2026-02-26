@@ -1,0 +1,69 @@
+================================================================================
+artgallery3 测试报告
+================================================================================
+生成时间: 2025-11-25 15:17:26
+样本名称: artgallery3
+总测试数: 15
+通过: 11
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CountArtworksWithMultipleArtists(edu.artgallery.artgallery3.test.CR3Test)
+  java.lang.AssertionError: Alice White should have 0 sculpture artwork expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.artgallery.artgallery3.test.CR3Test.testCase5_CountArtworksWithMultipleArtists(CR3Test.java:202)
+  2) testCase4_CountArtworksWithOnlyOneCategory(edu.artgallery.artgallery3.test.CR3Test)
+  java.lang.AssertionError: Should have 0 painting artwork expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.artgallery.artgallery3.test.CR3Test.testCase4_CountArtworksWithOnlyOneCategory(CR3Test.java:174)
+  3) testCase3_NoArtworksForAnArtist(edu.artgallery.artgallery3.test.CR3Test)
+  java.lang.AssertionError: Should have 0 painting artwork expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.artgallery.artgallery3.test.CR3Test.testCase3_NoArtworksForAnArtist(CR3Test.java:132)
+  4) testCase1_CountArtworksByCategoryForSingleArtist(edu.artgallery.artgallery3.test.CR3Test)
+  java.lang.AssertionError: Should have 0 architecture artwork expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at edu.artgallery.artgallery3.test.CR3Test.testCase1_CountArtworksByCategoryForSingleArtist(CR3Test.java:63)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 3
+总测试数: 15
+通过: 11
+失败: 4
+成功率: 73.3%
+================================================================================

@@ -1,0 +1,89 @@
+================================================================================
+RCGS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 14:42:13
+系统名称: RCGS
+SystemName: carrental
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] carrental1
+  - 样本目录: D:\EclipseWorkspace\RCGS\woFixing\carrental1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woFixing\carrental1\compile
+
+[✗ FAIL] carrental2
+  - 样本目录: D:\EclipseWorkspace\RCGS\woFixing\carrental2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woFixing\carrental2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental2\Store.java:173: 错误: 找不到符号
+      EList<Car> availableCars = new BasicEList<>();
+                                     ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  D:\EclipseWorkspace\RCGS\woFixing\carrental2\Store.java:245: 错误: 找不到符号
+      EList<Customer> overdueCustomers = new BasicEList<>();
+                                             ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  D:\EclipseWorkspace\RCGS\woFixing\carrental2\Store.java:316: 错误: 找不到符号
+      EList<Map<Customer, Integer>> result = new BasicEList<>();
+                                                 ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] carrental3
+  - 样本目录: D:\EclipseWorkspace\RCGS\woFixing\carrental3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woFixing\carrental3\compile
+
+[✗ FAIL] carrental4
+  - 样本目录: D:\EclipseWorkspace\RCGS\woFixing\carrental4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woFixing\carrental4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\Store.java:174: 错误: 找不到符号
+      EList<Car> availableCars = new BasicEList<Car>();
+                                     ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\Store.java:244: 错误: 找不到符号
+      EList<Customer> overdueCustomers = new BasicEList<Customer>();
+                                             ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  D:\EclipseWorkspace\RCGS\woFixing\carrental4\Store.java:326: 错误: 找不到符号
+      EList<Map<Customer, Integer>> result = new BasicEList<Map<Customer, Integer>>();
+                                                 ^
+    符号:   类 BasicEList
+    位置: 类 Store
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] carrental5
+  - 样本目录: D:\EclipseWorkspace\RCGS\woFixing\carrental5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\RCGS\woFixing\carrental5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

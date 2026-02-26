@@ -1,0 +1,82 @@
+============================================================
+Mailman - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-24 16:47:35
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test)
+  java.util.ConcurrentModificationException
+  	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1095)
+  	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1049)
+  	at GeographicalArea.removeInhabitant(FJC.java:173)
+  	at CR2Test.testCase5_ListMailForMailmanWithMixedMailTypes(CR2Test.java:189)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase2_RemoveInhabitantWithAssignedMail(CR3Test)
+  java.util.ConcurrentModificationException
+  	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1095)
+  	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1049)
+  	at GeographicalArea.removeInhabitant(FJC.java:173)
+  	at CR3Test.testCase2_RemoveInhabitantWithAssignedMail(CR3Test.java:56)
+  2) testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test)
+  java.lang.AssertionError: All mail items should be deleted
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR3Test.testCase5_RemoveInhabitantWithMultipleMailItems(CR3Test.java:144)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 3/5
+- 测试失败: 2/5
+============================================================

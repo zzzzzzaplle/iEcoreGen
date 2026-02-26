@@ -1,0 +1,16 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-25 10:18:57
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\IPOApplication_sample1\src\main\FJC.java:92: 错误: 未结束的注释
+    /**
+    ^
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\deepseek\deepseek-v3.2-exp\IPOApplication_sample1\src\main\FJC.java:102: 错误: 进行语法分析时已到达文件结尾
+     * @param doc the legal allowance
+                                     ^
+2 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

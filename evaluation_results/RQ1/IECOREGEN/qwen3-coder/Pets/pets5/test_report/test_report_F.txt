@@ -1,0 +1,89 @@
+================================================================================
+pets5 测试报告
+================================================================================
+生成时间: 2025-11-20 01:03:31
+样本名称: pets5
+总测试数: 15
+通过: 15
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR2Test.java:39: 错误: 找不到符号
+          assertTrue("HomeA should contain Rex", homeA.getPets().contains(rex));
+                                                      ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 homeA
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR2Test.java:61: 错误: 找不到符号
+          assertFalse("HomeC should not contain Oliver", homeC.getPets().contains(oliver));
+                                                              ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 homeC
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR2Test.java:83: 错误: 找不到符号
+          assertEquals("HomeD should contain exactly one pet", 1, homeD.getPets().size());
+                                                                       ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 homeD
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR2Test.java:84: 错误: 找不到符号
+          assertTrue("HomeD should still contain Rocky", homeD.getPets().contains(rocky));
+                                                              ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 homeD
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR3Test.java:36: 错误: 找不到符号
+          assertTrue("House should have no pets after removal", houseX.getPets().isEmpty());
+                                                                      ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 houseX
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR3Test.java:57: 错误: 找不到符号
+          assertEquals("House should still have 1 pet", 1, houseY.getPets().size());
+                                                                 ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 houseY
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR3Test.java:58: 错误: 找不到符号
+          assertTrue("Cooper should still be in the house", houseY.getPets().contains(cooper));
+                                                                  ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 houseY
+  D:\EclipseWorkspace\Pets\qwen3-coder\pets5\test\CR3Test.java:76: 错误: 找不到符号
+          assertEquals("HouseZ should still have 1 pet", 1, houseZ.getPets().size());
+                                                                  ^
+    符号:   方法 getPets()
+    位置: 类型为House的变量 houseZ
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 15
+通过: 15
+失败: 0
+成功率: 100.0%
+================================================================================

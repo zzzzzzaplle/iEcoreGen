@@ -1,0 +1,69 @@
+================================================================================
+LS 系统编译报告
+================================================================================
+生成时间: 2025-11-22 16:36:39
+系统名称: LS
+SystemName: library
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] library1
+  - 样本目录: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library1\LibrarySystem.java:239: 错误: 找不到符号
+        Date checkoutDate = checkout.getCheckoutDate(); // Changed from getDate() to getCheckoutDate()
+                                    ^
+    符号:   方法 getCheckoutDate()
+    位置: 类型为CheckOut的变量 checkout
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] library2
+  - 样本目录: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library2\compile
+
+[✓ PASS] library3
+  - 样本目录: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library3\compile
+
+[✗ FAIL] library4
+  - 样本目录: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library4\LibrarySystem.java:227: 错误: 找不到符号
+        Date checkoutDate = checkout.getCheckoutDate(); // Changed from getDate() to getCheckoutDate()
+                                    ^
+    符号:   方法 getCheckoutDate()
+    位置: 类型为CheckOut的变量 checkout
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] library5
+  - 样本目录: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\LS\mistral-small-3.2-24b-instruct\library5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

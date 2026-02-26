@@ -1,0 +1,63 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-27 13:05:23
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\qwen3-coder\rideshare1\Trip.java:575: 错误: 找不到符号
+        switch (membership.getType()) {
+                          ^
+    符号:   方法 getType()
+    位置: 类型为MembershipPackage的变量 membership
+  D:\EclipseWorkspace\ORS\qwen3-coder\rideshare1\Trip.java:629: 错误: 找不到符号
+        switch (membership.getType()) {
+                          ^
+    符号:   方法 getType()
+    位置: 类型为MembershipPackage的变量 membership
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare2\compile
+
+[✓ PASS] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare3\compile
+
+[✓ PASS] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare4\compile
+
+[✓ PASS] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\qwen3-coder\rideshare5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

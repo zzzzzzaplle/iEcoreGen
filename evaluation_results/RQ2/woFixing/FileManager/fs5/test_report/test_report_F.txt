@@ -1,0 +1,68 @@
+================================================================================
+fs5 测试报告
+================================================================================
+生成时间: 2025-11-25 14:44:52
+样本名称: fs5
+总测试数: 25
+通过: 20
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase2_NoDocumentsForAnEditor(edu.fs.fs5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs5.test.CR2Test.testCase2_NoDocumentsForAnEditor(CR2Test.java:73)
+  2) testCase1_SingleEditorWithMultipleDocuments(edu.fs.fs5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs5.test.CR2Test.testCase1_SingleEditorWithMultipleDocuments(CR2Test.java:59)
+  3) testCase5_LargeNumberOfDocumentsForOneEditor(edu.fs.fs5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs5.test.CR2Test.testCase5_LargeNumberOfDocumentsForOneEditor(CR2Test.java:192)
+  4) testCase4_MultipleEditorsWithDocumentDistribution(edu.fs.fs5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs5.test.CR2Test.testCase4_MultipleEditorsWithDocumentDistribution(CR2Test.java:167)
+  5) testCase3_EditorWithDocumentsOfVaryingSizes(edu.fs.fs5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "java.lang.Float.floatValue()" because the return value of "java.util.Map.get(Object)" is null
+  	at edu.fs.fs5.test.CR2Test.testCase3_EditorWithDocumentsOfVaryingSizes(CR2Test.java:112)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 20
+失败: 5
+成功率: 80.0%
+================================================================================

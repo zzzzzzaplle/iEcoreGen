@@ -1,0 +1,96 @@
+============================================================
+Departments - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 20:10:19
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\Departments_sample2\src\test\CR1Test.java:52: 错误: 找不到符号
+          officeA.setDepartment(engineeringDept);
+                 ^
+    符号:   方法 setDepartment(Department)
+    位置: 类型为Office的变量 officeA
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\Departments_sample2\src\test\CR1Test.java:72: 错误: 找不到符号
+          officeA.setDepartment(marketingDept);
+                 ^
+    符号:   方法 setDepartment(Department)
+    位置: 类型为Office的变量 officeA
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\Departments_sample2\src\test\CR2Test.java:115: 错误: 找不到符号
+          empE004.setDepartment(rdDept);
+                 ^
+    符号:   方法 setDepartment(Department)
+    位置: 类型为Employee的变量 empE004
+  1 个错误
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_CheckAfterManagerRemoval(CR4Test)
+  java.lang.AssertionError: Department 'Temp' should not have a manager after employee removal
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase3_CheckAfterManagerRemoval(CR4Test.java:80)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\Departments_sample2\src\test\CR5Test.java:70: 错误: 找不到符号
+          List<Department> result = company.getDepartmentsWithoutManager();
+                                           ^
+    符号:   方法 getDepartmentsWithoutManager()
+    位置: 类型为Company的变量 company
+  C:\Users\20936\Desktop\to张zq2\RESULT\Base_DD+FR\deepseek-v3.2-exp\Departments_sample2\src\test\CR5Test.java:109: 错误: 找不到符号
+          List<Department> result = company.getDepartmentsWithoutManager();
+                                           ^
+    符号:   方法 getDepartmentsWithoutManager()
+    位置: 类型为Company的变量 company
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 2/5
+- 测试通过: 1/2
+- 测试失败: 1/2
+============================================================

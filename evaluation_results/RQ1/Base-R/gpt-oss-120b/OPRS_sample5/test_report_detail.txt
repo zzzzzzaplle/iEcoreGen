@@ -1,0 +1,71 @@
+============================================================
+OPRS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 13:55:52
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_allAcceptances(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.add(Collections.java:1091)
+  	at CR5Test.testCase1_allAcceptances(CR5Test.java:16)
+  2) testCase5_singleReviewCase(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.add(Collections.java:1091)
+  	at CR5Test.testCase5_singleReviewCase(CR5Test.java:85)
+  3) testCase2_balanced50_50Ratio(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.add(Collections.java:1091)
+  	at CR5Test.testCase2_balanced50_50Ratio(CR5Test.java:33)
+  4) testCase4_recentRejectTendency(CR5Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.add(Collections.java:1091)
+  	at CR5Test.testCase4_recentRejectTendency(CR5Test.java:64)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

@@ -1,0 +1,97 @@
+============================================================
+Mailman - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-22 09:14:51
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test)
+  java.lang.AssertionError: Mail for non-existent inhabitant should not be assignable
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase4_AssignMailmanToMailForNonExistentInhabitant(CR1Test.java:141)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Mailman_sample2\src\test\CR2Test.java:62: 错误: mail 在 DeliveryInfo 中是 private 访问控制
+          assertEquals(letter1, delivery1.mail);
+                                         ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Mailman_sample2\src\test\CR2Test.java:63: 错误: mailman 在 DeliveryInfo 中是 private 访问控制
+          assertEquals(james, delivery1.mailman);
+                                       ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Mailman_sample2\src\test\CR2Test.java:64: 错误: addressee 在 DeliveryInfo 中是 private 访问控制
+          assertEquals(grace, delivery1.addressee);
+                                       ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Mailman_sample2\src\test\CR2Test.java:68: 错误: mail 在 DeliveryInfo 中是 private 访问控制
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\Mailman_sample2\src\test\CR4Test.java:114: 错误: 需要')'或','
+              assertTrue(system.assignMailToMailman(letter, xavier);
+                                                                   ^
+  1 个错误
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase5_ListMailForInhabitantWithMixedMailTypes(CR5Test)
+  java.lang.AssertionError: Should contain 3 mail items expected:<3> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase5_ListMailForInhabitantWithMixedMailTypes(CR5Test.java:158)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 3/5
+- 测试通过: 1/3
+- 测试失败: 2/3
+============================================================

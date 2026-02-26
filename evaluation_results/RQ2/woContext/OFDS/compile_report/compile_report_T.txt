@@ -1,0 +1,47 @@
+================================================================================
+OFDS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 08:53:40
+系统名称: OFDS
+SystemName: fleet
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] fleet1
+  - 样本目录: D:\EclipseWorkspace\OFDS\woContext\fleet1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OFDS\woContext\fleet1\compile
+
+[✓ PASS] fleet2
+  - 样本目录: D:\EclipseWorkspace\OFDS\woContext\fleet2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OFDS\woContext\fleet2\compile
+
+[✓ PASS] fleet3
+  - 样本目录: D:\EclipseWorkspace\OFDS\woContext\fleet3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OFDS\woContext\fleet3\compile
+
+[✓ PASS] fleet4
+  - 样本目录: D:\EclipseWorkspace\OFDS\woContext\fleet4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OFDS\woContext\fleet4\compile
+
+[✓ PASS] fleet5
+  - 样本目录: D:\EclipseWorkspace\OFDS\woContext\fleet5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\OFDS\woContext\fleet5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

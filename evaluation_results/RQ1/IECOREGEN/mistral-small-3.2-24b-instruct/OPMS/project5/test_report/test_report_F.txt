@@ -1,0 +1,71 @@
+================================================================================
+project5 测试报告
+================================================================================
+生成时间: 2025-11-27 13:21:49
+样本名称: project5
+总测试数: 20
+通过: 17
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase4_NoProjectsInDepartment(edu.project.project5.test.CR2Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.isEmpty()" because "this.projects" is null
+  	at edu.project.Department.calculateAverageBudget(Department.java:308)
+  	at edu.project.project5.test.CR2Test.testCase4_NoProjectsInDepartment(CR2Test.java:159)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_NoCommunityProjectsInDepartment(edu.project.project5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.projects" is null
+  	at edu.project.Department.getFundingGroupTypeCommunityProjects(Department.java:342)
+  	at edu.project.project5.test.CR4Test.testCase3_NoCommunityProjectsInDepartment(CR4Test.java:104)
+  2) testCase5_FundingGroupTypeWithInvalidDepartmentID(edu.project.project5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "org.eclipse.emf.common.util.EList.iterator()" because "this.projects" is null
+  	at edu.project.Department.getFundingGroupTypeCommunityProjects(Department.java:342)
+  	at edu.project.project5.test.CR4Test.testCase5_FundingGroupTypeWithInvalidDepartmentID(CR4Test.java:170)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 17
+失败: 3
+成功率: 85.0%
+================================================================================

@@ -1,0 +1,141 @@
+================================================================================
+AcademicProgram 系统编译报告
+================================================================================
+生成时间: 2025-11-24 23:37:59
+系统名称: AcademicProgram
+SystemName: academic
+样本总数: 5
+编译成功: 1
+编译失败: 4
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] academic1
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\woContext\academic1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\woContext\academic1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic1\Student.java:78: 错误: 找不到符号
+      if (!course.hasAvailableQuota()) {
+                 ^
+    符号:   方法 hasAvailableQuota()
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic1\Student.java:91: 错误: 找不到符号
+      course.addEnrollment(enrollment);
+            ^
+    符号:   方法 addEnrollment(Enrollment)
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic1\Student.java:133: 错误: 找不到符号
+        course.removeEnrollment(enrollment);
+              ^
+    符号:   方法 removeEnrollment(Enrollment)
+    位置: 类型为Course的变量 course
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] academic2
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\woContext\academic2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\woContext\academic2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\Student.java:79: 错误: 找不到符号
+      if (course.getMaxEnrollment() <= course.getCurrentEnrollment()) {
+                ^
+    符号:   方法 getMaxEnrollment()
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\Student.java:79: 错误: 找不到符号
+      if (course.getMaxEnrollment() <= course.getCurrentEnrollment()) {
+                                             ^
+    符号:   方法 getCurrentEnrollment()
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\Student.java:102: 错误: 找不到符号
+      course.setCurrentEnrollment(course.getCurrentEnrollment() + 1);
+                                        ^
+    符号:   方法 getCurrentEnrollment()
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\Student.java:150: 错误: 找不到符号
+      course.setCurrentEnrollment(course.getCurrentEnrollment() - 1);
+                                        ^
+    符号:   方法 getCurrentEnrollment()
+    位置: 类型为Course的变量 course
+  4 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] academic3
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\woContext\academic3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\woContext\academic3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:68: 错误: 找不到符号
+      if (course == null || course.getEnrollments().size() >= course.getCapacity()) {
+                                                                    ^
+    符号:   方法 getCapacity()
+    位置: 类型为Course的变量 course
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:82: 错误: 找不到符号
+      if (eGet(AcademicPackage.Literals.STUDENT__COURSES) == null) {
+                                       ^
+    符号:   变量 STUDENT__COURSES
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:84: 错误: 找不到符号
+        eSet(AcademicPackage.Literals.STUDENT__COURSES, courses);
+                                     ^
+    符号:   变量 STUDENT__COURSES
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:86: 错误: 找不到符号
+      ((EList<Course>) eGet(AcademicPackage.Literals.STUDENT__COURSES)).add(course);
+                                                    ^
+    符号:   变量 STUDENT__COURSES
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:131: 错误: 找不到符号
+      if (eGet(AcademicPackage.Literals.STUDENT__COURSES) != null) {
+                                       ^
+    符号:   变量 STUDENT__COURSES
+    位置: 接口 Literals
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic3\Student.java:132: 错误: 找不到符号
+        ((EList<Course>) eGet(AcademicPackage.Literals.STUDENT__COURSES)).remove(course);
+                                                      ^
+    符号:   变量 STUDENT__COURSES
+    位置: 接口 Literals
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] academic4
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\woContext\academic4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\woContext\academic4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic4\Student.java:69: 错误: 找不到符号
+      if (course.getMaxStudents() - course.getEnrollments().size() <= 0) {
+                ^
+    符号:   方法 getMaxStudents()
+    位置: 类型为Course的变量 course
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] academic5
+  - 样本目录: D:\EclipseWorkspace\AcademicProgram\woContext\academic5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\AcademicProgram\woContext\academic5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 1 (20.0%)
+失败: 4 (80.0%)
+================================================================================

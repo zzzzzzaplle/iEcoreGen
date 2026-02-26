@@ -1,0 +1,157 @@
+================================================================================
+employee4 测试报告
+================================================================================
+生成时间: 2025-11-25 00:24:17
+样本名称: employee4
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.employee.Company;
+                     ^
+    符号:   类 Company
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.employee.EmployeeFactory;
+                     ^
+    符号:   类 EmployeeFactory
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.employee.EmployeePackage;
+                     ^
+    符号:   类 EmployeePackage
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.employee.Worker;
+                     ^
+    符号:   类 Worker
+    位置: 程序包 edu.employee
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR2Test.java:7: 错误: 找不到符号
+  import edu.employee.Company;
+                     ^
+    符号:   类 Company
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR2Test.java:8: 错误: 找不到符号
+  import edu.employee.Department;
+                     ^
+    符号:   类 Department
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.employee.DepartmentType;
+                     ^
+    符号:   类 DepartmentType
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR2Test.java:10: 错误: 找不到符号
+  import edu.employee.EmployeeFactory;
+                     ^
+    符号:   类 EmployeeFactory
+    位置: 程序包 edu.employee
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.employee.Company;
+                     ^
+    符号:   类 Company
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR3Test.java:8: 错误: 找不到符号
+  import edu.employee.SalesPeople;
+                     ^
+    符号:   类 SalesPeople
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR3Test.java:9: 错误: 找不到符号
+  import edu.employee.EmployeeFactory;
+                     ^
+    符号:   类 EmployeeFactory
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.employee.EmployeePackage;
+                     ^
+    符号:   类 EmployeePackage
+    位置: 程序包 edu.employee
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.employee.Company;
+                     ^
+    符号:   类 Company
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR4Test.java:8: 错误: 找不到符号
+  import edu.employee.Department;
+                     ^
+    符号:   类 Department
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR4Test.java:9: 错误: 找不到符号
+  import edu.employee.DepartmentType;
+                     ^
+    符号:   类 DepartmentType
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR4Test.java:10: 错误: 找不到符号
+  import edu.employee.EmployeeFactory;
+                     ^
+    符号:   类 EmployeeFactory
+    位置: 程序包 edu.employee
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.employee.EmployeeFactory;
+                     ^
+    符号:   类 EmployeeFactory
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.employee.EmployeePackage;
+                     ^
+    符号:   类 EmployeePackage
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.employee.Manager;
+                     ^
+    符号:   类 Manager
+    位置: 程序包 edu.employee
+  D:\EclipseWorkspace\EmployeeManagementSystem\woContext\employee4\test\CR5Test.java:10: 错误: 找不到符号
+  import edu.employee.Worker;
+                     ^
+    符号:   类 Worker
+    位置: 程序包 edu.employee
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

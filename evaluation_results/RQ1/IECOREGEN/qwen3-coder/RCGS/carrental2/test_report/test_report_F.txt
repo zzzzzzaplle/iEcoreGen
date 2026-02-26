@@ -1,0 +1,62 @@
+================================================================================
+carrental2 测试报告
+================================================================================
+生成时间: 2025-11-13 19:01:29
+样本名称: carrental2
+总测试数: 20
+通过: 20
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\RCGS\qwen3-coder\carrental2\test\CR5Test.java:66: 错误: 不兼容的类型: EList<Map<Customer,Integer>>无法转换为Map<Customer,Integer>
+          Map<Customer, Integer> result = store.countCarsRentedPerCustomer();
+                                                                          ^
+  D:\EclipseWorkspace\RCGS\qwen3-coder\carrental2\test\CR5Test.java:150: 错误: 不兼容的类型: EList<Map<Customer,Integer>>无法转换为Map<Customer,Integer>
+          Map<Customer, Integer> result = store.countCarsRentedPerCustomer();
+                                                                          ^
+  D:\EclipseWorkspace\RCGS\qwen3-coder\carrental2\test\CR5Test.java:169: 错误: 不兼容的类型: EList<Map<Customer,Integer>>无法转换为Map<Customer,Integer>
+          Map<Customer, Integer> result = store.countCarsRentedPerCustomer();
+                                                                          ^
+  D:\EclipseWorkspace\RCGS\qwen3-coder\carrental2\test\CR5Test.java:226: 错误: 不兼容的类型: EList<Map<Customer,Integer>>无法转换为Map<Customer,Integer>
+          Map<Customer, Integer> result = store.countCarsRentedPerCustomer();
+                                                                          ^
+  D:\EclipseWorkspace\RCGS\qwen3-coder\carrental2\test\CR5Test.java:286: 错误: 不兼容的类型: EList<Map<Customer,Integer>>无法转换为Map<Customer,Integer>
+          Map<Customer, Integer> result = store.countCarsRentedPerCustomer();
+                                                                          ^
+  5 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 20
+通过: 20
+失败: 0
+成功率: 100.0%
+================================================================================

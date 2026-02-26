@@ -1,0 +1,75 @@
+================================================================================
+academic1 测试报告
+================================================================================
+生成时间: 2025-11-27 13:09:23
+样本名称: academic1
+总测试数: 25
+通过: 23
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_TwoIdenticalClassrooms(edu.academic.academic1.test.CR1Test)
+  java.lang.AssertionError: Total classroom capacity should be 100 expected:<100> but was:<50>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.academic.academic1.test.CR1Test.testCase3_TwoIdenticalClassrooms(CR1Test.java:112)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase3_AverageGradeCalculationForCourseWithNoStudents(edu.academic.academic1.test.CR3Test)
+  java.lang.AssertionError: Average grade for course with no students should be 0.0 expected:<0.0> but was:<NaN>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at edu.academic.academic1.test.CR3Test.testCase3_AverageGradeCalculationForCourseWithNoStudents(CR3Test.java:112)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 23
+失败: 2
+成功率: 92.0%
+================================================================================

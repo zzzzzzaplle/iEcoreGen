@@ -1,0 +1,98 @@
+================================================================================
+Departments 系统编译报告
+================================================================================
+生成时间: 2025-11-25 00:14:20
+系统名称: Departments
+SystemName: department
+样本总数: 5
+编译成功: 2
+编译失败: 3
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] department1
+  - 样本目录: D:\EclipseWorkspace\Departments\woContext\department1
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woContext\department1\compile
+
+[✓ PASS] department2
+  - 样本目录: D:\EclipseWorkspace\Departments\woContext\department2
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woContext\department2\compile
+
+[✗ FAIL] department3
+  - 样本目录: D:\EclipseWorkspace\Departments\woContext\department3
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woContext\department3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woContext\department3\Company.java:214: 错误: 找不到符号
+      EList<Employee> employees = department.getEmployees();
+                                            ^
+    符号:   方法 getEmployees()
+    位置: 类型为Department的变量 department
+  D:\EclipseWorkspace\Departments\woContext\department3\Company.java:218: 错误: 找不到符号
+          department.getEmployees().remove(employee);
+                    ^
+    符号:   方法 getEmployees()
+    位置: 类型为Department的变量 department
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] department4
+  - 样本目录: D:\EclipseWorkspace\Departments\woContext\department4
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woContext\department4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woContext\department4\Department.java:461: 错误: 找不到符号
+        EList<Employee> employees = new BasicEList<>(office.getWorkingEmployees());
+                                        ^
+    符号:   类 BasicEList
+    位置: 类 Department
+  D:\EclipseWorkspace\Departments\woContext\department4\Department.java:463: 错误: 找不到符号
+          employee.setOffice(null);
+                  ^
+    符号:   方法 setOffice(<空值>)
+    位置: 类型为Employee的变量 employee
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] department5
+  - 样本目录: D:\EclipseWorkspace\Departments\woContext\department5
+  - Java文件数: 8
+  - 编译输出: D:\EclipseWorkspace\Departments\woContext\department5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Departments\woContext\department5\Company.java:222: 错误: 找不到符号
+      if (department.getEmployees() != null) {
+                    ^
+    符号:   方法 getEmployees()
+    位置: 类型为Department的变量 department
+  D:\EclipseWorkspace\Departments\woContext\department5\Company.java:223: 错误: 找不到符号
+        department.getEmployees().clear();
+                  ^
+    符号:   方法 getEmployees()
+    位置: 类型为Department的变量 department
+  D:\EclipseWorkspace\Departments\woContext\department5\Company.java:294: 错误: 不兼容的类型: void无法转换为boolean
+      return department.setManager(employee);
+                                  ^
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 2 (40.0%)
+失败: 3 (60.0%)
+================================================================================

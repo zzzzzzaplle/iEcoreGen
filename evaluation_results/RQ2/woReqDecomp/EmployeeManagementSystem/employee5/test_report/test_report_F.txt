@@ -1,0 +1,156 @@
+================================================================================
+employee5 测试报告
+================================================================================
+生成时间: 2025-11-25 15:15:42
+样本名称: employee5
+总测试数: 25
+通过: 9
+失败: 16
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(edu.employee.employee5.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "String.hashCode()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalEmployeeSalary(Company.java:139)
+  	at edu.employee.employee5.test.CR1Test.testCase1_CalculateTotalSalaryForCompanyWithSingleWorker(CR1Test.java:38)
+  2) testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(edu.employee.employee5.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "String.hashCode()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalEmployeeSalary(Company.java:139)
+  	at edu.employee.employee5.test.CR1Test.testCase2_CalculateTotalSalaryForCompanyWithSingleSalesPerson(CR1Test.java:56)
+  3) testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(edu.employee.employee5.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "String.hashCode()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalEmployeeSalary(Company.java:139)
+  	at edu.employee.employee5.test.CR1Test.testCase4_CalculateTotalSalaryForCompanyWithWorkerSalesPersonAndManager(CR1Test.java:99)
+  4) testCase3_CalculateTotalSalaryForCompanyWithSingleManager(edu.employee.employee5.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "String.hashCode()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalEmployeeSalary(Company.java:139)
+  	at edu.employee.employee5.test.CR1Test.testCase3_CalculateTotalSalaryForCompanyWithSingleManager(CR1Test.java:72)
+  5) testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(edu.employee.employee5.test.CR1Test)
+  java.lang.NullPointerException: Cannot invoke "String.hashCode()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalEmployeeSalary(Company.java:139)
+  	at edu.employee.employee5.test.CR1Test.testCase5_CalculateTotalSalaryForCompanyWithMultipleWorkers(CR1Test.java:133)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase5_mixedDepartmentsWithDeliveryWorkers(edu.employee.employee5.test.CR2Test)
+  java.lang.AssertionError: expected:<28.33> but was:<40.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee5.test.CR2Test.testCase5_mixedDepartmentsWithDeliveryWorkers(CR2Test.java:174)
+  2) testCase2_multipleWorkersSameHours(edu.employee.employee5.test.CR2Test)
+  java.lang.AssertionError: expected:<35.0> but was:<40.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee5.test.CR2Test.testCase2_multipleWorkersSameHours(CR2Test.java:73)
+  3) testCase3_multipleWorkersDifferentHours(edu.employee.employee5.test.CR2Test)
+  java.lang.AssertionError: expected:<25.0> but was:<40.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee5.test.CR2Test.testCase3_multipleWorkersDifferentHours(CR2Test.java:102)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase4_SingleSalespersonWithZeroSales(edu.employee.employee5.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalSalesPeopleCommission(Company.java:161)
+  	at edu.employee.employee5.test.CR3Test.testCase4_SingleSalespersonWithZeroSales(CR3Test.java:93)
+  2) testCase5_MultipleSalespersonsWithMixedSales(edu.employee.employee5.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalSalesPeopleCommission(Company.java:161)
+  	at edu.employee.employee5.test.CR3Test.testCase5_MultipleSalespersonsWithMixedSales(CR3Test.java:125)
+  3) testCase3_MultipleSalespersonsWithNonZeroSales(edu.employee.employee5.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalSalesPeopleCommission(Company.java:161)
+  	at edu.employee.employee5.test.CR3Test.testCase3_MultipleSalespersonsWithNonZeroSales(CR3Test.java:75)
+  4) testCase1_SingleSalespersonWithNonZeroSales(edu.employee.employee5.test.CR3Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getName()" is null
+  	at edu.employee.Company.calculateTotalSalesPeopleCommission(Company.java:161)
+  	at edu.employee.employee5.test.CR3Test.testCase1_SingleSalespersonWithNonZeroSales(CR3Test.java:36)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase2_OneShiftWorkerInCompany(edu.employee.employee5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getSocialInsuranceNumber()" is null
+  	at edu.employee.Company.calculateTotalShiftWorkerHolidayPremiums(Company.java:183)
+  	at edu.employee.employee5.test.CR4Test.testCase2_OneShiftWorkerInCompany(CR4Test.java:50)
+  2) testCase3_MultipleShiftWorkersWithDifferentPremiums(edu.employee.employee5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getSocialInsuranceNumber()" is null
+  	at edu.employee.Company.calculateTotalShiftWorkerHolidayPremiums(Company.java:183)
+  	at edu.employee.employee5.test.CR4Test.testCase3_MultipleShiftWorkersWithDifferentPremiums(CR4Test.java:77)
+  3) testCase4_MultipleShiftWorkersWithSomeZeroPremiums(edu.employee.employee5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getSocialInsuranceNumber()" is null
+  	at edu.employee.Company.calculateTotalShiftWorkerHolidayPremiums(Company.java:183)
+  	at edu.employee.employee5.test.CR4Test.testCase4_MultipleShiftWorkersWithSomeZeroPremiums(CR4Test.java:108)
+  4) testCase5_SingleShiftWorkerWithZeroPremium(edu.employee.employee5.test.CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "edu.employee.Employee.getSocialInsuranceNumber()" is null
+  	at edu.employee.Company.calculateTotalShiftWorkerHolidayPremiums(Company.java:183)
+  	at edu.employee.employee5.test.CR4Test.testCase5_SingleShiftWorkerWithZeroPremium(CR4Test.java:127)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 9
+失败: 16
+成功率: 36.0%
+================================================================================

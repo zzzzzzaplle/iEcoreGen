@@ -1,0 +1,112 @@
+============================================================
+AirlineFlights - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-22 20:16:39
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase5_secondPublishAttempt(CR1Test)
+  java.lang.AssertionError: First publish attempt should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_secondPublishAttempt(CR1Test.java:147)
+  2) testCase1_correctScheduleAndRoute(CR1Test)
+  java.lang.AssertionError: Flight with correct schedule and route should publish successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_correctScheduleAndRoute(CR1Test.java:45)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_twoNewPassengersSucceed(CR2Test)
+  java.lang.AssertionError: Booking should succeed for two new passengers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase1_twoNewPassengersSucceed(CR2Test.java:55)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test)
+  java.lang.AssertionError: Should return false when closing after departure time
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test.java:175)
+  2) testCase5_AttemptToCloseAfterDeparture(CR4Test)
+  java.lang.AssertionError: Should return false when closing after departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR4Test.testCase5_AttemptToCloseAfterDeparture(CR4Test.java:208)
+  3) testCase2_ThreeConfirmedReservationsCanceled(CR4Test)
+  java.lang.AssertionError: Booking should be created successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:80)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR6Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 3/6
+- 测试失败: 3/6
+============================================================

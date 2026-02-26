@@ -1,0 +1,74 @@
+================================================================================
+FootballTeam 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:12:23
+系统名称: FootballTeam
+SystemName: footballteam
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] footballteam1
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam1\FootballTeam.java:196: 错误: 找不到符号
+            announcement.getType() == AnnouncementType.GOAL_SCORING && 
+                                                      ^
+    符号:   变量 GOAL_SCORING
+    位置: 类 AnnouncementType
+  D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam1\FootballTeam.java:264: 错误: 找不到符号
+            announcement.getType() == AnnouncementType.GOAL_SAVING) {
+                                                      ^
+    符号:   变量 GOAL_SAVING
+    位置: 类 AnnouncementType
+  2 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] footballteam2
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam2\compile
+
+[✓ PASS] footballteam3
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam3\compile
+
+[✓ PASS] footballteam4
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam4\compile
+
+[✗ FAIL] footballteam5
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woReqDecomp\footballteam5\FootballTeam.java:192: 错误: 找不到符号
+            if (announcement.getPlayer() == player && announcement.getType() == AnnouncementType.GOAL) {
+                                                                                                ^
+    符号:   变量 GOAL
+    位置: 类 AnnouncementType
+  1 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

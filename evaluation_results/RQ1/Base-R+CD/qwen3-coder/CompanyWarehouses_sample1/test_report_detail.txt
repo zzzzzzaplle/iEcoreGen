@@ -1,0 +1,37 @@
+============================================================
+CompanyWarehouses - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:27:17
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\CompanyWarehouses_sample1\src\main\FJC.java:8: 错误: 找不到符号
+      private List<Warehouse> warehouses;
+                   ^
+    符号:   类 Warehouse
+    位置: 类 Company
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\CompanyWarehouses_sample1\src\main\FJC.java:22: 错误: 找不到符号
+      public List<Warehouse> getWarehouses() {
+                  ^
+    符号:   类 Warehouse
+    位置: 类 Company
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\CompanyWarehouses_sample1\src\main\FJC.java:31: 错误: 找不到符号
+      public void setWarehouses(List<Warehouse> warehouses) {
+                                     ^
+    符号:   类 Warehouse
+    位置: 类 Company
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen3-coder\CompanyWarehouses_sample1\src\main\FJC.java:40: 错误: 找不到符号
+      public void addWarehouse(Warehouse warehouse) {
+                               ^
+    符号:   类 Warehouse
+    位置: 类 Company
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

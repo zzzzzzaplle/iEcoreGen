@@ -1,0 +1,90 @@
+============================================================
+LS - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:36:01
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR1Test.java:10: 错误: 找不到符号
+      private LibrarySystem librarySystem;
+              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR1Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR1Test.java:15: 错误: 找不到符号
+          librarySystem = new LibrarySystem();
+                              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR1Test
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR2Test.java:10: 错误: 找不到符号
+      private LibrarySystem librarySystem;
+              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR2Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR2Test.java:15: 错误: 找不到符号
+          librarySystem = new LibrarySystem();
+                              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR2Test
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR3Test.java:10: 错误: 找不到符号
+      private LibrarySystem librarySystem;
+              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR3Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR3Test.java:15: 错误: 找不到符号
+          librarySystem = new LibrarySystem();
+                              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR3Test
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR4Test.java:10: 错误: 找不到符号
+      private LibrarySystem librarySystem;
+              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR4Test
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\gpt-oss-120b\LS_sample1\src\test\CR4Test.java:15: 错误: 找不到符号
+          librarySystem = new LibrarySystem();
+                              ^
+    符号:   类 LibrarySystem
+    位置: 类 CR4Test
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 0/4
+============================================================

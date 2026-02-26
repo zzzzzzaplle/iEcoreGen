@@ -1,0 +1,135 @@
+============================================================
+OPRS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:37:28
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase2_splitDecision2to1(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:18)
+  2) testCase5_edgeCaseExactly50PercentAcceptance(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:18)
+  3) testCase4_mixedGradesWith3Reviews(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:18)
+  4) testCase3_allRejectWith4Reviews(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:18)
+  5) testCase1_unanimousAcceptFrom3Reviews(CR2Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR2Test.setUp(CR2Test.java:18)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_PaperOwnershipValidation(CR3Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR3Test.setUp(CR3Test.java:10)
+  2) testCase1_AuthorWith5Papers(CR3Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR3Test.setUp(CR3Test.java:10)
+  3) testCase4_MultiRoleUserAuthorReviewer(CR3Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR3Test.setUp(CR3Test.java:10)
+  4) testCase2_NewAuthorWith0Papers(CR3Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR3Test.setUp(CR3Test.java:10)
+  5) testCase3_SinglePaperAuthor(CR3Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR3Test.setUp(CR3Test.java:10)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase4_MixedDecisionsWithOneAcceptance(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:10)
+  2) testCase5_SinglePaperAuthor(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:10)
+  3) testCase1_PerfectAcceptanceRate(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:10)
+  4) testCase3_NoAcceptedPapers(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:10)
+  5) testCase2_50PercentAcceptanceRate(CR4Test)
+  java.lang.UnsupportedOperationException
+  	at java.base/java.util.Collections$UnmodifiableCollection.clear(Collections.java:1110)
+  	at CR4Test.setUp(CR4Test.java:10)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 5
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR5Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 2/5
+- 测试失败: 3/5
+============================================================

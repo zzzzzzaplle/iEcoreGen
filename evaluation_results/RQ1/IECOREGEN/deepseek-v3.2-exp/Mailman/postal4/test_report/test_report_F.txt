@@ -1,0 +1,85 @@
+================================================================================
+postal4 测试报告
+================================================================================
+生成时间: 2025-11-24 00:18:00
+样本名称: postal4
+总测试数: 15
+通过: 15
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR2Test.java:64: 错误: 不兼容的类型: EList<RegisteredMail>无法转换为EList<Letter>
+          EList<Letter> result = mainStreet.listRegisteredMail(aaron);
+                                                              ^
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR2Test.java:85: 错误: 不兼容的类型: EList<RegisteredMail>无法转换为EList<Letter>
+          EList<Letter> result = marketSquare.listRegisteredMail(mia);
+                                                                ^
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR2Test.java:99: 错误: 不兼容的类型: EList<RegisteredMail>无法转换为EList<Letter>
+          EList<Letter> result = area.listRegisteredMail(noah);
+                                                        ^
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR2Test.java:154: 错误: 不兼容的类型: EList<RegisteredMail>无法转换为EList<Letter>
+          EList<Letter> result = oldTown.listRegisteredMail(peter);
+                                                           ^
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR2Test.java:214: 错误: 不兼容的类型: EList<RegisteredMail>无法转换为EList<Letter>
+          EList<Letter> result = oldTown.listRegisteredMail(peter);
+                                                           ^
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR4Test.java:84: 错误: 找不到符号
+          EList<RegisteredMail> bobsDeliveries = area.listRegisteredMail(bob);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR4Test.java:95: 错误: 找不到符号
+          EList<RegisteredMail> charliesDeliveries = area.listRegisteredMail(charlie);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR4Test.java:152: 错误: 找不到符号
+          EList<RegisteredMail> zacksDeliveries = area.listRegisteredMail(zack);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Mailman\deepseek-v3.2-exp\postal4\test\CR4Test.java:240: 错误: 找不到符号
+          EList<RegisteredMail> luigisDeliveries = area.listRegisteredMail(luigi);
+                ^
+    符号:   类 RegisteredMail
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 15
+通过: 15
+失败: 0
+成功率: 100.0%
+================================================================================

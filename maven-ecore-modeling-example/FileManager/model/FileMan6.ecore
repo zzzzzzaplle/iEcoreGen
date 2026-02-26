@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fs" nsURI="http://example.com/fs" nsPrefix="fs">
+  <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+    <details key="requirement" value="A file system contains information from multiple documents. The document can be added and removed from the file system, and all the documents can be listed. Each document uses an editor suitable for creation. A document contains the document's name, creation date, author information, and size.&#xA; The user determines the assignment of the editor to the documents. Each editor has a name. The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.&#xA;&#xA;&#xA;Function requirement:&#xA;1.Calculate the total size of all documents in the file system. Output the sum of all document sizes. Return 0 if there is no document.&#xA;&#xA;2.Compute the average size of all documents for each editor (Text Editor, Image Editor, and Video Editor) in the file system. Return 0 if there is no document.&#xA;&#xA;3.Count the number of documents in the file system that were created after a specified date.&#xA;&#xA;4.Count the number of documents for each editor (Text Editor, Image Editor, Video Editor) in the file system.&#xA;&#xA;5.Retrieve the names of all authors whose documents are edited with a specified editor in the file system."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="FileSystem">
+    <eOperations name="calculateTotalDocumentSize">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Calculates the total size of all documents in the file system.&#xA;Algorithm:&#xA;1. Initialize totalSize to 0.&#xA;2. For each document in the documents list:&#xA;   a. Add the document's size to totalSize.&#xA;3. Return totalSize.&#xA;Related Features: documents (List&lt;Document>)&#xA;Related Classes: Document&#xA;Input: None&#xA;Output: An integer representing the total size of all documents. Returns 0 if there are no documents.&#xA;Pre-condition: The file system exists and the documents list is initialized.&#xA;Post-condition: The sum of all document sizes is returned, or 0 if there are no documents."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="findAverageSizePerEditor">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Computes the average size of documents for each editor type.&#xA;Algorithm:&#xA;1. Initialize a map totalSize with keys for each editor type and values set to 0.&#xA;2. Initialize a map documentCount with keys for each editor type and values set to 0.&#xA;3. For each document in the documents list:&#xA;   a. Identify the editor type of the document.&#xA;   b. Add the document's size to the totalSize for that editor type.&#xA;   c. Increment the documentCount for that editor type.&#xA;4. Initialize a map averageSize.&#xA;5. For each editor type:&#xA;   a. If documentCount for the editor type is 0, set averageSize for that editor type to 0.&#xA;   b. Otherwise, set averageSize for that editor type to totalSize divided by documentCount.&#xA;6. Return the averageSize map.&#xA;Related Features: documents (List&lt;Document>), size (int), editor (Editor)&#xA;Related Classes: Document, Editor, TextEditor, ImageEditor, VideoEditor&#xA;Input: None&#xA;Output: A map (EMap) where keys are editor types and values are the average sizes of documents for each editor type. Returns 0 for editor types with no documents.&#xA;Pre-condition: The file system exists and the documents list is initialized.&#xA;Post-condition: A map containing the average size of documents per editor type is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eGenericType>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eTypeArguments>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+        </eTypeArguments>
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="countDocumentsAfterDate">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Counts the number of documents created after a specified date.&#xA;Algorithm:&#xA;1. Initialize count to 0.&#xA;2. For each document in the documents list:&#xA;   a. If the document's createDate is after the specified date, increment count.&#xA;3. Return count.&#xA;Related Features: documents (List&lt;Document>), createDate (EDate)&#xA;Related Classes: Document, EDate&#xA;Input: date - A date of type EDate representing the date to compare against.&#xA;Output: An integer representing the count of documents created after the specified date.&#xA;Pre-condition: The date parameter is valid and the documents list is initialized.&#xA;Post-condition: The count of documents created after the specified date is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="date" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getAuthorsByEditor" upperBound="-1">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Retrieves the names of all authors whose documents are edited with a specified editor.&#xA;Algorithm:&#xA;1. Initialize an empty list authorNames.&#xA;2. For each document in the documents list:&#xA;   a. If the document's editor matches the specified editor:&#xA;      i. Add the document's author to authorNames if not already present.&#xA;3. Return authorNames.&#xA;Related Features: documents (List&lt;Document>), author (String), editor (Editor)&#xA;Related Classes: Document, Editor&#xA;Input: editor - An instance of Editor representing the editor to filter documents by.&#xA;Output: A list of strings representing the names of authors whose documents are associated with the specified editor.&#xA;Pre-condition: The specified editor is valid and the documents list is initialized.&#xA;Post-condition: A list of unique author names associated with the specified editor is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="editor" lowerBound="1" eType="//Editor"/>
+    </eOperations>
+    <eOperations name="countDocumentsPerEditorType">
+      <eAnnotations source="http://www.ustb.edu.cn/sei/mde/EnhancedCodeGen">
+        <details key="generated" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Summary: Counts the number of documents associated with each editor type.&#xA;Algorithm:&#xA;1. Initialize a map result with keys for each editor type (TextEditor, ImageEditor, VideoEditor) and values set to 0.&#xA;2. For each document in the documents list:&#xA;   a. Identify the editor type of the document.&#xA;   b. Increment the count for that editor type in the result map.&#xA;3. Return the result map.&#xA;Related Features: documents (List&lt;Document>), editor (Editor)&#xA;Related Classes: Document, Editor, TextEditor, ImageEditor, VideoEditor&#xA;Input: None&#xA;Output: A map (EMap) where keys are editor types and values are the counts of documents for each editor type.&#xA;Pre-condition: The file system exists and the documents list is initialized.&#xA;Post-condition: A map containing the count of documents per editor type is returned."/>
+        <details key="body" value="// TODO: Please generate a body of this unimplemented method based on the docstring&#xD;&#xA;// TODO: Replace the current body with the generated body &#xD;&#xA;// TODO: Ensure that you mark it @generated NOT after code completion&#xD;&#xA;throw new UnsupportedOperationException();&#xD;&#xA;"/>
+      </eAnnotations>
+      <eGenericType>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eTypeArguments>
+        <eTypeArguments>
+          <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eTypeArguments>
+        <eClassifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documents" upperBound="-1" eType="//Document" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1" eType="//Editor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createDate">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editor" eType="//Editor" eOpposite="//Editor/documents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Editor" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documents" upperBound="-1" eType="//Document" eOpposite="//Document/editor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VideoEditor" eSuperTypes="//Editor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextEditor" eSuperTypes="//Editor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageEditor" eSuperTypes="//Editor"/>
+</ecore:EPackage>

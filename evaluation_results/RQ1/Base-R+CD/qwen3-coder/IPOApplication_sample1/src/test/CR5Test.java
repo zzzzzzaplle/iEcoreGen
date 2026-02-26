@@ -1,0 +1,181 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CR5Test {
+    
+    private Customer customer1, customer2, customer3, customer4, customer5;
+    private Company ecoWave, smartGrid, medLife, urbanTech, agroSeed;
+    private Document doc1, doc2, doc3, doc5, doc6;
+    private Application app1, app2, app3, app5, app6;
+    
+    @Before
+    public void setUp() {
+        // Initialize customers
+        customer1 = new Customer();
+        customer1.setName("Benjamin");
+        customer1.setSurname("Taylor");
+        customer1.setEmail("b.taylor@example.com");
+        customer1.setTelephone("555-1010");
+        
+        customer2 = new Customer();
+        customer2.setName("Charlotte");
+        customer2.setSurname("Lee");
+        customer2.setEmail("c.lee@example.com");
+        customer2.setTelephone("555-2020");
+        
+        customer3 = new Customer();
+        customer3.setName("Lucas");
+        customer3.setSurname("Martin");
+        customer3.setEmail("l.martin@example.com");
+        customer3.setTelephone("555-3030");
+        
+        customer4 = new Customer();
+        customer4.setName("Amelia");
+        customer4.setSurname("Clark");
+        customer4.setEmail("a.clark@example.com");
+        customer4.setTelephone("555-4040");
+        
+        customer5 = new Customer();
+        customer5.setName("Mia");
+        customer5.setSurname("Anderson");
+        customer5.setEmail("m.anderson@example.com");
+        customer5.setTelephone("555-6060");
+        
+        // Initialize companies
+        ecoWave = new Company();
+        ecoWave.setName("EcoWave");
+        ecoWave.setEmail("ecowave@gmail.com");
+        
+        smartGrid = new Company();
+        smartGrid.setName("SmartGrid");
+        smartGrid.setEmail("smartgrid@business.com");
+        
+        medLife = new Company();
+        medLife.setName("MedLife");
+        medLife.setEmail("medlife@health.com");
+        
+        urbanTech = new Company();
+        urbanTech.setName("UrbanTech");
+        urbanTech.setEmail("urbantech@innovate.com");
+        
+        agroSeed = new Company();
+        agroSeed.setName("AgroSeed");
+        agroSeed.setEmail("agroseed@farm.com");
+        
+        // Initialize documents
+        doc1 = new Document();
+        doc2 = new Document();
+        doc3 = new Document();
+        doc5 = new Document();
+        doc6 = new Document();
+        
+        // Initialize applications
+        app1 = new Application();
+        app1.setCustomer(customer1);
+        app1.setCompany(ecoWave);
+        app1.setShare(15);
+        app1.setAmountOfMoney(750.0);
+        app1.setAllowance(doc1);
+        app1.setStatus(ApplicationStatus.PENDING);
+        customer1.getApplications().add(app1);
+        
+        app2 = new Application();
+        app2.setCustomer(customer2);
+        app2.setCompany(smartGrid);
+        app2.setShare(30);
+        app2.setAmountOfMoney(3000.0);
+        app2.setAllowance(doc2);
+        app2.setStatus(ApplicationStatus.APPROVAL);
+        customer2.getApplications().add(app2);
+        
+        app3 = new Application();
+        app3.setCustomer(customer3);
+        app3.setCompany(medLife);
+        app3.setShare(20);
+        app3.setAmountOfMoney(1000.0);
+        app3.setAllowance(doc3);
+        app3.setStatus(ApplicationStatus.REJECTED);
+        customer3.getApplications().add(app3);
+        
+        app5 = new Application();
+        app5.setCustomer(customer5);
+        app5.setCompany(urbanTech);
+        app5.setShare(25);
+        app5.setAmountOfMoney(1250.0);
+        app5.setAllowance(doc5);
+        app5.setStatus(ApplicationStatus.PENDING);
+        customer5.getApplications().add(app5);
+        
+        app6 = new Application();
+        app6.setCustomer(customer5);
+        app6.setCompany(agroSeed);
+        app6.setShare(40);
+        app6.setAmountOfMoney(2000.0);
+        app6.setAllowance(doc6);
+        app6.setStatus(ApplicationStatus.PENDING);
+        customer5.getApplications().add(app6);
+    }
+    
+    @Test
+    public void testCase1_CancelStillPendingRequest() {
+        // Customer "C301" (customer1) requests cancellation for "EcoWave"
+        // Setup: Customer has a pending application for "EcoWave"
+        // Expected Output: True
+        
+        boolean result = customer1.cancelApplication("EcoWave");
+        assertTrue("Should be able to cancel a pending application", result);
+        assertEquals("Application status should be REJECTED after cancellation", 
+                     ApplicationStatus.REJECTED, app1.getStatus());
+    }
+    
+    @Test
+    public void testCase2_CancelApprovedRequest() {
+        // Customer "C302" (customer2) tries to cancel IPO for "SmartGrid"
+        // Setup: Customer has an approved application for "SmartGrid"
+        // Expected Output: False (Cannot cancel approved applications)
+        
+        boolean result = customer2.cancelApplication("SmartGrid");
+        assertFalse("Should not be able to cancel an approved application", result);
+        assertEquals("Application status should remain APPROVAL", 
+                     ApplicationStatus.APPROVAL, app2.getStatus());
+    }
+    
+    @Test
+    public void testCase3_CancelRejectedRequest() {
+        // Customer "C303" (customer3) tries to cancel the filing for "MedLife"
+        // Setup: Customer has a rejected application for "MedLife"
+        // Expected Output: False (Application already finalized)
+        
+        boolean result = customer3.cancelApplication("MedLife");
+        assertFalse("Should not be able to cancel a rejected application", result);
+        assertEquals("Application status should remain REJECTED", 
+                     ApplicationStatus.REJECTED, app3.getStatus());
+    }
+    
+    @Test
+    public void testCase4_CancelNonexistentCompany() {
+        // Customer "C304" (customer4) requests cancellation for "UnknownCorp"
+        // Setup: No filing exists IPO for "UnknownCorp"
+        // Expected Output: False (No application found for specified company)
+        
+        boolean result = customer4.cancelApplication("UnknownCorp");
+        assertFalse("Should not be able to cancel a non-existent application", result);
+    }
+    
+    @Test
+    public void testCase5_CancelAfterPriorCancellation() {
+        // Customer "C306" (customer5) cancels "UrbanTech" filing
+        // Setup: Customer has two pending IPO applications
+        // Expected Output: True ("UrbanTech" application canceled, "AgroSeed" remains unaffected)
+        
+        boolean result = customer5.cancelApplication("UrbanTech");
+        assertTrue("Should be able to cancel a pending application", result);
+        assertEquals("UrbanTech application status should be REJECTED after cancellation", 
+                     ApplicationStatus.REJECTED, app5.getStatus());
+        assertEquals("AgroSeed application status should remain PENDING", 
+                     ApplicationStatus.PENDING, app6.getStatus());
+    }
+}

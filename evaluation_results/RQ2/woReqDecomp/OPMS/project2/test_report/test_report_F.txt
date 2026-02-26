@@ -1,0 +1,95 @@
+================================================================================
+project2 测试报告
+================================================================================
+生成时间: 2025-11-25 15:17:55
+样本名称: project2
+总测试数: 10
+通过: 8
+失败: 2
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woReqDecomp\project2\test\CR1Test.java:207: 错误: 找不到符号
+          communityProject.setFudingGroup(fundingGroup);
+                          ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 communityProject
+  1 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase3_CountEmployeesWithNoProductionProjects(edu.project.project2.test.CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<2>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project2.test.CR3Test.testCase3_CountEmployeesWithNoProductionProjects(CR3Test.java:170)
+  2) testCase4_CountEmployeesWithMixedProjectTypes(edu.project.project2.test.CR3Test)
+  java.lang.AssertionError: expected:<2> but was:<6>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at edu.project.project2.test.CR3Test.testCase4_CountEmployeesWithMixedProjectTypes(CR3Test.java:218)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\OPMS\woReqDecomp\project2\test\CR4Test.java:46: 错误: 找不到符号
+          communityProject.setFudingGroup(fundingGroup);
+                          ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 communityProject
+  D:\EclipseWorkspace\OPMS\woReqDecomp\project2\test\CR4Test.java:75: 错误: 找不到符号
+          project1.setFudingGroup(fundingGroup1);
+                  ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 project1
+  D:\EclipseWorkspace\OPMS\woReqDecomp\project2\test\CR4Test.java:86: 错误: 找不到符号
+          project2.setFudingGroup(fundingGroup2);
+                  ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 project2
+  D:\EclipseWorkspace\OPMS\woReqDecomp\project2\test\CR4Test.java:133: 错误: 找不到符号
+          projectD004.setFudingGroup(fundingGroupD004);
+                     ^
+    符号:   方法 setFudingGroup(FundingGroup)
+    位置: 类型为CommunityProject的变量 projectD004
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 10
+通过: 8
+失败: 2
+成功率: 80.0%
+================================================================================

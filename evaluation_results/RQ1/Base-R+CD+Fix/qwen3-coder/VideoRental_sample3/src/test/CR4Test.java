@@ -1,0 +1,202 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
+public class CR4Test {
+    private SimpleDateFormat dateFormat;
+    
+    @Before
+    public void setUp() {
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    }
+    
+    @Test
+    public void testCase1_NoOverdueFees() throws ParseException {
+        // Setup
+        Customer customer = new Customer();
+        customer.setId("C001");
+        
+        // Create Rental 1: returned early, no overdue
+        VideoRental rental1 = new VideoRental();
+        Tape tape1 = new Tape();
+        tape1.setId("T001");
+        rental1.setTape(tape1);
+        rental1.setDueDate(dateFormat.parse("2025-01-05 00:00:00"));
+        rental1.setReturnDate(dateFormat.parse("2025-01-03 00:00:00"));
+        
+        // Create Rental 2: returned early, no overdue
+        VideoRental rental2 = new VideoRental();
+        Tape tape2 = new Tape();
+        tape2.setId("T002");
+        rental2.setTape(tape2);
+        rental2.setDueDate(dateFormat.parse("2025-01-15 00:00:00"));
+        rental2.setReturnDate(dateFormat.parse("2025-01-12 00:00:00"));
+        
+        // Add rentals to customer
+        List<VideoRental> rentals = new ArrayList<>();
+        rentals.add(rental1);
+        rentals.add(rental2);
+        customer.setRentals(rentals);
+        
+        // Create transaction
+        RentalTransaction transaction = new RentalTransaction();
+        transaction.setCustomer(customer);
+        transaction.setRentals(rentals);
+        
+        // Calculate total price
+        Date currentDate = dateFormat.parse("2025-01-20 00:00:00");
+        double totalPrice = transaction.calculateTotalPrice(dateFormat.parse("2025-01-01 00:00:00"), currentDate);
+        
+        // Verify results
+        assertEquals(13.00, totalPrice, 0.001);
+    }
+    
+    @Test
+    public void testCase2_OneOverdueRental() throws ParseException {
+        // Setup
+        Customer customer = new Customer();
+        customer.setId("C002");
+        
+        // Create Rental 1: returned late with overdue fees
+        VideoRental rental1 = new VideoRental();
+        Tape tape1 = new Tape();
+        tape1.setId("T003");
+        rental1.setTape(tape1);
+        rental1.setDueDate(dateFormat.parse("2025-01-05 00:00:00"));
+        rental1.setReturnDate(dateFormat.parse("2025-01-12 00:00:00"));
+        
+        // Add rental to customer
+        List<VideoRental> rentals = new ArrayList<>();
+        rentals.add(rental1);
+        customer.setRentals(rentals);
+        
+        // Create transaction
+        RentalTransaction transaction = new RentalTransaction();
+        transaction.setCustomer(customer);
+        transaction.setRentals(rentals);
+        
+        // Calculate total price
+        Date currentDate = dateFormat.parse("2025-01-20 00:00:00");
+        double totalPrice = transaction.calculateTotalPrice(dateFormat.parse("2025-01-01 00:00:00"), currentDate);
+        
+        // Verify results
+        assertEquals(14.50, totalPrice, 0.001);
+    }
+    
+    @Test
+    public void testCase3_MultipleOverdueRentals() throws ParseException {
+        // Setup
+        Customer customer = new Customer();
+        customer.setId("C003");
+        
+        // Create Rental 1: 4 days overdue
+        VideoRental rental1 = new VideoRental();
+        Tape tape1 = new Tape();
+        tape1.setId("T004");
+        rental1.setTape(tape1);
+        rental1.setDueDate(dateFormat.parse("2025-01-05 00:00:00"));
+        rental1.setReturnDate(dateFormat.parse("2025-01-09 00:00:00"));
+        
+        // Create Rental 2: 3 days overdue
+        VideoRental rental2 = new VideoRental();
+        Tape tape2 = new Tape();
+        tape2.setId("T005");
+        rental2.setTape(tape2);
+        rental2.setDueDate(dateFormat.parse("2025-01-15 00:00:00"));
+        rental2.setReturnDate(dateFormat.parse("2025-01-18 00:00:00"));
+        
+        // Add rentals to customer
+        List<VideoRental> rentals = new ArrayList<>();
+        rentals.add(rental1);
+        rentals.add(rental2);
+        customer.setRentals(rentals);
+        
+        // Create transaction
+        RentalTransaction transaction = new RentalTransaction();
+        transaction.setCustomer(customer);
+        transaction.setRentals(rentals);
+        
+        // Calculate total price
+        Date currentDate = dateFormat.parse("2025-01-20 00:00:00");
+        double totalPrice = transaction.calculateTotalPrice(dateFormat.parse("2025-01-01 00:00:00"), currentDate);
+        
+        // Verify results
+        assertEquals(19.50, totalPrice, 0.001);
+    }
+    
+    @Test
+    public void testCase4_MixedOverdueAndOnTimeRentals() throws ParseException {
+        // Setup
+        Customer customer = new Customer();
+        customer.setId("C004");
+        
+        // Create Rental 1: 2 days overdue
+        VideoRental rental1 = new VideoRental();
+        Tape tape1 = new Tape();
+        tape1.setId("T006");
+        rental1.setTape(tape1);
+        rental1.setDueDate(dateFormat.parse("2025-01-05 00:00:00"));
+        rental1.setReturnDate(dateFormat.parse("2025-01-07 00:00:00"));
+        
+        // Create Rental 2: on-time, no overdue
+        VideoRental rental2 = new VideoRental();
+        Tape tape2 = new Tape();
+        tape2.setId("T007");
+        rental2.setTape(tape2);
+        rental2.setDueDate(dateFormat.parse("2025-01-15 00:00:00"));
+        rental2.setReturnDate(dateFormat.parse("2025-01-14 00:00:00"));
+        
+        // Add rentals to customer
+        List<VideoRental> rentals = new ArrayList<>();
+        rentals.add(rental1);
+        rentals.add(rental2);
+        customer.setRentals(rentals);
+        
+        // Create transaction
+        RentalTransaction transaction = new RentalTransaction();
+        transaction.setCustomer(customer);
+        transaction.setRentals(rentals);
+        
+        // Calculate total price
+        Date currentDate = dateFormat.parse("2025-01-20 00:00:00");
+        double totalPrice = transaction.calculateTotalPrice(dateFormat.parse("2025-01-01 00:00:00"), currentDate);
+        
+        // Verify results
+        assertEquals(11.00, totalPrice, 0.001);
+    }
+    
+    @Test
+    public void testCase5_UnreturnedTapeWithCurrentDateOverdue() throws ParseException {
+        // Setup
+        Customer customer = new Customer();
+        customer.setId("C006");
+        
+        // Create Rental 1: unreturned tape, overdue
+        VideoRental rental1 = new VideoRental();
+        Tape tape1 = new Tape();
+        tape1.setId("T008");
+        rental1.setTape(tape1);
+        rental1.setDueDate(dateFormat.parse("2025-01-05 00:00:00"));
+        rental1.setReturnDate(null); // Not returned
+        
+        // Add rental to customer
+        List<VideoRental> rentals = new ArrayList<>();
+        rentals.add(rental1);
+        customer.setRentals(rentals);
+        
+        // Create transaction
+        RentalTransaction transaction = new RentalTransaction();
+        transaction.setCustomer(customer);
+        transaction.setRentals(rentals);
+        
+        // Calculate total price
+        Date currentDate = dateFormat.parse("2025-01-10 00:00:00");
+        double totalPrice = transaction.calculateTotalPrice(dateFormat.parse("2025-01-01 00:00:00"), currentDate);
+        
+        // Verify results
+        assertEquals(11.50, totalPrice, 0.001);
+    }
+}

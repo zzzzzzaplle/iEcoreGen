@@ -1,0 +1,16 @@
+=== Fix Attempt 1 ===
+时间: 2025-11-23 22:58:12
+
+编译错误信息:
+------------------------------------------------------------
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\openai\gpt-oss-120b\OPRS_sample4\src\main\FJC.java:81: 错误: 未结束的注释
+    /**
+    ^
+C:\Users\20936\Desktop\to张zq2\RESULT\Fix_DD+FR+DeM\openai\gpt-oss-120b\OPRS_sample4\src\main\FJC.java:82: 错误: 进行语法分析时已到达文件结尾
+     * Returns the
+                  ^
+2 个错误
+
+------------------------------------------------------------
+
+✅ 修复成功！

@@ -1,0 +1,131 @@
+============================================================
+AirlineFlights - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-23 01:58:02
+
+【FJC 编译】
+状态: 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase2_duplicatePassengerInSameRequest(CR2Test)
+  java.lang.AssertionError: Flight should have no reservations expected:<0> but was:<1>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase2_duplicatePassengerInSameRequest(CR2Test.java:89)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_closedFlightBlocksCancellation(CR3Test)
+  java.lang.AssertionError: Cancellation should fail because flight is closed for booking
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR3Test.testCase4_closedFlightBlocksCancellation(CR3Test.java:232)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "Reservation.getId()" is null
+  	at Customer.confirm(FJC.java:359)
+  	at CR4Test.testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test.java:143)
+  2) testCase2_ThreeConfirmedReservationsCanceled(CR4Test)
+  java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "Reservation.getId()" is null
+  	at Customer.confirm(FJC.java:359)
+  	at CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:75)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase3_FlightClosedReturnsZero(CR5Test)
+  java.lang.AssertionError: Should return empty list when flight is closed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:112)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase4_flightClosedPreventsModification(CR6Test)
+  java.lang.AssertionError: Stopover should not be added to closed flight
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase4_flightClosedPreventsModification(CR6Test.java:147)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 1/6
+- 测试失败: 5/6
+============================================================

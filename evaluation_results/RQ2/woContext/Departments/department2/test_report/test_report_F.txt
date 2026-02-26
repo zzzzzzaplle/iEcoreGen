@@ -1,0 +1,59 @@
+================================================================================
+department2 测试报告
+================================================================================
+生成时间: 2025-11-25 00:14:34
+样本名称: department2
+总测试数: 25
+通过: 24
+失败: 1
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(edu.department.department2.test.CR3Test)
+  java.lang.AssertionError: Headquarter should be null expected null, but was:<edu.department.department2.test.CR3Test$1@df27fae (title: L1, description: null, budget: 0.0, deadline: null)>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotNull(Assert.java:756)
+  	at org.junit.Assert.assertNull(Assert.java:738)
+  	at edu.department.department2.test.CR3Test.testCase1_DeleteExistingDepartmentWithOfficesAndEmployees(CR3Test.java:77)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 24
+失败: 1
+成功率: 96.0%
+================================================================================

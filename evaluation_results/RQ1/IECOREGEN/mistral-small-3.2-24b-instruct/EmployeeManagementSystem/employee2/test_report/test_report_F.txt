@@ -1,0 +1,77 @@
+================================================================================
+employee2 测试报告
+================================================================================
+生成时间: 2025-11-27 13:19:04
+样本名称: employee2
+总测试数: 25
+通过: 21
+失败: 4
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR2Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_deliveryDepartmentMixedWithOtherDepartments(edu.employee.employee2.test.CR2Test)
+  java.lang.AssertionError: expected:<28.33> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee2.test.CR2Test.testCase5_deliveryDepartmentMixedWithOtherDepartments(CR2Test.java:147)
+  2) testCase1_singleWorkerInDeliveryDepartment(edu.employee.employee2.test.CR2Test)
+  java.lang.AssertionError: expected:<40.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee2.test.CR2Test.testCase1_singleWorkerInDeliveryDepartment(CR2Test.java:44)
+  3) testCase2_multipleWorkersSameHours(edu.employee.employee2.test.CR2Test)
+  java.lang.AssertionError: expected:<35.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee2.test.CR2Test.testCase2_multipleWorkersSameHours(CR2Test.java:66)
+  4) testCase3_multipleWorkersDifferentHours(edu.employee.employee2.test.CR2Test)
+  java.lang.AssertionError: expected:<25.0> but was:<0.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at edu.employee.employee2.test.CR2Test.testCase3_multipleWorkersDifferentHours(CR2Test.java:91)
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 21
+失败: 4
+成功率: 84.0%
+================================================================================

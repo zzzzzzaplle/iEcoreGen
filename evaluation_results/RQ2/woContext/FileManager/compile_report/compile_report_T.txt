@@ -1,0 +1,47 @@
+================================================================================
+FileManager 系统编译报告
+================================================================================
+生成时间: 2025-11-25 00:23:33
+系统名称: FileManager
+SystemName: fs
+样本总数: 5
+编译成功: 5
+编译失败: 0
+总体结果: ✓ 全部编译成功
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] fs1
+  - 样本目录: D:\EclipseWorkspace\FileManager\woContext\fs1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woContext\fs1\compile
+
+[✓ PASS] fs2
+  - 样本目录: D:\EclipseWorkspace\FileManager\woContext\fs2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woContext\fs2\compile
+
+[✓ PASS] fs3
+  - 样本目录: D:\EclipseWorkspace\FileManager\woContext\fs3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woContext\fs3\compile
+
+[✓ PASS] fs4
+  - 样本目录: D:\EclipseWorkspace\FileManager\woContext\fs4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woContext\fs4\compile
+
+[✓ PASS] fs5
+  - 样本目录: D:\EclipseWorkspace\FileManager\woContext\fs5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\FileManager\woContext\fs5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 5 (100.0%)
+失败: 0 (0.0%)
+================================================================================

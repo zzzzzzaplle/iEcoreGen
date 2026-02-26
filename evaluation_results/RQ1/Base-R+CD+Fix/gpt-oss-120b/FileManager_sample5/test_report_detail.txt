@@ -1,0 +1,79 @@
+============================================================
+FileManager - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-26 00:40:57
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_RetrieveAuthorsForTextEditorDocuments(CR5Test)
+  java.lang.AssertionError: Should return all authors who used Text Editor expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase1_RetrieveAuthorsForTextEditorDocuments(CR5Test.java:55)
+  2) testCase5_MultipleAuthorsForSingleDocumentType(CR5Test)
+  java.lang.AssertionError: Should return two authors who used Image Editor expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase5_MultipleAuthorsForSingleDocumentType(CR5Test.java:202)
+  3) testCase2_RetrieveAuthorsForImageEditorDocuments(CR5Test)
+  java.lang.AssertionError: Should return all authors who used Image Editor expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase2_RetrieveAuthorsForImageEditorDocuments(CR5Test.java:95)
+  4) testCase4_RetrievingAuthorsFromMixedEditorDocuments(CR5Test)
+  java.lang.AssertionError: Should return only one author for Text Editor expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR5Test.testCase4_RetrievingAuthorsFromMixedEditorDocuments(CR5Test.java:163)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 4/5
+- 测试失败: 1/5
+============================================================

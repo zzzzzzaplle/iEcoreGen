@@ -1,0 +1,71 @@
+============================================================
+OPRS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-20 20:04:06
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR4Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen\qwen3-coder\OPRS_sample3\src\test\CR4Test.java:11: 错误: 找不到符号
+          author.setName("A006");
+                ^
+    符号:   方法 setName(String)
+    位置: 类型为Author的变量 author
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen\qwen3-coder\OPRS_sample3\src\test\CR4Test.java:40: 错误: 找不到符号
+          author.setName("A007");
+                ^
+    符号:   方法 setName(String)
+    位置: 类型为Author的变量 author
+  ----------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen\qwen3-coder\OPRS_sample3\src\test\CR5Test.java:12: 错误: 找不到符号
+          reviewer.setName("R006");
+                  ^
+    符号:   方法 setName(String)
+    位置: 类型为Reviewer的变量 reviewer
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\qwen\qwen3-coder\OPRS_sample3\src\test\CR5Test.java:33: 错误: 找不到符号
+          reviewer.setName("R007");
+                  ^
+    符号:   方法 setName(String)
+    位置: 类型为Reviewer的变量 reviewer
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 3/5
+- 测试通过: 3/3
+- 测试失败: 0/3
+============================================================

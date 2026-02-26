@@ -1,0 +1,63 @@
+============================================================
+OAGS - Sample 3 测试详细报告
+============================================================
+生成时间: 2025-11-26 09:00:58
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_BoundaryConditionMembershipExpiration(CR2Test)
+  java.lang.AssertionError: Reward points should be 0 for expired membership expected:<0> but was:<250>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase5_BoundaryConditionMembershipExpiration(CR2Test.java:188)
+  2) testCase2_InvalidMembershipPeriodCalculation(CR2Test)
+  java.lang.AssertionError: Reward points should be 0 for invalid membership period expected:<0> but was:<200>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase2_InvalidMembershipPeriodCalculation(CR2Test.java:79)
+  3) testCase4_MultipleMembershipsConsideration(CR2Test)
+  java.lang.AssertionError: Reward points should be 150 based on specification expected:<0> but was:<100>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR2Test.testCase4_MultipleMembershipsConsideration(CR2Test.java:156)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 3
+- 编译成功: 3/3
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

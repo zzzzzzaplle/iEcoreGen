@@ -1,0 +1,157 @@
+================================================================================
+ipo3 测试报告
+================================================================================
+生成时间: 2025-11-25 08:42:16
+样本名称: ipo3
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.ipo.Application;
+                ^
+    符号:   类 Application
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR1Test.java:8: 错误: 找不到符号
+  import edu.ipo.ApplicationStatus;
+                ^
+    符号:   类 ApplicationStatus
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR1Test.java:9: 错误: 找不到符号
+  import edu.ipo.Company;
+                ^
+    符号:   类 Company
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR1Test.java:10: 错误: 找不到符号
+  import edu.ipo.Customer;
+                ^
+    符号:   类 Customer
+    位置: 程序包 edu.ipo
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR2Test.java:10: 错误: 找不到符号
+      private IpoFactory factory;
+              ^
+    符号:   类 IpoFactory
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR2Test.java:11: 错误: 找不到符号
+      private Customer customerC007;
+              ^
+    符号:   类 Customer
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR2Test.java:12: 错误: 找不到符号
+      private Customer customerC008;
+              ^
+    符号:   类 Customer
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR2Test.java:13: 错误: 找不到符号
+      private Customer customerC009;
+              ^
+    符号:   类 Customer
+    位置: 类 CR2Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.ipo.Application;
+                ^
+    符号:   类 Application
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR3Test.java:8: 错误: 找不到符号
+  import edu.ipo.ApplicationStatus;
+                ^
+    符号:   类 ApplicationStatus
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR3Test.java:9: 错误: 找不到符号
+  import edu.ipo.Company;
+                ^
+    符号:   类 Company
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.ipo.Customer;
+                ^
+    符号:   类 Customer
+    位置: 程序包 edu.ipo
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.ipo.Application;
+                ^
+    符号:   类 Application
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR4Test.java:8: 错误: 找不到符号
+  import edu.ipo.ApplicationStatus;
+                ^
+    符号:   类 ApplicationStatus
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR4Test.java:9: 错误: 找不到符号
+  import edu.ipo.Company;
+                ^
+    符号:   类 Company
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR4Test.java:10: 错误: 找不到符号
+  import edu.ipo.Customer;
+                ^
+    符号:   类 Customer
+    位置: 程序包 edu.ipo
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.ipo.Application;
+                ^
+    符号:   类 Application
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.ipo.ApplicationStatus;
+                ^
+    符号:   类 ApplicationStatus
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.ipo.Company;
+                ^
+    符号:   类 Company
+    位置: 程序包 edu.ipo
+  D:\EclipseWorkspace\IPOApplication\woContext\ipo3\test\CR5Test.java:10: 错误: 找不到符号
+  import edu.ipo.Customer;
+                ^
+    符号:   类 Customer
+    位置: 程序包 edu.ipo
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

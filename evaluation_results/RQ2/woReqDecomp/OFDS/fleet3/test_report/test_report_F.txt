@@ -1,0 +1,67 @@
+================================================================================
+fleet3 测试报告
+================================================================================
+生成时间: 2025-11-25 15:17:42
+样本名称: fleet3
+总测试数: 20
+通过: 17
+失败: 3
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 3
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 3 failures:
+  1) testCase2_CountRentedVehiclesWithTwoRentedVehicles(edu.fleet.fleet3.test.CR3Test)
+  java.lang.AssertionError: Rented vehicle count should be 2 when two rented vehicles exist expected:<2> but was:<4>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.fleet.fleet3.test.CR3Test.testCase2_CountRentedVehiclesWithTwoRentedVehicles(CR3Test.java:85)
+  2) testCase4_CountRentedVehiclesWithMixedVehicleTypes(edu.fleet.fleet3.test.CR3Test)
+  java.lang.AssertionError: Rented vehicle count should be 2 when two rented vehicles exist among mixed types expected:<2> but was:<6>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.fleet.fleet3.test.CR3Test.testCase4_CountRentedVehiclesWithMixedVehicleTypes(CR3Test.java:165)
+  3) testCase1_CountRentedVehiclesWithNoRentedVehicles(edu.fleet.fleet3.test.CR3Test)
+  java.lang.AssertionError: Rented vehicle count should be 0 when no rented vehicles exist expected:<0> but was:<3>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.fleet.fleet3.test.CR3Test.testCase1_CountRentedVehiclesWithNoRentedVehicles(CR3Test.java:51)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 4
+总测试数: 20
+通过: 17
+失败: 3
+成功率: 85.0%
+================================================================================

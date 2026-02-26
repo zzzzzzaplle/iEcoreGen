@@ -1,0 +1,99 @@
+================================================================================
+ORS 系统编译报告
+================================================================================
+生成时间: 2025-11-25 15:12:53
+系统名称: ORS
+SystemName: rideshare
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] rideshare1
+  - 样本目录: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare1
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare1\compile
+
+[✓ PASS] rideshare2
+  - 样本目录: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare2
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare2\compile
+
+[✓ PASS] rideshare3
+  - 样本目录: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare3
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare3\compile
+
+[✗ FAIL] rideshare4
+  - 样本目录: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\Trip.java:567: 错误: 找不到符号
+        case STANDARD:
+             ^
+    符号:   变量 STANDARD
+    位置: 类 Trip
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\Trip.java:570: 错误: 找不到符号
+        case SILVER:
+             ^
+    符号:   变量 SILVER
+    位置: 类 Trip
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\Trip.java:573: 错误: 找不到符号
+        case GOLD:
+             ^
+    符号:   变量 GOLD
+    位置: 类 Trip
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\Trip.java:576: 错误: 找不到符号
+        case PLATINUM:
+             ^
+    符号:   变量 PLATINUM
+    位置: 类 Trip
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare4\Trip.java:646: 错误: 找不到符号
+      EList<String> stopStations = new BasicEList<String>();
+                                       ^
+    符号:   类 BasicEList
+    位置: 类 Trip
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] rideshare5
+  - 样本目录: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare5
+  - Java文件数: 12
+  - 编译输出: D:\EclipseWorkspace\ORS\woReqDecomp\rideshare5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare5\Trip.java:558: 错误: 找不到符号
+          case edu.rideshare.MembershipPackage.SILVER:
+                                              ^
+    符号:   变量 SILVER
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare5\Trip.java:560: 错误: 找不到符号
+          case edu.rideshare.MembershipPackage.GOLD:
+                                              ^
+    符号:   变量 GOLD
+    位置: 类 MembershipPackage
+  D:\EclipseWorkspace\ORS\woReqDecomp\rideshare5\Trip.java:562: 错误: 找不到符号
+          case edu.rideshare.MembershipPackage.PLATINUM:
+                                              ^
+    符号:   变量 PLATINUM
+    位置: 类 MembershipPackage
+  3 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

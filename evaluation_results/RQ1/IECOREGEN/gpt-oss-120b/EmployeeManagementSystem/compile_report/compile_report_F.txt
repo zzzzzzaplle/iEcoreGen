@@ -1,0 +1,119 @@
+================================================================================
+EmployeeManagementSystem 系统编译报告
+================================================================================
+生成时间: 2025-11-16 22:10:29
+系统名称: EmployeeManagementSystem
+SystemName: employee
+样本总数: 5
+编译成功: 2
+编译失败: 3
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] employee1
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee1
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee1\compile
+
+[✓ PASS] employee2
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee2
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee2\compile
+
+[✗ FAIL] employee3
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Company.java:20: 错误: 找不到符号
+  import org.eclipse.emf.common.util.E;
+                                    ^
+    符号:   类 E
+    位置: 程序包 org.eclipse.emf.common.util
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Department.java:22: 错误: 找不到符号
+  import org.eclipse.emf.ecore.util.E;
+                                   ^
+    符号:   类 E
+    位置: 程序包 org.eclipse.emf.ecore.util
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Department.java:23: 错误: 找不到符号
+  import org.eclipse.emf.ecoreObject;
+                        ^
+    符号:   类 ecoreObject
+    位置: 程序包 org.eclipse.emf
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Company.java:180: 错误: 找不到符号
+            salary += sw.calculatePremium();
+                        ^
+    符号:   方法 calculatePremium()
+    位置: 类型为ShiftWorker的变量 sw
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Company.java:398: 错误: 找不到符号
+    /** @LLM */ SalesPeople sp = (SalesPeople) emp;
+                                               ^
+    符号:   变量 emp
+    位置: 类 Company
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee3\Company.java:400: 错误: 找不到符号
+    /** @LLM */ Manager m = (Manager) emp;
+                                      ^
+    符号:   变量 emp
+    位置: 类 Company
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] employee4
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee4
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee4\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee4\Company.java:180: 错误: 需要';'
+            workerSalary = sp.getSalary() (sp.getAmountOfSales() * sp.getCommissionPercentage());
+                                         ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee4\Company.java:180: 错误: 不是语句
+            workerSalary = sp.getSalary() (sp.getAmountOfSales() * sp.getCommissionPercentage());
+                                                                 ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee4\Company.java:180: 错误: 需要';'
+            workerSalary = sp.getSalary() (sp.getAmountOfSales() * sp.getCommissionPercentage());
+                                                                                               ^
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] employee5
+  - 样本目录: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5
+  - Java文件数: 13
+  - 编译输出: D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\Company.java:372: 错误: 非法的类型开始
+    @LLM */ @SuppressWarnings("unchecked")
+         ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\Company.java:375: 错误: 需要',', ')'或'['
+    public NotificationChain eInverse(InternalEObject otherEnd int featureID, NotificationChain msgs)
+                                                              ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\Company.java:375: 错误: 需要';'
+    public NotificationChain eInverse(InternalEObject otherEnd int featureID, NotificationChain msgs)
+                                                                                               ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\Company.java:375: 错误: 需要<标识符>
+    public NotificationChain eInverse(InternalEObject otherEnd int featureID, NotificationChain msgs)
+                                                                                                    ^
+  D:\EclipseWorkspace\EmployeeManagementSystem\gpt-oss-120b\employee5\Company.java:380: 错误: 需要 class、interface、enum 或 record
+  } // Company
+  ^
+  5 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 2 (40.0%)
+失败: 3 (60.0%)
+================================================================================

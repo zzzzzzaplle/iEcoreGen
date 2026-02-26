@@ -1,0 +1,161 @@
+================================================================================
+academic2 测试报告
+================================================================================
+生成时间: 2025-11-24 23:38:05
+样本名称: academic2
+总测试数: 5
+通过: 0
+失败: 5
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR1Test.java:7: 错误: 找不到符号
+  import edu.academic.AcademicProgram;
+                     ^
+    符号:   类 AcademicProgram
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR1Test.java:14: 错误: 找不到符号
+      private AcademicProgram academicProgram;
+              ^
+    符号:   类 AcademicProgram
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR1Test.java:20: 错误: 找不到符号
+          academicProgram = new AcademicProgram() {};
+                                ^
+    符号:   类 AcademicProgram
+    位置: 类 CR1Test
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.academic.Student;
+                     ^
+    符号:   类 Student
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR2Test.java:10: 错误: 找不到符号
+  import edu.academic.Enrollment;
+                     ^
+    符号:   类 Enrollment
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR2Test.java:36: 错误: 找不到符号
+          Student student = factory.createStudent();
+          ^
+    符号:   类 Student
+    位置: 类 CR2Test
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR2Test.java:39: 错误: 找不到符号
+          Enrollment enrollment = factory.createEnrollment();
+          ^
+    符号:   类 Enrollment
+    位置: 类 CR2Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.academic.AcademicProgram;
+                     ^
+    符号:   类 AcademicProgram
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR3Test.java:9: 错误: 找不到符号
+  import edu.academic.Student;
+                     ^
+    符号:   类 Student
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.academic.Enrollment;
+                     ^
+    符号:   类 Enrollment
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR3Test.java:17: 错误: 找不到符号
+      private AcademicProgram academicProgram;
+              ^
+    符号:   类 AcademicProgram
+    位置: 类 CR3Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR4Test.java:7: 错误: 找不到符号
+  import edu.academic.AcademicProgram;
+                     ^
+    符号:   类 AcademicProgram
+    位置: 程序包 edu.academic
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR4Test.java:15: 错误: 找不到符号
+      private AcademicProgram academicProgram;
+              ^
+    符号:   类 AcademicProgram
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\AcademicProgram\woContext\academic2\test\CR4Test.java:22: 错误: 找不到符号
+          academicProgram = new AcademicProgram() {
+                                ^
+    符号:   类 AcademicProgram
+    位置: 类 CR4Test
+  3 个错误
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR5Test
+  测试数: 5
+  失败: 5
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 5 failures:
+  1) testCase1_SingleCourseWithSingleQuotaIncrease(edu.academic.academic2.test.CR5Test)
+  java.lang.NoClassDefFoundError: edu/academic/Enrollment
+  	at edu.academic.Course.getEnrollments(Course.java:494)
+  	at edu.academic.Instructor.calculateRemainingQuota(Instructor.java:363)
+  	at edu.academic.academic2.test.CR5Test.testCase1_SingleCourseWithSingleQuotaIncrease(CR5Test.java:36)
+  	... 31 trimmed
+  Caused by: java.lang.ClassNotFoundException: edu.academic.Enrollment
+  	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+  	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+  	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+  	... 35 more
+  2) testCase3_MultipleCoursesWithNoQuotaChanges(edu.academic.academic2.test.CR5Test)
+  java.lang.NoClassDefFoundError: edu/academic/Enrollment
+  	at edu.academic.Course.getEnrollments(Course.java:494)
+  	at edu.academic.Instructor.calculateRemainingQuota(Instructor.java:363)
+  	at edu.academic.academic2.test.CR5Test.testCase3_MultipleCoursesWithNoQuotaChanges(CR5Test.java:79)
+  	... 31 trimmed
+  Caused by: java.lang.ClassNotFoundException: edu.academic.Enrollment
+  	... 35 more
+  3) testCase2_SingleCourseWithSingleQuotaDecrease(edu.academic.academic2.test.CR5Test)
+  java.lang.NoClassDefFoundError: edu/academic/Enrollment
+  	at edu.academic.Course.getEnrollments(Course.java:494)
+  	at edu.academic.Course.decreaseQuotaBy(Course.java:583)
+  	at edu.academic.academic2.test.CR5Test.testCase2_SingleCourseWithSingleQuotaDecrease(CR5Test.java:52)
+  	... 31 trimmed
+  Caused by: java.lang.ClassNotFoundException: edu.academic.Enrollment
+  	... 35 more
+  4) testCase5_MultipleCoursesWithQuotaIncreaseAndDecrease(edu.academic.academic2.test.CR5Test)
+  java.lang.NoClassDefFoundError: edu/academic/Enrollment
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 5
+通过: 0
+失败: 5
+成功率: 0.0%
+================================================================================

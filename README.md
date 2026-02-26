@@ -59,6 +59,7 @@ iEcoreGen/
 ├── sourceCode/
 │   ├── baseline/          # Baseline implementations
 │   └── iecoregen/         # iEcoreGen implementation
+├──iecoregen jars 		   # 
 └── README.md
 ```
 
@@ -170,10 +171,12 @@ Before using iEcoreGen, ensure you have the following environment configured:
 ## Steps to Run
 
 ### 1. Create an Ecore Model
-   
+
 Create a new `.ecore` file that accurately reflects your system design. This model should define your domain entities, attributes, and relationships.
 
-### 2. Initialize Workflow via GUI
+### 2. Execute
+
+####  2.1  GUI Mode
 
 Right-click on your `.ecore` file in the Project Explorer and select **"Init iEcoreGen"** → **"Workflow Initializer"** from the context menu.
 
@@ -189,7 +192,6 @@ In the configuration wizard, fill in the following parameters:
 
 Click **Finish** to generate the MWE2 workflow configuration file automatically.
 
-### 3. Execute the Workflow
 
 ![run_gui](image/run_gui.png)
 
@@ -202,8 +204,201 @@ A progress dialog will appear showing the code generation process. Wait for the 
 - Create implementation code using LLM-based code generation
 - Perform automatic code fixing and validation
 
-**Alternative Method**: You can also manually create and execute the `.mwe2` workflow file if you prefer command-line or programmatic execution.
 
 > **Tip**: You can refer to the example benchmarks in the `benchmarks/` folder to see sample Ecore models and their corresponding specifications.
 
+#### 2.2 Maven Mode
 
+If you prefer using Maven for build automation or running in CI/CD pipelines, you can use the Maven-based workflow.
+
+**Prerequisites:**
+
+- Apache Maven installed
+- iEcoreGen jar package (in the folder "iecoregen jars")
+- A `.mwe2` configuration file (You can refer to the OFDS project or the FileManager project in the maven-ecore-modeling-example folder.)
+
+**Steps:**
+1. Install iecoregen jar packages to your local Maven repository:
+   ```bash
+   # edu.ustb.sei.mde.mwe2
+   mvn install:install-file -Dfile="path/to/edu.ustb.sei.mde.mwe2_1.0.0.202602050211.jar" -DgroupId="edu.ustb.sei.mde" -DartifactId="edu.ustb.sei.mde.mwe2" -Dversion="1.0.0.202602050211" -Dpackaging=jar
+   
+   # edu.ustb.sei.mde.eecg
+   mvn install:install-file -Dfile="path/to/edu.ustb.sei.mde.eecg_1.0.0.202602050211.jar" -DgroupId="edu.ustb.sei.mde" -DartifactId="edu.ustb.sei.mde.eecg" -Dversion="1.0.0.202602050211" -Dpackaging=jar
+   
+   # edu.ustb.sei.ai
+   mvn install:install-file -Dfile="path/to/edu.ustb.sei.ai_1.0.0.202602050211.jar" -DgroupId="edu.ustb.sei" -DartifactId="edu.ustb.sei.ai" -Dversion="1.0.0.202602050211" -Dpackaging=jar
+   
+   # edu.ustb.sei.ai.spring.port
+   mvn install:install-file -Dfile="path/to/edu.ustb.sei.ai.spring.port_1.0.0.202602050211.jar" -DgroupId="edu.ustb.sei" -DartifactId="edu.ustb.sei.ai.spring.port" -Dversion="1.0.0.202602050211" -Dpackaging=jar
+   
+   # edu.ustb.sei.plantuml2model
+   mvn install:install-file -Dfile="path/to/edu.ustb.sei.plantuml2model_1.0.0.202602050211.jar" -DgroupId="edu.ustb.sei" -DartifactId="edu.ustb.sei.plantuml2model" -Dversion="1.0.0.202602050211" -Dpackaging=jar
+
+2. Configure your `pom.xml` with the required plugins and dependencies (see example snippet.For details, please refer to the pom.xml file in OFDS under the maven-ecore-modeling-example folder.)
+
+   ```java
+   <!-- Generates the Ecore model via MWE2 -->
+         <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>exec-maven-plugin</artifactId>
+           <version>3.6.3</version>
+           <executions>
+             <execution>
+               <id>mwe2Launcher</id>
+               <phase>generate-sources</phase>
+               <goals>
+                 <goal>java</goal>
+               </goals>
+             </execution>
+           </executions>
+           <configuration>
+             <mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+             <arguments>
+           <argument>file:///${project.basedir}/src/main/java/sample5.mwe2</argument>
+               <argument>-p</argument>
+               <argument>rootPath=${project.basedir}</argument>
+             </arguments>
+             <classpathScope>runtime</classpathScope>
+             <includePluginDependencies>true</includePluginDependencies>
+             <includeProjectDependencies>true</includeProjectDependencies>
+             <cleanupDaemonThreads>false</cleanupDaemonThreads>
+           </configuration>
+           <dependencies>
+             <dependency>
+               <groupId>org.eclipse.text</groupId>
+               <artifactId>org.eclipse.text</artifactId>
+               <version>${eclipse-text-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.core</groupId>
+               <artifactId>org.eclipse.core.resources</artifactId>
+               <version>${core-resources-version}</version>
+               <exclusions>
+                 <exclusion>
+                   <groupId>org.eclipse.core</groupId>
+                   <artifactId>org.eclipse.core.runtime</artifactId>
+                 </exclusion>
+               </exclusions>
+             </dependency>
+   
+             <dependency>
+               <groupId>org.eclipse.xtext</groupId>
+               <artifactId>org.eclipse.xtext</artifactId>
+               <version>${xtext-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.xtext</groupId>
+               <artifactId>org.eclipse.xtext.ecore</artifactId>
+               <version>${xtext-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.xtext</groupId>
+               <artifactId>org.eclipse.xtext.common.types</artifactId>
+               <version>${xtext-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.xtext</groupId>
+               <artifactId>org.eclipse.xtext.xtext.generator</artifactId>
+               <version>${xtext-version}</version>
+             </dependency>
+   
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.mwe2.launch</artifactId>
+               <version>${emf-mwe2-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.mwe2.language</artifactId>
+               <version>${emf-mwe2-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
+               <version>${emf-mwe2-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.mwe2.lib</artifactId>
+               <version>${emf-mwe2-version}</version>
+             </dependency>
+   
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.codegen.ecore.xtext</artifactId>
+               <version>${ecore-xtext-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.common</artifactId>
+               <version>${emf-common-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.ecore</artifactId>
+               <version>${emf-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+               <version>${emf-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.codegen</artifactId>
+               <version>${emf-codegen-version}</version>
+             </dependency>
+             <dependency>
+               <groupId>org.eclipse.emf</groupId>
+               <artifactId>org.eclipse.emf.codegen.ecore</artifactId>
+               <version>${emf-codegen-version}</version>
+             </dependency>
+   
+             <!-- iecoregen dependencies -->
+             <dependency>
+               <groupId>edu.ustb.sei.mde</groupId>
+               <artifactId>edu.ustb.sei.mde.mwe2</artifactId>
+               <version>1.0.0.202602050211</version>
+             </dependency>
+             <dependency>
+               <groupId>edu.ustb.sei.mde</groupId>
+               <artifactId>edu.ustb.sei.mde.eecg</artifactId>
+               <version>1.0.0.202602050211</version>
+             </dependency>
+             <dependency>
+               <groupId>edu.ustb.sei</groupId>
+               <artifactId>edu.ustb.sei.ai</artifactId>
+               <version>1.0.0.202602050211</version>
+             </dependency>
+             <dependency>
+               <groupId>edu.ustb.sei</groupId>
+               <artifactId>edu.ustb.sei.ai.spring.port</artifactId>
+               <version>1.0.0.202602050211</version>
+             </dependency>
+           </dependencies>
+         </plugin>
+   ```
+
+   
+
+3. Place your `.ecore` model file in the appropriate directory
+
+4. Attention: iEcoreGen requires compiling the generated Java code to capture errors for LLM-based fixing. To handle EMF dependencies without manual classpath configuration, we use `maven-dependency-plugin` to export dependencies to a file during build, which is read at runtime. For example, in the OFDS system, the `sample5.mwe2` file under `src` reads `classpath.txt` from the `target` folder.
+
+   ![run_gui](image/classpathtxt.png)
+
+5. Run `mvn clean package` to generate sources and build the project
+
+> **Summary:** Maven Mode leverages the `exec-maven-plugin` to invoke the MWE2 workflow engine as part of the Maven build lifecycle, enabling automated code generation within CI/CD pipelines.
+
+#### 2.3 Manual .mwe2 Mode
+
+If you prefer more control over the workflow, you can manually create a `.mwe2` file and execute it directly.
+
+**Steps:**
+1. Create a `.mwe2` workflow file with your custom configuration
+2. Configure the LLM parameters in the `conf.properties` file
+3. Execute the workflow using the MWE2 runner
+
+> For a complete `.mwe2` file example, please refer to the **Workflow** section above.

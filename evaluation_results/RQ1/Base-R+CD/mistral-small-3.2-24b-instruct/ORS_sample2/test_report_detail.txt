@@ -1,0 +1,37 @@
+============================================================
+ORS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:45:26
+
+【FJC 编译】
+状态: ✗ 失败
+
+编译错误:
+--------------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\ORS_sample2\src\main\FJC.java:170: 错误: 找不到符号
+                  Date bookingDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(bookingTime);
+                                         ^
+    符号:   类 SimpleDateFormat
+    位置: 类 Trip
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\ORS_sample2\src\main\FJC.java:171: 错误: 找不到符号
+                  Date departureDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(departureDate + " " + departureTime);
+                                               ^
+    符号:   类 SimpleDateFormat
+    位置: 类 Trip
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\ORS_sample2\src\main\FJC.java:176: 错误: 找不到符号
+              } catch (ParseException e) {
+                       ^
+    符号:   类 ParseException
+    位置: 类 Trip
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ1\mistral-small-3.2-24b-instruct\ORS_sample2\src\main\FJC.java:371: 错误: 找不到符号
+              Date departureDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(trip.getDepartureDate() + " " + trip.getDepartureTime());
+                                           ^
+    符号:   类 SimpleDateFormat
+    位置: 类 Booking
+--------------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✗ 失败
+============================================================

@@ -1,0 +1,171 @@
+============================================================
+AirlineFlights - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-21 18:06:45
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase1_CorrectScheduleAndRoute(CR1Test)
+  java.lang.AssertionError: Flight should be published successfully with correct schedule and route
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_CorrectScheduleAndRoute(CR1Test.java:45)
+  2) testCase5_SecondPublishAttempt(CR1Test)
+  java.lang.AssertionError: First publish attempt should succeed
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase5_SecondPublishAttempt(CR1Test.java:150)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 4/5 通过，1 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There was 1 failure:
+  1) testCase1_TwoNewPassengersSucceed(CR2Test)
+  java.lang.AssertionError: Booking should succeed for two new passengers
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR2Test.testCase1_TwoNewPassengersSucceed(CR2Test.java:67)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_NoReservationsToCancel(CR4Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase1_NoReservationsToCancel(CR4Test.java:52)
+  2) testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase4_CloseOnDepartureDayAfterDepartureTime(CR4Test.java:189)
+  3) testCase5_AttemptToCloseAfterDeparture(CR4Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase5_AttemptToCloseAfterDeparture(CR4Test.java:249)
+  4) testCase2_ThreeConfirmedReservationsCanceled(CR4Test)
+  java.lang.AssertionError: Flight should be published successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR4Test.testCase2_ThreeConfirmedReservationsCanceled(CR4Test.java:93)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase3_FlightClosedReturnsZero(CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at CR5Test.testCase3_FlightClosedReturnsZero(CR5Test.java:74)
+  2) testCase1_FlightWithThreeConfirmations(CR5Test)
+  java.lang.AssertionError: expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR5Test.testCase1_FlightWithThreeConfirmations(CR5Test.java:38)
+  3) testCase5_MixedReservationStatuses(CR5Test)
+  java.lang.AssertionError: expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at org.junit.Assert.assertEquals(Assert.java:633)
+  	at CR5Test.testCase5_MixedReservationStatuses(CR5Test.java:108)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR6Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase5_attemptRemovalAfterDeparture(CR6Test)
+  java.lang.AssertionError: Stopover should not be deleted after flight departure
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR6Test.testCase5_attemptRemovalAfterDeparture(CR6Test.java:247)
+  2) testCase3_deleteExistingStopover(CR6Test)
+  java.lang.AssertionError: Existing stopover should be deleted successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR6Test.testCase3_deleteExistingStopover(CR6Test.java:153)
+  3) testCase1_addFirstStopoverInsideJourneyWindow(CR6Test)
+  java.lang.AssertionError: Stopover should be added successfully
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR6Test.testCase1_addFirstStopoverInsideJourneyWindow(CR6Test.java:61)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 6
+- 编译成功: 6/6
+- 测试通过: 1/6
+- 测试失败: 5/6
+============================================================

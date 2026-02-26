@@ -1,0 +1,78 @@
+================================================================================
+FootballTeam 系统编译报告
+================================================================================
+生成时间: 2025-11-25 00:39:13
+系统名称: FootballTeam
+SystemName: footballteam
+样本总数: 5
+编译成功: 4
+编译失败: 1
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✓ PASS] footballteam1
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woContext\footballteam1
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woContext\footballteam1\compile
+
+[✗ FAIL] footballteam2
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woContext\footballteam2
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\FootballTeam.java:21: 错误: 找不到符号
+  import edu.footballteam.PlayerPosition;
+                         ^
+    符号:   类 PlayerPosition
+    位置: 程序包 edu.footballteam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\FootballTeam.java:208: 错误: 找不到符号
+        if (player.getPosition().getValue() == PlayerPosition.FORWARD_VALUE) {
+                                               ^
+    符号:   变量 PlayerPosition
+    位置: 类 FootballTeam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\FootballTeam.java:243: 错误: 找不到符号
+        if (player.getPosition().getValue() == PlayerPosition.MIDFIELD_VALUE) {
+                                               ^
+    符号:   变量 PlayerPosition
+    位置: 类 FootballTeam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\FootballTeam.java:313: 错误: 找不到符号
+            announcement.getPlayer().getPosition().getValue() == PlayerPosition.GOALKEEPER_VALUE) {
+                                                                 ^
+    符号:   变量 PlayerPosition
+    位置: 类 FootballTeam
+  D:\EclipseWorkspace\FootballTeam\woContext\footballteam2\FootballTeam.java:345: 错误: 找不到符号
+            announcement.getPlayer().getPosition().getValue() == PlayerPosition.FORWARD_VALUE) {
+                                                                 ^
+    符号:   变量 PlayerPosition
+    位置: 类 FootballTeam
+  5 个错误
+  ----------------------------------------------------------------------------
+
+[✓ PASS] footballteam3
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woContext\footballteam3
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woContext\footballteam3\compile
+
+[✓ PASS] footballteam4
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woContext\footballteam4
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woContext\footballteam4\compile
+
+[✓ PASS] footballteam5
+  - 样本目录: D:\EclipseWorkspace\FootballTeam\woContext\footballteam5
+  - Java文件数: 9
+  - 编译输出: D:\EclipseWorkspace\FootballTeam\woContext\footballteam5\compile
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 4 (80.0%)
+失败: 1 (20.0%)
+================================================================================

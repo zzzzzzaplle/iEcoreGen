@@ -1,0 +1,99 @@
+================================================================================
+IPOApplication 系统编译报告
+================================================================================
+生成时间: 2025-11-24 20:47:50
+系统名称: IPOApplication
+SystemName: ipo
+样本总数: 5
+编译成功: 3
+编译失败: 2
+总体结果: ✗ 有编译失败
+
+================================================================================
+编译详情
+================================================================================
+
+[✗ FAIL] ipo1
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woCompression\ipo1
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Application.java:461: 错误: 找不到符号
+      setStatus(ApplicationStatus.APPROVED);
+                                 ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Application.java:518: 错误: 找不到符号
+      setStatus(ApplicationStatus.CANCELLED);
+                                 ^
+    符号:   变量 CANCELLED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Application.java:542: 错误: 找不到符号
+      if (getStatus() != ApplicationStatus.APPROVED) {
+                                          ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Customer.java:362: 错误: 找不到符号
+        if (app.getCompany() != null && app.getCompany().getName().equals(company.getName()) && app.getStatus() == ApplicationStatus.APPROVED)
+                                                                                                                                    ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Customer.java:383: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED || app.getStatus() == ApplicationStatus.REJECTED)
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo1\Customer.java:396: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED)
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  ... (更多错误信息已省略)
+  ----------------------------------------------------------------------------
+
+[✓ PASS] ipo2
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woCompression\ipo2
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woCompression\ipo2\compile
+
+[✓ PASS] ipo3
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woCompression\ipo3
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woCompression\ipo3\compile
+
+[✓ PASS] ipo4
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woCompression\ipo4
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woCompression\ipo4\compile
+
+[✗ FAIL] ipo5
+  - 样本目录: D:\EclipseWorkspace\IPOApplication\woCompression\ipo5
+  - Java文件数: 10
+  - 编译输出: D:\EclipseWorkspace\IPOApplication\woCompression\ipo5\compile
+  - 错误: 编译失败 (0 个错误)
+
+  编译错误详情:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo5\Customer.java:407: 错误: 找不到符号
+        if (status == ApplicationStatus.APPROVED || status == ApplicationStatus.REJECTED) {
+                                       ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  D:\EclipseWorkspace\IPOApplication\woCompression\ipo5\Customer.java:433: 错误: 找不到符号
+        if (app.getStatus() == ApplicationStatus.APPROVED) {
+                                                ^
+    符号:   变量 APPROVED
+    位置: 类 ApplicationStatus
+  2 个错误
+  ----------------------------------------------------------------------------
+
+================================================================================
+编译摘要
+================================================================================
+总计: 5 个样本
+成功: 3 (60.0%)
+失败: 2 (40.0%)
+================================================================================

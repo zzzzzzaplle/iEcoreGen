@@ -1,0 +1,71 @@
+============================================================
+EmployeeManagementSystem - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-22 08:40:12
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ COMPILE ERROR] CR1Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR1Test.java:19: 错误: Worker是抽象的; 无法实例化
+          Worker worker = new Worker();
+                          ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR1Test.java:73: 错误: Worker是抽象的; 无法实例化
+          Worker worker = new Worker();
+                          ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR1Test.java:107: 错误: Worker是抽象的; 无法实例化
+          Worker worker1 = new Worker();
+                           ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR1Test.java:112: 错误: Worker是抽象的; 无法实例化
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR4Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ COMPILE ERROR] CR5Test.java
+  编译: ✗ 失败
+  运行: - 未执行
+
+  编译错误:
+  ----------------------------------------------------
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR5Test.java:21: 错误: Worker是抽象的; 无法实例化
+          Worker w1 = new Worker();
+                      ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR5Test.java:127: 错误: Worker是抽象的; 无法实例化
+          Worker w1 = new Worker();
+                      ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR5Test.java:151: 错误: Worker是抽象的; 无法实例化
+          Worker w1 = new Worker();
+                      ^
+  C:\Users\20936\Desktop\to张zq2\RESULT\RQ2\openai\gpt-oss-120b\EmployeeManagementSystem_sample1\src\test\CR5Test.java:176: 错误: Worker是抽象的; 无法实例化
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 3/5
+- 测试通过: 3/3
+- 测试失败: 0/3
+============================================================

@@ -1,0 +1,69 @@
+============================================================
+OAGS - Sample 1 测试详细报告
+============================================================
+生成时间: 2025-11-26 14:41:12
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_noArtworksForAnArtist(CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR3Test.testCase3_noArtworksForAnArtist(CR3Test.java:191)
+  2) testCase5_countArtworksWithMultipleArtists(CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR3Test.testCase5_countArtworksWithMultipleArtists(CR3Test.java:214)
+  3) testCase1_countArtworksByCategoryForSingleArtist(CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR3Test.testCase1_countArtworksByCategoryForSingleArtist(CR3Test.java:171)
+  4) testCase4_countArtworksWithOnlyOneCategory(CR3Test)
+  java.lang.AssertionError: expected:<0> but was:<null>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR3Test.testCase4_countArtworksWithOnlyOneCategory(CR3Test.java:202)
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 3
+- 编译成功: 3/3
+- 测试通过: 2/3
+- 测试失败: 1/3
+============================================================

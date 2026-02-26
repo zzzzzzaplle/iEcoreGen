@@ -1,0 +1,74 @@
+============================================================
+OFDS - Sample 5 测试详细报告
+============================================================
+生成时间: 2025-11-23 20:06:46
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✓ PASS] CR1Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_MixedVehiclesState(CR4Test)
+  java.lang.NullPointerException
+  	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+  	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+  	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+  	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+  	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+  	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+  	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+  	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+  	at Company.getNamesOfEmployeesDrivingAVehicle(FJC.java:108)
+  	at CR4Test.testCase4_MixedVehiclesState(CR4Test.java:139)
+  2) testCase3_NoCurrentDrivers(CR4Test)
+  java.lang.NullPointerException
+  	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+  	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+  	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+  	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+  	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+  	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+  	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+  	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+  	at Company.getNamesOfEmployeesDrivingAVehicle(FJC.java:108)
+  	at CR4Test.testCase3_NoCurrentDrivers(CR4Test.java:102)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 4
+- 编译成功: 4/4
+- 测试通过: 3/4
+- 测试失败: 1/4
+============================================================

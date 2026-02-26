@@ -1,0 +1,157 @@
+================================================================================
+pets1 测试报告
+================================================================================
+生成时间: 2025-11-25 15:18:24
+样本名称: pets1
+总测试数: 0
+通过: 0
+失败: 0
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ COMPILE ERROR] CR1Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR1Test.java:12: 错误: 找不到符号
+      private PetsFactory factory;
+              ^
+    符号:   类 PetsFactory
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR1Test.java:17: 错误: 找不到符号
+          factory = PetsFactory.eINSTANCE;
+                    ^
+    符号:   变量 PetsFactory
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR1Test.java:23: 错误: 找不到符号
+          House home1 = factory.createHouse();
+          ^
+    符号:   类 House
+    位置: 类 CR1Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR1Test.java:24: 错误: 找不到符号
+          Dog dog1 = factory.createDog();
+          ^
+    符号:   类 Dog
+    位置: 类 CR1Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR2Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR2Test.java:6: 错误: 找不到符号
+  import edu.pets.PetsFactory;
+                 ^
+    符号:   类 PetsFactory
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR2Test.java:7: 错误: 找不到符号
+  import edu.pets.PetsPackage;
+                 ^
+    符号:   类 PetsPackage
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR2Test.java:8: 错误: 找不到符号
+  import edu.pets.House;
+                 ^
+    符号:   类 House
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR2Test.java:9: 错误: 找不到符号
+  import edu.pets.Dog;
+                 ^
+    符号:   类 Dog
+    位置: 程序包 edu.pets
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR3Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR3Test.java:6: 错误: 找不到符号
+  import edu.pets.PetsFactory;
+                 ^
+    符号:   类 PetsFactory
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR3Test.java:7: 错误: 找不到符号
+  import edu.pets.PetsPackage;
+                 ^
+    符号:   类 PetsPackage
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR3Test.java:8: 错误: 找不到符号
+  import edu.pets.House;
+                 ^
+    符号:   类 House
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR3Test.java:10: 错误: 找不到符号
+  import edu.pets.Dog;
+                 ^
+    符号:   类 Dog
+    位置: 程序包 edu.pets
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR4Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR4Test.java:11: 错误: 找不到符号
+      private PetsFactory factory;
+              ^
+    符号:   类 PetsFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR4Test.java:16: 错误: 找不到符号
+          factory = PetsFactory.eINSTANCE;
+                    ^
+    符号:   变量 PetsFactory
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR4Test.java:22: 错误: 找不到符号
+          House petHome1 = factory.createHouse();
+          ^
+    符号:   类 House
+    位置: 类 CR4Test
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR4Test.java:25: 错误: 找不到符号
+          Dog rusty = factory.createDog();
+          ^
+    符号:   类 Dog
+    位置: 类 CR4Test
+  ----------------------------------------------------------------------------
+
+[✗ COMPILE ERROR] CR5Test
+  状态: 编译失败
+
+  编译错误:
+  ----------------------------------------------------------------------------
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR5Test.java:6: 错误: 找不到符号
+  import edu.pets.PetsFactory;
+                 ^
+    符号:   类 PetsFactory
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR5Test.java:7: 错误: 找不到符号
+  import edu.pets.PetsPackage;
+                 ^
+    符号:   类 PetsPackage
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR5Test.java:8: 错误: 找不到符号
+  import edu.pets.House;
+                 ^
+    符号:   类 House
+    位置: 程序包 edu.pets
+  D:\EclipseWorkspace\Pets\woReqDecomp\pets1\test\CR5Test.java:9: 错误: 找不到符号
+  import edu.pets.Dog;
+                 ^
+    符号:   类 Dog
+    位置: 程序包 edu.pets
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 0
+通过: 0
+失败: 0
+================================================================================

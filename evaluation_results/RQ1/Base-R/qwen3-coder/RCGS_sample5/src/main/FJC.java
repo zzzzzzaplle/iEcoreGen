@@ -1,0 +1,321 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
+
+/**
+ * Represents a car in the rental store.
+ */
+class Car {
+    private String plate;
+    private String model;
+    private double dailyPrice;
+
+    public Car() {
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getDailyPrice() {
+        return dailyPrice;
+    }
+
+    public void setDailyPrice(double dailyPrice) {
+        this.dailyPrice = dailyPrice;
+    }
+}
+
+/**
+ * Represents a customer who rents cars.
+ */
+class Customer {
+    private String name;
+    private String surname;
+    private String address;
+
+    public Customer() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(name, customer.name) &&
+                Objects.equals(surname, customer.surname) &&
+                Objects.equals(address, customer.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, address);
+    }
+}
+
+/**
+ * Represents a rental record for a car.
+ */
+class Rental {
+    private Customer customer;
+    private Car car;
+    private LocalDate rentDate;
+    private LocalDate dueDate;
+    private LocalDate backDate;
+
+    public Rental() {
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public LocalDate getRentDate() {
+        return rentDate;
+    }
+
+    public void setRentDate(LocalDate rentDate) {
+        this.rentDate = rentDate;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public LocalDate getBackDate() {
+        return backDate;
+    }
+
+    public void setBackDate(LocalDate backDate) {
+        this.backDate = backDate;
+    }
+
+    /**
+     * Checks if this rental is overdue.
+     * A rental is overdue if the back date is null and the current date is past the due date.
+     *
+     * @param currentDate The current date to check against
+     * @return true if the rental is overdue, false otherwise
+     */
+    public boolean isOverdue(LocalDate currentDate) {
+        return backDate == null && currentDate.isAfter(dueDate);
+    }
+}
+
+/**
+ * Manages the car rental store operations.
+ */
+class RentalStore {
+    private List<Car> cars;
+    private List<Rental> rentals;
+    private List<Customer> customers;
+
+    public RentalStore() {
+        this.cars = new ArrayList<>();
+        this.rentals = new ArrayList<>();
+        this.customers = new ArrayList<>();
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    /**
+     * Identifies available cars in the store.
+     * A car is available if it is not currently rented.
+     * Returns a list of available cars, sorted by daily price in ascending order.
+     * If no available cars exist, returns an empty list.
+     *
+     * @return A list of available cars sorted by daily price
+     */
+    public List<Car> getAvailableCars() {
+        Set<Car> rentedCars = rentals.stream()
+                .filter(rental -> rental.getBackDate() == null)
+                .map(Rental::getCar)
+                .collect(Collectors.toSet());
+
+        return cars.stream()
+                .filter(car -> !rentedCars.contains(car))
+                .sorted(Comparator.comparingDouble(Car::getDailyPrice))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Calculates the total revenue generated by all rentals in the store.
+     * Revenue is calculated as the number of rental days multiplied by the car's daily price.
+     * Only rentals with a back date are considered (completed rentals).
+     *
+     * @return The total revenue generated by all rentals
+     */
+    public double calculateTotalRevenue() {
+        return rentals.stream()
+                .filter(rental -> rental.getBackDate() != null)
+                .mapToDouble(rental -> {
+                    long daysRented = java.time.temporal.ChronoUnit.DAYS
+                            .between(rental.getRentDate(), rental.getBackDate());
+                    return daysRented * rental.getCar().getDailyPrice();
+                })
+                .sum();
+    }
+
+    /**
+     * Lists customers with overdue rentals.
+     * For each rental, if the back date is null and the current date is past the due date,
+     * the customer is marked as having an overdue rental.
+     * Returns an empty list if no overdue customers exist.
+     *
+     * @param currentDate The current date to check against
+     * @return A list of customers with overdue rentals
+     */
+    public List<Customer> getOverdueCustomers(LocalDate currentDate) {
+        return rentals.stream()
+                .filter(rental -> rental.isOverdue(currentDate))
+                .map(Rental::getCustomer)
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Determines the average daily price of cars in the store.
+     * Calculated as the sum of daily prices of all cars divided by the total number of cars.
+     * If the store has no cars, returns 0.0.
+     *
+     * @return The average daily price of all cars in the store
+     */
+    public double getAverageDailyPrice() {
+        if (cars.isEmpty()) {
+            return 0.0;
+        }
+        double total = cars.stream()
+                .mapToDouble(Car::getDailyPrice)
+                .sum();
+        return total / cars.size();
+    }
+
+    /**
+     * Counts the number of cars rented per customer.
+     * Returns a map of customers and their respective rental counts.
+     * Only rentals with a back date are considered (completed rentals).
+     * Returns an empty map if no customers have rented cars.
+     *
+     * @return A map of customers and their rental counts
+     */
+    public Map<Customer, Integer> getRentalsPerCustomer() {
+        return rentals.stream()
+                .filter(rental -> rental.getBackDate() != null)
+                .collect(Collectors.groupingBy(
+                        Rental::getCustomer,
+                        Collectors.collectingAndThen(Collectors.counting(), Long::intValue)
+                ));
+    }
+
+    /**
+     * Adds a car to the store inventory.
+     *
+     * @param car The car to add
+     */
+    public void addCar(Car car) {
+        cars.add(car);
+    }
+
+    /**
+     * Adds a customer to the store records.
+     *
+     * @param customer The customer to add
+     */
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    /**
+     * Records a new rental.
+     *
+     * @param rental The rental to record
+     */
+    public void addRental(Rental rental) {
+        rentals.add(rental);
+    }
+
+    /**
+     * Updates a rental record when a car is returned.
+     *
+     * @param rental    The rental to update
+     * @param backDate  The date the car was returned
+     */
+    public void returnCar(Rental rental, LocalDate backDate) {
+        rental.setBackDate(backDate);
+    }
+}

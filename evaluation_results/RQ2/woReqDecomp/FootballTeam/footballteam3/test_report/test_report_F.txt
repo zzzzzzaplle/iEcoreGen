@@ -1,0 +1,99 @@
+================================================================================
+footballteam3 测试报告
+================================================================================
+生成时间: 2025-11-25 15:16:17
+样本名称: footballteam3
+总测试数: 25
+通过: 19
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✗ FAIL] CR1Test
+  测试数: 5
+  失败: 2
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 2 failures:
+  1) testCase2_MixedPlayersScoring(edu.footballteam.footballteam3.test.CR1Test)
+  java.lang.AssertionError: Should count 6 goal-scoring announcements from 2 strikers with 3 goals each expected:<6> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR1Test.testCase2_MixedPlayersScoring(CR1Test.java:107)
+  2) testCase1_AllStrikersWithGoals(edu.footballteam.footballteam3.test.CR1Test)
+  java.lang.AssertionError: Should count 8 goal-scoring announcements from 4 strikers with 2 goals each expected:<8> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR1Test.testCase1_AllStrikersWithGoals(CR1Test.java:60)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR3Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR4Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CalculateGoalSavingAnnouncementsForGoalkeeperWithInvalidEntries(edu.footballteam.footballteam3.test.CR4Test)
+  java.lang.AssertionError: Goalkeeper with 2 saves and 1 goal should return 2 expected:<2> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR4Test.testCase5_CalculateGoalSavingAnnouncementsForGoalkeeperWithInvalidEntries(CR4Test.java:177)
+  2) testCase4_CalculateGoalSavingAnnouncementsForGoalkeeperWithConsecutiveSaves(edu.footballteam.footballteam3.test.CR4Test)
+  java.lang.AssertionError: Goalkeeper with five consecutive saves should return 5 expected:<5> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR4Test.testCase4_CalculateGoalSavingAnnouncementsForGoalkeeperWithConsecutiveSaves(CR4Test.java:139)
+  3) testCase3_CalculateGoalSavingAnnouncementsForGoalkeeperWithMultipleSaves(edu.footballteam.footballteam3.test.CR4Test)
+  java.lang.AssertionError: Goalkeeper with three saves should return 3 expected:<3> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR4Test.testCase3_CalculateGoalSavingAnnouncementsForGoalkeeperWithMultipleSaves(CR4Test.java:108)
+  4) testCase2_CalculateGoalSavingAnnouncementsForGoalkeeperWithOneSave(edu.footballteam.footballteam3.test.CR4Test)
+  java.lang.AssertionError: Goalkeeper with one save should return 1 expected:<1> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at edu.footballteam.footballteam3.test.CR4Test.testCase2_CalculateGoalSavingAnnouncementsForGoalkeeperWithOneSave(CR4Test.java:77)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR5Test
+  测试数: 5
+  状态: 全部通过
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 5
+总测试数: 25
+通过: 19
+失败: 6
+成功率: 76.0%
+================================================================================

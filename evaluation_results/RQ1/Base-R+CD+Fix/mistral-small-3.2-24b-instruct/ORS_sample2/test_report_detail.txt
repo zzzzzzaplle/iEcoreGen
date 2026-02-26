@@ -1,0 +1,182 @@
+============================================================
+ORS - Sample 2 测试详细报告
+============================================================
+生成时间: 2025-11-24 17:43:35
+
+【FJC 编译】
+状态: 成功
+修复次数: 1 次
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test)
+  java.lang.AssertionError: Booking should be allowed with non-overlapping trips
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test.java:206)
+  2) testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test)
+  java.lang.AssertionError: Booking should be eligible
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at CR1Test.testCase1_ValidBookingWithAvailableSeatsAndNoOverlap(CR1Test.java:126)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  java.text.ParseException: Unparseable date: "Mon Dec 25 00:00:00 HKT 2023 12:00"
+  	at java.base/java.text.DateFormat.parse(DateFormat.java:399)
+  	at Booking.isBookingEligible(FJC.java:450)
+  	at CR1Test.testCase4_BookingAllowedWithMultipleNonOverlappingTrips(CR1Test.java:203)
+  	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+  	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+  	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+  	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+  	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+  	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+  	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+  	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+  	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+  ----------------------------------------------------
+
+[✗ FAIL] CR2Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 3/5 通过，2 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 2 failures:
+  1) testCase3_Exact24HourBoundaryForDiscount(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase3_Exact24HourBoundaryForDiscount(CR2Test.java:96)
+  2) testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test)
+  java.lang.AssertionError: expected:<80.0> but was:<100.0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:555)
+  	at org.junit.Assert.assertEquals(Assert.java:685)
+  	at CR2Test.testCase1_20PercentDiscountAppliedForEarlyBooking(CR2Test.java:44)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 2
+  
+  java.text.ParseException: Unparseable date: "Mon Dec 25 00:00:00 HKT 2023 12:00"
+  	at java.base/java.text.DateFormat.parse(DateFormat.java:399)
+  	at Trip.calculateDiscountedPrice(FJC.java:264)
+  	at CR2Test.testCase2_DiscountDeniedForLateBooking(CR2Test.java:67)
+  	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+  	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+  	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+  	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+  	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+  ----------------------------------------------------
+
+[✓ PASS] CR3Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase1_PointsCalculationWithMultipleBookings(CR4Test)
+  java.lang.AssertionError: Points should be calculated correctly for multiple bookings expected:<25> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase1_PointsCalculationWithMultipleBookings(CR4Test.java:64)
+  2) testCase4_MultipleSeatsEdgeCase(CR4Test)
+  java.lang.AssertionError: Points should be calculated correctly for seat quantity expected:<10> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase4_MultipleSeatsEdgeCase(CR4Test.java:120)
+  3) testCase3_PartialMonthInclusion(CR4Test)
+  java.lang.AssertionError: Points should only include bookings from current month expected:<15> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase3_PartialMonthInclusion(CR4Test.java:102)
+  4) testCase5_LargeSeatQuantity(CR4Test)
+  java.lang.AssertionError: C8 should have 500 points for 100 seats expected:<500> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:647)
+  	at CR4Test.testCase5_LargeSeatQuantity(CR4Test.java:149)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase4_CompleteTimeEnclosureRejection(CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at org.junit.Assert.assertFalse(Assert.java:75)
+  	at CR5Test.testCase4_CompleteTimeEnclosureRejection(CR5Test.java:92)
+  2) testCase2_PostingDeniedDueToTimeConflict(CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at org.junit.Assert.assertFalse(Assert.java:75)
+  	at CR5Test.testCase2_PostingDeniedDueToTimeConflict(CR5Test.java:54)
+  3) testCase5_MultipleExistingTripComparison(CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at org.junit.Assert.assertFalse(Assert.java:75)
+  	at CR5Test.testCase5_MultipleExistingTripComparison(CR5Test.java:126)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  java.text.ParseException: Unparseable date: "12:00"
+  	at java.base/java.text.DateFormat.parse(DateFormat.java:399)
+  	at Trip.isTimeConflicting(FJC.java:363)
+  	at Driver.canPostTrip(FJC.java:81)
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

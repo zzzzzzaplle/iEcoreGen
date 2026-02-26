@@ -1,0 +1,169 @@
+============================================================
+BankSystem - Sample 4 测试详细报告
+============================================================
+生成时间: 2025-11-23 01:43:16
+
+【FJC 编译】
+状态: ✓ 成功
+
+【测试执行结果】
+============================================================
+
+[✗ FAIL] CR1Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase2_addAccountWithDuplicateID(CR1Test)
+  java.lang.AssertionError: Should not add account with duplicate ID
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase2_addAccountWithDuplicateID(CR1Test.java:54)
+  2) testCase5_removeInvestmentAccount(CR1Test)
+  java.lang.AssertionError: Should not remove INV002 (has stock transactions)
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase5_removeInvestmentAccount(CR1Test.java:133)
+  3) testCase4_attemptToRemoveAccountThatStillHasBalance(CR1Test)
+  java.lang.AssertionError: Should not remove account with balance
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at CR1Test.testCase4_attemptToRemoveAccountThatStillHasBalance(CR1Test.java:95)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✓ PASS] CR2Test.java
+  编译: ✓ 成功
+  运行: ✓ 通过
+  测试数: 5/5 通过
+
+[✗ FAIL] CR3Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 2/5 通过，3 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 3 failures:
+  1) testCase1_StandardBalanceAndRate(CR3Test)
+  java.lang.AssertionError: Balance should be 10001.01 after daily interest calculation expected:<10001.01> but was:<10000>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR3Test.testCase1_StandardBalanceAndRate(CR3Test.java:29)
+  2) testCase4_LargeBalance(CR3Test)
+  java.lang.AssertionError: Balance should be 1000055.56 after daily interest calculation expected:<1000055.56> but was:<1000000>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR3Test.testCase4_LargeBalance(CR3Test.java:96)
+  3) testCase5_HighPrecisionRate(CR3Test)
+  java.lang.AssertionError: Balance should be 1234.65 after daily interest calculation expected:<1234.65> but was:<1234.56>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR3Test.testCase5_HighPrecisionRate(CR3Test.java:119)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 3
+  
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR4Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 1/5 通过，4 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 4 failures:
+  1) testCase3_ExactFundsPurchase(CR4Test)
+  java.lang.AssertionError: expected:<0> but was:<0.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase3_ExactFundsPurchase(CR4Test.java:80)
+  2) testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test)
+  java.lang.AssertionError: expected:<1800> but was:<1800.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase5_SecondPurchaseFailsAfterBalanceDrops(CR4Test.java:122)
+  3) testCase4_LowValueSingleShare(CR4Test)
+  java.lang.AssertionError: expected:<12> but was:<12.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase4_LowValueSingleShare(CR4Test.java:103)
+  4) testCase1_SufficientBalancePurchase(CR4Test)
+  java.lang.AssertionError: expected:<4500> but was:<4500.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at org.junit.Assert.assertEquals(Assert.java:146)
+  	at CR4Test.testCase1_SufficientBalancePurchase(CR4Test.java:35)
+  
+  ----------------------------------------------------
+
+[✗ FAIL] CR5Test.java
+  编译: ✓ 成功
+  运行: ✗ 失败
+  测试数: 0/5 通过，5 失败
+
+  失败详情:
+  ----------------------------------------------------
+  There were 5 failures:
+  1) testCase5_PrecisionCheckWithFractionalShare(CR5Test)
+  java.lang.AssertionError: Balance after first MNO purchase expected:<12.35> but was:<12.3500>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase5_PrecisionCheckWithFractionalShare(CR5Test.java:145)
+  2) testCase4_RepeatedPurchasesOfSameStock(CR5Test)
+  java.lang.AssertionError: Balance after first AAPL purchase expected:<450> but was:<450.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase4_RepeatedPurchasesOfSameStock(CR5Test.java:101)
+  3) testCase3_CashOnlyNoStocks(CR5Test)
+  java.lang.AssertionError: Total account value for cash-only account expected:<1000.00> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase3_CashOnlyNoStocks(CR5Test.java:82)
+  4) testCase1_MultipleStockPositions(CR5Test)
+  java.lang.AssertionError: Balance after AAPL purchase expected:<3900> but was:<3900.00>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  	at CR5Test.testCase1_MultipleStockPositions(CR5Test.java:32)
+  5) testCase2_EmptyAccount(CR5Test)
+  java.lang.AssertionError: Total account value for empty account expected:<0.00> but was:<0>
+  	at org.junit.Assert.fail(Assert.java:89)
+  	at org.junit.Assert.failNotEquals(Assert.java:835)
+  	at org.junit.Assert.assertEquals(Assert.java:120)
+  ----------------------------------------------------
+
+============================================================
+统计摘要
+============================================================
+- FJC 编译: ✓ 成功
+- 测试类总数: 5
+- 编译成功: 5/5
+- 测试通过: 1/5
+- 测试失败: 4/5
+============================================================

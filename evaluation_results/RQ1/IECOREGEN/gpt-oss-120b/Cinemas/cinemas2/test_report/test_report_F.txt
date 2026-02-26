@@ -1,0 +1,114 @@
+================================================================================
+cinemas2 测试报告
+================================================================================
+生成时间: 2025-11-27 13:00:06
+样本名称: cinemas2
+总测试数: 31
+通过: 25
+失败: 6
+总体结果: ✗ 有失败
+
+================================================================================
+测试详情
+================================================================================
+
+[✓ PASS] CR1Test
+  测试数: 5
+  状态: 全部通过
+
+[✓ PASS] CR2Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR3Test
+  测试数: 5
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase2_AddDuplicateFilm(edu.cinemas.cinemas2.test.CR3Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertFalse(Assert.java:65)
+  	at org.junit.Assert.assertFalse(Assert.java:75)
+  	at edu.cinemas.cinemas2.test.CR3Test.testCase2_AddDuplicateFilm(CR3Test.java:45)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✓ PASS] CR4Test
+  测试数: 5
+  状态: 全部通过
+
+[✗ FAIL] CR5Test
+  测试数: 6
+  失败: 1
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There was 1 failure:
+  1) testCase1_ValidFutureScreeningAssignment(edu.cinemas.cinemas2.test.CR5Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.cinemas.cinemas2.test.CR5Test.testCase1_ValidFutureScreeningAssignment(CR5Test.java:39)
+  
+  FAILURES!!!
+  Tests run: 6,  Failures: 1
+  
+  
+  ----------------------------------------------------------------------------
+
+[✗ FAIL] CR6Test
+  测试数: 5
+  失败: 4
+
+  失败详情:
+  ----------------------------------------------------------------------------
+  There were 4 failures:
+  1) testCase5_CancelPastScreening(edu.cinemas.cinemas2.test.CR6Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.cinemas.cinemas2.test.CR6Test.testCase5_CancelPastScreening(CR6Test.java:133)
+  2) testCase4_CancelAlreadyCancelledScreening(edu.cinemas.cinemas2.test.CR6Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.cinemas.cinemas2.test.CR6Test.testCase4_CancelAlreadyCancelledScreening(CR6Test.java:105)
+  3) testCase3_CancelAtExactScreeningTime(edu.cinemas.cinemas2.test.CR6Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.cinemas.cinemas2.test.CR6Test.testCase3_CancelAtExactScreeningTime(CR6Test.java:81)
+  4) testCase1_CancelFutureScreening(edu.cinemas.cinemas2.test.CR6Test)
+  java.lang.AssertionError
+  	at org.junit.Assert.fail(Assert.java:87)
+  	at org.junit.Assert.assertTrue(Assert.java:42)
+  	at org.junit.Assert.assertTrue(Assert.java:53)
+  	at edu.cinemas.cinemas2.test.CR6Test.testCase1_CancelFutureScreening(CR6Test.java:42)
+  
+  FAILURES!!!
+  Tests run: 5,  Failures: 4
+  
+  
+  ----------------------------------------------------------------------------
+
+================================================================================
+测试摘要
+================================================================================
+测试类总数: 6
+总测试数: 31
+通过: 25
+失败: 6
+成功率: 80.6%
+================================================================================
